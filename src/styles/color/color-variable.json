@@ -1,0 +1,20 @@
+{
+  "Light": {
+    "primary": {
+      "main": "#fd7e14",
+      "lighter": "#ff9e45"
+    },
+
+    "error": {
+      "main": "#dc3545"
+    },
+
+    "text": {
+      "primary": "#131313",
+      "secondary": "#6D6D6D",
+      "disabled": "#BCBCBC",
+      "inverse": "#F6F6F6",
+      "icon": "#454545"
+    }
+  }
+}
