@@ -1,7 +1,9 @@
 import Link from 'next/link';
 
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { createTranslation } from '@/i18n/server';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { ButtonCustom } from '@/components/ui/button-custom';
+import { Text } from '@/components/ui/text';
 
 interface HomeProps {
   params: {
@@ -15,7 +17,9 @@ export default async function Home({ params: { lng } }: Readonly<HomeProps>) {
   return (
     <div>
       <Link href={`/${lng}/second-page`}>
-        <button type='button'>{t('hello')}</button>
+        <ButtonCustom shape='circle' size='lg'>
+          <Text type='heading6-bold' color='text-inverse'>{t('hello')}</Text>
+        </ButtonCustom>
       </Link>
       <div className='w-full flex justify-center py-5'>
         <LanguageSwitcher />

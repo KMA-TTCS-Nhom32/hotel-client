@@ -27,7 +27,7 @@ interface TextProps {
   disabled?: boolean;
   state?: null | 'disable';
   className?: string;
-  onClick?: () => void;
+//   onClick?: () => void;
   element?: 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
   style?: React.CSSProperties;
 }
@@ -37,7 +37,7 @@ export const Text = ({
   color = 'text-primary',
   disabled = false,
   className = '',
-  onClick = () => {},
+//   onClick = () => {},
   children,
   element = 'p',
   style,
@@ -48,7 +48,7 @@ export const Text = ({
     element,
     {
       className: classes,
-      onClick,
+    //   onClick,
       style,
     },
     React.createElement(React.Fragment, undefined, children),
