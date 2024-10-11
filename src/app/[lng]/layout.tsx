@@ -3,10 +3,11 @@ import '../../styles/globals.scss';
 
 import type { Metadata } from 'next';
 import { dir } from 'i18next';
-import { Nunito_Sans } from 'next/font/google'
+import { Nunito_Sans } from 'next/font/google';
 
 import { languages } from '@/i18n/settings';
 
+import Header from '@/components/layouts/Header';
 
 const nunitoSansFont = Nunito_Sans({
   subsets: ['latin', 'vietnamese'],
@@ -32,7 +33,10 @@ interface RootLayoutProps {
 export default function RootLayout({ children, params: { lng } }: Readonly<RootLayoutProps>) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={`${nunitoSansFont.variable} antialiased`}>{children}</body>
+      <body className={`${nunitoSansFont.variable} antialiased`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
