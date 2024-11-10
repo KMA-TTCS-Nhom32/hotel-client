@@ -1,9 +1,9 @@
-import Link from 'next/link';
-
 import { createTranslation } from '@/i18n/server';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
-import { ButtonCustom } from '@/components/ui/button-custom';
-import { Text } from '@/components/ui/text';
+import Header from '@/components/Header';
+import Banner from '@/components/HomeComponents/Banner/Banner';
+import Container from '@/components/Container';
+import BranchList from '@/components/HomeComponents/BranchList/BranchList';
+import FooterImage from '@/components/FooterImage';
 
 interface HomeProps {
   params: {
@@ -15,15 +15,23 @@ export default async function Home({ params: { lng } }: Readonly<HomeProps>) {
   const { t } = await createTranslation(lng);
 
   return (
-    <div>
-      <Link href={`/${lng}/second-page`}>
-        <ButtonCustom shape='circle' size='lg'>
-          <Text type='heading6-bold' color='text-inverse'>{t('hello')}</Text>
-        </ButtonCustom>
-      </Link>
-      <div className='w-full flex justify-center py-5'>
-        <LanguageSwitcher />
+    <main>
+      <div className='header-banner-container'>
+        {/* Header Section */}
+        <Header lng={lng} t={t} />
+
+        {/* Banner Section */}
+        <Banner lng={lng} t={t} />
       </div>
-    </div>
+
+      {/* Container Section */}
+      <Container lng={lng} t={t} />
+
+      {/* Branch List Section */}
+      <BranchList />
+
+      {/* Footer Image Section */}
+      <FooterImage lng={lng} t={t} />
+    </main>
   );
 }
