@@ -1,12 +1,13 @@
 import { MoveUpRight } from 'lucide-react';
+import { TFunction, Resources } from 'i18next';
+
 import './Container.scss';
 
 interface ContainerProps {
-  lng: string;
-  t: (key: string) => string;
+  t: TFunction<keyof Resources, undefined>;
 }
 
-export default function Container({ lng, t }: ContainerProps) {
+export default function Container({ t }: Readonly<ContainerProps>) {
   return (
     // Add this after the existing banner section in `page.txs`
 

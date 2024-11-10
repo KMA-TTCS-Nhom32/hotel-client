@@ -1,0 +1,76 @@
+/* Header styling */
+.header_section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  transition: background-color 0.3s ease;
+  z-index: 2024;
+
+  &.scrolled {
+    background-color: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo img {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .nav_links {
+    display: flex;
+    gap: 30px;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.5;
+      transition: color 0.3s ease;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        color: #f97316; /* Orange hover effect */
+      }
+    }
+
+    span {
+      color: rgb(149, 46, 23);
+      font-size: 11px;
+      font-weight: 700;
+      background-color: rgb(253, 234, 215);
+      height: 18px;
+      width: 35px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 20px;
+    }
+
+    .basic_button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 8px;
+      gap: 10px;
+    }
+  }
+}
+
+.header_section.bg_white {
+  background-color: white !important;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1) !important;
+  .nav_links a {
+    color: black;
+  }
+}
