@@ -1,20 +1,23 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { CircleUserRound, Menu } from 'lucide-react';
 
 import { useTranslation } from '@/i18n/client';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import HomeSearchBar from '@/components/HomeComponents/BannerSearchBar';
+
+import { useObserverHomeSearchBar } from '@/hooks/useObserverHomeSearchBar';
+
+import { APP_ROUTES } from '@/constants/routes.constant';
 
 import styles from './index.module.scss';
-import { useObserverHomeSearchBar } from '@/hooks/useObserverHomeSearchBar';
-import HomeSearchBar from '@/components/HomeComponents/BannerSearchBar';
 
 interface HeaderProps {
   lng: string;
-  //   t: (key: string) => string;
 }
 
 const logo = {
@@ -27,6 +30,7 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
   const [logoSrc, setLogoSrc] = useState(logo.light);
 
   const headerRef = useRef<HTMLHeadElement>(null);
+
   const { isVisible } = useObserverHomeSearchBar();
 
   useEffect(() => {
@@ -56,13 +60,15 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
           </div>
 
           <nav className={styles.nav_links}>
-            <Link href={`/${lng}/booking`}>{t('booking')}</Link>
-            <Link href={`/${lng}/long-term-stay`}>{t('Lưu trú dài hạn')}</Link>
+            <Link href={APP_ROUTES.SearchRoom}>{t('route.search_room')}</Link>
+            <Link href={APP_ROUTES.About}>{t('route.about')}</Link>
+            <Link href={APP_ROUTES.Contact}>{t('route.contact')}</Link>
+            {/* <Link href={`/${lng}/long-term-stay`}>{t('Lưu trú dài hạn')}</Link>
             <Link href={`/${lng}/membership`}>{t('Hội viên thân thiết')}</Link>
             <Link href={`/${lng}/our-brand`}>
               {t('Thương hiệu thành viên')}
               <span className='new-tag'>MỚI</span>
-            </Link>
+            </Link> */}
 
             <LanguageSwitcher />
 
