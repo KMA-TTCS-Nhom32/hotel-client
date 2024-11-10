@@ -4,7 +4,13 @@ interface Resources {
     "world": "World",
     "lng_vi": "Tiếng Việt",
     "lng_en": "English",
-    "booking": "Booking"
+    "booking": "Booking",
+    "route": {
+      "home": "Home",
+      "about": "About",
+      "contact": "Contact",
+      "search_room": "Search Room"
+    }
   },
   "home": {
     "explore": "Explore"
