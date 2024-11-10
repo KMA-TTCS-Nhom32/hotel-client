@@ -1,17 +1,20 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { CircleUserRound, Menu } from 'lucide-react';
 
 import { useTranslation } from '@/i18n/client';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import HomeSearchBar from '@/components/HomeComponents/BannerSearchBar';
+
+import { useObserverHomeSearchBar } from '@/hooks/useObserverHomeSearchBar';
+
+import { APP_ROUTES } from '@/constants/routes.constant';
 
 import styles from './index.module.scss';
-import { useObserverHomeSearchBar } from '@/hooks/useObserverHomeSearchBar';
-import HomeSearchBar from '@/components/HomeComponents/BannerSearchBar';
-import { APP_ROUTES } from '@/constants/routes.constant';
 
 interface HeaderProps {
   lng: string;
@@ -27,7 +30,7 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
   const [logoSrc, setLogoSrc] = useState(logo.light);
 
   const headerRef = useRef<HTMLHeadElement>(null);
-  
+
   const { isVisible } = useObserverHomeSearchBar();
 
   useEffect(() => {
