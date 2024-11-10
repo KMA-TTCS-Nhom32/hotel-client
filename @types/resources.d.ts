@@ -3,7 +3,8 @@ interface Resources {
     "hello": "Welcome",
     "world": "World",
     "lng_vi": "Tiếng Việt",
-    "lng_en": "English"
+    "lng_en": "English",
+    "booking": "Booking"
   },
   "home": {
     "explore": "Explore"

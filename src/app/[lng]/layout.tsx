@@ -34,7 +34,7 @@ export default function RootLayout({ children, params: { lng } }: Readonly<RootL
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={`${nunitoSansFont.variable} antialiased`}>
-        <Header />
+        <Header lng={lng} />
         {children}
       </body>
     </html>

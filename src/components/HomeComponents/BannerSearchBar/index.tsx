@@ -1,13 +1,15 @@
+import { Resources, TFunction } from 'i18next';
+
 import './Banner.scss';
 
-interface BannerProps {
-  lng: string;
-  t: (key: string) => string;
+interface HomeSearchBarProps {
+  t: TFunction<keyof Resources, undefined>;
+  isHeader?: boolean;
 }
 
-export default function Header({ lng, t }: BannerProps) {
+export default function HomeSearchBar({ t, isHeader = false }: Readonly<HomeSearchBarProps>) {
   return (
-    <section className='banner-section'>
+    <section id='home-search-bar' className='banner-section'>
       <div className='booking-form'>
         <div className='filter-location-container'>
           <label>{t('Chọn vị trí')}</label>
@@ -28,7 +30,8 @@ export default function Header({ lng, t }: BannerProps) {
         <button className='search-button'>{t('Tìm phòng')}</button>
       </div>
 
-      <button className='explore-button'>{t('Khám phá')}</button>
+      {!isHeader && <button className='explore-button'>{t('Khám phá')}</button>}
+
     </section>
   );
 }

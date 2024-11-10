@@ -1,9 +1,84 @@
-import React from 'react'
+'use client';
 
-const Header = () => {
-  return (
-    <div>This is Header</div>
-  )
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { CircleUserRound, Menu } from 'lucide-react';
+
+import { useTranslation } from '@/i18n/client';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+
+import styles from './index.module.scss';
+import { useObserverHomeSearchBar } from '@/hooks/useObserverHomeSearchBar';
+import HomeSearchBar from '@/components/HomeComponents/BannerSearchBar';
+
+interface HeaderProps {
+  lng: string;
+  //   t: (key: string) => string;
 }
 
-export default Header
+const logo = {
+  dark: '/logos/logo-large-dark.png',
+  light: '/logos/logo-large-light.png',
+};
+
+export default function Header({ lng }: Readonly<HeaderProps>) {
+  const { t } = useTranslation(lng);
+  const [logoSrc, setLogoSrc] = useState(logo.light);
+
+  const headerRef = useRef<HTMLHeadElement>(null);
+  const { isVisible } = useObserverHomeSearchBar();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        headerRef.current?.classList.add(styles.bg_white);
+        setLogoSrc(logo.dark);
+      } else {
+        headerRef.current?.classList.remove(styles.bg_white);
+        setLogoSrc(logo.light);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [headerRef.current?.classList]);
+
+  return (
+    <header className={styles.header_section} ref={headerRef}>
+      {isVisible ? (
+        <>
+          <div className={styles.logo}>
+            <Image src={logoSrc} alt='Logo' width={64} height={64} className='h-[60px] w-auto' />
+          </div>
+
+          <nav className={styles.nav_links}>
+            <Link href={`/${lng}/booking`}>{t('booking')}</Link>
+            <Link href={`/${lng}/long-term-stay`}>{t('Lưu trú dài hạn')}</Link>
+            <Link href={`/${lng}/membership`}>{t('Hội viên thân thiết')}</Link>
+            <Link href={`/${lng}/our-brand`}>
+              {t('Thương hiệu thành viên')}
+              <span className='new-tag'>MỚI</span>
+            </Link>
+
+            <LanguageSwitcher />
+
+            <div className={styles.basic_button}>
+              <div className={styles.account_menu}>
+                <CircleUserRound />
+              </div>
+              <div className={styles.account_menu}>
+                <Menu />
+              </div>
+            </div>
+          </nav>
+        </>
+      ) : (
+        <HomeSearchBar t={t} isHeader={isVisible} />
+      )}
+    </header>
+  );
+}
