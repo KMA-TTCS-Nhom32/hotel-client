@@ -1,0 +1,85 @@
+.homepage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+}
+
+.header {
+    padding-right: .9375rem;
+    padding-left: .9375rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+
+
+    .container {
+
+        margin-left: auto;
+        margin-right: auto;
+        width: 1519px;
+        height: 65px;
+        max-width: 79.375rem;
+        margin: 0 auto;
+
+        .navbar_header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            height: 65px;
+            box-sizing: border-box;
+
+            .header_logo {
+                display: flex;
+                height: 60px;
+                width: 60px;
+                align-items: center;
+
+
+                .img_logo {
+
+                    overflow: clip;
+                    width: 100%;
+                }
+
+
+
+            }
+
+            .headermenu {
+                gap: 25px;
+                box-sizing: border-box;
+                display: flex;
+
+                .header_menu_item {
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 1.5;
+                    color: white;
+                    display: flex;
+                    -webkit-box-align: center;
+                    align-items: center;
+                    gap: 10px;
+                }
+            }
+        }
+
+
+    }
+}
+
+.background {
+    top: 0;
+    position: absolute;
+    z-index: 0;
+}
+
+
+.sticky-header {
+    background-color: white;
+    /* Màu nền khi cuộn */
+    color: black;
+    /* Màu chữ khi cuộn */
+}

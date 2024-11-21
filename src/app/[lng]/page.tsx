@@ -15,6 +15,7 @@ export default async function Home({ params: { lng } }: Readonly<HomeProps>) {
   const { t } = await createTranslation(lng);
 
   return (
+    
     <div>
       <Link href={`/${lng}/second-page`}>
         <ButtonCustom shape='circle' size='lg'>

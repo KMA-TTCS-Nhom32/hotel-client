@@ -19,7 +19,7 @@ const img_path = {
   en: '/images/flag-uk.png',
 };
 
-export const LanguageSwitcher = () => {
+export  const  LanguageSwitcher = () => {
   const pathname = usePathname();
   const lng = pathname.split('/')[1] as 'vi' | 'en';
   const { t } = useTranslation(lng);
