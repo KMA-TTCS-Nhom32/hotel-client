@@ -8,7 +8,6 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  //   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: normal;
   text-rendering: optimizeSpeed;
@@ -23,5 +22,25 @@ body {
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+/* General reset and box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive design for larger screens */
+@media (min-width: 768px) {
+  .booking-form {
+    padding: 40px;
+  }
+
+  .input-field input {
+    width: 100%;
   }
 }

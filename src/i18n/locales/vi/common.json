@@ -3,5 +3,14 @@
   "world": "Thế giới",
 
   "lng_vi": "Tiếng Việt",
-  "lng_en": "English"
+  "lng_en": "English",
+
+  "booking": "Đặt phòng",
+
+  "route": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "contact": "Liên hệ",
+    "search_room": "Tìm phòng"
+  }
 }

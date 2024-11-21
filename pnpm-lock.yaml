@@ -18,7 +18,7 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(@types/react@18.3.11)(react@18.3.1)
       accept-language:
-        specifier: ^3.0.20
+        specifier: 3.0.20
         version: 3.0.20
       class-variance-authority:
         specifier: ^0.7.0
@@ -27,13 +27,13 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       i18next:
-        specifier: ^23.15.2
-        version: 23.15.2
+        specifier: 23.14.0
+        version: 23.14.0
       i18next-browser-languagedetector:
-        specifier: ^8.0.0
+        specifier: 8.0.0
         version: 8.0.0
       i18next-resources-to-backend:
-        specifier: ^1.2.1
+        specifier: 1.2.1
         version: 1.2.1
       lucide-react:
         specifier: ^0.447.0
@@ -45,14 +45,14 @@ importers:
         specifier: ^18
         version: 18.3.1
       react-cookie:
-        specifier: ^7.2.0
+        specifier: 7.2.0
         version: 7.2.0(react@18.3.1)
       react-dom:
         specifier: ^18
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: ^15.0.2
-        version: 15.0.2(i18next@23.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 15.0.1
+        version: 15.0.1(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-icons:
         specifier: ^5.3.0
         version: 5.3.0(react@18.3.1)
@@ -81,6 +81,9 @@ importers:
       esno:
         specifier: ^4.8.0
         version: 4.8.0
+      i18next-resources-for-ts:
+        specifier: ^1.5.0
+        version: 1.5.0
       postcss:
         specifier: ^8
         version: 8.4.47
@@ -1340,11 +1343,15 @@ packages:
   i18next-browser-languagedetector@8.0.0:
     resolution: {integrity: sha512-zhXdJXTTCoG39QsrOCiOabnWj2jecouOqbchu3EfhtSHxIB5Uugnm9JaizenOy39h7ne3+fLikIjeW88+rgszw==}
 
+  i18next-resources-for-ts@1.5.0:
+    resolution: {integrity: sha512-gzVYct/sMeeOzomK0+8nl7YSr61xiDzf4Kg51g7StBaXAaKE/Vb1CLNHZ8dY56sYz6qmbwHRYHqMPanGi0go4w==}
+    hasBin: true
+
   i18next-resources-to-backend@1.2.1:
     resolution: {integrity: sha512-okHbVA+HZ7n1/76MsfhPqDou0fptl2dAlhRDu2ideXloRRduzHsqDOznJBef+R3DFZnbvWoBW+KxJ7fnFjd6Yw==}
 
-  i18next@23.15.2:
-    resolution: {integrity: sha512-zcPSWzCvw6uKnuYHIqs4W7hTuB9e3AFcSdZgvCWoPXIZsBjBd4djN2/2uOHIB+1DFFkQnMBXvhNg7J3WyCuywQ==}
+  i18next@23.14.0:
+    resolution: {integrity: sha512-Y5GL4OdA8IU2geRrt2+Uc1iIhsjICdHZzT9tNwQ3TVqdNzgxHToGCKf/TPRP80vTCAP6svg2WbbJL+Gx5MFQVA==}
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
@@ -1792,8 +1799,8 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
-  react-i18next@15.0.2:
-    resolution: {integrity: sha512-z0W3/RES9Idv3MmJUcf0mDNeeMOUXe+xoL0kPfQPbDoZHmni/XsIoq5zgT2MCFUiau283GuBUK578uD/mkAbLQ==}
+  react-i18next@15.0.1:
+    resolution: {integrity: sha512-NwxLqNM6CLbeGA9xPsjits0EnXdKgCRSS6cgkgOdNcPXqL+1fYNl8fBg1wmnnHvFy812Bt4IWTPE9zjoPmFj3w==}
     peerDependencies:
       i18next: '>= 23.2.3'
       react: '>= 16.8.0'
@@ -3529,11 +3536,16 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.7
 
+  i18next-resources-for-ts@1.5.0:
+    dependencies:
+      '@babel/runtime': 7.25.7
+      yaml: 2.5.1
+
   i18next-resources-to-backend@1.2.1:
     dependencies:
       '@babel/runtime': 7.25.7
 
-  i18next@23.15.2:
+  i18next@23.14.0:
     dependencies:
       '@babel/runtime': 7.25.7
 
@@ -3968,11 +3980,11 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-i18next@15.0.2(i18next@23.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-i18next@15.0.1(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.25.7
       html-parse-stringify: 3.0.1
-      i18next: 23.15.2
+      i18next: 23.14.0
       react: 18.3.1
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
