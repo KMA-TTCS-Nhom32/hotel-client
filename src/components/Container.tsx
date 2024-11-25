@@ -12,7 +12,7 @@ export default function Container({ t }: Readonly<ContainerProps>) {
     // Add this after the existing banner section in `page.txs`
 
     <section className='village-section'>
-      <h2 className='section-title'>{t('Khám phá các Village mới')}</h2>
+      <h2 className='section-title'>{t('content.title')}</h2>
 
       <div className='card-container'>
         <div className='signature-card'>
@@ -23,14 +23,11 @@ export default function Container({ t }: Readonly<ContainerProps>) {
             />
           </span>
           <div className='card-body'>
-            <div className='card-body__city mb-2'>CHI NHÁNH MỚI: ĐÀ NẴNG</div>
-            <div className='card-body__building-name mb-3'>M Village Hotel Đà Nẵng Centre</div>
-            <div className='card-body__description mb-4'>
-              Vừa ra mắt, M Village là trải nghiệm Đà Nẵng "đúng bài" với vị trí trung tâm và phòng
-              ngập nắng. Tặng voucher trị giá 1.5 triệu tại những điểm đến bản địa nhất.
-            </div>
+            <div className='card-body__city mb-2'>{t('village.newDN')}</div>
+            <div className='card-body__building-name mb-3'>{t('village.nameDN')}</div>
+            <div className='card-body__description mb-4'>{t('village.desDN')}</div>
             <button>
-              {t('Đặt ngay')}
+              {t('village.booking')}
               <span>
                 <MoveUpRight />
               </span>
@@ -46,14 +43,11 @@ export default function Container({ t }: Readonly<ContainerProps>) {
             />
           </span>
           <div className='card-body'>
-            <div className='card-body__city mb-2'>CHI NHÁNH MỚI: HỒ CHÍ MINH</div>
+            <div className='card-body__city mb-2'>{t('village.newHCM')}</div>
             <div className='card-body__building-name mb-3'>Express by M Village Võ Văn Kiệt</div>
-            <div className='card-body__description mb-4'>
-              Điểm đến lý tưng để “phá đảo” văn hoá Sài Gòn Chợ Lớn! Nằm tại giao lộ Quận 1 và 5,
-              mang âm hưởng thiết kế Trung Hoa, có dịch vụ tiện ích linh hoạt.
-            </div>
+            <div className='card-body__description mb-4'>{t('village.desHCM1')}</div>
             <button>
-              {t('Đặt ngay')}
+              {t('village.booking')}
               <span>
                 <MoveUpRight />
               </span>
@@ -69,16 +63,15 @@ export default function Container({ t }: Readonly<ContainerProps>) {
             />
           </span>
           <div className='card-body'>
-            <div className='card-body__city mb-2'>CHI NHÁNH MỚI: HỒ CHÍ MINH</div>
+            <div className='card-body__city mb-2'>{t('village.newHCM')}</div>
             <div className='card-body__building-name mb-3'>
               Express by M Village Nguyễn Bỉnh Khiêm
             </div>
             <div className='card-body__description mb-4'>
-              Chọn Express Nguyễn Bỉnh Khiêm cho chuyến công tác tiện lợi nhưng yên tĩnh tại Quận 1.
-              100% lựa chọn có phòng ngủ và phòng khách riêng biệt kèm bếp riêng tại phòng.
+            {t('village.desHCM2')}
             </div>
             <button>
-              {t('Đặt ngay')}
+              {t('village.booking')}
               <span>
                 <MoveUpRight />
               </span>

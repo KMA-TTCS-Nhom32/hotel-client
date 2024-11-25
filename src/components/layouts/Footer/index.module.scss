@@ -1,0 +1,139 @@
+// components/Footer/Footer.module.scss
+@import '@/styles/mixins.scss';
+
+// Variables
+$primary-color: #ff4800;
+$text-color: #ffffff;
+$text-secondary: #9ca3af;
+$background: #000000;
+$border-color: #1f2937;
+
+.footer {
+  @include tablet {
+    padding: 2rem 1rem;
+  }
+
+  @include mobile {
+    padding: 2rem 24px;
+  }
+  
+  @include desktop {
+    padding: 2rem 1rem;
+  }
+
+  background-color: $background;
+  color: $text-color;
+  padding: 2rem 0;
+
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .feedback {
+    grid-column: 1 / -1;
+    margin-bottom: 2rem;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: $text-secondary;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border: 1px solid $primary-color;
+      border-radius: 9999px;
+      color: $primary-color;
+      background: transparent;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $primary-color;
+        color: $text-color;
+      }
+    }
+  }
+
+  .section {
+    h4 {
+      color: $primary-color;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 0.5rem;
+
+        a {
+          color: $text-secondary;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+
+  .contact {
+    div {
+      margin-bottom: 1rem;
+
+      p:first-child {
+        color: $text-secondary;
+      }
+
+      p.bold {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .social {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid $border-color;
+
+    p {
+      color: $text-secondary;
+      font-size: 0.875rem;
+    }
+  }
+}

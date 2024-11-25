@@ -83,7 +83,7 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
           </nav>
         </>
       ) : (
-        <HomeSearchBar t={t} isHeader={isVisible} />
+        <HomeSearchBar t={t} isHeader={!  isVisible} />
       )}
     </header>
   );

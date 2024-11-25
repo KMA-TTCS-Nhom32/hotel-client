@@ -11,6 +11,33 @@
     "home": "Trang chủ",
     "about": "Giới thiệu",
     "contact": "Liên hệ",
-    "search_room": "Tìm phòng"
+    "search_room": "Tìm phòng",
+    "recruitment": "Tuyển dụng",
+    "login": "Đăng nhập/Đăng ký",
+    "follow": "Theo dõi chúng tôi qua"
+  },
+  "policies": {
+    "policy": "Chính sách",
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản sử dụng",
+    "faqs": "FAQs"
+  },
+  "feedback": {
+    "title": "Trải nghiệm của bạn tại A HOMEVILLA rất quan trọng với chúng tôi",
+    "para": "Chia sẻ suy nghĩ của bạn để chúng tôi có thể tạo ra trải nghiệm tốt hơn cho bạn lần sau",
+    "share": "Chia sẻ suy nghĩ của bạn"
+  },
+  "content": {
+    "header": "Bộ sưu tập những câu chuyện tại A HOMEVILLA",
+    "title": "Khám phá các Village mới"
+  },
+  "village": {
+    "newDN": "CHI NHÁNH MỚI: ĐÀ NẴNG",
+    "nameDN": "A HOMEVILLA Hotel Đà Nẵng Centre",
+    "desDN": "Vừa ra mắt, A HOMEVILLA là trải nghiệm Đà Nẵng đúng bài với vị trí trung tâm và phòng ngập nắng. Tặng voucher trị giá 1.5 triệu tại những điểm đến bản địa nhất.",
+    "booking": "Đặt ngay",
+    "newHCM": "CHI NHÁNH MỚI: HỒ CHÍ MINH",
+    "desHCM1": "Điểm đến lý tưng để “phá đảo” văn hoá Sài Gòn Chợ Lớn! Nằm tại giao lộ Quận 1 và 5, mang âm hưởng thiết kế Trung Hoa, có dịch vụ tiện ích linh hoạt.",
+    "desHCM2": "Chọn Express Nguyễn Bỉnh Khiêm cho chuyến công tác tiện lợi nhưng yên tĩnh tại Quận 1. 100% lựa chọn có phòng ngủ và phòng khách riêng biệt kèm bếp riêng tại phòng."
   }
 }
