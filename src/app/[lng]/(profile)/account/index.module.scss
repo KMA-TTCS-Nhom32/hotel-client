@@ -1,0 +1,28 @@
+@import '/src/styles/mixins.scss';
+
+.userpage {
+    background-color: #f6f6f6;
+    width: 100%;
+
+    .inner {
+        display: flex;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+        margin: 80px auto;
+        width: 1240px;
+
+        @include mobile {
+
+            display: flex;
+            flex-direction: column;
+           max-width: 480px;
+            gap: 16px;
+
+        }
+    }
+
+
+
+}

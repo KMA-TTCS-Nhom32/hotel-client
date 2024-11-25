@@ -1,6 +1,7 @@
 @import './reset.scss';
 @import './text.scss';
 @import './color/color.variables.css';
+@import './mixins.scss';
 
 *,
 html,
@@ -20,6 +21,7 @@ body {
 .hidden-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
+
   &::-webkit-scrollbar {
     display: none;
   }

@@ -1,5 +1,4 @@
-interface Resources {
-  "account": {
+{
     "account_manager": "My account",
     "my_reservations": "My reservations",
     "log_out": "Log out",
@@ -23,23 +22,5 @@ interface Resources {
     "Personal_details": "Personal details",
     "Peronsal_info": "Peronsal info",
     "Save_changes": " Save changes"
-  },
-  "common": {
-    "hello": "Welcome",
-    "world": "World",
-    "lng_vi": "Tiếng Việt",
-    "lng_en": "English",
-    "booking": "Booking",
-    "route": {
-      "home": "Home",
-      "about": "About",
-      "contact": "Contact",
-      "search_room": "Search Room"
-    }
-  },
-  "home": {
-    "explore": "Explore"
-  }
+   
 }
-
-export default Resources;
