@@ -1,21 +1,18 @@
+import Sidebar from '@/components/UserComponents/SideBar';
 
-import Sidebar from '@/components/UserComponents/SideBar'
-import style from '@/app/[lng]/(profile)/account/index.module.scss'
-
+import styles from './index.module.css';
 interface RootLayoutProps {
-    children: React.ReactNode;
-    params: { lng: string };
+  children: React.ReactNode;
+  params: { lng: string };
 }
 
 export default function RootLayout({ children, params: { lng } }: Readonly<RootLayoutProps>) {
-    return (
-
-        <div className={style.userpage}>
-            <div className={style.inner}>
-                <Sidebar lng={lng} />
-                {children}
-            </div>
-        </div>
-
-    );
+  return (
+    <div className={styles.userpage}>
+      <div className={styles.inner}>
+        <Sidebar lng={lng} />
+        {children}
+      </div>
+    </div>
+  );
 }
