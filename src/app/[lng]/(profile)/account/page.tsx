@@ -9,12 +9,12 @@ interface HomeProps {
 }
 
 export default async function Home({ params: { lng } }: Readonly<HomeProps>) {
-  
+
 
     return (
         <div>
             <User lng={lng} />
-            
+
         </div>
     )
 }

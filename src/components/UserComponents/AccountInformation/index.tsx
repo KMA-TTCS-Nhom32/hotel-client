@@ -53,12 +53,12 @@ const User = ({ lng }: Readonly<User>) => {
                             {t("Full_name")}
                         </div>
                         <div className=''>
-                          
+
                             <div className="relative w-full ">
                                 <FaUser className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
                                 <Input className="pl-8 w-full" />
                             </div>
-                          
+
                         </div>
 
                     </div>
@@ -73,7 +73,7 @@ const User = ({ lng }: Readonly<User>) => {
                             </div>
 
 
-                           
+
                         </div>
 
                     </div>
@@ -82,11 +82,11 @@ const User = ({ lng }: Readonly<User>) => {
                             <div className='pb-3'>
                                 Email
                             </div>
-                      <div className="relative w-full ">
+                            <div className="relative w-full ">
                                 <CgMail className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
                                 <Input className="pl-8 w-full" />
                             </div>
-                          
+
                         </div>
 
                     </div>
@@ -99,7 +99,7 @@ const User = ({ lng }: Readonly<User>) => {
                                 <FaPhoneVolume className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
                                 <Input className="pl-8 w-full" />
                             </div>
-                            
+
 
                         </div>
                     </div>
@@ -115,18 +115,18 @@ const User = ({ lng }: Readonly<User>) => {
             </div>
             <div className={style.password_card}>
                 {changepw && <>
-                <div className={style.form1}>
-                    <div className={style.ptext}>
-                        {t("Password")}
-                    </div>
-                    <div className={style.password_pre}>
-                        <div className={style.icon}>
-                            <BsFillKeyFill />
+                    <div className={style.form1}>
+                        <div className={style.ptext}>
+                            {t("Password")}
                         </div>
-                        <div className={style.pass_dot}>●●●●●●●</div>
-                        <button onClick={() => changepassword()} className={style.btnpw}> {t("Change_password")}</button>
+                        <div className={style.password_pre}>
+                            <div className={style.icon}>
+                                <BsFillKeyFill />
+                            </div>
+                            <div className={style.pass_dot}>●●●●●●●</div>
+                            <button onClick={() => changepassword()} className={style.btnpw}> {t("Change_password")}</button>
 
-                    </div>
+                        </div>
                     </div>
                 </>
                 }

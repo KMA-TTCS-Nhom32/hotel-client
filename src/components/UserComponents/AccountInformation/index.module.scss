@@ -39,7 +39,7 @@
         box-sizing: border-box;
 
         @include mobile {
-            
+
             width: 100%;
 
 
@@ -133,47 +133,48 @@
     background-color: #fff;
     padding: 32px;
     border-radius: 12px;
-.form1{
-    .ptext {
-        font-size: 16px;
-        line-height: 1.5;
-        font-weight: 400;
-        padding-bottom: 12px;
-    }
 
-    .password_pre {
-        display: flex;
-        align-items: center;
-
-
-
-        .pass_dot {
-            flex: 1 1 0%;
-            font-size: 24px;
-            line-height: 24px;
-            letter-spacing: 0.005em;
-            padding-left: 10px;
-        }
-
-        .btnpw {
-            background-color: transparent;
-            box-shadow: none;
-            border: 0px;
-            color: #ff7526;
+    .form1 {
+        .ptext {
             font-size: 16px;
+            line-height: 1.5;
             font-weight: 400;
-            line-height: 24px;
-            letter-spacing: 0.005em;
-            text-align: center;
-            height: 48px;
-            padding: 0px 16px;
-            cursor: pointer;
+            padding-bottom: 12px;
+        }
+
+        .password_pre {
+            display: flex;
+            align-items: center;
 
 
 
+            .pass_dot {
+                flex: 1 1 0%;
+                font-size: 24px;
+                line-height: 24px;
+                letter-spacing: 0.005em;
+                padding-left: 10px;
+            }
+
+            .btnpw {
+                background-color: transparent;
+                box-shadow: none;
+                border: 0px;
+                color: #ff7526;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0.005em;
+                text-align: center;
+                height: 48px;
+                padding: 0px 16px;
+                cursor: pointer;
+
+
+
+            }
         }
     }
-}
 
     .password_form {
         max-width: 420px;

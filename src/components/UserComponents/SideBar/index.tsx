@@ -13,63 +13,63 @@ const SideBar = ({ lng }: Readonly<SideBar>) => {
     return (
         <div className={style.side_bar}>
             <div className={style.sidebar_reponsive}>
-            <div className={style.text_heading}>
-                Hi, Nguyễn Ngọc Dũng
-               
+                <div className={style.text_heading}>
+                    Hi, Nguyễn Ngọc Dũng
+
+
+                </div>
+                <div className={style.news}>
+                    <div className={style.icon1}>
+                        <RiMedalFill />
+                    </div>
+                    <div className={style.text}>
+                        <div className={style.text1}>
+                            {t("YOU’RE")}
+                        </div>
+                        <div className={style.text2}>
+                            {t("New_Citizen")}
+                        </div>
+
+                    </div>
+                    <div className={style.icon2} >
+                        {`>`}
+                    </div>
+
+
+                </div>
+                <div className={style.ifm}>
+                    <div className={style.ifm1} >
+                        <div className={style.text3}>
+                            0
+                        </div>
+                        <div className={style.text4}>
+                            {t("Night")}
+                        </div>
+
+                    </div>
+                    <div className={style.ifm2}>
+
+                    </div>
+                    <div className={style.ifm3} >
+                        <div className={style.text3}>
+                            0
+                        </div >
+                        <div className={style.text4}>
+                            {t("Booking")}
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
-            <div className={style.news}>
-                <div className={style.icon1}>
-                    <RiMedalFill />
-                </div>
-                <div className={style.text}>
-                    <div className={style.text1}>
-                        {t("YOU’RE")}
-                    </div>
-                    <div className={style.text2}>
-                        {t("New_Citizen")}
-                    </div>
 
-                </div>
-                <div className={style.icon2} >
-                    {`>`}
-                </div>
-
-
-            </div>
-            <div className={style.ifm}>
-                <div className={style.ifm1} >
-                    <div className={style.text3}>
-                        0
-                    </div>
-                    <div className={style.text4}>
-                        {t("Night")}
-                    </div>
-
-                </div>
-                <div className={style.ifm2}>
-
-                </div>
-                <div className={style.ifm3} >
-                    <div className={style.text3}>
-                        0
-                    </div >
-                    <div className={style.text4}>
-                        {t("Booking")}
-                    </div>
-
-                </div>
-            </div>
-
-            </div>
-            
             <div className={style.main}>
                 <div className={style.box1}>
-                    
+
                     {t("account_manager")}
                 </div>
                 <div className={style.box2}>
-                   
+
                     {t("my_reservations")}
                 </div>
                 <div className={style.box3}>

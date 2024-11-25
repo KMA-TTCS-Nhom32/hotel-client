@@ -10,7 +10,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children, params: { lng } }: Readonly<RootLayoutProps>) {
     return (
 
-       <div className={style.userpage}>
+        <div className={style.userpage}>
             <div className={style.inner}>
                 <Sidebar lng={lng} />
                 {children}
