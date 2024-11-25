@@ -9,21 +9,17 @@ import BranchList from '@/components/HomeComponents/BranchList/BranchList';
 import FooterImage from '@/components/FooterImage';
 
 import styles from './index.module.scss';
+import Gallery from '../Gallery';
 
 interface HomePageProps {
-    t: TFunction<keyof Resources, undefined>;
+  t: TFunction<keyof Resources, undefined>;
 }
 
 const HomePage = ({ t }: HomePageProps) => {
   return (
     <main>
       <div className={styles.header_banner_container}>
-        <Image
-          alt='banner'
-          src='/images/banner_1.webp'
-          width={1920}
-          height={600}
-        />
+        <Image alt='banner' src='/images/banner_1.webp' width={1920} height={600} />
 
         {/* Banner Section */}
         <TopSearchBar t={t} />
@@ -37,6 +33,9 @@ const HomePage = ({ t }: HomePageProps) => {
 
       {/* Footer Image Section */}
       {/* <FooterImage lng={lng} t={t} /> */}
+      <BranchList />
+      <FooterImage t={t} />
+      <Gallery t={t} />
     </main>
   );
 };

@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 .cityFilter,
@@ -46,8 +48,10 @@
 
 .branchGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
 }
 
 .branchCard {
@@ -60,22 +64,25 @@
 
   .branchImage {
     width: 100%;
-    height: 150px;
+    height: 200px;
     object-fit: cover;
   }
 
   .branchInfo {
-    padding: 12px;
+    padding: 16px;
     h3 {
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin: 0;
       font-weight: 600;
+      line-height: 1.4;
     }
     p {
       margin: 4px 0;
       color: #777;
     }
     .bookNow {
+      display: inline-block;
+      margin-top: 12px;
       color: #ff6600;
       font-weight: 600;
       text-decoration: none;

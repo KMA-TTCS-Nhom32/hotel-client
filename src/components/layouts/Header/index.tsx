@@ -8,13 +8,13 @@ import { CircleUserRound, Menu } from 'lucide-react';
 
 import { useTranslation } from '@/i18n/client';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
-import HomeSearchBar from '@/components/HomeComponents/BannerSearchBar';
 
 import { useObserverHomeSearchBar } from '@/hooks/useObserverHomeSearchBar';
 
 import { APP_ROUTES } from '@/constants/routes.constant';
 
 import styles from './index.module.scss';
+import SearchForm from '@/components/HomeComponents/BannerSearchBar/SearchForm';
 
 interface HeaderProps {
   lng: string;
@@ -56,19 +56,13 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
       {isVisible ? (
         <>
           <div className={styles.logo}>
-            <Image src={logoSrc} alt='Logo' width={64} height={64} className='h-[60px] w-auto' />
+            <Image src={logoSrc} alt='Logo' width={40} height={40} className='h-[40px] w-auto' />
           </div>
 
           <nav className={styles.nav_links}>
             <Link href={APP_ROUTES.SearchRoom}>{t('route.search_room')}</Link>
             <Link href={APP_ROUTES.About}>{t('route.about')}</Link>
             <Link href={APP_ROUTES.Contact}>{t('route.contact')}</Link>
-            {/* <Link href={`/${lng}/long-term-stay`}>{t('Lưu trú dài hạn')}</Link>
-            <Link href={`/${lng}/membership`}>{t('Hội viên thân thiết')}</Link>
-            <Link href={`/${lng}/our-brand`}>
-              {t('Thương hiệu thành viên')}
-              <span className='new-tag'>MỚI</span>
-            </Link> */}
 
             <LanguageSwitcher />
 
@@ -83,7 +77,7 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
           </nav>
         </>
       ) : (
-        <HomeSearchBar t={t} isHeader={isVisible} />
+        <SearchForm t={t} />
       )}
     </header>
   );

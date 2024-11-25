@@ -1,12 +1,12 @@
 import { MoveUpRight } from 'lucide-react';
 import './FooterImage.scss';
+import { TFunction } from 'i18next';
 
 interface FooterImageProps {
-  lng: string;
-  t: (key: string) => string;
+  t: TFunction<any>;
 }
 
-export default function FooterImage({ lng, t }: FooterImageProps) {
+export default function FooterImage({ t }: FooterImageProps) {
   return (
     <>
       <div className='footer_image-section'>
@@ -16,16 +16,16 @@ export default function FooterImage({ lng, t }: FooterImageProps) {
           </span>
           <div className='footer-content-container container'>
             <div className='footer-content__heading text-center'>
-              Đăng kí thành viên MORE, tối đa trải nghiệm
+              Đăng kí thành viên, tối đa trải nghiệm
             </div>
             <div className='footer-content__description text-center'>
-              Là thành viên chương trình MORE, bạn có thể tích luỹ số đêm trải nghiệm tại M Village
+              Là hội viên của khách sạn, bạn có thể tích luỹ số đêm trải nghiệm tại A HOMEVILLA
               để tận hưởng các quyền lợi độc quyền như nhận phòng sớm, trả phòng muộn và miễn phí
-              nâng hạng phòng ở 33 khách sạn tại Hồ Chí Minh, Hà Nội và Đà Nẵng.
+              nâng hạng phòng ở nhiều cơ sở khách sạn của chúng tôi.
             </div>
             <div className='footer-content__actions text-center'>
               <a className='action-text'>
-                Tham gia M Village MORE{' '}
+                Tham gia Home Villa{' '}
                 <span>
                   <MoveUpRight />
                 </span>

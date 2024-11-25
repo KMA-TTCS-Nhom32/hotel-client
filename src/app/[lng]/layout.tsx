@@ -6,8 +6,7 @@ import { dir } from 'i18next';
 import { Nunito_Sans } from 'next/font/google';
 
 import { languages } from '@/i18n/settings';
-
-import Header from '@/components/layouts/Header';
+import Footer from '@/components/layouts/Footer';
 
 const nunitoSansFont = Nunito_Sans({
   subsets: ['latin', 'vietnamese'],
@@ -34,8 +33,8 @@ export default function RootLayout({ children, params: { lng } }: Readonly<RootL
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={`${nunitoSansFont.variable} antialiased`}>
-        <Header lng={lng} />
         {children}
+        <Footer lng={lng} />
       </body>
     </html>
   );
