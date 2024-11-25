@@ -1,18 +1,27 @@
+import React from 'react';
+
+import HeaderSecondary from '@/components/layouts/HeaderSecondary';
 import Sidebar from '@/components/UserComponents/SideBar';
 
 import styles from './index.module.css';
-interface RootLayoutProps {
+
+interface ProfileLayoutProps {
   children: React.ReactNode;
   params: { lng: string };
 }
 
-export default function RootLayout({ children, params: { lng } }: Readonly<RootLayoutProps>) {
+const ProfileLayout = ({ children, params: { lng } }: Readonly<ProfileLayoutProps>) => {
   return (
-    <div className={styles.userpage}>
-      <div className={styles.inner}>
-        <Sidebar lng={lng} />
-        {children}
+    <>
+      <HeaderSecondary lng={lng} />
+      <div className={styles.userpage}>
+        <div className={styles.inner}>
+          <Sidebar lng={lng} />
+          {children}
+        </div>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default ProfileLayout;

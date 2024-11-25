@@ -26,7 +26,7 @@ const branches: Branch[] = [
   {
     id: 2,
     name: 'SIGNATURE BY M VILLAGE HAI BÀ TRƯNG',
-    brand: 'Signature',
+    brand: 'Signature', 
     city: 'Ho Chi Minh',
     district: 'Quận 1',
     imageUrl:
@@ -36,7 +36,7 @@ const branches: Branch[] = [
     id: 3,
     name: 'EXPRESS BY M VILLAGE VÕ VĂN KIỆT',
     brand: 'Express',
-    city: 'Ho Chi Minh',
+    city: 'Ho Chi Minh', 
     district: 'Quận 5',
     imageUrl:
       'https://img.mvillage.vn/zmP9DhrShWAec13LvwBUtk0DeJUy7dcNnuT81PrSQbg/rs:fit:500:500/plain/https%3A%2F%2Fpms.mvillage.vn%2Fweb%2Fimage%3Fmodel%3Dhotel%26id%3D100%26field%3Dimage_1920',
@@ -146,6 +146,8 @@ const BranchList = () => {
   const [selectedCity, setSelectedCity] = useState('Ho Chi Minh');
   const [selectedDistrict, setSelectedDistrict] = useState('Tất cả');
   const [selectedBrand, setSelectedBrand] = useState('All');
+  const [currentPage, setCurrentPage] = useState(1);
+  const branchesPerPage = 6;
 
   const filteredBranches = branches.filter(
     (branch) =>
@@ -154,12 +156,23 @@ const BranchList = () => {
       (selectedBrand === 'All' || branch.brand === selectedBrand),
   );
 
+  // Get current branches
+  const indexOfLastBranch = currentPage * branchesPerPage;
+  const indexOfFirstBranch = indexOfLastBranch - branchesPerPage;
+  const currentBranches = filteredBranches.slice(indexOfFirstBranch, indexOfLastBranch);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(filteredBranches.length / branchesPerPage);
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <section className={styles.branchList}>
       <div className={styles.cityFilter}>
         <button onClick={() => setSelectedCity('Ho Chi Minh')}>Ho Chi Minh</button>
         <button onClick={() => setSelectedCity('Hà Nội')}>Hà Nội</button>
-        <button onClick={() => setSelectedCity('Đà Nẵng')}>Đà Nẵng</button>
       </div>
 
       <div className={styles.districtFilter}>
@@ -174,40 +187,11 @@ const BranchList = () => {
         <button onClick={() => setSelectedDistrict('Quận 1')}>Quận 1</button>
         <button onClick={() => setSelectedDistrict('Quận 2')}>Quận 2</button>
         <button onClick={() => setSelectedDistrict('Quận 3')}>Quận 3</button>
-        <button onClick={() => setSelectedDistrict('Phú Nhuận')}>Phú Nhuận</button>
-      </div>
-
-      <div className={styles.brandFilter}>
-        <button
-          className={cn(selectedBrand === 'All' && styles.active)}
-          onClick={() => setSelectedBrand('All')}
-        >
-          Tất cả thương hiệu
-        </button>
-        <button onClick={() => setSelectedBrand('Signature')}>
-          <span>
-            <img src='/images/signature-black.svg' alt='Signature' />
-          </span>
-        </button>
-        <button onClick={() => setSelectedBrand('M Living')}>
-          <span>
-            <img src='/images/living-black.svg' alt='M Living' />
-          </span>
-        </button>
-        <button onClick={() => setSelectedBrand('M Hotel')}>
-          <span>
-            <img src='/images/hotel-black.svg' alt='M Hotel' />
-          </span>
-        </button>
-        <button onClick={() => setSelectedBrand('Express')}>
-          <span>
-            <img src='/images/express-black.svg' alt='Express' />
-          </span>
-        </button>
+        <button onClick={() => setSelectedDistrict('Phố Cổ')}>Phố Cổ</button>
       </div>
 
       <div className={styles.branchGrid}>
-        {filteredBranches.map((branch) => (
+        {currentBranches.map((branch) => (
           <div key={branch.id} className={styles.branchCard}>
             <img src={branch.imageUrl} alt={branch.name} className={styles.branchImage} />
             <div className={styles.branchInfo}>
@@ -221,12 +205,15 @@ const BranchList = () => {
       </div>
 
       <div className={styles.pagination}>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
+          <button
+            key={pageNumber}
+            onClick={() => handlePageChange(pageNumber)}
+            className={cn(pageNumber === currentPage && styles.active)}
+          >
+            {pageNumber}
+          </button>
+        ))}
       </div>
     </section>
   );

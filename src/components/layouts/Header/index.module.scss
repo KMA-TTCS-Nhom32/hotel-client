@@ -1,10 +1,11 @@
 /* Header styling */
 .header_section {
   width: 100%;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 0 40px;
   background: transparent;
   position: fixed;
   top: 0;
@@ -16,10 +17,14 @@
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   }
 
+//   .logo img {
+//     width: 100%;
+//     height: 40px;
+//     cursor: pointer;
+//   }
+
   .logo img {
-    width: 100%;
-    height: 40px;
-    cursor: pointer;
+    color: none;
   }
 
   .nav_links {
