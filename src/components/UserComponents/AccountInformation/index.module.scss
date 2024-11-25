@@ -1,323 +1,279 @@
 @import '/src/styles/mixins.scss';
 
 .content {
-    min-height: 740px;
-    padding-left: 30px;
+  min-height: 740px;
+  padding-left: 30px;
+  width: 100%;
+
+  @include mobile {
+    flex: 0 1 0%;
+    padding-left: 0px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
 
     @include mobile {
-        flex: 0 1 0%;
-        padding-left: 0px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-
-
+      padding-left: 16px;
     }
+  }
 
-    .title {
-        font-size: 36px;
-        font-weight: 600;
-        line-height: 44px;
-
-        @include mobile {
-
-            padding-left: 16px;
-
-
-
-        }
-
-    }
-
-    .card {
-        margin-top: 16px;
-        margin-bottom: 0px;
-        background-color: #fff;
-        padding: 16px;
-        border-radius: 12px;
-        box-sizing: border-box;
-
-        @include mobile {
-
-            width: 100%;
-
-
-        }
-
-        .text {
-            font-size: 18px;
-            line-height: 1.5;
-            font-weight: 400;
-
-        }
-
-        .form {
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0px -12px;
-
-            @include mobile {
-
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                padding: 0;
-
-            }
-
-            .box1 {
-
-                flex-basis: 50%;
-                padding: 12px;
-
-
-            }
-
-            .box2 {
-                flex-basis: 50%;
-                padding: 12px;
-
-
-
-            }
-
-            .box3 {
-                flex-basis: 50%;
-                padding: 12px;
-
-
-                .boxip1 {}
-
-
-            }
-        }
-
-        .box4 {
-            flex-basis: 50%;
-            padding: 12px;
-
-            .boxip1 {}
-
-        }
-    }
-
-    .form_action {
-        padding-top: 24px;
-        text-align: right;
-
-        .btn {
-            height: 48px;
-            padding-left: 16px;
-            padding-right: 16px;
-            min-width: 120px;
-            font-size: 16px;
-            font-weight: 500;
-            font-size: 1rem;
-            background: #f77e3e;
-            border: 1px solid #f77e3e;
-            border-radius: 60px;
-            color: #fff;
-            height: 2.75rem;
-        }
-    }
-
-
-
-}
-
-.password_card {
+  .card {
     margin-top: 16px;
     margin-bottom: 0px;
     background-color: #fff;
-    padding: 32px;
+    padding: 16px;
     border-radius: 12px;
+    box-sizing: border-box;
 
-    .form1 {
-        .ptext {
-            font-size: 16px;
-            line-height: 1.5;
-            font-weight: 400;
-            padding-bottom: 12px;
-        }
-
-        .password_pre {
-            display: flex;
-            align-items: center;
-
-
-
-            .pass_dot {
-                flex: 1 1 0%;
-                font-size: 24px;
-                line-height: 24px;
-                letter-spacing: 0.005em;
-                padding-left: 10px;
-            }
-
-            .btnpw {
-                background-color: transparent;
-                box-shadow: none;
-                border: 0px;
-                color: #ff7526;
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 24px;
-                letter-spacing: 0.005em;
-                text-align: center;
-                height: 48px;
-                padding: 0px 16px;
-                cursor: pointer;
-
-
-
-            }
-        }
+    @include mobile {
+      width: 100%;
     }
 
-    .password_form {
-        max-width: 420px;
-
-        .area1 {
-            padding-bottom: 16px;
-
-            .pwtext1 {
-                padding-bottom: 12px;
-                font-size: 16px;
-                line-height: 1.5;
-                font-weight: 400;
-            }
-
-            .pwbox {
-                .box1 {}
-
-
-            }
-
-        }
-
-        .area2 {
-            padding-bottom: 16px;
-
-            .pwtext1 {
-                padding-bottom: 12px;
-                font-size: 16px;
-                line-height: 1.5;
-                font-weight: 400;
-            }
-
-            .pwbox {
-                .box1 {}
-
-            }
-
-            .text {
-                left: 48px;
-                position: absolute;
-                font-size: 16px;
-
-                color: #8b8d90;
-
-                margin-bottom: 0px;
-
-
-            }
-
-        }
-
-        .area3 {
-            padding-bottom: 16px;
-
-            .pwtext1 {
-                padding-bottom: 12px;
-                font-size: 16px;
-                line-height: 1.5;
-                font-weight: 400;
-            }
-
-            .pwbox {
-                .box1 {}
-
-
-
-
-            }
-
-
-
-        }
-
-        .mt {
-
-
-            padding-bottom: 16px;
-
-            .mt1 {
-                display: flex;
-
-                align-items: center;
-                padding: 4px 12px;
-
-                .icon {
-                    width: 18px;
-                    height: 18px;
-                    border-radius: 18px;
-                    color: #8b8d90;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-right: 8px;
-                }
-
-                .text {
-                    font-size: 16px;
-                    line-height: 1.2;
-                    font-weight: 500;
-                    color: #8b8d90;
-                    opacity: 0.7;
-                }
-            }
-        }
-
-        .form_action {
-            display: flex;
-            padding-top: 16px;
-            gap: 16px;
-            padding-bottom: 16px;
-
-            .btn1 {
-                background-color: transparent;
-                box-shadow: none;
-                border: 0px;
-                color: #ff7526;
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 24px;
-                letter-spacing: 0.005em;
-                text-align: center;
-                height: 48px;
-                padding: 0px 16px;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: rgb(253 246 240);
-                    border-radius: 60px;
-                }
-            }
-
-            .btn2 {
-                color: white;
-                height: 48px;
-                padding: 0px 16px;
-                font-weight: 500;
-                font-size: 1rem;
-                background: #f77e3e;
-                border: 1px solid #f77e3e;
-                border-radius: 60px;
-            }
-
-        }
+    .text {
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: 400;
     }
 
+    .form {
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0px -12px;
+
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+      }
+
+      .box1 {
+        flex-basis: 50%;
+        padding: 12px;
+      }
+
+      .box2 {
+        flex-basis: 50%;
+        padding: 12px;
+      }
+
+      .box3 {
+        flex-basis: 50%;
+        padding: 12px;
+
+        .boxip1 {
+        }
+      }
+    }
+
+    .box4 {
+      flex-basis: 50%;
+      padding: 12px;
+
+      .boxip1 {
+      }
+    }
+  }
+
+  .form_action {
+    padding-top: 24px;
+    text-align: right;
+
+    .btn {
+      height: 48px;
+      padding-left: 16px;
+      padding-right: 16px;
+      min-width: 120px;
+      font-size: 16px;
+      font-weight: 500;
+      font-size: 1rem;
+      background: #f77e3e;
+      border: 1px solid #f77e3e;
+      border-radius: 60px;
+      color: #fff;
+      height: 2.75rem;
+    }
+  }
+}
+
+.password_card {
+  margin-top: 16px;
+  margin-bottom: 0px;
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 12px;
+
+  .form1 {
+    .ptext {
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 400;
+      padding-bottom: 12px;
+    }
+
+    .password_pre {
+      display: flex;
+      align-items: center;
+
+      .pass_dot {
+        flex: 1 1 0%;
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: 0.005em;
+        padding-left: 10px;
+      }
+
+      .btnpw {
+        background-color: transparent;
+        box-shadow: none;
+        border: 0px;
+        color: #ff7526;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.005em;
+        text-align: center;
+        height: 48px;
+        padding: 0px 16px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .password_form {
+    max-width: 420px;
+
+    .area1 {
+      padding-bottom: 16px;
+
+      .pwtext1 {
+        padding-bottom: 12px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 400;
+      }
+
+      .pwbox {
+        .box1 {
+        }
+      }
+    }
+
+    .area2 {
+      padding-bottom: 16px;
+
+      .pwtext1 {
+        padding-bottom: 12px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 400;
+      }
+
+      .pwbox {
+        .box1 {
+        }
+      }
+
+      .text {
+        left: 48px;
+        position: absolute;
+        font-size: 16px;
+
+        color: #8b8d90;
+
+        margin-bottom: 0px;
+      }
+    }
+
+    .area3 {
+      padding-bottom: 16px;
+
+      .pwtext1 {
+        padding-bottom: 12px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 400;
+      }
+
+      .pwbox {
+        .box1 {
+        }
+      }
+    }
+
+    .mt {
+      padding-bottom: 16px;
+
+      .mt1 {
+        display: flex;
+
+        align-items: center;
+        padding: 4px 12px;
+
+        .icon {
+          width: 18px;
+          height: 18px;
+          border-radius: 18px;
+          color: #8b8d90;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 8px;
+        }
+
+        .text {
+          font-size: 16px;
+          line-height: 1.2;
+          font-weight: 500;
+          color: #8b8d90;
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .form_action {
+      display: flex;
+      padding-top: 16px;
+      gap: 16px;
+      padding-bottom: 16px;
+
+      .btn1 {
+        background-color: transparent;
+        box-shadow: none;
+        border: 0px;
+        color: #ff7526;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.005em;
+        text-align: center;
+        height: 48px;
+        padding: 0px 16px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgb(253 246 240);
+          border-radius: 60px;
+        }
+      }
+
+      .btn2 {
+        color: white;
+        height: 48px;
+        padding: 0px 16px;
+        font-weight: 500;
+        font-size: 1rem;
+        background: #f77e3e;
+        border: 1px solid #f77e3e;
+        border-radius: 60px;
+      }
+    }
+  }
 }

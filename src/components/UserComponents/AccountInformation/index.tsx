@@ -14,6 +14,7 @@ import { useTranslation } from '@/i18n/client';
 interface User {
   lng: string;
 }
+
 const User = ({ lng }: Readonly<User>) => {
   const { t } = useTranslation(lng, 'account');
   const [changepw, setchanpw] = useState(true);

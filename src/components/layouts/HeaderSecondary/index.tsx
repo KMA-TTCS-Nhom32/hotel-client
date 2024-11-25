@@ -8,6 +8,7 @@ import { APP_ROUTES } from '@/constants/routes.constant';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { CircleUserRound, Menu } from 'lucide-react';
 import { createTranslation } from '@/i18n/server';
+import { cn } from '@/lib/utils';
 
 interface HeaderSecondaryProps {
   lng: string;
@@ -23,7 +24,7 @@ const HeaderSecondary = async ({ lng, logoSrc }: Readonly<HeaderSecondaryProps>)
   //   };
 
   return (
-    <header style={{ backgroundColor: 'white !important' }} className={styles.header_section}>
+    <header className={cn(styles.header_section, styles.bg_white)}>
       <div className={styles.logo}>
         <Image
           src={logoSrc ?? '/logos/logo-large-dark.webp'}
