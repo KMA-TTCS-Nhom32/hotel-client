@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 import styles from '../Header/index.module.scss';
 
@@ -9,9 +10,11 @@ import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { CircleUserRound, Menu } from 'lucide-react';
 import { createTranslation } from '@/i18n/server';
 
+import Logo from '@public/logos/logo-large-dark.webp';
+
 interface HeaderSecondaryProps {
   lng: string;
-  logoSrc?: string;
+  logoSrc?: StaticImport;
 }
 
 const HeaderSecondary = async ({ lng, logoSrc }: Readonly<HeaderSecondaryProps>) => {
@@ -24,15 +27,9 @@ const HeaderSecondary = async ({ lng, logoSrc }: Readonly<HeaderSecondaryProps>)
 
   return (
     <header style={{ backgroundColor: 'white !important' }} className={styles.header_section}>
-      <div className={styles.logo}>
-        <Image
-          src={logoSrc ?? '/logos/logo-large-dark.webp'}
-          alt='Logo'
-          width={40}
-          height={40}
-          className='h-[40px] w-auto'
-        />
-      </div>
+      <Link href={APP_ROUTES.Home}>
+        <Image src={logoSrc ?? Logo} alt='Logo' className={styles.logo} priority />
+      </Link>
 
       <nav className={styles.nav_links}>
         <Link href={APP_ROUTES.SearchRoom}>{t('route.search_room')}</Link>
