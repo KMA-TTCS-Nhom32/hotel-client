@@ -7,6 +7,7 @@ import { Nunito_Sans } from 'next/font/google';
 
 import { languages } from '@/i18n/settings';
 import Footer from '@/components/layouts/Footer';
+import AuthModal from '@/components/Common/AuthModal';
 
 const nunitoSansFont = Nunito_Sans({
   subsets: ['latin', 'vietnamese'],
@@ -35,6 +36,7 @@ export default function RootLayout({ children, params: { lng } }: Readonly<RootL
       <body className={`${nunitoSansFont.variable} antialiased`}>
         {children}
         <Footer lng={lng} />
+        <AuthModal lng={lng} />
       </body>
     </html>
   );
