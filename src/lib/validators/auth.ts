@@ -1,5 +1,10 @@
 import { z } from 'zod';
 
+export const RegexValidation = {
+  phone: /^(\+84|0)\d{9,10}$/,
+  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+};
+
 export const loginSchema = z.object({
   emailOrPhone: z
     .string({
@@ -7,15 +12,7 @@ export const loginSchema = z.object({
     })
     .refine(
       (value) => {
-        // Check if string contains only digits
-        const isPhoneNumber = /^\d+$/.test(value.replace('+', ''));
-        if (isPhoneNumber) {
-          // Validate phone format
-          return /^(\+84|0)\d{9,10}$/.test(value);
-        } else {
-          // Validate email format
-          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-        }
+        return RegexValidation.phone.test(value) || RegexValidation.email.test(value);
       },
       {
         message: 'auth.validate.email_or_phone',
@@ -31,3 +28,21 @@ export const loginSchema = z.object({
 });
 
 export type LoginFormValues = z.infer<typeof loginSchema>;
+
+// Register schema is same as login schema have additional fields
+export const registerSchema = z
+  .object({
+    ...loginSchema.shape,
+    confirmPassword: z.string({
+      required_error: 'auth.required.confirm_password',
+    }),
+    name: z.string({
+      required_error: 'auth.required.name',
+    }),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: 'auth.validate.password_match',
+    path: ['confirmPassword'], // path of error
+  });
+
+export type RegisterFormValues = z.infer<typeof registerSchema>;

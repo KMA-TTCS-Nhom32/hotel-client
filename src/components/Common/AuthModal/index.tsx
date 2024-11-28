@@ -15,6 +15,7 @@ import CoverImg from '@public/images/advertisements/night-scene-2.webp';
 import Logo from '@public/logos/logo-light.png';
 
 import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 
 interface AuthModalProps {
   lng: string;
@@ -24,11 +25,6 @@ const AuthModal = ({ lng }: AuthModalProps) => {
   const { isOpen, onClose } = useAuthModal((state) => state);
   const [authForm, setAuthForm] = useState<'login' | 'register'>('login');
   const { t } = useTranslation(lng);
-
-  //   const buttonLink = {
-  //     desc: authForm === 'login' ? t('auth.dont_have_account') : t('auth.have_account'),
-  //     link: authForm === 'login' ? t('auth.register') : t('auth.login'),
-  //   };
 
   const buttonLink =
     authForm === 'login'
@@ -67,7 +63,7 @@ const AuthModal = ({ lng }: AuthModalProps) => {
           </Text>
 
           <div className='w-full'>
-            {authForm === 'login' ? <LoginForm t={t} /> : <div>Register Form</div>}
+            {authForm === 'login' ? <LoginForm t={t} /> : <RegisterForm t={t} />}
             <div className='w-full flex items-center justify-center gap-2'>
               <Text element='p' type='body2'>
                 {buttonLink.desc}

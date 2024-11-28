@@ -50,6 +50,7 @@ interface Resources {
       "remember_me": "Remember Me",
       "phone": "Phone number",
       "email_or_phone": "Email or Phone",
+      "name": "Name",
       "dont_have_account": "Don't have account yet?",
       "have_account": "Already have an account?",
       "placeholder": {
