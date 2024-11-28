@@ -23,8 +23,8 @@ interface AuthModalProps {
 
 const AuthModal = ({ lng }: AuthModalProps) => {
   const { isOpen, onClose } = useAuthModal((state) => state);
-  const [authForm, setAuthForm] = useState<'login' | 'register'>('login');
   const { t } = useTranslation(lng);
+  const [authForm, setAuthForm] = useState<'login' | 'register'>('login');
 
   const buttonLink =
     authForm === 'login'
@@ -45,7 +45,7 @@ const AuthModal = ({ lng }: AuthModalProps) => {
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      className='max-w-[1080px] h-full max-h-[600px] p-0 mx-4 overflow-hidden'
+      className='max-w-[94%] sm:max-w-[1080px] sm:h-full sm:max-h-[600px] p-0 overflow-hidden rounded-lg'
       disableClickOutside
     >
       <section className='grid grid-cols-1 sm:grid-cols-[minmax(360px,_600px)_1fr] h-full'>
@@ -57,7 +57,7 @@ const AuthModal = ({ lng }: AuthModalProps) => {
           />
           <Image src={Logo} alt='logo' className='absolute top-5 left-5 h-20 w-auto' />
         </div>
-        <div className='w-full min-w-[400px] h-full p-5 sm:px-8 flex flex-col items-start justify-center gap-8'>
+        <div className='w-full sm:min-w-[400px] h-full p-5 sm:px-8 flex flex-col items-start justify-center gap-8'>
           <Text element='h3' type='heading3-bold'>
             {t('auth.welcome')}
           </Text>
