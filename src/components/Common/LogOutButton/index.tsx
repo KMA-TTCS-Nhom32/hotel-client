@@ -16,11 +16,11 @@ const LogOutButton = ({ className }: Readonly<LogOutButtonProps>) => {
     <Button
       variant='ghost'
       className={cn(
-        'w-full font-semibold hover:bg-destructive-foreground hover:text-red-500 py-3',
+        'w-full font-semibold  hover:text-red-500 ',
         className,
       )}
     >
-      <h4 className='text-2xl text-destructive'>{t('log_out')}</h4>
+      <h4 className='text-2xl text-left text-destructive'>{t('log_out')}</h4>
     </Button>
   );
 };

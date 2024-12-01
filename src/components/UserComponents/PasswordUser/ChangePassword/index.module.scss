@@ -1,0 +1,17 @@
+@import '/src/styles/mixins.scss';
+
+.formChangePasword {
+    width: 50%;
+
+    @include mobile {
+        width: 100%;
+    }
+    .log_out{
+        display: none;
+        @include mobile {
+              display: block;;
+              padding: 16px;
+            }
+
+    }
+}
