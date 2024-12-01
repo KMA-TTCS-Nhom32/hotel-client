@@ -1,96 +1,162 @@
 'use client';
-import style from './index.module.scss';
+import { useForm } from 'react-hook-form';
+
 import { useTranslation } from '@/i18n/client';
 
-import { SubmitHandler, useForm } from "react-hook-form"
-import { z } from "zod"
-import { Input } from '@/components/ui/input';
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from '@/components/ui/form';
+
+import ProfileCard from '../Card';
+import { accountInforSchema, AccountInforValues } from '@/lib/validators/account-infor';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+import InputText from '@/components/Common/Form/InputText';
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+  SelectValue,
+} from '@/components/ui/select';
+import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
+import { Calendar } from '@/components/ui/calendar';
 import { Button } from '@/components/ui/button';
-type FormFields = {
-  email: string;
-  fullname: string;
-  phoneNumber: string;
-  dateOfBirth: Date;
+import { CalendarIcon } from 'lucide-react';
 
-};
+import dayjs from 'dayjs';
+import { ButtonCustom } from '@/components/ui/button-custom';
+import { CustomCalendarDropdown } from '@/components/Common/CustomCalendar/CalendarCustomDropdown';
 
-
-interface User {
+interface AccountInfoProps {
   lng: string;
-
 }
 
+const AccountInfo = ({ lng }: Readonly<AccountInfoProps>) => {
+  const { t } = useTranslation(lng, 'account');
+  //   const { register, handleSubmit, formState: { errors } } = useForm<FormFields>();
 
+  //   const onSubmit: SubmitHandler<FormFields> = (data) => {
+  //     console.log(data);
+  //   }
 
-const User = ({ lng }: Readonly<User>) => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormFields>();
-  const onSubmit: SubmitHandler<FormFields> = (data) => {
-    console.log(data);
+  const form = useForm<AccountInforValues>({
+    resolver: zodResolver(accountInforSchema),
+    defaultValues: {
+      email: '',
+      name: '',
+      gender: 'male',
+      phone: '',
+      birthDate: new Date(),
+    },
+  });
+
+  const {
+    formState: { isSubmitting },
+    handleSubmit,
+    control,
+  } = form;
+
+  function onSubmit(values: AccountInforValues) {
+    console.log(values);
   }
 
-  const { t } = useTranslation(lng, 'account');
-  return (<>
-    <div className={style.card}>
-      <div className={style.title}>{t('Peronsal_info')}</div>
-      <form className={style.form}  onSubmit={handleSubmit(onSubmit)}>
-        <div className='flex flex-col gap-3'>
-          <label>Email</label>
-          <Input {...register('email',
-            {
-              required: "Email is required",
-              validate: (value) => {
-                if (!value.includes('@')) {
-                  return "Email must include @"
-                }
-                return true;
-              }
-            }
-          )}
-            type='text' placeholder='Email' />
-          <p className='text-red-500'>{errors.email?.message}</p>
-        </div>
-        <div className='flex flex-col gap-3'>
-          <label>Full Name</label>
-          <Input {...register('fullname', {
-            required: "Full name is required",
-            maxLength: {
-              value: 50,
-              message: "Full name must be at most 50 characters long"
-            },
-          },
+  return (
+    <ProfileCard title={t('Peronsal_info')}>
+      <Form {...form}>
+        <form onSubmit={handleSubmit(onSubmit)} className='w-full space-y-4'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+            <InputText<AccountInforValues>
+              name='email'
+              label={t('Email')}
+              placeholder={t('placeholder.email')}
+            />
+            <InputText<AccountInforValues>
+              name='phone'
+              label={t('Phone_number')}
+              placeholder='Input Email'
+            />
+          </div>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+            <InputText<AccountInforValues>
+              name='name'
+              label={t('Full_name')}
+              placeholder={t('Full_name')}
+            />
+            <FormField
+              control={control}
+              name='gender'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Gender</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value='male'>Male</SelectItem>
+                      <SelectItem value='female'>Female</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+            <FormField
+              control={form.control}
+              name='birthDate'
+              render={({ field }) => (
+                <FormItem className='flex flex-col'>
+                  <FormLabel>Date of birth</FormLabel>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button variant={'outline'} className='w-full text-left font-normal'>
+                          {field.value ? (
+                            dayjs(field.value).format('DD/MM/YYYY')
+                          ) : (
+                            <span>Pick a date</span>
+                          )}
+                          <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className='w-auto p-0' align='start' side='bottom'>
+                      <CustomCalendarDropdown
+                        mode='single'
+                        selected={field.value}
+                        onSelect={field.onChange}
+                        disabled={(date) => date > new Date() || date < new Date('1900-01-01')}
+                        fromYear={1900}
+                        toYear={new Date().getFullYear()}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
 
-          )} type='text' placeholder='Full name' />
-          <p className='text-red-500'>{errors.fullname?.message}</p>
-        </div>
-        <div className='flex flex-col gap-3'>
-          <label >Phone Number</label>
-          <Input {...register('phoneNumber', {
-            required: "Phone Number is required",
-            validate: value => value.length === 10 || 'Phone Number must be at least 10 characters long'
-          },)} type='number' placeholder='Phone Number' />
-          <p className='text-red-500'>{errors.phoneNumber?.message}</p>
-        </div>
-        <div className='flex flex-col gap-3'>
-          <label htmlFor="dob">Ngày sinh</label>
-          <Input
-            type="date"
-            {...register('dateOfBirth', {
-              required: 'Ngày sinh là bắt buộc',
-              validate: value => {
-                const age = new Date().getFullYear() - new Date(value).getFullYear();
-                return age >= 18 || 'Bạn phải đủ 18 tuổi';
-              }
-            })}
-          />
-          {errors.dateOfBirth && <p className='text-red-500'>{errors.dateOfBirth.message}</p>}
-        </div>
-        <div className='text-right'>
-          <Button className=' text-right px-4'>{t('Save_changes')}</Button>
-        </div>
-      </form>
-    </div>
-  </>
+          <div className='flex justify-end'>
+            <ButtonCustom type='submit' loading={isSubmitting}>
+              {t('Save_changes')}
+            </ButtonCustom>
+          </div>
+        </form>
+      </Form>
+    </ProfileCard>
   );
 };
 
-export default User;
+export default AccountInfo;

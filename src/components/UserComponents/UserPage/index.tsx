@@ -2,12 +2,11 @@
 
 import AccountInformation from "@/components/UserComponents/AccountInformation"
 import Password from "../PasswordUser";
-import { styleText } from "util";
 import styles from './index.module.scss'
 import { useTranslation } from "react-i18next";
 interface User {
     lng: string;
-    title: String;
+    title: string;
 }
 
 const User = ({ lng, title }: User) => {
