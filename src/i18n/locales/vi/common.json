@@ -39,5 +39,29 @@
     "newHCM": "CHI NHÁNH MỚI: HỒ CHÍ MINH",
     "desHCM1": "Điểm đến lý tưng để “phá đảo” văn hoá Sài Gòn Chợ Lớn! Nằm tại giao lộ Quận 1 và 5, mang âm hưởng thiết kế Trung Hoa, có dịch vụ tiện ích linh hoạt.",
     "desHCM2": "Chọn Express Nguyễn Bỉnh Khiêm cho chuyến công tác tiện lợi nhưng yên tĩnh tại Quận 1. 100% lựa chọn có phòng ngủ và phòng khách riêng biệt kèm bếp riêng tại phòng."
+  },
+
+  "auth": {
+    "welcome": "Một thế giới đặc quyền và lợi ích đặt phòng đang chờ đón bạn!",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "logout": "Đăng xuất",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "confirm_password": "Xác nhận mật khẩu",
+    "forgot_password": "Quên mật khẩu",
+    "remember_me": "ghi nhớ tôi",
+    "phone": "số điện thoại",
+    "email_or_phone": "Email hoặc Số điện thoại",
+    "name": "Họ tên",
+    "dont_have_account": "Chưa có tài khoản?",
+    "have_account": "Đã có tài khoản?",
+    "placeholder": {
+      "email_or_phone": "Nhập email hoặc số điện thoại",
+      "password": "Nhập mật khẩu",
+      "confirm_password": "Nhập lại mật khẩu",
+      "phone": "Nhập số điện thoại",
+      "email": "Nhập email"
+    }
   }
 }
