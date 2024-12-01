@@ -5,10 +5,13 @@ import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 import styles from '../Header/index.module.scss';
 
-import { APP_ROUTES } from '@/constants/routes.constant';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
-import { CircleUserRound, Menu } from 'lucide-react';
+import Container from '@/components/Common/Container';
+import UserButton from '@/components/Common/UserButton';
+
+import { APP_ROUTES } from '@/constants/routes.constant';
 import { createTranslation } from '@/i18n/server';
+import { cn } from '@/lib/utils';
 
 import Logo from '@public/logos/logo-large-dark.webp';
 
@@ -26,27 +29,22 @@ const HeaderSecondary = async ({ lng, logoSrc }: Readonly<HeaderSecondaryProps>)
   //   };
 
   return (
-    <header style={{ backgroundColor: 'white !important' }} className={styles.header_section}>
-      <Link href={APP_ROUTES.Home}>
-        <Image src={logoSrc ?? Logo} alt='Logo' className={styles.logo} priority />
-      </Link>
+    <header className={cn(styles.header_section, styles.bg_white)}>
+      <Container className={styles.header_container}>
+        <Link href={APP_ROUTES.Home}>
+          <Image src={logoSrc ?? Logo} alt='Logo' className={styles.logo} priority />
+        </Link>
 
-      <nav className={styles.nav_links}>
-        <Link href={APP_ROUTES.SearchRoom}>{t('route.search_room')}</Link>
-        <Link href={APP_ROUTES.About}>{t('route.about')}</Link>
-        <Link href={APP_ROUTES.Contact}>{t('route.contact')}</Link>
+        <nav className={styles.nav_links}>
+          <Link href={APP_ROUTES.SearchRoom}>{t('route.search_room')}</Link>
+          <Link href={APP_ROUTES.About}>{t('route.about')}</Link>
+          <Link href={APP_ROUTES.Contact}>{t('route.contact')}</Link>
 
-        <LanguageSwitcher />
+          <LanguageSwitcher />
 
-        <div className={styles.basic_button}>
-          <div className={styles.account_menu}>
-            <CircleUserRound />
-          </div>
-          <div className={styles.account_menu}>
-            <Menu />
-          </div>
-        </div>
-      </nav>
+          <UserButton />
+        </nav>
+      </Container>
     </header>
   );
 };

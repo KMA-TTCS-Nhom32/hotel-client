@@ -1,0 +1,17 @@
+@import '/src/styles/mixins.scss';
+
+.wrapper {
+  background-color: #f6f6f6;
+}
+
+.content {
+  padding: 40px 0;
+  display: flex;
+  gap: 24px;
+
+  @include mobile {
+    padding: 20px 0;
+    flex-direction: column;
+    gap: 16px
+  }
+}
