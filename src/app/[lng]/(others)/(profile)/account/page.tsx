@@ -1,7 +1,5 @@
-import { createTranslation } from '@/i18n/server';
-import User from '@/components/UserComponents/UserPage';
-import Content from '@/components/Common/Content'
-import { Children } from 'react';
+import UserPage from '@/components/UserComponents/UserPage';
+import Content from '@/components/Common/Content';
 interface HomeProps {
   params: {
     lng: string;
@@ -9,14 +7,9 @@ interface HomeProps {
 }
 
 export default async function Home({ params: { lng } }: Readonly<HomeProps>) {
-  
   return (
     <Content className='w-full'>
-      <User lng={lng}
-        title={'Personal_details'}/>
+      <UserPage lng={lng} />
     </Content>
-    
-  )
-
-  ;
+  );
 }

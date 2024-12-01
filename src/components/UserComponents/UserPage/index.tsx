@@ -1,26 +1,23 @@
-"use client";
-
-import AccountInformation from "@/components/UserComponents/AccountInformation"
-import Password from "../PasswordUser";
-import styles from './index.module.scss'
-import { useTranslation } from "react-i18next";
-interface User {
-    lng: string;
-    title: string;
+import AccountInformation from '@/components/UserComponents/AccountInformation';
+import Password from '../PasswordUser';
+import { createTranslation } from '@/i18n/server';
+import { Text } from '@/components/ui/text';
+interface UserPageProps {
+  lng: string;
 }
 
-const User = ({ lng, title }: User) => {
+const UserPage = async ({ lng }: UserPageProps) => {
+  const { t } = await createTranslation(lng, 'account');
 
-    const { t } = useTranslation('account');
-
-    return (<>
-        <div className={`${styles.title} text-2xl font-semibold`}>{t(`${title}`)}</div>
-
-        <AccountInformation lng={lng} />
-        <Password lng={lng} />
-
+  return (
+    <>
+      <Text element='h3' type='heading3-semi-bold'>
+        {t('detail_infomation')}
+      </Text>
+      <AccountInformation lng={lng} />
+      <Password lng={lng} />
     </>
-    );
+  );
 };
 
-export default User;
+export default UserPage;

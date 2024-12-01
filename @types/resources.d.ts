@@ -1,5 +1,6 @@
 interface Resources {
   "account": {
+    "detail_infomation": "Detail infomation",
     "account_manager": "My account",
     "my_reservations": "My reservations",
     "log_out": "Log out",
@@ -22,7 +23,10 @@ interface Resources {
     "Contain a symbol": "Contain a symbol",
     "Personal_details": "Personal details",
     "Peronsal_info": "Peronsal info",
-    "Save_changes": " Save changes"
+    "Save_changes": " Save changes",
+    "placeholder": {
+      "email": "Enter your email"
+    }
   },
   "common": {
     "hello": "Welcome",
