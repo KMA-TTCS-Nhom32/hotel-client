@@ -1,0 +1,28 @@
+@import '/src/styles/mixins.scss';
+
+   .card
+   {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;    
+    padding: 16px;
+    border-radius: 12px;
+    .title
+    {
+        
+
+    }
+        .form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            @include mobile {
+                   display: flex;
+                   flex-direction: column;
+                }
+
+    
+        }
+   }
+   

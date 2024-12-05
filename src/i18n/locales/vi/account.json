@@ -1,0 +1,29 @@
+{
+  "detail_infomation": "Thông tin chi tiết",
+  "account_manager": "Quản lý tài khoản",
+  "my_reservations": "Danh sách đặt phòng",
+  "log_out": "Đăng xuất",
+  "YOU’RE": "Bạn là",
+  "New_Citizen": "Hội viên MỚI",
+  "Night": "Đêm",
+  "Booking": "Đặt phòng",
+  "Full_name": "Họ và tên",
+  "Nationality": "Quốc tịch",
+  "Phone_number": "Số điện thoại",
+  "Password": "Mật khẩu",
+  "Change_password": "Đổi mật khẩu",
+  "Current_password": "Mật khẩu hiện tại",
+  "New_password": "Mật khẩu mới",
+  "Confirm new password": "Xác nhận mật khẩu",
+  "Cancel": "Hủy",
+  " Must have at least 8 characters": "Phải có ít nhất 8 ký tự",
+  "Contain uppercase and lowercase": "Chứa chữ cái in hoa và chữ cái thường",
+  "Contain a number": "Chứa chữ số",
+  "Contain a symbol": "Chứa ký tự đặc biệt",
+  "Personal_details": "Thông tin chi tiết",
+  "Peronsal_info": "Thông tin tài khoản",
+  "Save_changes": "Lưu",
+  "placeholder": {
+    "email": "Nhập email của bạn"
+  }
+}
