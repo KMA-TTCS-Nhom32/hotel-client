@@ -4,17 +4,18 @@ import styles from './index.module.scss';
 import SearchForm from './SearchForm';
 
 interface HomeSearchBarProps {
-  t: TFunction<keyof Resources, undefined>;
+  lng: string;
 }
 
-export default function HomeSearchBar({ t }: Readonly<HomeSearchBarProps>) {
+export default function HomeSearchBar({ lng }: Readonly<HomeSearchBarProps>) {
+
   return (
     <section className={styles.banner_section}>
       <div className={styles.booking_wrapper}>
-        <SearchForm t={t} />
+        <SearchForm lng={lng} />
       </div>
 
-      <button className={styles.explore_button}>{t('Khám phá')}</button>
+      {/* <button className={styles.explore_button}>{t(['bookingform.explore'])}</button> */}
     </section>
   );
 }

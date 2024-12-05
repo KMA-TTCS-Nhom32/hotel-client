@@ -61,7 +61,23 @@
       "password": "Nhập mật khẩu",
       "confirm_password": "Nhập lại mật khẩu",
       "phone": "Nhập số điện thoại",
-      "email": "Nhập email"
+      "email": "Nhập email",
+      "name": "Nhập họ tên"
     }
+  },
+  "bookingform": {
+    "location": "Chọn vị trí",
+    "placeholder": "Chuyến đi của bạn",
+    "check_in": "Nhận phòng",
+    "check_out": "Trả phòng",
+    "occupancy": "Số khách",
+    "search": "Tìm phòng",
+    "explore": "Khám phá",
+    "adults": "Người lớn",
+    "children": "Trẻ em",
+    "baby": "Em bé",
+    "adults_description": "Trên 18 tuổi",
+    "children_description": "Từ 6 đến dưới 18 tuổi",
+    "baby_description": "Nhỏ hơn 6 tuổi"
   }
 }

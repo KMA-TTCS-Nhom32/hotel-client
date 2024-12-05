@@ -76,7 +76,7 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
             </nav>
           </>
         ) : (
-          <SearchForm t={t} />
+          <SearchForm lng={lng} />
         )}
       </Container>
     </header>
