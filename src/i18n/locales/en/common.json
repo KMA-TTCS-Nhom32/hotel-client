@@ -68,8 +68,8 @@
   "bookingform": {
     "location": "Where",
     "placeholder_location": "Your leisure trip?",
-    "check_in": "Check-in",
-    "check_out": "Check-out",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
     "occupancy": "Guest",
     "search": "Find room",
     "explore": "Explore",

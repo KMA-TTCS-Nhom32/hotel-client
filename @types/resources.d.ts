@@ -94,8 +94,8 @@ interface Resources {
     "bookingform": {
       "location": "Where",
       "placeholder_location": "Your leisure trip?",
-      "check_in": "Check-in",
-      "check_out": "Check-out",
+      "checkIn": "Check-in",
+      "checkOut": "Check-out",
       "occupancy": "Guest",
       "search": "Find room",
       "explore": "Explore",
@@ -103,9 +103,11 @@ interface Resources {
       "children": "Children",
       "baby": "Baby",
       "adults_description": "Older than 18 years old",
-      "children_description": "From 6 to under 18 years old",
+      "children_description": "From 6 to 18 years old",
       "baby_description": "Less than 6 years old"
-    }
+    },
+    "hanoi": "Hanoi",
+    "ho_chi_minh": "Ho Chi Minh"
   },
   "home": {
     "explore": "Explore"

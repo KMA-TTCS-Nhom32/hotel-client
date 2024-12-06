@@ -75,18 +75,18 @@
 }
 
 .filter_location_container,
-.filter_range_date,
 .filter_occupancy_container {
   padding: 0;
   margin: 0 24px;
 }
 
 .filter_location_container {
-  min-width: 120px;
+  min-width: 132px;
 }
 
 .filter_location_container,
-.filter_occupancy_container {
+.filter_occupancy_container,
+.select_date_trigger {
   display: flex;
   align-items: start;
   flex-direction: column;
@@ -94,6 +94,52 @@
 
   h5 {
     color: hsl(var(--primary));
+  }
+}
+
+.select_date_trigger {
+  position: relative;
+  padding: 0 24px;
+}
+
+.display_date_trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #808080;
+  }
+}
+
+.select_date_wrapper {
+  position: relative;
+  display: flex;
+
+  &::before,
+  &::after,
+  & div.select_date_trigger:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    width: 1.2px;
+    height: 60%; // This controls the border length
+    background-color: #d3d3d3;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  div.select_date_trigger:nth-child(2)::before {
+    left: 0;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
   }
 }
 
@@ -139,15 +185,26 @@
   }
 }
 
-.popover_wrap {
+.popover_wrap,
+.popover_wrap_2,
+.popover_wrap_3 {
   margin-top: 1rem;
+}
+
+.popover_wrap {
   transform: translateX(-34px);
 }
 
 .popover_wrap_2 {
   min-width: 320px;
-  margin-top: 1rem;
   transform: translateX(-24px);
+}
+
+.occupancy_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
 
   div.occupancy_item:not(:last-child, :first-child) {
     padding: 1rem 0;
