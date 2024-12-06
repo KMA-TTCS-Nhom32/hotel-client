@@ -24,22 +24,12 @@ const Password = ({ lng }: Readonly<Password>) => {
   const changepassword = () => {
     setchanpw(false);
   };
-  const [viewpw1, setviewpw1] = useState(true);
-  const viewpassword1 = () => {
-    setviewpw1(!viewpw1);
-  };
-  const [viewpw2, setviewpw2] = useState(true);
-  const viewpassword2 = () => {
-    setviewpw2(!viewpw2);
-  };
+  const handleCancel = () => {
+    setchanpw(true);
 
-  const [viewpw3, setviewpw3] = useState(true);
-  const viewpassword3 = () => {
-    setviewpw3(!viewpw3);
   };
-
   return (
-    <ProfileCard title='Password'>
+    <ProfileCard title={t('Password')}>
       {changepw && (
         <div className=''>
           <div className='pb-4'>{t('Password')}</div>
@@ -56,7 +46,7 @@ const Password = ({ lng }: Readonly<Password>) => {
           </div>
         </div>
       )}
-      {!changepw && <ChangePassword lng={lng} />}
+      {!changepw && <ChangePassword lng={lng} onCancel={handleCancel} />}
     </ProfileCard>
   );
 };

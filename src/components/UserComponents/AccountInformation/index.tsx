@@ -39,12 +39,6 @@ interface AccountInfoProps {
 
 const AccountInfo = ({ lng }: Readonly<AccountInfoProps>) => {
   const { t } = useTranslation(lng, 'account');
-  //   const { register, handleSubmit, formState: { errors } } = useForm<FormFields>();
-
-  //   const onSubmit: SubmitHandler<FormFields> = (data) => {
-  //     console.log(data);
-  //   }
-
   const form = useForm<AccountInforValues>({
     resolver: zodResolver(accountInforSchema),
     defaultValues: {
@@ -73,27 +67,27 @@ const AccountInfo = ({ lng }: Readonly<AccountInfoProps>) => {
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <InputText<AccountInforValues>
               name='email'
-              label={t('Email')}
+              label='Email'
               placeholder={t('placeholder.email')}
             />
             <InputText<AccountInforValues>
               name='phone'
               label={t('Phone_number')}
-              placeholder='Input Email'
+              placeholder={t('placeholder.phone_number')}
             />
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <InputText<AccountInforValues>
               name='name'
               label={t('Full_name')}
-              placeholder={t('Full_name')}
+              placeholder={t('placeholder.full_name')}
             />
             <FormField
               control={control}
               name='gender'
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Gender</FormLabel>
+                  <FormLabel>{t('gender')}</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -101,8 +95,8 @@ const AccountInfo = ({ lng }: Readonly<AccountInfoProps>) => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value='male'>Male</SelectItem>
-                      <SelectItem value='female'>Female</SelectItem>
+                      <SelectItem value='male'>{t('male')}</SelectItem>
+                      <SelectItem value='female'>{t('female')}</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -116,7 +110,7 @@ const AccountInfo = ({ lng }: Readonly<AccountInfoProps>) => {
               name='birthDate'
               render={({ field }) => (
                 <FormItem className='flex flex-col'>
-                  <FormLabel>Date of birth</FormLabel>
+                  <FormLabel>{t('date_of_birth')}</FormLabel>
                   <Popover>
                     <PopoverTrigger asChild>
                       <FormControl>

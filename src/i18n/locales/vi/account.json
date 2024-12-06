@@ -24,6 +24,16 @@
   "Peronsal_info": "Thông tin tài khoản",
   "Save_changes": "Lưu",
   "placeholder": {
-    "email": "Nhập email của bạn"
-  }
+    "email": "Nhập email của bạn",
+    "current_password": "Nhập mật khẩu hiện tại của bạn",
+    "confirm_password": "Xác nhận mật khẩu của bạn",
+    "phone_number": "Nhập số điện thoại của bạn",
+    "full_name": "Nhập họ và tên của bạn",
+      "new_password": "Nhập mật khẩu mới của bạn"
+  },
+  "gender": "Giới tính",
+  "male": "Nam",
+  "female": "Nữ",
+    "date_of_birth": "Ngày sinh"
+
 }
