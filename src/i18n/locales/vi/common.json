@@ -67,7 +67,7 @@
   },
   "bookingform": {
     "location": "Chọn vị trí",
-    "placeholder": "Chuyến đi của bạn",
+    "placeholder_location": "Chuyến đi của bạn",
     "check_in": "Nhận phòng",
     "check_out": "Trả phòng",
     "occupancy": "Số khách",
@@ -77,7 +77,10 @@
     "children": "Trẻ em",
     "baby": "Em bé",
     "adults_description": "Trên 18 tuổi",
-    "children_description": "Từ 6 đến dưới 18 tuổi",
+    "children_description": "6 đến dưới 18 tuổi",
     "baby_description": "Nhỏ hơn 6 tuổi"
-  }
+  },
+
+  "hanoi": "Hà Nội",
+  "ho_chi_minh": "Hồ Chí Minh"
 }

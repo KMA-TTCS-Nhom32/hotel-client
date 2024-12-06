@@ -67,7 +67,7 @@
   },
   "bookingform": {
     "location": "Where",
-    "placeholder": "Your leisure trip?",
+    "placeholder_location": "Your leisure trip?",
     "check_in": "Check-in",
     "check_out": "Check-out",
     "occupancy": "Guest",
@@ -77,7 +77,10 @@
     "children": "Children",
     "baby": "Baby",
     "adults_description": "Older than 18 years old",
-    "children_description": "From 6 to under 18 years old",
+    "children_description": "From 6 to 18 years old",
     "baby_description": "Less than 6 years old"
-  }
+  },
+
+  "hanoi": "Hanoi",
+  "ho_chi_minh": "Ho Chi Minh"
 }

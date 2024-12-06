@@ -90,6 +90,21 @@ interface Resources {
         "email": "Enter your email",
         "name": "Enter your name"
       }
+    },
+    "bookingform": {
+      "location": "Where",
+      "placeholder_location": "Your leisure trip?",
+      "check_in": "Check-in",
+      "check_out": "Check-out",
+      "occupancy": "Guest",
+      "search": "Find room",
+      "explore": "Explore",
+      "adults": "Adults",
+      "children": "Children",
+      "baby": "Baby",
+      "adults_description": "Older than 18 years old",
+      "children_description": "From 6 to under 18 years old",
+      "baby_description": "Less than 6 years old"
     }
   },
   "home": {
