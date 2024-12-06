@@ -11,5 +11,5 @@ interface HomeProps {
 export default async function Home({ params: { lng } }: Readonly<HomeProps>) {
   const { t } = await createTranslation(lng);
 
-  return <HomePage t={t} />;
+  return <HomePage t={t} lng={lng} />;
 }

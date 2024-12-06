@@ -26,6 +26,7 @@ const LoginForm = ({ t }: LoginFormProps) => {
     formState: { isSubmitting },
     handleSubmit,
     watch,
+    control,
   } = form;
 
   function onSubmit(values: LoginFormValues) {
@@ -37,11 +38,13 @@ const LoginForm = ({ t }: LoginFormProps) => {
       <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
         <div className='space-y-4'>
           <InputText<LoginFormValues>
+            control={control}
             name='emailOrPhone'
             label={t('auth.email_or_phone')}
             placeholder={t('auth.placeholder.email_or_phone')}
           />
           <InputPassword<LoginFormValues>
+            control={control}
             name='password'
             label={t('auth.password')}
             placeholder={t('auth.placeholder.password')}

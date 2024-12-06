@@ -78,7 +78,7 @@ export const LanguageSwitcher = () => {
                 height={40}
                 className='w-6 h-auto'
               />
-              <Text>{item.label.text}</Text>
+              <Text element='p'>{item.label.text}</Text>
             </div>
           </SelectItem>
         ))}

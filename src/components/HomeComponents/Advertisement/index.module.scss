@@ -1,0 +1,103 @@
+//Container
+.village-section {
+  padding: 50px 20px;
+
+  background-color: #ffffff;
+  max-width: 1240px;
+  margin: 0 auto;
+
+  .section-title {
+    font-size: 48px;
+    font-weight: 600;
+    max-width: 670px;
+    line-height: 1.3;
+    margin: auto auto 30px;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      margin: 2rem 1.5rem;
+    }
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+}
+
+.advertisement_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 0;
+}
+
+.signature_card {
+  background-color: rgb(251, 249, 248);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1 1 0%;
+  width: 100%;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    height: auto;
+    max-height: 195px;
+    object-fit: cover;
+  }
+}
+
+.card_body {
+  padding: 16px 24px;
+  button {
+    display: flex;
+    flex-direction: row;
+    color: rgb(255, 102, 0);
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(255, 102, 0);
+    }
+
+    span {
+      margin-left: 10px;
+      svg {
+        width: 16px;
+      }
+    }
+  }
+}
+
+.card_body > :not([hidden]) ~ :not([hidden]) {
+  margin: 12px 0;
+}
+
+.card_body_city {
+  color: rgb(109, 109, 109);
+}
+
+.card_body_building_name {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  color: rgb(19, 19, 19);
+}
+
+.card_body_description {
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(19, 19, 19);
+}

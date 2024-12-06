@@ -3,7 +3,7 @@
 import { User as UserIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { useAuthModal } from '@/stores/useAuthModal';
+import { useAuthModal } from '@/stores/modals/useAuthModal';
 
 const UserButton = () => {
   const { onOpen } = useAuthModal((state) => state);

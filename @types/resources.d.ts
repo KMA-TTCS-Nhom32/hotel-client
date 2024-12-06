@@ -90,7 +90,24 @@ interface Resources {
         "email": "Enter your email",
         "name": "Enter your name"
       }
-    }
+    },
+    "bookingform": {
+      "location": "Where",
+      "placeholder_location": "Your leisure trip?",
+      "checkIn": "Check-in",
+      "checkOut": "Check-out",
+      "occupancy": "Guest",
+      "search": "Find room",
+      "explore": "Explore",
+      "adults": "Adults",
+      "children": "Children",
+      "baby": "Baby",
+      "adults_description": "Older than 18 years old",
+      "children_description": "From 6 to 18 years old",
+      "baby_description": "Less than 6 years old"
+    },
+    "hanoi": "Hanoi",
+    "ho_chi_minh": "Ho Chi Minh"
   },
   "home": {
     "explore": "Explore"

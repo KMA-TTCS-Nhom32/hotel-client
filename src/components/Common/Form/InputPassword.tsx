@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, ReactNode, useState } from 'react';
-import { FieldValues, FieldPath } from 'react-hook-form';
+import { FieldValues, FieldPath, Control } from 'react-hook-form';
 
 import {
   FormControl,
@@ -18,6 +18,7 @@ type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'form' | 'type'>;
 
 interface InputPasswordProps<TFieldValues extends FieldValues> {
   className?: string;
+  control?: Control<TFieldValues>;
   name: FieldPath<TFieldValues>;
   label: string;
   isLoading?: boolean;
@@ -27,6 +28,7 @@ interface InputPasswordProps<TFieldValues extends FieldValues> {
 
 const InputPassword = <TFieldValues extends FieldValues>({
   className,
+  control,
   name,
   label,
   isLoading,
@@ -40,6 +42,7 @@ const InputPassword = <TFieldValues extends FieldValues>({
 
   return (
     <FormField
+      control={control}
       name={name}
       render={({ field, fieldState: { error } }) => (
         <FormItem className={className}>

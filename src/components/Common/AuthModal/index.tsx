@@ -9,7 +9,7 @@ import { Modal } from '@/components/ui/modal';
 import { Text } from '@/components/ui/text';
 import { Button } from '@/components/ui/button';
 
-import { useAuthModal } from '@/stores/useAuthModal';
+import { useAuthModal } from '@/stores/modals/useAuthModal';
 
 import CoverImg from '@public/images/advertisements/night-scene-2.webp';
 import Logo from '@public/logos/logo-light.png';

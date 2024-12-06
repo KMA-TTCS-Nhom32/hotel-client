@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, ReactNode, TextareaHTMLAttributes } from 'react';
-import { FieldPath, FieldValues } from 'react-hook-form';
+import { Control, FieldPath, FieldValues } from 'react-hook-form';
 import {
   FormControl,
   FormField,
@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 
 type BaseProps<TFieldValues extends FieldValues> = {
   className?: string;
+  control?: Control<TFieldValues>;
   name: FieldPath<TFieldValues>;
   label: string;
   isLoading?: boolean;
@@ -28,6 +29,7 @@ type InputTextProps<TFieldValues extends FieldValues> = BaseProps<TFieldValues> 
 
 function InputText<TFieldValues extends FieldValues>({
   className,
+  control,
   name,
   label,
   isLoading,
@@ -39,6 +41,7 @@ function InputText<TFieldValues extends FieldValues>({
 }: InputTextProps<TFieldValues>) {
   return (
     <FormField
+      control={control}
       name={name}
       render={({ field, fieldState: { error } }) => (
         <FormItem className={className}>

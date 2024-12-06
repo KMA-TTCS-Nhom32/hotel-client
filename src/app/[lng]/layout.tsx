@@ -1,5 +1,5 @@
-import '../../styles/tailwind.css';
-import '../../styles/globals.scss';
+import '@/styles/tailwind.css';
+import '@/styles/globals.scss';
 
 import type { Metadata } from 'next';
 import { dir } from 'i18next';
