@@ -21,6 +21,7 @@ const BannerSlider = () => {
   const options: CarouselOptions = {
     loop: true,
     duration: 60,
+    
   };
 
   const plugins = [
@@ -50,8 +51,6 @@ const BannerSlider = () => {
           />
         </CarouselItem>
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
     </Carousel>
   );
 };

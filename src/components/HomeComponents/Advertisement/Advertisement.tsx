@@ -24,7 +24,7 @@ export default function Advertisement({ t }: Readonly<AdvertisementProps>) {
         {t('content.title')}
       </Text>
 
-      <Carousel>
+      <Carousel className='w-full max-w-full'>
         <CarouselContent>
           <CarouselItem className='md:basis-1/2 lg:basis-1/3'>
             <div className={styles.signature_card}>
@@ -90,8 +90,8 @@ export default function Advertisement({ t }: Readonly<AdvertisementProps>) {
             </div>
           </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className='hidden sm:block' />
+        <CarouselNext className='hidden sm:block' />
       </Carousel>
     </Container>
   );

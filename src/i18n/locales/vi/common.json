@@ -81,6 +81,17 @@
     "baby_description": "Nhỏ hơn 6 tuổi"
   },
 
+  "select_date": {
+    "hourly": "Theo giờ",
+    "nightly": "Qua đêm",
+    "daily": "Theo ngày",
+    "check_in_time": "Thời gian nhận phòng",
+    "check_in_placeholder": "Chọn thời gian nhận phòng",
+    "duration": "Số giờ sử dụng",
+    "duration_placeholder": "Chọn số giờ sử dụng",
+    "duration_hours_other": "{{count}} giờ"
+  },
+
   "hanoi": "Hà Nội",
   "ho_chi_minh": "Hồ Chí Minh",
 

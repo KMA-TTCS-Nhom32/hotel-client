@@ -35,12 +35,12 @@
 }
 
 .search_button {
-  height: auto;
+  height: 100%;
   display: flex;
   justify-self: center;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   background-color: #e24d14;
   border: none;
   white-space: nowrap;
@@ -97,9 +97,67 @@
   }
 }
 
+.select_date_popover_content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.select_date_popover_header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.select_date_popover_display {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d3d3d3;
+
+  h5 {
+    color: #000;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  p {
+    color: hsl(var(--primary));
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  &.selected {
+    border-color: hsl(var(--primary));
+  }
+}
+
 .select_date_trigger {
   position: relative;
   padding: 0 24px;
+
+  &:hover,
+  &.selected {
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+  }
+
+  &.selected {
+    p,
+    svg {
+      color: hsl(var(--primary)) !important;
+    }
+  }
 }
 
 .display_date_trigger {
@@ -114,7 +172,7 @@
   }
 }
 
-.select_date_wrapper {
+.select_date_trigger_wrapper {
   position: relative;
   display: flex;
 
@@ -135,7 +193,7 @@
   }
 
   &::before {
-    left: 0;
+    left: -1px;
   }
 
   &::after {
@@ -198,6 +256,15 @@
 .popover_wrap_2 {
   min-width: 320px;
   transform: translateX(-24px);
+}
+
+.popover_wrap_3 {
+  width: 100%;
+
+  @include desktop {
+    max-width: 600px;
+    min-width: 520px;
+  }
 }
 
 .occupancy_wrapper {

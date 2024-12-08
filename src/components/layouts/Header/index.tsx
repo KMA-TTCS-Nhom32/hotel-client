@@ -66,9 +66,9 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
             </Link>
 
             <nav className={styles.nav_links}>
-              <Link href={APP_ROUTES.SearchRoom}>{t('route.search_room')}</Link>
-              <Link href={APP_ROUTES.About}>{t('route.about')}</Link>
-              <Link href={APP_ROUTES.Contact}>{t('route.contact')}</Link>
+              <Link href={APP_ROUTES.SearchRoom} className={styles.pure_link}>{t('route.search_room')}</Link>
+              <Link href={APP_ROUTES.About} className={styles.pure_link}>{t('route.about')}</Link>
+              <Link href={APP_ROUTES.Contact} className={styles.pure_link}>{t('route.contact')}</Link>
 
               <LanguageSwitcher />
 

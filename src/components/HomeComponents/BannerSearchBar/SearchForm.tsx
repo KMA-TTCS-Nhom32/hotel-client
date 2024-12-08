@@ -1,20 +1,21 @@
 'use client';
 
-import { useTranslation } from '@/i18n/client';
+import { Minus, Plus, Search } from 'lucide-react';
 
-import dayjs from 'dayjs';
-import { Resources, TFunction } from 'i18next';
-import { CalendarDays, Minus, Plus, Search } from 'lucide-react';
+import { useTranslation } from '@/i18n/client';
 
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Text } from '@/components/ui/text';
 import { ButtonCustom } from '@/components/ui/button-custom';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
-import { BookingTime, CustomerAmount, useSearchBarStore } from '@/stores/search-bar/searchBarStore';
+import {
+  type CustomerAmount,
+  useSearchBarStore,
+} from '@/stores/search-bar/searchBarStore';
 import styles from './index.module.scss';
 import { Button } from '@/components/ui/button';
-import { formatDate } from '@/lib/utils';
+import SelectDateSection from './SelectDate';
 
 interface HandleAdjustCustomerAmountProps {
   title: string;
@@ -107,36 +108,15 @@ const SelectProvince = ({
   );
 };
 
-interface SelectDateProps {
-  lng: string;
-  t: TFunction<keyof Resources>;
-  type: keyof Omit<BookingTime, 'type'>;
-  date: Date;
-}
-
-const SelectDateCanlendar = ({ lng, t, type, date }: Readonly<SelectDateProps>) => {
-  return (
-    <div className={styles.select_date_trigger}>
-      <Text element='h5' type='title2-semi-bold'>
-        {t(`bookingform.${type}`)}
-      </Text>
-      <div className={styles.display_date_trigger}>
-        <CalendarDays />
-        <Text element='p' type='body1'>
-          {formatDate(lng, date)}
-        </Text>
-      </div>
-    </div>
-  );
-};
-
 interface HomeSearchBarProps {
   lng: string;
 }
 
 const SearchForm = ({ lng }: Readonly<HomeSearchBarProps>) => {
   const { t } = useTranslation(lng);
-  const { province, setProvince, customerAmount, setCustomerAmount } = useSearchBarStore();
+
+  const { province, customerAmount, bookingTime, setProvince, setCustomerAmount, setBookingTime } =
+    useSearchBarStore();
 
   const handleSelectLocation = (location: string) => {
     setProvince(location);
@@ -152,8 +132,8 @@ const SearchForm = ({ lng }: Readonly<HomeSearchBarProps>) => {
   return (
     <div id='home-search-bar' className={styles.booking_form}>
       <div className={styles.filter_container}>
-        <Popover>
-          <PopoverTrigger className={styles.filter_location_container}>
+        <Popover modal>
+          <PopoverTrigger id='select-location-trigger' className={styles.filter_location_container}>
             <Text element='h5' type='title2-semi-bold'>
               {t(['bookingform.location'])}
             </Text>
@@ -175,21 +155,18 @@ const SearchForm = ({ lng }: Readonly<HomeSearchBarProps>) => {
           </PopoverContent>
         </Popover>
 
-        <Popover>
-          <PopoverTrigger className={styles.filter_date_container}>
-            <div className={styles.select_date_wrapper}>
-              <SelectDateCanlendar lng={lng} t={t} type='checkIn' date={new Date()} />
-              <SelectDateCanlendar lng={lng} t={t} type='checkOut' date={new Date()} />
-            </div>
-          </PopoverTrigger>
-          <PopoverContent className={styles.popover_wrap_3} align='start' side='bottom'>
-            {/* TODO: ... */}
-            content
-          </PopoverContent>
-        </Popover>
+        <SelectDateSection
+          t={t}
+          lng={lng}
+          bookingData={bookingTime}
+          onChangeBooking={setBookingTime}
+        />
 
-        <Popover>
-          <PopoverTrigger className={styles.filter_occupancy_container}>
+        <Popover modal>
+          <PopoverTrigger
+            id='select-customer-trigger'
+            className={styles.filter_occupancy_container}
+          >
             <Text element='h5' type='title2-semi-bold'>
               {t('bookingform.occupancy')}
             </Text>

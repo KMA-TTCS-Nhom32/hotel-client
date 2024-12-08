@@ -55,7 +55,7 @@ export const LanguageSwitcher = () => {
 
   return (
     <Select value={lng} onValueChange={handleChangeLanguage}>
-      <SelectTrigger className='w-[124px] [&>svg]:hidden focus:ring-0 focus:ring-offset-ring flex items-center justify-center'>
+      <SelectTrigger className='w-auto sm:w-[124px] [&>svg]:hidden focus:ring-0 focus:ring-offset-ring flex items-center justify-center'>
         <div className='flex items-center gap-2'>
           <Image
             src={img_path[lng]}

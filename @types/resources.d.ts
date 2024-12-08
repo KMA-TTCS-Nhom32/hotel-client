@@ -94,8 +94,8 @@ interface Resources {
     "bookingform": {
       "location": "Where",
       "placeholder_location": "Your leisure trip?",
-      "checkIn": "Check-in",
-      "checkOut": "Check-out",
+      "checkIn": "Check in",
+      "checkOut": "Check out",
       "occupancy": "Guest",
       "search": "Find room",
       "explore": "Explore",
@@ -105,6 +105,17 @@ interface Resources {
       "adults_description": "Older than 18 years old",
       "children_description": "From 6 to 18 years old",
       "baby_description": "Less than 6 years old"
+    },
+    "select_date": {
+      "hourly": "Hourly",
+      "daily": "Daily",
+      "nightly": "Over night",
+      "check_in_time": "Check-in time",
+      "check_in_placeholder": "Select check-in time",
+      "duration": "Duration",
+      "duration_placeholder": "Select duration",
+      "duration_hours_one": "{{count}} hour",
+      "duration_hours_other": "{{count}} hours"
     },
     "hanoi": "Hanoi",
     "ho_chi_minh": "Ho Chi Minh"
