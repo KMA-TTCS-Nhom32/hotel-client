@@ -57,3 +57,25 @@ export const DEFAULT_WORKING_HOURS: WorkingHour = {
   start: '06:00',
   end: '21:00',
 };
+
+export const DEFAULT_NIGHTLY_HOURS: WorkingHour = {
+  start: '21:00',
+  end: '08:00',
+};
+
+export const DEFAULT_NIGHTLY_CHECKIN_HOURS: WorkingHour = {
+  start: '21:00',
+  end: '23:30',
+};
+
+export const DEFAULT_MAX_STAY_DURATION = 30;
+
+export const DEFAULT_DAILY_CHECKIN_CHECKOUT: WorkingHour = {
+  start: '14:00',
+  end: '12:00',
+};
+
+export const DEFAULT_UNWORK_DAYS = {
+  start: '01/12',
+  end: '15/12',
+};

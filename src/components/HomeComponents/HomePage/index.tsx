@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Resources, TFunction } from 'i18next';
+import type { AppTranslationFunction } from '@/lib/types/i18n';
 
 import TopSearchBar from '@/components/HomeComponents/BannerSearchBar';
 import TopAdvertisement from '@/components/HomeComponents/Advertisement/Advertisement';
@@ -10,7 +10,7 @@ import FooterImage from '@/components/HomeComponents/Advertisement/FooterImage';
 import Gallery from '../Gallery';
 
 interface HomePageProps {
-  t: TFunction<keyof Resources, undefined>;
+  t: AppTranslationFunction;
   lng: string;
 }
 

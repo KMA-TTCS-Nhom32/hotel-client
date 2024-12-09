@@ -1,4 +1,4 @@
-import { createTranslation } from '@/i18n/server';
+import { createTranslation } from '@/i18n';
 
 import HomePage from '@/components/HomeComponents/HomePage';
 

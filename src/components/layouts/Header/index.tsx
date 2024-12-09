@@ -18,16 +18,16 @@ import { APP_ROUTES } from '@/constants/routes.constant';
 
 import styles from './index.module.scss';
 
-import DarkLogo from '@public/logos/logo-large-dark.png';
-import LightLogo from '@public/logos/logo-large-light.png';
+// import DarkLogo from '/logos/logo-large-dark.png';
+// import LightLogo from '/logos/logo-large-light.png';
 
 interface HeaderProps {
   lng: string;
 }
 
 const logo = {
-  dark: DarkLogo,
-  light: LightLogo,
+  dark: '/logos/logo-large-dark.png',
+  light: '/logos/logo-large-light.png',
 };
 
 export default function Header({ lng }: Readonly<HeaderProps>) {
@@ -62,7 +62,7 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
         {isVisible ? (
           <>
             <Link href={APP_ROUTES.Home}>
-              <Image src={logoSrc} alt='Logo' className={styles.logo} priority />
+              <Image src={logoSrc} alt='Logo' width={200} height={40} className={styles.logo} priority />
             </Link>
 
             <nav className={styles.nav_links}>

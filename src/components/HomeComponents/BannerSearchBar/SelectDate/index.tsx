@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 
-import { Resources, TFunction } from 'i18next';
 import { CalendarDays } from 'lucide-react';
 
-import { cn, formatDate } from '@/lib/utils';
+import { cn } from '@/lib/utils';
+import { formatDate } from '@/lib/funcs/date';
+import { SelectDateType } from '@/lib/types/select-date';
 
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -14,10 +15,15 @@ import { Text } from '@/components/ui/text';
 import { BookingTime, BookingType } from '@/stores/search-bar/searchBarStore';
 
 import styles from '../index.module.scss';
+
 import { HourlyBooking } from './HourlyBooking';
+import { NightlyBooking } from './NightlyBooking';
+
+import type { AppTranslationFunction } from '@/lib/types/i18n';
+import { DailyBooking } from './DailyBooking';
 
 interface SelectDateProps {
-  t: TFunction<keyof Resources>;
+  t: AppTranslationFunction;
   booking: BookingTime;
   setBooking: (bookingData: BookingTime) => void;
 }
@@ -47,16 +53,32 @@ const SelectDate = ({ t, booking, setBooking }: Readonly<SelectDateProps>) => {
           changeDateBookingHourly={handleSelectDate}
         />
       </TabsContent>
-      <TabsContent value='NIGHTLY'>NIGHTLY</TabsContent>
-      <TabsContent value='DAILY'>DAILY</TabsContent>
+      <TabsContent value='NIGHTLY'>
+        <NightlyBooking
+          t={t}
+          selectedDate={booking.checkIn}
+          changeDateBookingNightly={handleSelectDate}
+        />
+      </TabsContent>
+      <TabsContent value='DAILY'>
+        <DailyBooking
+          t={t}
+          bookingData={{
+            from: booking.checkIn,
+            to:
+              booking.checkOut.getDate() === booking.checkIn.getDate()
+                ? undefined
+                : booking.checkOut,
+          }}
+          changeDateBookingDaily={handleSelectDate}
+        />
+      </TabsContent>
     </Tabs>
   );
 };
 
-type SelectDateType = keyof Omit<BookingTime, 'type'>;
-
 interface SelectDateSectionProps {
-  t: TFunction<keyof Resources>;
+  t: AppTranslationFunction;
   lng: string;
   bookingData: BookingTime;
   onChangeBooking: (bookingData: BookingTime) => void;

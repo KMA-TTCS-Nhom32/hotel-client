@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import './GalleryComponent.scss';
 import { useTranslation } from '@/i18n/client';
-import { TFunction } from 'i18next';
+import type { AppTranslationFunction } from '@/lib/types/i18n';
 
 interface GalleryImage {
   id: number;
@@ -61,7 +61,7 @@ const galleryImages: GalleryImage[] = [
 ];
 
 interface GalleryProps {
-  t: TFunction<any>;
+  t: AppTranslationFunction;
 }
 
 export default function Gallery({ t }: GalleryProps) {

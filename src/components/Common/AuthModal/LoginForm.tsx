@@ -1,5 +1,4 @@
-import React from 'react';
-import { TFunction, Resources } from 'i18next';
+import type { AppTranslationFunction } from '@/lib/types/i18n';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -10,7 +9,7 @@ import InputPassword from '@/components/Common/Form/InputPassword';
 import { ButtonCustom } from '@/components/ui/button-custom';
 
 interface LoginFormProps {
-  t: TFunction<keyof Resources>;
+  t: AppTranslationFunction;
 }
 
 const LoginForm = ({ t }: LoginFormProps) => {

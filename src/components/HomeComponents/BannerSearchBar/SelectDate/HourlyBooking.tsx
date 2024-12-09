@@ -1,8 +1,11 @@
 'use client';
 
-import { useEffect, useMemo, useState, useCallback } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+
 import { useUpdateEffect } from 'ahooks';
-import { Resources, TFunction } from 'i18next';
+
+import type { AppTranslationFunction } from '@/lib/types/i18n';
+import { addDays, formatDateDayjs, getTodayViLocale, parseTime } from '@/lib/funcs/date';
 
 import {
   AVAILABLE_CHECKIN_HOURS,
@@ -11,12 +14,9 @@ import {
   DEFAULT_MIN_HOURS_DURATION,
   DEFAULT_WORKING_HOURS,
 } from '@/constants/select-date.constant';
-import { WorkingHour } from '@/lib/types/select-date';
+import { TimeOption, WorkingHour } from '@/lib/types/select-date';
 import { Calendar } from '@/components/ui/calendar';
 import { Label } from '@/components/ui/label';
-
-import { useScreen } from '@/hooks/useScreen';
-
 import {
   Select,
   SelectContent,
@@ -24,25 +24,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { formatDateDayjs, getTodayViLocale } from '@/lib/utils';
 
-// Types
-interface TimeOption {
-  time: string;
-  isDisabled: boolean;
-}
+import { useScreen } from '@/hooks/useScreen';
 
 interface DurationOption {
   duration: number;
   isDisabled: boolean;
 }
 
-// Extract time utilities
-const parseTime = (timeString: string) => timeString.split(':').map(Number);
-const addDays = (date: Date, days: number) => new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
-
 interface HourlyBookingProps {
-  t: TFunction<keyof Resources>;
+  t: AppTranslationFunction;
   workingHours?: WorkingHour;
   minDuration?: number;
   maxDuration?: number;

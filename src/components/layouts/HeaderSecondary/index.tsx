@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
+import { createTranslation } from '@/i18n';
 import styles from '../Header/index.module.scss';
 
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
@@ -10,7 +11,6 @@ import Container from '@/components/Common/Container';
 import UserButton from '@/components/Common/UserButton';
 
 import { APP_ROUTES } from '@/constants/routes.constant';
-import { createTranslation } from '@/i18n/server';
 import { cn } from '@/lib/utils';
 
 import Logo from '@public/logos/logo-large-dark.webp';
@@ -20,7 +20,7 @@ interface HeaderSecondaryProps {
   logoSrc?: StaticImport;
 }
 
-const HeaderSecondary = async ({ lng, logoSrc }: Readonly<HeaderSecondaryProps>) => {
+const HeaderSecondary = async ({ lng, logoSrc }: HeaderSecondaryProps) => {
   const { t } = await createTranslation(lng);
 
   //   const logo = {

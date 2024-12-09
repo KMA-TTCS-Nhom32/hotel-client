@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import { z } from "zod"
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { AppTranslationFunction } from '@/lib/types/i18n';
 type FormFields = {
     currentPassword: string
     newPassword: string
@@ -15,19 +16,18 @@ type FormFields = {
 
 
 interface User {
-    lng: string;
+    t: AppTranslationFunction;
 
 }
 
 
 
-const ChangePassword = ({ lng }: Readonly<User>) => {
+const ChangePassword = ({ t }: Readonly<User>) => {
     const { watch , register, handleSubmit, formState: { errors } } = useForm<FormFields>();
     const onSubmit: SubmitHandler<FormFields> = (data) => {
         console.log(data);
     }
 
-    const { t } = useTranslation(lng, 'account');
     return (<>
         <div className={ styles.formChangePasword}>
             <form className='grid gap-4' onSubmit={handleSubmit(onSubmit)}>

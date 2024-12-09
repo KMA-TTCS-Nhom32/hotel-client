@@ -1,9 +1,9 @@
 import { MoveUpRight } from 'lucide-react';
 import './FooterImage.scss';
-import { TFunction } from 'i18next';
+import type { AppTranslationFunction } from '@/lib/types/i18n';
 
 interface FooterImageProps {
-  t: TFunction<any>;
+  t: AppTranslationFunction;
 }
 
 export default function FooterImage({ t }: FooterImageProps) {

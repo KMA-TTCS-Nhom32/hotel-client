@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
-import { TFunction, Resources } from 'i18next';
 import { useForm } from 'react-hook-form';
+
+import type { AppTranslationFunction } from '@/lib/types/i18n';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { RegisterFormValues, registerSchema } from '@/lib/validators/auth';
@@ -13,7 +13,7 @@ import InputPassword from '@/components/Common/Form/InputPassword';
 import { ButtonCustom } from '@/components/ui/button-custom';
 
 interface RegisterFormProps {
-  t: TFunction<keyof Resources>;
+  t: AppTranslationFunction;
 }
 
 const RegisterForm = ({ t }: RegisterFormProps) => {

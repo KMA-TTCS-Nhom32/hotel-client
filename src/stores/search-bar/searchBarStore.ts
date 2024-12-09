@@ -1,3 +1,4 @@
+import { addDays, getTodayViLocale } from '@/lib/funcs/date';
 import { create } from 'zustand';
 
 export type BookingType = 'HOURLY' | 'NIGHTLY' | 'DAILY';
@@ -28,12 +29,14 @@ type SearchBarActions = {
 
 export type SearchBarStore = SearchBarState & SearchBarActions;
 
+const currentDate = getTodayViLocale();
+
 const initialState: SearchBarState = {
   province: null,
   bookingTime: {
     type: 'HOURLY',
-    checkIn: new Date(),
-    checkOut: new Date(),
+    checkIn: currentDate,
+    checkOut: addDays(currentDate, 1),
   },
   customerAmount: {
     adult: 2,

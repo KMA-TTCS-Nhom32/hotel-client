@@ -1,8 +1,6 @@
 import React from 'react';
-
 import Sidebar from '@/components/layouts/SideBar';
 import Container from '@/components/Common/Containter';
-
 import styles from './index.module.scss';
 
 interface ProfileLayoutProps {
