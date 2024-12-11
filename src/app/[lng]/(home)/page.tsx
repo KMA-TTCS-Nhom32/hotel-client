@@ -1,4 +1,4 @@
-import { createTranslation } from '@/i18n/server';
+import { createTranslation } from '@/i18n';
 
 import HomePage from '@/components/HomeComponents/HomePage';
 
@@ -11,5 +11,5 @@ interface HomeProps {
 export default async function Home({ params: { lng } }: Readonly<HomeProps>) {
   const { t } = await createTranslation(lng);
 
-  return <HomePage t={t} />;
+  return <HomePage t={t} lng={lng} />;
 }

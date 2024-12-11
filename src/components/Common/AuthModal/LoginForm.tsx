@@ -1,5 +1,4 @@
-import React from 'react';
-import { TFunction, Resources } from 'i18next';
+import type { AppTranslationFunction } from '@/lib/types/i18n';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -10,7 +9,7 @@ import InputPassword from '@/components/Common/Form/InputPassword';
 import { ButtonCustom } from '@/components/ui/button-custom';
 
 interface LoginFormProps {
-  t: TFunction<keyof Resources>;
+  t: AppTranslationFunction;
 }
 
 const LoginForm = ({ t }: LoginFormProps) => {
@@ -26,6 +25,7 @@ const LoginForm = ({ t }: LoginFormProps) => {
     formState: { isSubmitting },
     handleSubmit,
     watch,
+    control,
   } = form;
 
   function onSubmit(values: LoginFormValues) {
@@ -37,11 +37,13 @@ const LoginForm = ({ t }: LoginFormProps) => {
       <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
         <div className='space-y-4'>
           <InputText<LoginFormValues>
+            control={control}
             name='emailOrPhone'
             label={t('auth.email_or_phone')}
             placeholder={t('auth.placeholder.email_or_phone')}
           />
           <InputPassword<LoginFormValues>
+            control={control}
             name='password'
             label={t('auth.password')}
             placeholder={t('auth.placeholder.password')}

@@ -1,7 +1,8 @@
 'use client';
 import { useForm } from 'react-hook-form';
 
-import { useTranslation } from '@/i18n/client';
+import { AppTranslationFunction } from '@/lib/types/i18n';
+import { accountInforSchema, AccountInforValues } from '@/lib/validators/account-infor';
 
 import {
   Form,
@@ -13,7 +14,6 @@ import {
 } from '@/components/ui/form';
 
 import ProfileCard from '../Card';
-import { accountInforSchema, AccountInforValues } from '@/lib/validators/account-infor';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import InputText from '@/components/Common/Form/InputText';
@@ -25,7 +25,6 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
-import { Calendar } from '@/components/ui/calendar';
 import { Button } from '@/components/ui/button';
 import { CalendarIcon } from 'lucide-react';
 
@@ -34,11 +33,10 @@ import { ButtonCustom } from '@/components/ui/button-custom';
 import { CustomCalendarDropdown } from '@/components/Common/CustomCalendar/CalendarCustomDropdown';
 
 interface AccountInfoProps {
-  lng: string;
+  t: AppTranslationFunction;
 }
 
-const AccountInfo = ({ lng }: Readonly<AccountInfoProps>) => {
-  const { t } = useTranslation(lng, 'account');
+const AccountInfo = ({ t }: Readonly<AccountInfoProps>) => {
   //   const { register, handleSubmit, formState: { errors } } = useForm<FormFields>();
 
   //   const onSubmit: SubmitHandler<FormFields> = (data) => {
@@ -73,7 +71,7 @@ const AccountInfo = ({ lng }: Readonly<AccountInfoProps>) => {
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <InputText<AccountInforValues>
               name='email'
-              label={t('Email')}
+              label='Email'
               placeholder={t('placeholder.email')}
             />
             <InputText<AccountInforValues>

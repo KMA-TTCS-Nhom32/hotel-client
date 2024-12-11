@@ -1,11 +1,12 @@
-import '../../styles/tailwind.css';
-import '../../styles/globals.scss';
-
 import type { Metadata } from 'next';
 import { dir } from 'i18next';
 import { Nunito_Sans } from 'next/font/google';
 
 import { languages } from '@/i18n/settings';
+
+import '../../styles/tailwind.css';
+import '../../styles/globals.scss';
+
 import Footer from '@/components/layouts/Footer';
 import AuthModal from '@/components/Common/AuthModal';
 
@@ -30,7 +31,12 @@ interface RootLayoutProps {
   params: { lng: string };
 }
 
-export default function RootLayout({ children, params: { lng } }: Readonly<RootLayoutProps>) {
+export default async function RootLayout({
+  children,
+  params,
+}: Readonly<RootLayoutProps>) {
+  const { lng } = params;
+
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={`${nunitoSansFont.variable} antialiased`}>

@@ -27,13 +27,15 @@ body {
   }
 }
 
-/* General reset and box-sizing */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.embla__slide {
+  transition-timing-function: linear;
+}
+
+.inline-divider {
+  display: inline-block;
+  width: 1px;
+  height: 100%;
+  background-color: #ddd;
 }
 
 /* Responsive design for larger screens */

@@ -1,20 +1,23 @@
-import { Resources, TFunction } from 'i18next';
+import type { AppTranslationFunction } from '@/lib/types/i18n';
 
 import styles from './index.module.scss';
 import SearchForm from './SearchForm';
+import BannerSlider from './BannerSlider';
 
 interface HomeSearchBarProps {
-  t: TFunction<keyof Resources, undefined>;
+  lng: string;
+  t: AppTranslationFunction;
 }
 
-export default function HomeSearchBar({ t }: Readonly<HomeSearchBarProps>) {
+export default function HomeSearchBar({ lng, t }: Readonly<HomeSearchBarProps>) {
   return (
     <section className={styles.banner_section}>
-      <div className={styles.booking_wrapper}>
-        <SearchForm t={t} />
-      </div>
+      <BannerSlider />
 
-      <button className={styles.explore_button}>{t('Khám phá')}</button>
+      <div className={styles.booking_wrapper}>
+        <SearchForm lng={lng} />
+        <button className={styles.explore_button}>{t(['bookingform.explore'])}</button>
+      </div>
     </section>
   );
 }

@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 import { TColor } from '@/styles/color/color.variables';
 
-interface TextProps {
+interface TextProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   type?:
     | 'heading1-extra-bold'
@@ -41,6 +41,7 @@ export const Text = ({
   children,
   element = 'p',
   style,
+
 }: TextProps) => {
   const classes = cn(type, color, { 'text-disable': disabled }, className);
 

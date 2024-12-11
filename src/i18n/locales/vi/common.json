@@ -61,7 +61,92 @@
       "password": "Nhập mật khẩu",
       "confirm_password": "Nhập lại mật khẩu",
       "phone": "Nhập số điện thoại",
-      "email": "Nhập email"
+      "email": "Nhập email",
+      "name": "Nhập họ tên"
+    }
+  },
+  "bookingform": {
+    "location": "Chọn vị trí",
+    "placeholder_location": "Chuyến đi của bạn",
+    "checkIn": "Nhận phòng",
+    "checkOut": "Trả phòng",
+    "occupancy": "Số khách",
+    "guests": "Khách",
+    "search": "Tìm phòng",
+    "explore": "Khám phá",
+    "adults": "Người lớn",
+    "children": "Trẻ em",
+    "baby": "Em bé",
+    "adults_description": "Trên 18 tuổi",
+    "children_description": "6 đến dưới 18 tuổi",
+    "baby_description": "Nhỏ hơn 6 tuổi",
+    "apply": "Áp dụng"
+  },
+
+  "select_date": {
+    "hourly": "Theo giờ",
+    "nightly": "Qua đêm",
+    "daily": "Theo ngày",
+    "check_in_time": "Thời gian nhận phòng",
+    "check_in_placeholder": "Chọn thời gian nhận phòng",
+    "duration": "Số giờ sử dụng",
+    "duration_placeholder": "Chọn số giờ sử dụng",
+    "duration_hours_other": "{{count}} giờ"
+  },
+
+  "hanoi": "Hà Nội",
+  "ho_chi_minh": "Hồ Chí Minh",
+
+  "calendar": {
+    "short": {
+      "week_day": {
+        "Sun": "CN",
+        "Mon": "T2",
+        "Tue": "T3",
+        "Wed": "T4",
+        "Thu": "T5",
+        "Fri": "T6",
+        "Sat": "T7"
+      },
+      "month": {
+        "Jan": "Th1",
+        "Feb": "Th2",
+        "Mar": "Th3",
+        "Apr": "Th4",
+        "May": "Th5",
+        "Jun": "Th6",
+        "Jul": "Th7",
+        "Aug": "Th8",
+        "Sep": "Th9",
+        "Oct": "Th10",
+        "Nov": "Th11",
+        "Dec": "Th12"
+      }
+    },
+    "full": {
+      "week_day": {
+        "Sunday": "Chủ Nhật",
+        "Monday": "Thứ Hai",
+        "Tuesday": "Thứ Ba",
+        "Wednesday": "Thứ Tư",
+        "Thursday": "Thứ Năm",
+        "Friday": "Thứ Sáu",
+        "Saturday": "Thứ Bảy"
+      },
+      "month": {
+        "January": "Tháng 01",
+        "February": "Tháng 02",
+        "March": "Tháng 03",
+        "April": "Tháng 04",
+        "May": "Tháng 05",
+        "June": "Tháng 06",
+        "July": "Tháng 07",
+        "August": "Tháng 08",
+        "September": "Tháng 09",
+        "October": "Tháng 10",
+        "November": "Tháng 11",
+        "December": "Tháng 12"
+      }
     }
   }
 }
