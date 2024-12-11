@@ -35,6 +35,10 @@
       &:hover {
         color: #f97316; /* Orange hover effect */
       }
+
+      @include mobile {
+        display: none;
+      }
     }
 
     p {
