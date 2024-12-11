@@ -7,7 +7,12 @@ configResponsive({
 });
 
 export function useScreen() {
-  const { small, middle, large } = useResponsive();
+  //   const { small = true, middle = false, large = false } = useResponsive();
+  const responsive = useResponsive();
+
+  let small = Object(responsive).small as boolean;
+  let middle = Object(responsive).middle as boolean;
+  let large = Object(responsive).large as boolean;
 
   const isMobile = small && !middle && !large;
   const isTablet = middle && small && !large;

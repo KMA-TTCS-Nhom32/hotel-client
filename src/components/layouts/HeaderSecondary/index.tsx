@@ -17,10 +17,11 @@ import Logo from '@public/logos/logo-large-dark.webp';
 
 interface HeaderSecondaryProps {
   lng: string;
+  className?: string;
   logoSrc?: StaticImport;
 }
 
-const HeaderSecondary = async ({ lng, logoSrc }: HeaderSecondaryProps) => {
+const HeaderSecondary = async ({ lng, className, logoSrc }: HeaderSecondaryProps) => {
   const { t } = await createTranslation(lng);
 
   //   const logo = {
@@ -29,7 +30,7 @@ const HeaderSecondary = async ({ lng, logoSrc }: HeaderSecondaryProps) => {
   //   };
 
   return (
-    <header className={cn(styles.header_section, styles.bg_white)}>
+    <header className={cn(styles.header_section, styles.bg_white, className)}>
       <Container className={styles.header_container}>
         <Link href={APP_ROUTES.Home}>
           <Image src={logoSrc ?? Logo} alt='Logo' className={styles.logo} priority />

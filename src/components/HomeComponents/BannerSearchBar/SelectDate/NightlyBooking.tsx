@@ -141,21 +141,30 @@ export const NightlyBooking = ({
         numberOfMonths={2}
         disabled={isDisabledDate}
         className='rounded-md border [&>div]:gap-3 sm:[&>div]:gap-4'
+        classNames={{
+          head_row: 'grid grid-cols-7 mb-2',
+          head_cell: 'w-full font-normal text-md',
+          row: 'grid grid-cols-7',
+          day_selected:
+            'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground rounded-md',
+        }}
       />
       <div className='w-full grid grid-cols-1 sm:grid-cols-2 gap-3'>
-        <Label htmlFor='check-in-time'>{t('select_date.check_in_time')}</Label>
-        <Select onValueChange={setSelectedNightCheckIn} value={selectedNightCheckIn}>
-          <SelectTrigger id='check-in-time'>
-            <SelectValue placeholder={t('select_date.check_in_placeholder')} />
-          </SelectTrigger>
-          <SelectContent>
-            {checkInTimeOptions.map(({ time, isDisabled }) => (
-              <SelectItem key={time} value={time} disabled={isDisabled}>
-                {time}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <div className='w-full flex flex-col gap-2'>
+          <Label htmlFor='check-in-time'>{t('select_date.check_in_time')}</Label>
+          <Select onValueChange={setSelectedNightCheckIn} value={selectedNightCheckIn}>
+            <SelectTrigger id='check-in-time'>
+              <SelectValue placeholder={t('select_date.check_in_placeholder')} />
+            </SelectTrigger>
+            <SelectContent>
+              {checkInTimeOptions.map(({ time, isDisabled }) => (
+                <SelectItem key={time} value={time} disabled={isDisabled}>
+                  {time}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
     </div>
   );

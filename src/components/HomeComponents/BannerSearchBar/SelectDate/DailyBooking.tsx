@@ -63,6 +63,13 @@ export const DailyBooking = ({
         numberOfMonths={2}
         disabled={isDisabledDate}
         className='rounded-md border'
+        classNames={{
+          head_row: 'grid grid-cols-7 mb-2',
+          head_cell: 'w-full font-normal text-md',
+          row: 'grid grid-cols-7',
+          day_selected:
+            'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground rounded-md',
+        }}
       />
     </div>
   );

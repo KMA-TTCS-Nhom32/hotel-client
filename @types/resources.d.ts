@@ -97,6 +97,7 @@ interface Resources {
       "checkIn": "Check in",
       "checkOut": "Check out",
       "occupancy": "Guest",
+      "guests": "Guests",
       "search": "Find room",
       "explore": "Explore",
       "adults": "Adults",
@@ -104,7 +105,8 @@ interface Resources {
       "baby": "Baby",
       "adults_description": "Older than 18 years old",
       "children_description": "From 6 to 18 years old",
-      "baby_description": "Less than 6 years old"
+      "baby_description": "Less than 6 years old",
+      "apply": "Apply"
     },
     "select_date": {
       "hourly": "Hourly",

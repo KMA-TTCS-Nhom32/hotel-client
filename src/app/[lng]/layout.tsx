@@ -34,10 +34,7 @@ interface RootLayoutProps {
 export default async function RootLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { lng: string };
-}) {
+}: Readonly<RootLayoutProps>) {
   const { lng } = params;
 
   return (

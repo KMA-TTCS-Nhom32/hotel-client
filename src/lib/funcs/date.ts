@@ -64,7 +64,9 @@ export const formatDate = (
   lng: string,
   date: Date | string | number,
   isShortType = true,
-  showTime = false,
+  isHourlySelect = false,
+  isDateNum = false,
+  isDisableDate = false,
 ): string => {
   if (!date) {
     throw new Error('Date parameter is required');
@@ -77,8 +79,12 @@ export const formatDate = (
   }
 
   const getDayName = () => {
+    if (isDisableDate) return '';
     const type = isShortType ? 'short' : 'full';
-    return lng === 'vi' ? DAY_NAMES[type].vi[dayjsDate.day()] : DAY_NAMES[type].en[dayjsDate.day()];
+    return (
+      (lng === 'vi' ? DAY_NAMES[type].vi[dayjsDate.day()] : DAY_NAMES[type].en[dayjsDate.day()]) +
+      ', '
+    );
   };
 
   const getMonthName = () => {
@@ -86,10 +92,15 @@ export const formatDate = (
     return lng === 'vi' ? MONTH_NAMES[type].vi[dayjsDate.month()] : dayjsDate.format('MMM');
   };
 
-  const timeString = showTime ? `${dayjsDate.format('HH:mm')} - ` : '';
-  const dateString = `${getDayName()}, ${dayjsDate.format(
-    'DD',
-  )} ${getMonthName()} ${dayjsDate.format('YYYY')}`;
+  const timeString = isHourlySelect ? `${dayjsDate.format('HH:mm')} ` : '';
+
+  const formattedDate = isHourlySelect ? 'DD/MM' : 'DD/MM/YYYY';
+
+  const dateString =
+    getDayName() +
+    (isDateNum === true
+      ? dayjsDate.format(formattedDate)
+      : `${dayjsDate.format('DD')} ${getMonthName()} ${dayjsDate.format('YYYY')}`);
 
   return `${timeString}${dateString}`;
 };

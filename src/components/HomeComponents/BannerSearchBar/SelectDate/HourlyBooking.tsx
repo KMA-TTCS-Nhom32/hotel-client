@@ -211,7 +211,14 @@ export const HourlyBooking = ({
         defaultMonth={selectedDate}
         onSelect={(date) => date && setSelectedDateInMonth(date)}
         disabled={timeValidation.isDisabledDate}
-        className='rounded-md border items-center flex flex-col'
+        className='border w-full items-center sm:flex flex-col'
+        classNames={{
+          head_row: 'grid grid-cols-7 mb-2',
+          head_cell: 'w-full font-normal text-md',
+          row: 'grid grid-cols-7',
+          day_selected:
+            'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground rounded-md',
+        }}
       />
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
         <div className='w-full'>

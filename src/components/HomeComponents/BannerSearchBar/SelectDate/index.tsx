@@ -12,7 +12,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Text } from '@/components/ui/text';
 
-import { BookingTime, BookingType } from '@/stores/search-bar/searchBarStore';
+import { BookingTime, BookingType, useSearchBarStore } from '@/stores/search-bar/searchBarStore';
 
 import styles from '../index.module.scss';
 
@@ -21,6 +21,7 @@ import { NightlyBooking } from './NightlyBooking';
 
 import type { AppTranslationFunction } from '@/lib/types/i18n';
 import { DailyBooking } from './DailyBooking';
+import { DateSelectedDisplay } from './DateSelectedDisplay';
 
 interface SelectDateProps {
   t: AppTranslationFunction;
@@ -28,7 +29,7 @@ interface SelectDateProps {
   setBooking: (bookingData: BookingTime) => void;
 }
 
-const SelectDate = ({ t, booking, setBooking }: Readonly<SelectDateProps>) => {
+export const SelectDate = ({ t, booking, setBooking }: Readonly<SelectDateProps>) => {
   const [bookingType, setBookingType] = useState<BookingType>('HOURLY');
 
   const handleSelectDate = (checkIn: Date, checkOut: Date) => {
@@ -80,16 +81,11 @@ const SelectDate = ({ t, booking, setBooking }: Readonly<SelectDateProps>) => {
 interface SelectDateSectionProps {
   t: AppTranslationFunction;
   lng: string;
-  bookingData: BookingTime;
-  onChangeBooking: (bookingData: BookingTime) => void;
 }
 
-const SelectDateSection = ({
-  t,
-  lng,
-  bookingData,
-  onChangeBooking,
-}: Readonly<SelectDateSectionProps>) => {
+export const SelectDatePopover = ({ t, lng }: Readonly<SelectDateSectionProps>) => {
+  const { bookingTime, setBookingTime } = useSearchBarStore();
+  
   const [selectedDateLabel, setSelectedDateLabel] = useState<SelectDateType | null>(null);
 
   const handleCloseSelectDate = () => {
@@ -119,35 +115,26 @@ const SelectDateSection = ({
     handleCloseSelectDate();
   };
 
-  const renderDateSelectedDisplay = (type: SelectDateType, isPopoverDisplay = false) => {
-    return (
-      <div
-        id='select-date-trigger'
-        className={cn(
-          isPopoverDisplay ? styles.select_date_popover_display : styles.select_date_trigger,
-          selectedDateLabel && type === selectedDateLabel && styles.selected,
-        )}
-        onClick={() => !isPopoverDisplay && setSelectedDateLabel(type)}
-      >
-        <Text element='h5' type='title2-semi-bold'>
-          {t(`bookingform.${type}`)}
-        </Text>
-        <div className={styles.display_date_trigger}>
-          <CalendarDays />
-          <Text element='p' type='body1'>
-            {formatDate(lng, bookingData[type])}
-          </Text>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <Popover open={selectedDateLabel !== null}>
-      <PopoverTrigger id='select-date-trigger' className={styles.filter_date_container}>
+      <PopoverTrigger id='select-date-trigger' asChild>
         <div className={styles.select_date_trigger_wrapper}>
-          {renderDateSelectedDisplay('checkIn')}
-          {renderDateSelectedDisplay('checkOut')}
+          <DateSelectedDisplay
+            t={t}
+            lng={lng}
+            type='checkIn'
+            bookingData={bookingTime}
+            selectedDateLabel={selectedDateLabel}
+            onSelect={setSelectedDateLabel}
+          />
+          <DateSelectedDisplay
+            t={t}
+            lng={lng}
+            type='checkOut'
+            bookingData={bookingTime}
+            selectedDateLabel={selectedDateLabel}
+            onSelect={setSelectedDateLabel}
+          />
         </div>
       </PopoverTrigger>
       <PopoverContent
@@ -158,15 +145,41 @@ const SelectDateSection = ({
       >
         <div className={styles.select_date_popover_content}>
           <div className={styles.select_date_popover_header}>
-            {renderDateSelectedDisplay('checkIn', true)}
-            {renderDateSelectedDisplay('checkOut', true)}
+            <DateSelectedDisplay
+              t={t}
+              lng={lng}
+              type='checkIn'
+              bookingData={bookingTime}
+              selectedDateLabel={selectedDateLabel}
+              isPopoverDisplay={true}
+            />
+            <DateSelectedDisplay
+              t={t}
+              lng={lng}
+              type='checkOut'
+              bookingData={bookingTime}
+              selectedDateLabel={selectedDateLabel}
+              isPopoverDisplay={true}
+            />
           </div>
 
-          <SelectDate t={t} booking={bookingData} setBooking={onChangeBooking} />
+          <SelectDate t={t} booking={bookingTime} setBooking={setBookingTime} />
         </div>
       </PopoverContent>
     </Popover>
   );
 };
 
-export default SelectDateSection;
+interface SelectedDateDisplayProps {
+  lng: string;
+  checkIn: Date;
+  checkOut: Date;
+}
+
+export const SelectedDateDisplay = ({ lng, checkIn, checkOut }: SelectedDateDisplayProps) => {
+  return (
+    <Text element='p' type='caption2' className='text-zinc-600'>
+      {formatDate(lng, checkIn, true, true, true)} - {formatDate(lng, checkOut, true, true, true)}
+    </Text>
+  );
+};

@@ -71,6 +71,7 @@
     "checkIn": "Nhận phòng",
     "checkOut": "Trả phòng",
     "occupancy": "Số khách",
+    "guests": "Khách",
     "search": "Tìm phòng",
     "explore": "Khám phá",
     "adults": "Người lớn",
@@ -78,7 +79,8 @@
     "baby": "Em bé",
     "adults_description": "Trên 18 tuổi",
     "children_description": "6 đến dưới 18 tuổi",
-    "baby_description": "Nhỏ hơn 6 tuổi"
+    "baby_description": "Nhỏ hơn 6 tuổi",
+    "apply": "Áp dụng"
   },
 
   "select_date": {
