@@ -13,7 +13,7 @@ type AuthModalStore = {
 export const useAuthModal = create<AuthModalStore>((set) => ({
   isOpen: false,
   onOpen: () => set(() => ({ isOpen: true })),
-  onClose: () => set(() => ({ isOpen: false })),
+  onClose: () => set(() => ({ isOpen: false, formType: 'auth' })),
   formType: 'auth',
   setFormType: (formType) => set(() => ({ formType })),
 }));

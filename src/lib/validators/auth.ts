@@ -46,3 +46,11 @@ export const registerSchema = z
   });
 
 export type RegisterFormValues = z.infer<typeof registerSchema>;
+
+export const activeAccountSchema = z.object({
+  otp: z.string().min(6, {
+    message: 'auth.required.otp',
+  }),
+});
+
+export type ActiveAccountFormValues = z.infer<typeof activeAccountSchema>;

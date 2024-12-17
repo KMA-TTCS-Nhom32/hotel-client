@@ -9,6 +9,9 @@ import '../../styles/globals.scss';
 
 import Footer from '@/components/layouts/Footer';
 import AuthModal from '@/components/Common/AuthModal';
+import { Toaster } from '@/components/ui/sonner';
+import { ProfileStoreProvider } from '@/providers/profile-store-provider';
+import { AppProvider } from '@/providers/app-provider';
 
 const nunitoSansFont = Nunito_Sans({
   subsets: ['latin', 'vietnamese'],
@@ -31,18 +34,25 @@ interface RootLayoutProps {
   params: { lng: string };
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: Readonly<RootLayoutProps>) {
+export default async function RootLayout({ children, params }: Readonly<RootLayoutProps>) {
   const { lng } = params;
 
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={`${nunitoSansFont.variable} antialiased`}>
-        {children}
-        <Footer lng={lng} />
-        <AuthModal lng={lng} />
+        <AppProvider>
+          {children}
+          <Footer lng={lng} />
+          <AuthModal lng={lng} />
+          <Toaster
+            position='top-right'
+            toastOptions={{
+              style: {
+                right: '12px',
+              },
+            }}
+          />
+        </AppProvider>
       </body>
     </html>
   );

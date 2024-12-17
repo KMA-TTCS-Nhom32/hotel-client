@@ -5,18 +5,23 @@ import { useTranslation } from '@/i18n/client';
 import LogOutButton from '@/components/Common/LogOutButton';
 
 import style from './index.module.scss';
+import { cn } from '@/lib/utils';
+import { useProfileStore } from '@/providers/profile-store-provider';
 
 interface SideBar {
   lng: string;
+  className?: string;
 }
 
-const SideBar = ({ lng }: Readonly<SideBar>) => {
+const SideBar = ({ lng, className }: Readonly<SideBar>) => {
   const { t } = useTranslation(lng, 'account');
+  const { profile } = useProfileStore((state) => state);
+
   return (
-    <div className={style.side_bar}>
+    <div className={cn(style.side_bar, className)}>
 
       <div className={style.container}>
-        <div className={style.text_heading}>Hi, Nguyễn Ngọc Dũng</div>
+        <div className={style.text_heading}>Hi, {profile?.name}</div>
         <div className={style.news}>
           <div className={style.icon1}>
             <RiMedalFill />

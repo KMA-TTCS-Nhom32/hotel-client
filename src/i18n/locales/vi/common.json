@@ -63,6 +63,31 @@
       "phone": "Nhập số điện thoại",
       "email": "Nhập email",
       "name": "Nhập họ tên"
+    },
+    "register_success": "Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản",
+    "register_error": "Đăng ký thất bại.",
+    "active_account_success": "Kích hoạt tài khoản thành công",
+    "active_account_error": "Kích hoạt tài khoản thất bại",
+    "enter_otp": "Nhập mã OTP đã được gửi đến {{field}} của bạn",
+    "login_success": "Đăng nhập thành công",
+    "login_error": "Đăng nhập thất bại",
+    "required": {
+      "email_or_phone": "Email/SDT không được để trống",
+      "email": "Email không được để trống",
+      "password": "Mật khẩu không được để trống",
+      "confirm_password": "Xác nhận mật khẩu không được để trống",
+      "phone": "Số điện thoại không được để trống",
+      "name": "Họ tên không được để trống",
+      "otp": "Mã OTP không được để trống"
+    },
+    "validate": {
+      "email_or_phone": "Email/SDT không hợp lệ",
+      "password_min_length": "Mật khẩu phải có ít nhất 6 ký tự",
+      "password_uppercase": "Mật khẩu phải có ít nhất 1 chữ cái viết hoa",
+      "password_lowercase": "Mật khẩu phải có ít nhất 1 chữ cái viết thường",
+      "password_digit": "Mật khẩu phải có ít nhất 1 chữ số",
+      "password_special": "Mật khẩu phải có ít nhất 1 ký tự đặc biệt",
+      "password_match": "Mật khẩu không khớp"
     }
   },
   "bookingform": {
