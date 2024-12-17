@@ -8,6 +8,7 @@ import { Nunito_Sans } from 'next/font/google';
 import { languages } from '@/i18n/settings';
 import Footer from '@/components/layouts/Footer';
 import AuthModal from '@/components/Common/AuthModal';
+import BranchPage from '@/components/TEST/Components/BranchPage/layouts';
 
 const nunitoSansFont = Nunito_Sans({
   subsets: ['latin', 'vietnamese'],

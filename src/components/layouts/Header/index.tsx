@@ -20,6 +20,7 @@ import styles from './index.module.scss';
 
 import DarkLogo from '@public/logos/logo-large-dark.png';
 import LightLogo from '@public/logos/logo-large-light.png';
+import { Breadcrumb } from '@/components/ui/breadcrumb';
 
 interface HeaderProps {
   lng: string;
