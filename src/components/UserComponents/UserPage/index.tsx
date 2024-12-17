@@ -1,22 +1,28 @@
+'use client';
+
+import { useTranslation } from '@/i18n/client';
+
 import AccountInformation from '@/components/UserComponents/AccountInformation';
-import Password from '../PasswordUser';
-import { createTranslation } from '@/i18n/server';
+import Content from '@/components/Common/Content';
 import { Text } from '@/components/ui/text';
+import Password from '../PasswordUser';
+
 interface UserPageProps {
   lng: string;
 }
 
-const UserPage = async ({ lng }: UserPageProps) => {
-  const { t } = await createTranslation(lng, 'account');
+const UserPage = ({ lng }: UserPageProps) => {
+  const { t } = useTranslation(lng, 'account');
 
   return (
-    <>
+    <Content className='w-full'>
       <Text element='h3' type='heading3-semi-bold'>
         {t('detail_infomation')}
       </Text>
-      <AccountInformation lng={lng} />
-      <Password lng={lng} />
-    </>
+
+      <AccountInformation t={t} />
+      <Password t={t} />
+    </Content>
   );
 };
 

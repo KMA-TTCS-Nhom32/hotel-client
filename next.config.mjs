@@ -13,6 +13,9 @@ const nextConfig = {
       },
     ],
   },
+  sassOptions: {
+    additionalData: `@import "@/styles/mixins.scss";`,
+  },
 };
 
 export default nextConfig;

@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 type AuthModalForm = 'auth' | 'confirm_email_or_phone' | 'forgot_password';
 
-interface AuthModalStore {
+type AuthModalStore = {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
@@ -13,7 +13,7 @@ interface AuthModalStore {
 export const useAuthModal = create<AuthModalStore>((set) => ({
   isOpen: false,
   onOpen: () => set(() => ({ isOpen: true })),
-  onClose: () => set(() => ({ isOpen: false })),
+  onClose: () => set(() => ({ isOpen: false, formType: 'auth' })),
   formType: 'auth',
   setFormType: (formType) => set(() => ({ formType })),
 }));

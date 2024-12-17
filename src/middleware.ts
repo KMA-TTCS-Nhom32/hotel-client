@@ -2,14 +2,18 @@ import acceptLanguage from 'accept-language';
 import { NextResponse, NextRequest } from 'next/server';
 
 import { fallbackLng, languages, cookieName } from '@/i18n/settings';
+import { APP_ROUTES, NeedAuthRoutes } from './constants/routes.constant';
+import { AuthCookieService } from './services/auth-cookie';
 
 acceptLanguage.languages(languages);
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|images|logos|favicon.ico|sw.js|site.webmanifest).*)'],
+  matcher: [
+    '/((?!api|_next/static|_next/image|images|logos|favicon.ico|sw.js|site.webmanifest).*)',
+  ],
 };
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
   const { pathname, search } = req.nextUrl;
 
   if (pathname.indexOf('icon') > -1 || pathname.indexOf('chrome') > -1) {
@@ -27,10 +31,7 @@ export function middleware(req: NextRequest) {
   console.log('lng: ', lng);
 
   // Redirect if language in path is not supported
-  if (
-    !languages.some((loc) => pathname.startsWith(`/${loc}`)) && 
-    !pathname.startsWith('/_next')
-  ) {
+  if (!languages.some((loc) => pathname.startsWith(`/${loc}`)) && !pathname.startsWith('/_next')) {
     return NextResponse.redirect(new URL(`/${lng}${pathname}${search}`, req.url));
   }
 
@@ -42,5 +43,40 @@ export function middleware(req: NextRequest) {
     return response;
   }
 
-  return NextResponse.next();
+  const res = NextResponse.next();
+  const accessToken = await AuthCookieService.getServerAccessToken({ req, res });
+  const refreshToken = await AuthCookieService.getServerRefreshToken({ req, res });
+  const expireTime = await AuthCookieService.getServerExpireTime({ req, res });
+  
+  const haveAccessToken = AuthCookieService.isAuthenticated(accessToken);
+  const isNeedAuthRoute = NeedAuthRoutes.some((route) => pathname.startsWith(`/${lng}${route}`));
+  const isTokenExpired = expireTime && new Date(expireTime) < new Date();
+
+  if (isNeedAuthRoute) {
+    if (!haveAccessToken) {
+      return NextResponse.redirect(`/${lng}/${APP_ROUTES.Home}`);
+    }
+    
+    if (isTokenExpired && refreshToken) {
+      try {
+        // Use our internal refresh API route
+        const response = await fetch(`${req.nextUrl.origin}/api/auth/refresh`, {
+          method: 'POST',
+          headers: {
+            'Cookie': req.headers.get('cookie') || '',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Token refresh failed');
+        }
+
+        return res;
+      } catch {
+        return NextResponse.redirect(`/${lng}/${APP_ROUTES.Home}`);
+      }
+    }
+  }
+
+  return res;
 }

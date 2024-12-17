@@ -1,16 +1,9 @@
 'use client';
 
-import React from 'react';
-
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import React, { Suspense } from 'react';
 import Image from 'next/image';
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-} from '@/components/ui/select';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/ui/select';
 import { Text } from '@/components/ui/text';
 import { useTranslation } from '@/i18n/client';
 
@@ -19,7 +12,8 @@ const img_path = {
   en: '/images/flag-uk.png',
 };
 
-export const LanguageSwitcher = () => {
+// Separate the part that uses useSearchParams into its own component
+const LanguageSwitcherContent = () => {
   const pathname = usePathname();
   const lng = pathname.split('/')[1] as 'vi' | 'en';
   const { t } = useTranslation(lng);
@@ -27,10 +21,8 @@ export const LanguageSwitcher = () => {
   const searchParams = useSearchParams();
 
   const handleChangeLanguage = (language: string) => {
-    // /vi/second-page -> /en/second-page
     const newPathname = pathname.replace(/^\/(vi|en)/, `/${language}`);
     const params = new URLSearchParams(searchParams);
-
     replace(`${newPathname}${params.toString()}`);
   };
 
@@ -38,24 +30,18 @@ export const LanguageSwitcher = () => {
     {
       key: '1',
       value: 'vi',
-      label: {
-        img: img_path.vi,
-        text: t('lng_vi'),
-      },
+      label: { img: img_path.vi, text: t('lng_vi') },
     },
     {
       key: '2',
       value: 'en',
-      label: {
-        img: img_path.en,
-        text: t('lng_en'),
-      },
+      label: { img: img_path.en, text: t('lng_en') },
     },
   ];
 
   return (
     <Select value={lng} onValueChange={handleChangeLanguage}>
-      <SelectTrigger className='w-[124px] [&>svg]:hidden focus:ring-0 focus:ring-offset-ring flex items-center justify-center'>
+      <SelectTrigger className='w-auto sm:w-[124px] [&>svg]:hidden focus:ring-0 focus:ring-offset-ring flex items-center justify-center'>
         <div className='flex items-center gap-2'>
           <Image
             src={img_path[lng]}
@@ -78,11 +64,20 @@ export const LanguageSwitcher = () => {
                 height={40}
                 className='w-6 h-auto'
               />
-              <Text>{item.label.text}</Text>
+              <Text element='p'>{item.label.text}</Text>
             </div>
           </SelectItem>
         ))}
       </SelectContent>
     </Select>
+  );
+};
+
+// Main component with Suspense
+export const LanguageSwitcher = () => {
+  return (
+    <Suspense fallback={<div className='w-[124px] h-[40px] animate-pulse bg-gray-200 rounded' />}>
+      <LanguageSwitcherContent />
+    </Suspense>
   );
 };

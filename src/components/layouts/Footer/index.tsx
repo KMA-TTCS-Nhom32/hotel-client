@@ -2,11 +2,12 @@
 import styles from './index.module.scss';
 import Link from 'next/link';
 import { Linkedin, Facebook, Instagram } from 'lucide-react';
-import { createTranslation } from '@/i18n/server';
+
+import { createTranslation } from '@/i18n';
 
 interface FooterProps {
-    lng: string;
-  }
+  lng: string;
+}
 
 const Footer = async ({ lng }: Readonly<FooterProps>) => {
   const { t } = await createTranslation(lng);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import HeaderSecondary from '@/components/layouts/HeaderSecondary';
 
 interface OthersLayoutProps {
@@ -6,12 +6,12 @@ interface OthersLayoutProps {
   params: { lng: string };
 }
 
-const OthersLayout = ({ children, params: { lng } }: Readonly<OthersLayoutProps>) => {
+const OthersLayout = async ({ children, params: { lng } }: Readonly<OthersLayoutProps>) => {
   return (
-    <>
+    <Suspense fallback={undefined}>
       <HeaderSecondary lng={lng} />
       {children}
-    </>
+    </Suspense>
   );
 };
 
