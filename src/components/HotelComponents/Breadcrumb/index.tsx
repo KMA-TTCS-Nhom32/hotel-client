@@ -8,8 +8,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { useTranslation } from 'react-i18next';
 import styles from './index.module.scss';
+import { useTranslation } from '@/i18n/client';
 
 interface BreadcrumbProps {
   lng: string;
@@ -17,6 +17,7 @@ interface BreadcrumbProps {
 
 const BreadcrumbComponent = ({ lng }: Readonly<BreadcrumbProps>) => {
   const { t } = useTranslation(lng);
+  
   return (
     <UIBreadcrumb>
       <div className={styles.breadcrumb_item}>
