@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import styles from './BranchList.module.scss';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 
 interface Branch {
   id: number;
@@ -27,7 +26,7 @@ const branches: Branch[] = [
   {
     id: 2,
     name: 'SIGNATURE BY M VILLAGE HAI BÀ TRƯNG',
-    brand: 'Signature',
+    brand: 'Signature', 
     city: 'Ho Chi Minh',
     district: 'Quận 1',
     imageUrl:
@@ -37,7 +36,7 @@ const branches: Branch[] = [
     id: 3,
     name: 'EXPRESS BY M VILLAGE VÕ VĂN KIỆT',
     brand: 'Express',
-    city: 'Ho Chi Minh',
+    city: 'Ho Chi Minh', 
     district: 'Quận 5',
     imageUrl:
       'https://img.mvillage.vn/zmP9DhrShWAec13LvwBUtk0DeJUy7dcNnuT81PrSQbg/rs:fit:500:500/plain/https%3A%2F%2Fpms.mvillage.vn%2Fweb%2Fimage%3Fmodel%3Dhotel%26id%3D100%26field%3Dimage_1920',
@@ -197,9 +196,9 @@ const BranchList = () => {
             <img src={branch.imageUrl} alt={branch.name} className={styles.branchImage} />
             <div className={styles.branchInfo}>
               <h3>{branch.name}</h3>
-              <Link href={`/chi-nhanh/Ha-Noi`} className={styles.bookNow}>
-                Đặt ngay
-              </Link>
+              <a href='#' className={styles.bookNow}>
+                Đặt ngay →
+              </a>
             </div>
           </div>
         ))}
