@@ -11,6 +11,7 @@ import {
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
+import { AppTranslationFunction } from '@/lib/types/i18n';
 
 type BaseProps<TFieldValues extends FieldValues> = {
   className?: string;
@@ -20,6 +21,7 @@ type BaseProps<TFieldValues extends FieldValues> = {
   isLoading?: boolean;
   description?: string | ReactNode;
   isTextArea?: boolean;
+  t?: AppTranslationFunction;
 };
 
 type InputTextProps<TFieldValues extends FieldValues> = BaseProps<TFieldValues> &
@@ -37,6 +39,7 @@ function InputText<TFieldValues extends FieldValues>({
   isTextArea,
   onChange,
   disabled,
+  t,
   ...props
 }: InputTextProps<TFieldValues>) {
   return (
@@ -68,7 +71,7 @@ function InputText<TFieldValues extends FieldValues>({
             )}
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
-          <FormMessage />
+          <FormMessage t={t} />
         </FormItem>
       )}
     />

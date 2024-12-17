@@ -13,6 +13,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Eye, EyeOff } from 'lucide-react';
+import { AppTranslationFunction } from '@/lib/types/i18n';
 
 type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'form' | 'type'>;
 
@@ -24,6 +25,7 @@ interface InputPasswordProps<TFieldValues extends FieldValues> {
   isLoading?: boolean;
   description?: string | ReactNode;
   disablePasswordEye?: boolean;
+  t?: AppTranslationFunction;
 }
 
 const InputPassword = <TFieldValues extends FieldValues>({
@@ -36,6 +38,7 @@ const InputPassword = <TFieldValues extends FieldValues>({
   disabled,
   onChange,
   disablePasswordEye,
+  t,
   ...props
 }: InputPasswordProps<TFieldValues> & InputProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -78,7 +81,7 @@ const InputPassword = <TFieldValues extends FieldValues>({
             </div>
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
-          <FormMessage />
+          <FormMessage t={t} />
         </FormItem>
       )}
     />
