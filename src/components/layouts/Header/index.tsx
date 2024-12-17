@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,7 +9,6 @@ import Image from 'next/image';
 import { useTranslation } from '@/i18n/client';
 
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
-import SearchForm from '@/components/HomeComponents/BannerSearchBar/SearchForm';
 import UserButton from '@/components/Common/UserButton';
 import Container from '@/components/Common/Container';
 
@@ -18,8 +18,10 @@ import { APP_ROUTES } from '@/constants/routes.constant';
 
 import styles from './index.module.scss';
 
-// import DarkLogo from '/logos/logo-large-dark.png';
-// import LightLogo from '/logos/logo-large-light.png';
+const DynamicSearchForm = dynamic(
+  () => import('@/components/HomeComponents/BannerSearchBar/SearchForm'),
+  { ssr: false }
+);
 
 interface HeaderProps {
   lng: string;
@@ -76,7 +78,9 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
             </nav>
           </>
         ) : (
-          <SearchForm lng={lng} />
+          <Suspense fallback={null}>
+            <DynamicSearchForm lng={lng} />
+          </Suspense>
         )}
       </Container>
     </header>
