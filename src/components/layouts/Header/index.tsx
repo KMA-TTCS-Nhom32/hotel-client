@@ -20,7 +20,7 @@ import styles from './index.module.scss';
 
 const DynamicSearchForm = dynamic(
   () => import('@/components/HomeComponents/BannerSearchBar/SearchForm'),
-  { ssr: false }
+  { ssr: false },
 );
 
 interface HeaderProps {
@@ -64,13 +64,26 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
         {isVisible ? (
           <>
             <Link href={APP_ROUTES.Home}>
-              <Image src={logoSrc} alt='Logo' width={200} height={40} className={styles.logo} priority />
+              <Image
+                src={logoSrc}
+                alt='Logo'
+                width={200}
+                height={40}
+                className={styles.logo}
+                priority
+              />
             </Link>
 
             <nav className={styles.nav_links}>
-              <Link href={APP_ROUTES.SearchRoom} className={styles.pure_link}>{t('route.search_room')}</Link>
-              <Link href={APP_ROUTES.About} className={styles.pure_link}>{t('route.about')}</Link>
-              <Link href={APP_ROUTES.Contact} className={styles.pure_link}>{t('route.contact')}</Link>
+              <Link href={APP_ROUTES.SearchRoom} className={styles.pure_link}>
+                {t('route.search_room')}
+              </Link>
+              <Link href={APP_ROUTES.About} className={styles.pure_link}>
+                {t('route.about')}
+              </Link>
+              <Link href={APP_ROUTES.Contact} className={styles.pure_link}>
+                {t('route.contact')}
+              </Link>
 
               <LanguageSwitcher />
 
