@@ -14,12 +14,12 @@ import { useTranslation } from '@/i18n/client';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import ChangePassword from './ChangePassword/index';
 import ProfileCard from '../Card';
+import { AppTranslationFunction } from '@/lib/types/i18n';
 interface Password {
-  lng: string;
+  t: AppTranslationFunction;
 }
 
-const Password = ({ lng }: Readonly<Password>) => {
-  const { t } = useTranslation(lng, 'account');
+const Password = ({ t }: Readonly<Password>) => {
   const [changepw, setchanpw] = useState(true);
   const changepassword = () => {
     setchanpw(false);
@@ -56,7 +56,7 @@ const Password = ({ lng }: Readonly<Password>) => {
           </div>
         </div>
       )}
-      {!changepw && <ChangePassword lng={lng} />}
+      {!changepw && <ChangePassword t={t} />}
     </ProfileCard>
   );
 };

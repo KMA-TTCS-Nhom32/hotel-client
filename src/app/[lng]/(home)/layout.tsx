@@ -3,18 +3,16 @@ import BranchPage from '@/components/TEST/Components/BranchPage/layouts';
 import IllustrationImage from '@/components/HotelComponents/IllustrationImage';
 import React from 'react';
 
-interface ServicesLayoutProps {
+interface HomeLayoutProps {
   children: React.ReactNode;
   params: { lng: string };
 }
 
-const ServicesLayout = ({ children, params: { lng } }: Readonly<ServicesLayoutProps>) => {
+export default async function HomeLayout({ children, params: { lng } }: Readonly<HomeLayoutProps>) {
   return (
     <>
       <Header lng={lng} />
       {children}
     </>
   );
-};
-
-export default ServicesLayout;
+}

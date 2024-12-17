@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,7 +9,6 @@ import Image from 'next/image';
 import { useTranslation } from '@/i18n/client';
 
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
-import SearchForm from '@/components/HomeComponents/BannerSearchBar/SearchForm';
 import UserButton from '@/components/Common/UserButton';
 import Container from '@/components/Common/Container';
 
@@ -18,17 +18,18 @@ import { APP_ROUTES } from '@/constants/routes.constant';
 
 import styles from './index.module.scss';
 
-import DarkLogo from '@public/logos/logo-large-dark.png';
-import LightLogo from '@public/logos/logo-large-light.png';
-import { Breadcrumb } from '@/components/ui/breadcrumb';
+const DynamicSearchForm = dynamic(
+  () => import('@/components/HomeComponents/BannerSearchBar/SearchForm'),
+  { ssr: false },
+);
 
 interface HeaderProps {
   lng: string;
 }
 
 const logo = {
-  dark: DarkLogo,
-  light: LightLogo,
+  dark: '/logos/logo-large-dark.png',
+  light: '/logos/logo-large-light.png',
 };
 
 export default function Header({ lng }: Readonly<HeaderProps>) {
@@ -63,13 +64,26 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
         {isVisible ? (
           <>
             <Link href={APP_ROUTES.Home}>
-              <Image src={logoSrc} alt='Logo' className={styles.logo} priority />
+              <Image
+                src={logoSrc}
+                alt='Logo'
+                width={200}
+                height={40}
+                className={styles.logo}
+                priority
+              />
             </Link>
 
             <nav className={styles.nav_links}>
-              <Link href={APP_ROUTES.SearchRoom}>{t('route.search_room')}</Link>
-              <Link href={APP_ROUTES.About}>{t('route.about')}</Link>
-              <Link href={APP_ROUTES.Contact}>{t('route.contact')}</Link>
+              <Link href={APP_ROUTES.SearchRoom} className={styles.pure_link}>
+                {t('route.search_room')}
+              </Link>
+              <Link href={APP_ROUTES.About} className={styles.pure_link}>
+                {t('route.about')}
+              </Link>
+              <Link href={APP_ROUTES.Contact} className={styles.pure_link}>
+                {t('route.contact')}
+              </Link>
 
               <LanguageSwitcher />
 
@@ -77,7 +91,9 @@ export default function Header({ lng }: Readonly<HeaderProps>) {
             </nav>
           </>
         ) : (
-          <SearchForm lng={lng} />
+          <Suspense fallback={null}>
+            <DynamicSearchForm lng={lng} />
+          </Suspense>
         )}
       </Container>
     </header>

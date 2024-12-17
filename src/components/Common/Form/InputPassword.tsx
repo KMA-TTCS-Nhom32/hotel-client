@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, ReactNode, useState } from 'react';
-import { FieldValues, FieldPath } from 'react-hook-form';
+import { FieldValues, FieldPath, Control } from 'react-hook-form';
 
 import {
   FormControl,
@@ -13,20 +13,24 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Eye, EyeOff } from 'lucide-react';
+import { AppTranslationFunction } from '@/lib/types/i18n';
 
 type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'form' | 'type'>;
 
 interface InputPasswordProps<TFieldValues extends FieldValues> {
   className?: string;
+  control?: Control<TFieldValues>;
   name: FieldPath<TFieldValues>;
   label: string;
   isLoading?: boolean;
   description?: string | ReactNode;
   disablePasswordEye?: boolean;
+  t?: AppTranslationFunction;
 }
 
 const InputPassword = <TFieldValues extends FieldValues>({
   className,
+  control,
   name,
   label,
   isLoading,
@@ -34,12 +38,14 @@ const InputPassword = <TFieldValues extends FieldValues>({
   disabled,
   onChange,
   disablePasswordEye,
+  t,
   ...props
 }: InputPasswordProps<TFieldValues> & InputProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   return (
     <FormField
+      control={control}
       name={name}
       render={({ field, fieldState: { error } }) => (
         <FormItem className={className}>
@@ -75,7 +81,7 @@ const InputPassword = <TFieldValues extends FieldValues>({
             </div>
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
-          <FormMessage />
+          <FormMessage t={t} />
         </FormItem>
       )}
     />
