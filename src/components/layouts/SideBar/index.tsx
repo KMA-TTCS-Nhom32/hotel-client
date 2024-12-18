@@ -3,7 +3,7 @@ import { SlArrowRight } from 'react-icons/sl';
 import { RiMedalFill } from 'react-icons/ri';
 import { useTranslation } from '@/i18n/client';
 import LogOutButton from '@/components/Common/LogOutButton';
-
+import Link from 'next/link';
 import style from './index.module.scss';
 
 interface SideBar {
@@ -22,8 +22,10 @@ const SideBar = ({ lng }: Readonly<SideBar>) => {
             <RiMedalFill />
           </div>
           <div className={style.text}>
+            <Link href={'/account'}>
             <div className="text-white text-base">{t('YOU’RE')}</div>
-            <div className='text-white text-lg font-bold'>{t('New_Citizen')}</div>
+              <div className='text-white text-lg font-bold'>{t('New_Citizen')}</div>
+            </Link>
           </div>
           <div className={style.icon2}>{`>`}</div>
         </div>
@@ -40,7 +42,10 @@ const SideBar = ({ lng }: Readonly<SideBar>) => {
         </div>
       </div>
       <div className={style.main}>
-        <div className={style.box}>{t('account_manager')}</div>
+        <div className={style.box}>
+          <Link href={'/account/account-infor'}>   {t('account_manager')}</Link>
+
+        </div>
         <div className={style.box}>{t('my_reservations')}</div>
         <div className={style.box3}></div>
         <div className={style.box}>
