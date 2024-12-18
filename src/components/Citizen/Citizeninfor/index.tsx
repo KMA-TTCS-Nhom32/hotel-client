@@ -3,24 +3,24 @@ import { FaCloudMoon } from "react-icons/fa6";
 import { FaHouseChimneyWindow } from "react-icons/fa6";
 import Link from "next/link";
 import { useTranslation } from '@/i18n/client';
+import { Progress } from "@/components/ui/progress"
+
 interface CitizenInfor {
     lng: string;
+    title: string;
+    nextname: string;
 }
 
-const CitizenInfor = ({ lng }: Readonly<CitizenInfor>) => {
 
-    let rank = [{ id: 'bronze', name: 'Thành viên Mới' },
-        { id: 'silver', name: 'Thành viên Bạc'},
-        { id: 'gold', name: 'Thành viên Vàng' },
-        { id: 'platium', name: 'Thành viên Bạch kim' },
+const CitizenInfor = ({ lng, title, nextname }: Readonly<CitizenInfor>) => {
 
-
-    ]
+    const { t } = useTranslation(lng, 'home'); 
+    
 
     return (
         <div className="bg-orange-500 p-6 relative rounded-xl">
             <div className="text-3xl text-white pb-2 font-medium	">
-                {rank[0].name}
+              {title}
             </div>
             <div className="text-lg	 text-white">Tích luỹ
                 <b> 3 đặt phòng </b>
@@ -29,34 +29,35 @@ const CitizenInfor = ({ lng }: Readonly<CitizenInfor>) => {
                 trước
                 <b> 15/07/2025 </b>
                 để tiến tới
-                <b> Hội viên BẠC</b></div>
+                <b> { nextname}</b></div>
             <div className=" flex pt-2 mt-2 items-center gap-2 ">
                 <div className="flex items-center gap-3 grow shrink">
                     <div className="">
-                        <FaCloudMoon className="text-orange-600  justify-items-center rounded-xl bg-white w-10 h-20 px-2 py-2"/>
+                        <FaCloudMoon className="text-orange-600  justify-items-center rounded-xl bg-white w-10 h-20 px-2 py-2" />
                     </div>
                     <div className="grow shrink">
                         <div className="text-lg	text-slate-200">
                             <b className="text-white text-3xl ">
-                               0/
+                                0/
                             </b>
                             7 Đêm
 
                         </div>
 
-                        <div className="mt-1 relative h-6 rounded-xl p-0.5">
+                        <div className="">
+                            <Progress className=" bg-orange-700 mt-1 relative h-6 rounded-xl " value={50} />
 
                         </div>
 
                     </div>
-                    
+
                 </div>
                 <div className="flex flex-col items-center grow-0 shrink gap-2 px-5">
                     <div className="w-0.5 h-10 bg-white ">
 
                     </div>
                     <div className="divider-label uppercase text-white ">
-                         hoặc
+                        hoặc
 
                     </div>
                     <div className="w-0.5 h-10 bg-white gap-2">
@@ -66,7 +67,7 @@ const CitizenInfor = ({ lng }: Readonly<CitizenInfor>) => {
                 </div>
                 <div className="flex items-center gap-3 grow shrink">
                     <div className="icon">
-                        <FaHouseChimneyWindow className="text-orange-600 justify-items-center rounded-xl bg-white w-10 h-20 px-2 py-2"/>
+                        <FaHouseChimneyWindow className="text-orange-600 justify-items-center rounded-xl bg-white w-10 h-20 px-2 py-2" />
 
 
                     </div>
@@ -75,10 +76,11 @@ const CitizenInfor = ({ lng }: Readonly<CitizenInfor>) => {
                             <b className="text-white text-3xl ">
                                 0/
                             </b>
-                           3 Đặt phòng
+                            3 Đặt phòng
 
                         </div>
-                        <div className="mt-1 relative h-6 rounded-xl p-0.5">
+                        <div className="">
+                            <Progress className="bg-orange-700 mt-1 relative h-6 rounded-xl " value={50} />
 
                         </div>
 
