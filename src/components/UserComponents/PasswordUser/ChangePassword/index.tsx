@@ -49,17 +49,17 @@ const ChangePasswordForm = ({ t, onCancel }: ChangePasswordFormProps) => {
             <InputPassword<ChangePasswordFormValues>
               name='currentPassword'
               label={t('Current_password')}
-              placeholder={t('auth.placeholder.current_password')}
+              placeholder={t('placeholder.current_password')}
             />
             <InputPassword<ChangePasswordFormValues>
               name='newPassword'
               label={t('New_password')}
-              placeholder={t('auth.placeholder.new_password')}
+              placeholder={t('placeholder.new_password')}
             />
             <InputPassword<ChangePasswordFormValues>
               name='confirmNewPassword'
               label={t('Confirm new password')}
-              placeholder={t('auth.placeholder.confirm_new_password')}
+              placeholder={t('placeholder.confirm_new_password')}
             />
           </div>
           <div className='flex  mt-6 justify-center'>

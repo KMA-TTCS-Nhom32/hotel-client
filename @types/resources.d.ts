@@ -30,7 +30,8 @@ interface Resources {
       "confirm_password": "Confirm your password",
       "full_name": "Enter your full name",
       "phone_number": "Enter your phone number",
-      "new_password": "Enter new password"
+      "new_password": "Enter new password",
+      "confirm_new_password": "Confirm your new password"
     },
     "gender": "Gender",
     "male": "Male",
