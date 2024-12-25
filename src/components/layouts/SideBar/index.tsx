@@ -5,6 +5,8 @@ import { useTranslation } from '@/i18n/client';
 import LogOutButton from '@/components/Common/LogOutButton';
 import Link from 'next/link';
 import style from './index.module.scss';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 interface SideBar {
   lng: string;
@@ -12,6 +14,7 @@ interface SideBar {
 
 const SideBar = ({ lng }: Readonly<SideBar>) => {
   const { t } = useTranslation(lng, 'account');
+  const pathName = usePathname();
   return (
     <div className={style.side_bar}>
 
@@ -42,11 +45,12 @@ const SideBar = ({ lng }: Readonly<SideBar>) => {
         </div>
       </div>
       <div className={style.main}>
-        <div className={style.box}>
+        <div className={cn(style.box, pathName.includes('/account/account-infor') ? "bg-orange-100" : "")  }>
           <Link href={'/account/account-infor'}>   {t('account_manager')}</Link>
 
         </div>
-        <div className={style.box}>{t('my_reservations')}</div>
+        <div className={cn(style.box, pathName.includes('/account/My-reservation') ? "bg-orange-100" : "")}>
+          <Link href={'/account/My-reservation'}>{t('my_reservations')}</Link></div>
         <div className={style.box3}></div>
         <div className={style.box}>
           <LogOutButton />

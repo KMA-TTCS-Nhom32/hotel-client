@@ -13,7 +13,7 @@ const Benefit = ({ lng, title, description }: Readonly<Benefit>) => {
 
     return (
 
-        <div className="my-4 py-2 relative flex flex-col items-center bg-orange-200 rounded-2xl ">
+        <div className="my-4 py-2 relative flex flex-col items-center bg-orange-100 rounded-2xl ">
             <div className="w-14 h-14 icon bg-slate-200 rounded-full">
                 <FaDoorOpen className="w-full h-full p-2 text-orange-400" />
 
