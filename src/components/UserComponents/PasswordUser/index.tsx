@@ -1,32 +1,22 @@
 'use client';
-import style from './index.module.scss';
-import { FaUser } from 'react-icons/fa';
-import { CgMail } from 'react-icons/cg';
-import { FaPhoneVolume } from 'react-icons/fa6';
-import { BsFillKeyFill } from 'react-icons/bs';
+
 import { useState } from 'react';
-import { SiTrueup } from 'react-icons/si';
-import { FaEyeSlash } from 'react-icons/fa';
-import { IoCheckmarkCircle } from 'react-icons/io5';
-import { FaEye } from 'react-icons/fa';
-import { Input } from '@/components/ui/input';
-import { useTranslation } from '@/i18n/client';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import ChangePassword from './ChangePassword/index';
+
+import { BsFillKeyFill } from 'react-icons/bs';
+import ChangePassword from './ChangePassword';
 import ProfileCard from '../Card';
+import { AppTranslationFunction } from '@/lib/types/i18n';
 interface Password {
-  lng: string;
+  t: AppTranslationFunction;
 }
 
-const Password = ({ lng }: Readonly<Password>) => {
-  const { t } = useTranslation(lng, 'account');
+const Password = ({ t }: Readonly<Password>) => {
   const [changepw, setchanpw] = useState(true);
   const changepassword = () => {
     setchanpw(false);
   };
   const handleCancel = () => {
     setchanpw(true);
-
   };
   return (
     <ProfileCard title={t('Password')}>
@@ -46,7 +36,7 @@ const Password = ({ lng }: Readonly<Password>) => {
           </div>
         </div>
       )}
-      {!changepw && <ChangePassword lng={lng} onCancel={handleCancel} />}
+      {!changepw && <ChangePassword t={t} onCancel={handleCancel} />}
     </ProfileCard>
   );
 };

@@ -1,32 +1,42 @@
-import React from 'react';
-import { Resources, TFunction } from 'i18next';
+'use client';
+
+import { Search } from 'lucide-react';
+
+import { useTranslation } from '@/i18n/client';
+
+import { Text } from '@/components/ui/text';
+import { ButtonCustom } from '@/components/ui/button-custom';
+
+import { useScreen } from '@/hooks/useScreen';
+import { cn } from '@/lib/utils';
+
+import { DOM_IDS } from '@/constants/dom.constant';
 
 import styles from './index.module.scss';
 
+import FilterBar from './FilterBar';
+import FilterBarMobile from './FilterBar/FilterBarMobile';
+
 interface HomeSearchBarProps {
-  t: TFunction<keyof Resources, undefined>;
+  lng: string;
+  className?: string;
+  ref?: React.RefObject<HTMLDivElement>;
 }
 
-const SearchForm = ({ t }: Readonly<HomeSearchBarProps>) => {
+const SearchForm = ({ lng, className }: Readonly<HomeSearchBarProps>) => {
+  const { t } = useTranslation(lng);
+  const { isMobile } = useScreen();
+
   return (
-    <div id='home-search-bar' className={styles.booking_form}>
-      <div className={styles.filter_location_container}>
-        <label>{t('Chọn vị trí')}</label>
-        <input type='text' placeholder={t('Công tác ngắn ngày?')} />
-      </div>
-      <div className={styles.filter_range_date}>
-        <label>{t('Nhận phòng')}</label>
-        <input type='date' />
-      </div>
-      <div className={styles.filter_range_date}>
-        <label>{t('Trả phòng')}</label>
-        <input type='date' />
-      </div>
-      <div className={styles.filter_occupancy_container}>
-        <label>{t('Số khách')}</label>
-        <input type='number' min='1' max='10' />
-      </div>
-      <button className={styles.search_button}>{t('Tìm phòng')}</button>
+    <div id={DOM_IDS.HOME_SEARCH_BAR} className={cn(styles.booking_form, className)}>
+      {isMobile ? <FilterBarMobile t={t} lng={lng} /> : <FilterBar t={t} lng={lng} />}
+
+      <ButtonCustom className={styles.search_button}>
+        <Text element='p' type='title1-semi-bold'>
+          {t('bookingform.search')}
+        </Text>
+        <Search />
+      </ButtonCustom>
     </div>
   );
 };

@@ -62,7 +62,65 @@
       "confirm_password": "Enter your confirm password",
       "phone": "Enter your phone number",
       "email": "Enter your email",
-      "name": "Enter your name"
+      "name": "Enter your name",
+      "current_password": "Enter your current password",
+      "new_password": "Enter your new password",
+      "confirm_new_password": "Enter your confirm new password"
+    },
+    "register_success": "Register successfully. Please check your email to activate your account",
+    "register_error": "Register failed. Please try again",
+    "active_account_success": "Activate account successfully",
+    "active_account_error": "Activate account failed",
+    "enter_otp": "Enter the OTP sent to your {{field}}",
+    "login_success": "Login successfully",
+    "login_error": "Login failed",
+    "required": {
+      "email_or_phone": "Email/Phone is required",
+      "name": "Name is required",
+      "otp": "OTP is required",
+      "password": "Password is required",
+      "confirm_password": "Confirm password is required"
+    },
+    "validate": {
+      "email_or_phone": "Invalid email or phone",
+      "password_min_length": "Password must be at least 8 characters",
+      "password_uppercase": "Password must have at least 1 uppercase letter",
+      "password_lowercase": "Password must have at least 1 lowercase letter",
+      "password_digit": "Password must have at least 1 digit",
+      "password_special": "Password must have at least 1 special character",
+      "password_match": "Password does not match"
     }
-  }
+  },
+  "bookingform": {
+    "location": "Where",
+    "placeholder_location": "Your leisure trip?",
+    "checkIn": "Check in",
+    "checkOut": "Check out",
+    "occupancy": "Guest",
+    "guests": "Guests",
+    "search": "Find room",
+    "explore": "Explore",
+    "adults": "Adults",
+    "children": "Children",
+    "baby": "Baby",
+    "adults_description": "Older than 18 years old",
+    "children_description": "From 6 to 18 years old",
+    "baby_description": "Less than 6 years old",
+    "apply": "Apply"
+  },
+
+  "select_date": {
+    "hourly": "Hourly",
+    "daily": "Daily",
+    "nightly": "Over night",
+    "check_in_time": "Check-in time",
+    "check_in_placeholder": "Select check-in time",
+    "duration": "Duration",
+    "duration_placeholder": "Select duration",
+    "duration_hours_one": "{{count}} hour",
+    "duration_hours_other": "{{count}} hours"
+  },
+
+  "hanoi": "Hanoi",
+  "ho_chi_minh": "Ho Chi Minh"
 }
