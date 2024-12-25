@@ -77,21 +77,21 @@ const AccountInfo = ({ t }: Readonly<AccountInfoProps>) => {
             <InputText<AccountInforValues>
               name='phone'
               label={t('Phone_number')}
-              placeholder='Input Email'
+              placeholder={t('placeholder.phone_number')}
             />
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <InputText<AccountInforValues>
               name='name'
               label={t('Full_name')}
-              placeholder={t('Full_name')}
+              placeholder={t('placeholder.full_name')}
             />
             <FormField
               control={control}
               name='gender'
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Gender</FormLabel>
+                  <FormLabel>{t('gender')}</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -99,8 +99,8 @@ const AccountInfo = ({ t }: Readonly<AccountInfoProps>) => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value='male'>Male</SelectItem>
-                      <SelectItem value='female'>Female</SelectItem>
+                      <SelectItem value='male'>{t('male')}</SelectItem>
+                      <SelectItem value='female'>{t('female')}</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -114,7 +114,7 @@ const AccountInfo = ({ t }: Readonly<AccountInfoProps>) => {
               name='birthDate'
               render={({ field }) => (
                 <FormItem className='flex flex-col'>
-                  <FormLabel>Date of birth</FormLabel>
+                  <FormLabel>{t('date_of_birth')}</FormLabel>
                   <Popover>
                     <PopoverTrigger asChild>
                       <FormControl>
