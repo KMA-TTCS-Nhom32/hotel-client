@@ -1,5 +1,5 @@
 'use client';
-import { SlArrowRight } from 'react-icons/sl';
+
 import { RiMedalFill } from 'react-icons/ri';
 import { useTranslation } from '@/i18n/client';
 import LogOutButton from '@/components/Common/LogOutButton';
@@ -8,6 +8,7 @@ import style from './index.module.scss';
 import { cn } from '@/lib/utils';
 import { useProfileStore } from '@/providers/profile-store-provider';
 import { usePathname } from 'next/navigation';
+import { APP_ROUTES } from '@/constants/routes.constant';
 
 interface SideBar {
   lng: string;
@@ -19,6 +20,16 @@ const SideBar = ({ lng, className }: Readonly<SideBar>) => {
   const { profile } = useProfileStore((state) => state);
 
   const pathName = usePathname();
+
+  const isCurrentPathname = (path: string) => {
+    return pathName.includes(path);
+  };
+
+  const links: { href: string; title: string }[] = [
+    { href: APP_ROUTES.AccountInfor, title: t('account_manager') },
+    { href: APP_ROUTES.AccountMyReservation, title: t('my_reservations') },
+  ];
+
   return (
     <div className={cn(style.side_bar, className)}>
       <div className={style.container}>
@@ -48,22 +59,14 @@ const SideBar = ({ lng, className }: Readonly<SideBar>) => {
         </div>
       </div>
       <div className={style.main}>
-        <div
-          className={cn(
-            style.box,
-            pathName.includes('/account/account-infor') ? 'bg-orange-100' : '',
-          )}
-        >
-          <Link href={'/account/account-infor'}> {t('account_manager')}</Link>
-        </div>
-        <div
-          className={cn(
-            style.box,
-            pathName.includes('/account/My-reservation') ? 'bg-orange-100' : '',
-          )}
-        >
-          <Link href={'/account/My-reservation'}>{t('my_reservations')}</Link>
-        </div>
+        {links.map((link, index) => (
+          <div
+            key={index}
+            className={cn(style.box, isCurrentPathname(link.href) && 'bg-orange-100')}
+          >
+            <Link href={link.href}>{link.title}</Link>
+          </div>
+        ))}
         <div className={style.box3}></div>
         <div className={style.box}>
           <LogOutButton />

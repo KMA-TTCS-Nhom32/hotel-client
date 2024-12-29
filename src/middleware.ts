@@ -47,23 +47,23 @@ export async function middleware(req: NextRequest) {
   const accessToken = await AuthCookieService.getServerAccessToken({ req, res });
   const refreshToken = await AuthCookieService.getServerRefreshToken({ req, res });
   const expireTime = await AuthCookieService.getServerExpireTime({ req, res });
-  
+
   const haveAccessToken = AuthCookieService.isAuthenticated(accessToken);
   const isNeedAuthRoute = NeedAuthRoutes.some((route) => pathname.startsWith(`/${lng}${route}`));
   const isTokenExpired = expireTime && new Date(expireTime) < new Date();
 
   if (isNeedAuthRoute) {
     if (!haveAccessToken) {
-      return NextResponse.redirect(`/${lng}/${APP_ROUTES.Home}`);
+      return NextResponse.redirect(new URL(`/${lng}/${APP_ROUTES.Home}`, req.url));
     }
-    
+
     if (isTokenExpired && refreshToken) {
       try {
         // Use our internal refresh API route
         const response = await fetch(`${req.nextUrl.origin}/api/auth/refresh`, {
           method: 'POST',
           headers: {
-            'Cookie': req.headers.get('cookie') || '',
+            Cookie: req.headers.get('cookie') || '',
           },
         });
 
@@ -73,7 +73,7 @@ export async function middleware(req: NextRequest) {
 
         return res;
       } catch {
-        return NextResponse.redirect(`/${lng}/${APP_ROUTES.Home}`);
+        return NextResponse.redirect(new URL(`/${lng}/${APP_ROUTES.Home}`, req.url));
       }
     }
   }

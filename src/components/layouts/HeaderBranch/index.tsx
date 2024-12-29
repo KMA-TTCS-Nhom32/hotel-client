@@ -11,9 +11,9 @@ const HeaderBranch = ({ lng }: HeaderBranchProps) => {
   return (
     <>
       <header className='h-auto'>
-        <HeaderSecondary lng={lng} className='!relative' />
+        <HeaderSecondary lng={lng} className='!relative !z-30 !shadow-none !border-none' />
       </header>
-      <div className='sticky w-full bg-white top-0 mt-0 z-30 border-t border-solid border-t-gray-200 shadow-md'>
+      <div className='sticky w-full bg-white top-0 mt-0 z-20 border-t border-solid border-t-gray-200 shadow-md'>
         <Container>
           <SearchForm lng={lng} className='!max-w-full sm:!px-0' />
         </Container>

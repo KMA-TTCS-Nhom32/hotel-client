@@ -10,7 +10,7 @@
         "button": "Đặt phòng",
         "title": "Hoàn tất đặt phòng của bạn",
         "subtitle": "Kiểm tra kỹ mọi thứ đã ổn chưa? Tuyệt vời! Tiến hành bảo đảm chỗ ở của bạn.",
-        "citizen_text": "Xin chào Hoàng Kim Chi!",
+        "citizen_text": "Xin chào {{name}}!",
         "citizen_text2": " Hãy tận hưởng những đặc quyền này bằng cách hoàn tất đặt phòng này:",
         "citizen_subtext": "Đăng nhập với tư cách Hoàng Kim Chi",
         "citizen_level_label": "Hội viên MỚI",

@@ -24,11 +24,6 @@ interface HeaderSecondaryProps {
 const HeaderSecondary = async ({ lng, className, logoSrc }: HeaderSecondaryProps) => {
   const { t } = await createTranslation(lng);
 
-  //   const logo = {
-  //     dark: '/logos/logo-large-dark.png',
-  //     light: '/logos/logo-large-light.png',
-  //   };
-
   return (
     <header className={cn(styles.header_section, styles.bg_white, className)}>
       <Container className={styles.header_container}>

@@ -1,0 +1,16 @@
+.layout {
+  width: 100%;
+  background: #f6f6f6;
+  padding: 2rem 0;
+}
+
+.layoutContainer {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 351px;
+  grid-column-gap: 24px;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}

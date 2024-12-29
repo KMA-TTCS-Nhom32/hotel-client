@@ -4,10 +4,18 @@ export const APP_ROUTES = {
   Contact: '/contact',
   SearchRoom: '/tim-kiem',
   Account: '/account',
-  BookRoom: '/dat-phong',
+  AccountInfor: '/account/infor',
+  AccountMyReservation: '/account/my-reservation',
+  Branch: '/chi-nhanh',
+  Booking: '/dat-phong',
+  Payment: '/thanh-toan',
+  ConfirmBooking: '/xac-nhan-dat-phong',
 };
 
 export const NeedAuthRoutes = [
-    APP_ROUTES.Account,
-    APP_ROUTES.BookRoom,
+  APP_ROUTES.Account,
+  APP_ROUTES.AccountInfor,
+  APP_ROUTES.AccountMyReservation,
+  APP_ROUTES.Booking,
+  APP_ROUTES.Payment,
 ];

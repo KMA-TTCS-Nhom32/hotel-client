@@ -34,7 +34,7 @@ const AuthModal = ({ lng }: AuthModalProps) => {
     value: '',
     id: '',
   });
-  console.log(registerIdentifier);
+
   const buttonLink =
     authForm === 'login'
       ? {
@@ -71,7 +71,7 @@ const AuthModal = ({ lng }: AuthModalProps) => {
             {t('auth.welcome')}
           </Text>
 
-          <ScrollArea className='w-full h-full overflow-y-scroll hidden-scrollbar'>
+          <ScrollArea className='w-full max-h-full'>
             {formType === 'auth' &&
               (authForm === 'login' ? (
                 <LoginForm t={t} />

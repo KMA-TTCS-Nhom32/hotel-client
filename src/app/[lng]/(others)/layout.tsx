@@ -9,7 +9,7 @@ const OthersLayout = async ({ children, params: { lng } }: Readonly<OthersLayout
   return (
     <Suspense fallback={undefined}>
       <HeaderSecondary lng={lng} />
-      {children}
+      <div className='mt-[65px]'>{children}</div>
     </Suspense>
   );
 };

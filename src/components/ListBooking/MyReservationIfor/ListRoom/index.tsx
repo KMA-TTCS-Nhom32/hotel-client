@@ -1,4 +1,3 @@
-import { createTranslation } from '@/i18n/server';
 import { Text } from '@/components/ui/text';
 import Image from 'next/image';
 
@@ -7,8 +6,6 @@ interface ListRoomProps {
 }
 
 const ListRoom = async ({ lng }: ListRoomProps) => {
-    const { t } = await createTranslation(lng, 'account');
-
     return (
 
         <div className='w-full pt-5 flex flex-col cursor-pointer sm:flex-row'>

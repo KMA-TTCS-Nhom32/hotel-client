@@ -9,7 +9,7 @@ interface HomeProps {
 
 export default async function Home({ params: { lng } }: Readonly<HomeProps>) {
   return (
-    <Content className='w-full'>
+    <Content className='w-full' >
       <Citizen lng={lng} />
     </Content>
   );

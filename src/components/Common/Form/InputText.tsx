@@ -17,7 +17,7 @@ type BaseProps<TFieldValues extends FieldValues> = {
   className?: string;
   control?: Control<TFieldValues>;
   name: FieldPath<TFieldValues>;
-  label: string;
+  label: string | ReactNode;
   isLoading?: boolean;
   description?: string | ReactNode;
   isTextArea?: boolean;
@@ -47,21 +47,21 @@ function InputText<TFieldValues extends FieldValues>({
       control={control}
       name={name}
       render={({ field, fieldState: { error } }) => (
-        <FormItem className={className}>
+        <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
             {isTextArea ? (
               <Textarea
                 {...field}
                 disabled={isLoading || disabled}
-                className={cn(error && 'border-destructive')}
+                className={cn(className, error && 'border-destructive')}
                 {...(props as TextareaHTMLAttributes<HTMLTextAreaElement>)}
               />
             ) : (
               <Input
                 {...field}
                 disabled={isLoading || disabled}
-                className={cn(error && 'border-destructive')}
+                className={cn(className, error && 'border-destructive')}
                 onChange={(e) => {
                   field.onChange(e);
                   onChange?.(e);

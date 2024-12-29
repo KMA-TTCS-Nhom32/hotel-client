@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '@/components/layouts/SideBar';
+import SideBar from '@/components/layouts/SideBar';
 import Container from '@/components/Common/Container';
 import styles from './index.module.scss';
 
@@ -13,7 +13,7 @@ const ProfileLayout = ({ children, params: { lng } }: Readonly<ProfileLayoutProp
     <section className={styles.wrapper}>
       <Container>
         <div className={styles.content}>
-          <Sidebar lng={lng} />
+          <SideBar lng={lng} />
           {children}
         </div>
       </Container>
