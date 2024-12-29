@@ -95,8 +95,8 @@ const RoomCard = () => {
             </p>
           </div>
           <button className='py-2 px-4 rounded hover:bg-green-700 transition'>
-            <Link href={APP_ROUTES.BookRoom} className={styles.pure_link}>
-              Xem phòng
+            <Link href={`${APP_ROUTES.Branch}/1`} className={styles.pure_link}>
+              Đặt phòng
             </Link>
           </button>
         </div>

@@ -35,5 +35,9 @@
   "gender": "Giới tính",
   "male": "Nam",
   "female": "Nữ",
-  "date_of_birth": "Ngày sinh"
+  "date_of_birth": "Ngày sinh",
+
+  "upcoming": "Sắp tới",
+  "completed": "Đã hoàn thành",
+  "cancelled": "Đã hủy"
 }
