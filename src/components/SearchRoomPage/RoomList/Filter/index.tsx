@@ -20,7 +20,7 @@ const Filter = () => {
     <div className={styles.filterContainer}>
       {/* Hotels Found */}
       <div className={styles.hotelsFound}>
-        <b>40</b> khách sạn phù hợp
+        <b>1</b> khách sạn phù hợp
       </div>
 
       {/* Sort Dropdown */}

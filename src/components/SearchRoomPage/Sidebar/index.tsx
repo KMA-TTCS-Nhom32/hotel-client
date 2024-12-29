@@ -1,14 +1,21 @@
 'use client';
 
 import React, { useState } from 'react';
-import styles from './index.module.scss';
-import { DualRangeSlider } from '@/components/ui/dual-slider';
 import { RotateCcw } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { useTranslation } from 'react-i18next';
 
-function Sidebar() {
-  const { t } = useTranslation();
+import styles from './index.module.scss';
+
+import { useTranslation } from '@/i18n/client';
+
+import { DualRangeSlider } from '@/components/ui/dual-slider';
+import { Input } from '@/components/ui/input';
+
+interface SidebarProps {
+  lng: string;
+}
+
+function Sidebar({ lng }: SidebarProps) {
+  const { t } = useTranslation(lng, 'searchroom');
   const [values, setValues] = useState([800000, 3100000]); // Initial price range
 
   return (
