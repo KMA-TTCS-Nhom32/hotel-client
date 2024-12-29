@@ -1,12 +1,11 @@
 import PageMyReservationInfor from '../MyReservationIfor';
-import { createTranslation } from '@/i18n/server';
 import { Text } from '@/components/ui/text';
 interface PageMyReservationProps {
     lng: string;
 }
 
 const PageMyReservation = async ({ lng }: PageMyReservationProps) => {
-    const { t } = await createTranslation(lng, 'account');
+   
 
     return (
         <>
