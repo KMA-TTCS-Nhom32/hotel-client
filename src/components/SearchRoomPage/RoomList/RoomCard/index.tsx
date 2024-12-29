@@ -7,6 +7,7 @@ import { CircleParking, Coffee, Link, Utensils, Wifi } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { APP_ROUTES } from '@/constants/routes.constant';
+import { Button } from '@/components/ui/button';
 
 const RoomCard = () => {
   const [images, setImages] = useState([
@@ -42,19 +43,11 @@ const RoomCard = () => {
           <div className='flex flex-wrap gap-3'>
             <Badge className='gap-2 w-auto py-2 rounded-full'>
               <Wifi className='h-4 w-4' />
-              <span>Wifi Free thoải mái</span>
-            </Badge>
-            <Badge className='gap-2 w-auto py-2 rounded-full'>
-              <CircleParking className='h-4 w-4' />
               <span>Wifi Free</span>
             </Badge>
             <Badge className='gap-2 w-auto py-2 rounded-full'>
-              <Wifi className='h-4 w-4' />
-              <span>Wifi Free thoải mái tha hồ truy cập vào</span>
-            </Badge>
-            <Badge className='gap-2 w-auto py-2 rounded-full'>
-              <Wifi className='h-4 w-4' />
-              <span>Wifi Free thoải mái tha hồ truy cập vào</span>
+              <CircleParking className='h-4 w-4' />
+              <span>Bãi đỗ xe miễn phí</span>
             </Badge>
           </div>
           {/* <ul className={`${styles.room_features} text-gray-600 space-y-2`}>
@@ -88,17 +81,15 @@ const RoomCard = () => {
         <div className={`${styles.room_price} mt-4 md:w-1/3 border-t pt-4"`}>
           <div className={`${styles.price_detail}`}>
             <span className={`${styles.price_range} text-lg font-semibold`}>CHỈ TỪ </span>
-            <span className={`${styles.room_cost} text-green-600 text-2xl`}>516.000</span>
+            <span className={`${styles.room_cost} text-orange-600 text-2xl`}>516.000</span>
             <span className={`${styles.price_curency}`}>VND / Đêm</span>
             <p className={`${styles.price_tax} text-sm text-gray-500 mb-4`}>
               Đã bao gồm thuế và phí
             </p>
           </div>
-          <button className='py-2 px-4 rounded hover:bg-green-700 transition'>
-            <Link href={`${APP_ROUTES.Branch}/1`} className={styles.pure_link}>
-              Đặt phòng
-            </Link>
-          </button>
+          <Link href={`${APP_ROUTES.Branch}/1`} className={styles.pure_link}>
+            <Button className='py-2 px-4 rounded-full'>Đặt phòng</Button>
+          </Link>
         </div>
       </div>
     </div>
