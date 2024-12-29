@@ -1,0 +1,112 @@
+@import '@/styles/mixins.scss';
+
+.roomcard_container {
+  padding: 1rem;
+
+  .room_image {
+    img {
+      border-radius: 8px;
+    }
+  }
+  .room_contents {
+    display: flex;
+    flex-direction: row;
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    .room_detail {
+      margin-right: 10px;
+
+      .hotel_branch {
+        color: #496833;
+        font-size: 1rem;
+
+        @include tablet {
+          font-size: 0.9rem;
+        }
+      }
+      .room_features {
+        li {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          i {
+            padding: 0.5rem 0.5rem;
+            background-color: #dff4d5;
+            border-radius: 50px;
+            color: #2f4220;
+          }
+
+          span {
+            font-size: 1rem;
+            font-weight: 500;
+            padding-left: 10px;
+
+            @include tablet {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    .room_price {
+      display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+      .price_detail {
+        display: flex;
+        flex-direction: column;
+
+        .price_range,
+        .room_cost,
+        .price_curency,
+        .price_tax {
+          text-align: right; /* Căn chữ về phải */
+        }
+
+        .price_range {
+          font-size: 1.13px;
+
+          @include tablet {
+            font-size: 1rem;
+          }
+        }
+
+        .room_cost {
+          font-size: 1.5rem;
+
+          @include tablet {
+            font-size: 1.3rem;
+          }
+        }
+
+        .price_curency {
+
+          @include tablet {
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      button {
+        border-radius: 50px;
+        color: white;
+        background-color: #496833;
+        font-size: 1rem;
+
+        @include tablet {
+          font-size: 0.9rem;
+        }
+
+        &:hover {
+          background-color: #2f4220;
+        }
+      }
+    }
+  }
+}

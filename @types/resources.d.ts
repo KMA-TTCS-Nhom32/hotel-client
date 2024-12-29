@@ -160,6 +160,19 @@ interface Resources {
   },
   "home": {
     "explore": "Explore"
+  },
+  "searchroom": {
+    "searchroom": {
+      "pricetitle": "Price range",
+      "priceSubtitle": "1 room, 1 night",
+      "viewmap": "View map",
+      "button": "Reset"
+    },
+    "booking": {
+      "button": "Book now",
+      "title": "Complete Your Booking",
+      "subtitle": "Double-check everything looks good? Great! Proceed to secure your stay."
+    }
   }
 }
 

@@ -1,19 +1,13 @@
-import { createTranslation } from '@/i18n';
+import React from 'react';
 
-import HomePage from '@/components/HomeComponents/HomePage';
+import BookingForm from '@/components/BookingPage/BookingForm';
 
-interface HomeProps {
-  params: {
-    lng: string;
-  };
+interface BookingPageProps {
+  params: { lng: string };
 }
 
-export default async function Home({ params: { lng } }: Readonly<HomeProps>) {
-  const { t } = await createTranslation(lng);
+const BookingPage = ({ params: { lng } }: BookingPageProps) => {
+  return <BookingForm lng={lng} />;
+};
 
-    return (
-        <div>
-         
-      </div>
-  );
-}
+export default BookingPage;
