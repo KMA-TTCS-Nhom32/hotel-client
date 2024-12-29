@@ -1,14 +1,14 @@
 'use client';
-import { Text } from '@/components/ui/text';
+
+import { AppTranslationFunction } from '@/lib/types/i18n';
 import Image from 'next/image';
 interface SideBarInformationProps {
-  lng: string;
-  side_bar_pay_ment: boolean;
+  t: AppTranslationFunction;
 }
 
-const SideBarInformation = async ({ lng, side_bar_pay_ment }: SideBarInformationProps) => {
+const SideBarInformation = async ({ t }: SideBarInformationProps) => {
   return (
-    <div className={side_bar_pay_ment ? 'hidden sm:block' : ''}>
+    <div className='hidden sm:block'>
       <div className='gap-2.5 items-center justify-between pt-2 flex'>
         <div className='booking-room-building__info'>
           <h3 className='font-semibold text-base'>M VILLAGE HOTEL HỒ GƯƠM</h3>
@@ -46,23 +46,21 @@ const SideBarInformation = async ({ lng, side_bar_pay_ment }: SideBarInformation
         </div>
         <div className='flex justify-between'>
           <div className='text-base font-medium'>(1x) Phòng Executive</div>
-          {!side_bar_pay_ment && (
-            <div>
-              <a className='text-orange-600 underline underline-offset-4 font-medium'>Thay đổi</a>
-            </div>
-          )}
+
+          <div>
+            <a className='text-orange-600 underline underline-offset-4 font-medium'>Thay đổi</a>
+          </div>
         </div>
       </div>
       <div className='bg-gray-400 h-[1px] my-2'> </div>
-      {!side_bar_pay_ment && (
-        <div className=' flex items-end justify-between'>
-          <div className='booking-total-price__info'>
-            <div className='text-base font-medium'>Tổng tiền</div>
-            <div className='text-sm text-gray-500'>1 phòng, 1 đêm</div>
-          </div>
-          <div className='font-bold text-xl text-orange-600'>1.750.000 VND</div>
+
+      <div className=' flex items-end justify-between'>
+        <div className='booking-total-price__info'>
+          <div className='text-base font-medium'>Tổng tiền</div>
+          <div className='text-sm text-gray-500'>1 phòng, 1 đêm</div>
         </div>
-      )}
+        <div className='font-bold text-xl text-orange-600'>1.750.000 VND</div>
+      </div>
     </div>
   );
 };
