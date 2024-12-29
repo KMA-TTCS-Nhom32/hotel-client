@@ -1,0 +1,125 @@
+@import '@/styles/mixins.scss';
+
+.sidebar {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+
+  /* Map Section */
+  .mapSection {
+    margin-bottom: 24px;
+
+    .mapContainer {
+      position: relative;
+
+      .mapImage {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        filter: grayscale(100%);
+        border-radius: 8px;
+      }
+
+      .mapButton {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffe3d4;
+        color: brown;
+        padding: 8px 10px;
+        font-size: 14px;
+        font-weight: bold;
+        border: none;
+        border-radius: 50px;
+        text-decoration: none; 
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #ff7f50;
+        }
+      }
+    }
+  }
+
+  /* Price Section */
+  .priceSection {
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+    .priceHeader {
+      margin-bottom: 16px;
+
+      .priceTitle {
+        font-weight: bold;
+        font-size: 16px;
+        margin: 0;
+      }
+
+      .priceSubtitle {
+        font-size: 14px;
+        color: #888;
+        margin: 0;
+      }
+    }
+
+    .sliderContainer {
+      margin: 16px 0;
+    }
+
+    .priceInputs {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+
+      .inputWrapper {
+        display: flex;
+        align-items: center;
+
+        .priceInput {
+          width: 100px;
+          padding: 4px;
+          font-size: 14px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding-right: 24px;
+        }
+
+        .currency {
+          font-weight: bold;
+          color: #444;
+        }
+      }
+    }
+
+    .resetButton {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      padding: 8px;
+      gap: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #666666;
+      cursor: pointer;
+    }
+  }
+}
+
+@include tablet {
+  .sidebar {
+    display: none;
+  }
+}
+
+@include mobile {
+  .sidebar {
+    display: none;
+  }
+}
