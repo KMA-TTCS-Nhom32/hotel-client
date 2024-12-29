@@ -25,8 +25,18 @@ interface Resources {
     "Peronsal_info": "Peronsal info",
     "Save_changes": " Save changes",
     "placeholder": {
-      "email": "Enter your email"
-    }
+      "email": "Enter your email",
+      "current_password": "Enter your password",
+      "confirm_password": "Confirm your password",
+      "full_name": "Enter your full name",
+      "phone_number": "Enter your phone number",
+      "new_password": "Enter new password",
+      "confirm_new_password": "Confirm your new password"
+    },
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "date_of_birth": "Date of birth"
   },
   "common": {
     "hello": "Welcome",
@@ -88,7 +98,10 @@ interface Resources {
         "confirm_password": "Enter your confirm password",
         "phone": "Enter your phone number",
         "email": "Enter your email",
-        "name": "Enter your name"
+        "name": "Enter your name",
+        "current_password": "Enter your current password",
+        "new_password": "Enter your new password",
+        "confirm_new_password": "Enter your confirm new password"
       },
       "register_success": "Register successfully. Please check your email to activate your account",
       "register_error": "Register failed. Please try again",

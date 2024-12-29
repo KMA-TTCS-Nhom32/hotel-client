@@ -1,75 +1,79 @@
-'use client';
-import styles from './index.module.scss';
+import { ButtonCustom } from '@/components/ui/button-custom';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { ChangePasswordFormValues, changePasswordSchema } from '@/lib/validators/change-password'; // Giả sử bạn đã có schema này từ trước
+import { TFunction, Resources } from 'i18next';
+import ProfileCard from '..//../Card';
 import { useTranslation } from '@/i18n/client';
-import LogOutButton from '@/components/Common/LogOutButton';
-import { SubmitHandler, useForm } from "react-hook-form"
-import { z } from "zod"
-import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from '@/components/ui/form';
+import InputText from '@/components/Common/Form/InputText';
+import InputPassword from '@/components/Common/Form/InputPassword';
 import { AppTranslationFunction } from '@/lib/types/i18n';
-type FormFields = {
-    currentPassword: string
-    newPassword: string
-    confirmNewPassword: string
 
-};
-
-
-interface User {
-    t: AppTranslationFunction;
-
+interface ChangePasswordFormProps {
+  t: AppTranslationFunction;
+  onCancel: () => void;
 }
+const ChangePasswordForm = ({ t, onCancel }: ChangePasswordFormProps) => {
+  const form = useForm<ChangePasswordFormValues>({
+    resolver: zodResolver(changePasswordSchema),
+    defaultValues: {
+      currentPassword: '',
+      newPassword: '',
+      confirmNewPassword: '',
+    },
+  });
+  const {
+    formState: { isSubmitting },
+    handleSubmit,
+  } = form;
 
+  function onSubmit(values: ChangePasswordFormValues) {
+    console.log(values);
+  }
 
-
-const ChangePassword = ({ t }: Readonly<User>) => {
-    const { watch , register, handleSubmit, formState: { errors } } = useForm<FormFields>();
-    const onSubmit: SubmitHandler<FormFields> = (data) => {
-        console.log(data);
-    }
-
-    return (<>
-        <div className={ styles.formChangePasword}>
-            <form className='grid gap-4' onSubmit={handleSubmit(onSubmit)}>
-                <div className='flex flex-col gap-4'>
-                    <label>{t('Current_password')}</label>
-                    <Input {...register('currentPassword', { required: 'Mật khẩu cũ là bắt buộc' },)} type='password' placeholder={t('Current_password')} />
-                    {errors.currentPassword && <p className='text-red-500'>{errors.currentPassword.message}</p>}
-                </div>
-                <div className='flex flex-col gap-4'>
-                    <label>{t('New_password')}</label>
-                    <Input {...register('newPassword', {
-                        required: 'Mật khẩu mới là bắt buộc',
-                        minLength: { value: 6, message: 'Mật khẩu phải có ít nhất 6 ký tự' }
-                    },)} type='password' placeholder={t('New_password')} />
-                    {errors.newPassword && <p className='text-red-500'>{errors.newPassword.message}</p>}
-                </div>
-                <div className='flex flex-col gap-4'>
-                    <label>{t('Confirm new password')}</label>
-                    <Input {...register('confirmNewPassword', {
-                        required: 'Vui lòng xác nhận mật khẩu mới',
-                        validate: value => value === watch('newPassword') || 'Mật khẩu không khớp'
-                    })}
-                        type='password' placeholder={t('Confirm new password')} />
-                    {errors.confirmNewPassword && <p className='text-red-500'>{errors.confirmNewPassword.message}</p>}
-                </div>
-
-                <div className='text-right mt-3'>
-                    <Button className=' text-right px-4 submit'>{t('Change_password')}</Button>
-                </div>
-              
-
-            </form>
-            <div className={styles.log_out}>
-                <LogOutButton />
-            </div>
-        </div>
-
-
-
-
-    </>
-    );
+  return (
+    <ProfileCard title={t('Change_password')}>
+      <Form {...form}>
+        <form onSubmit={handleSubmit(onSubmit)} className='sm:w-2/4 w-full'>
+          <div className='space-y-4'>
+            <InputPassword<ChangePasswordFormValues>
+              name='currentPassword'
+              label={t('Current_password')}
+              placeholder={t('placeholder.current_password')}
+            />
+            <InputPassword<ChangePasswordFormValues>
+              name='newPassword'
+              label={t('New_password')}
+              placeholder={t('placeholder.new_password')}
+            />
+            <InputPassword<ChangePasswordFormValues>
+              name='confirmNewPassword'
+              label={t('Confirm new password')}
+              placeholder={t('placeholder.confirm_new_password')}
+            />
+          </div>
+          <div className='flex  mt-6 justify-center'>
+            <button type='button' onClick={onCancel} className=' text-orange-500 px-6'>
+              {t('Cancel')}
+            </button>
+            <ButtonCustom type='submit' className='' disabled={isSubmitting} loading={isSubmitting}>
+              {t('Save_changes')}
+            </ButtonCustom>
+          </div>
+        </form>
+      </Form>
+    </ProfileCard>
+  );
 };
 
-export default ChangePassword;
+export default ChangePasswordForm;

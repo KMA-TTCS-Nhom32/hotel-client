@@ -62,7 +62,10 @@
       "confirm_password": "Enter your confirm password",
       "phone": "Enter your phone number",
       "email": "Enter your email",
-      "name": "Enter your name"
+      "name": "Enter your name",
+      "current_password": "Enter your current password",
+      "new_password": "Enter your new password",
+      "confirm_new_password": "Enter your confirm new password"
     },
     "register_success": "Register successfully. Please check your email to activate your account",
     "register_error": "Register failed. Please try again",

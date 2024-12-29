@@ -62,7 +62,10 @@
       "confirm_password": "Nhập lại mật khẩu",
       "phone": "Nhập số điện thoại",
       "email": "Nhập email",
-      "name": "Nhập họ tên"
+      "name": "Nhập họ tên",
+      "current_password": "Nhập mật khẩu hiện tại",
+      "new_password": "Nhập mật khẩu mới",
+      "confirm_new_password": "Nhập lại mật khẩu mới"
     },
     "register_success": "Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản",
     "register_error": "Đăng ký thất bại.",
