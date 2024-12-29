@@ -9,6 +9,8 @@ import { cn } from '@/lib/utils';
 
 import styles from './index.module.scss';
 
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+
 interface PaymentDetailProps {
   lng: string;
 }
@@ -46,12 +48,15 @@ const PaymentDetail = ({ lng }: PaymentDetailProps) => {
       <div className={styles.payment_method_section}>
         <h2 className={styles.payment_method_title}>{t('payment.method_title')}</h2>
 
-        <div className={cn(styles.payment_method, 'pt-3 md:pt-4')}>
+        <RadioGroup
+          className={cn(styles.payment_method, 'pt-3 md:pt-4')}
+          onValueChange={setSelectedMethod}
+        >
           {paymentMethods.map((method) => (
             <div key={method.id} className={styles.method_container}>
               <div className={cn(styles.method_body)}>
-                <div className='flex align-middle md:flex-row'>
-                  <div className={styles.radio}>
+                <div className='flex items-center align-middle md:flex-row'>
+                  {/* <div className={styles.radio}>
                     <input
                       type='radio'
                       name='paymentMethod'
@@ -60,8 +65,20 @@ const PaymentDetail = ({ lng }: PaymentDetailProps) => {
                       onChange={() => setSelectedMethod(method.id)}
                       checked={selectedMethod === method.id}
                     />
-                  </div>
-                  <div className={cn(styles.method_body_item, 'flex justify-between items-center')}>
+                  </div> */}
+                  <RadioGroupItem
+                    value={method.id}
+                    className={cn(
+                      'w-5 h-5 border-2 border-black',
+                      selectedMethod === method.id && 'border-primary',
+                    )}
+                  />
+                  <div
+                    className={cn(
+                      styles.method_body_item,
+                      'flex justify-between items-center flex-1',
+                    )}
+                  >
                     <div className={styles.method_body_item__label}>{method.label}</div>
                     <div className={styles.method_body_item__image}>
                       <span className='inline-block cursor-pointer'>
@@ -92,7 +109,7 @@ const PaymentDetail = ({ lng }: PaymentDetailProps) => {
               )}
             </div>
           ))}
-        </div>
+        </RadioGroup>
       </div>
 
       <div className={cn(styles.payment_coupon, 'flex flex-col')}>
