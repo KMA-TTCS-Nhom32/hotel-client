@@ -1,13 +1,20 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import styles from './index.module.scss';
-import { cn } from '@/lib/utils';
+
 import { Ticket } from 'lucide-react';
 
-const PaymentDetail = () => {
-  const { t } = useTranslation('searchroom');
+import { useTranslation } from '@/i18n/client';
+import { cn } from '@/lib/utils';
+
+import styles from './index.module.scss';
+
+interface PaymentDetailProps {
+  lng: string;
+}
+
+const PaymentDetail = ({ lng }: PaymentDetailProps) => {
+  const { t } = useTranslation(lng, 'searchroom');
   const [selectedMethod, setSelectedMethod] = useState<string | null>(null);
 
   const paymentMethods = [

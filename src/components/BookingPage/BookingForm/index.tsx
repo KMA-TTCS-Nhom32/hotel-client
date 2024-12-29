@@ -2,14 +2,21 @@
 'use client';
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import styles from './index.module.scss';
-import { cn } from '@/lib/utils';
 import { User, BookUp } from 'lucide-react';
+
+import { useTranslation } from '@/i18n/client';
+import { cn } from '@/lib/utils';
+import styles from './index.module.scss';
+
 import { Textarea } from '@/components/ui/textarea';
 
-const BookingForm = () => {
-  const { t } = useTranslation('searchroom');
+interface BookingFormProps {
+  lng: string;
+}
+
+const BookingForm = ({ lng }: BookingFormProps) => {
+  const { t } = useTranslation(lng, 'searchroom');
+  
   return (
     <div className={styles.booking_container}>
       <div className={styles.booking_title}>{t('booking.title')}</div>

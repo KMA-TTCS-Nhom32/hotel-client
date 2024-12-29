@@ -1,20 +1,13 @@
 import React from 'react';
-import styles from './index.module.scss';
-import { useTranslation } from 'react-i18next';
+
 import PaymentDetail from '@/components/PaymentPage/PaymentDetail';
 
-
 interface PaymentPageProps {
-  params: { lng: string; booking: string };
+  params: { lng: string };
 }
 
-const PaymentPage = ({ params: { lng, booking } }: PaymentPageProps) => {
-  console.log(lng, booking);
-  return (
-    <div>
-      <PaymentDetail />
-    </div>
-  );
+const PaymentPage = ({ params: { lng } }: PaymentPageProps) => {
+  return <PaymentDetail lng={lng} />;
 };
 
 export default PaymentPage;
