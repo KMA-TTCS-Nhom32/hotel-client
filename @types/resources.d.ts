@@ -36,7 +36,10 @@ interface Resources {
     "gender": "Gender",
     "male": "Male",
     "female": "Female",
-    "date_of_birth": "Date of birth"
+    "date_of_birth": "Date of birth",
+    "upcoming": "Upcoming",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
   },
   "booking": {
     "customer_information": "Customer information",
