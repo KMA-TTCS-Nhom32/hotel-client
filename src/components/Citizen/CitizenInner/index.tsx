@@ -22,7 +22,7 @@ interface nextBenefit {
   title: string;
 }
 
-interface userRank {
+interface UserRank {
   usersid: 'bronze' | 'silver' | 'gold' | 'platium';
   name: 'Thành viên Mới' | 'Thành viên Bạc' | 'Thành viên Vàng' | 'Thành viên Bạch Kim';
   nextname: 'Thành viên Bạc' | 'Thành viên Vàng' | 'Thành viên Bạch Kim';
@@ -30,11 +30,11 @@ interface userRank {
   nextBenefits: nextBenefit[];
 }
 
-const generateDatabyRank: userRank = (usersid: 'bronze' | 'silver' | 'gold' | 'platium') => {
-  switch (usersid) {
+const generateDatabyRank = (rank: 'bronze' | 'silver' | 'gold' | 'platium'): UserRank => {
+  switch (rank) {
     case 'bronze':
       return {
-        usersid: usersid,
+        usersid: 'bronze',
         name: 'Thành viên Mới',
         nextname: 'Thành viên Bạc',
         Benefits: [
@@ -47,7 +47,7 @@ const generateDatabyRank: userRank = (usersid: 'bronze' | 'silver' | 'gold' | 'p
       };
     case 'silver':
       return {
-        usersid: usersid,
+        usersid: 'silver',
         name: 'Thành viên Bạc',
         nextname: 'Thành viên Vàng',
         Benefits: [
@@ -65,7 +65,7 @@ const generateDatabyRank: userRank = (usersid: 'bronze' | 'silver' | 'gold' | 'p
 
     case 'gold':
       return {
-        usersid: usersid,
+        usersid: 'gold',
         name: 'Thành viên Vàng',
         nextname: 'Thành viên Bạch Kim',
         Benefits: [
@@ -90,7 +90,7 @@ const generateDatabyRank: userRank = (usersid: 'bronze' | 'silver' | 'gold' | 'p
       };
     default: {
       return {
-        usersid: usersid,
+        usersid: 'platium',
         name: 'Thành viên Bạch Kim',
         nextname: 'Thành viên Bạch Kim',
         Benefits: [
@@ -116,6 +116,7 @@ const generateDatabyRank: userRank = (usersid: 'bronze' | 'silver' | 'gold' | 'p
             description: '',
           },
         ],
+        nextBenefits: [],
       };
     }
   }
