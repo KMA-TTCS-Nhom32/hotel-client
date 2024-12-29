@@ -3,6 +3,7 @@ import SideBar2 from '@/components/layouts/SideBar2';
 import Container from '@/components/Common/Container';
 
 import styles from './index.module.scss';
+import HeaderBooking from '@/components/layouts/HeaderBooking';
 
 interface BookingLayoutProps {
   children: React.ReactNode;
@@ -14,11 +15,14 @@ export default async function BookingLayout({
   params: { lng },
 }: Readonly<BookingLayoutProps>) {
   return (
-    <section className={styles.layout}>
-      <Container className={styles.layoutContainer}>
-        {children}
-        <SideBar2 lng={lng} />
-      </Container>
-    </section>
+    <>
+      <HeaderBooking lng={lng} />
+      <section className={styles.layout}>
+        <Container className={styles.layoutContainer}>
+          {children}
+          <SideBar2 lng={lng} />
+        </Container>
+      </section>
+    </>
   );
 }

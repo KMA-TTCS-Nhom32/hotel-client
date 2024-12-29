@@ -38,6 +38,22 @@ interface Resources {
     "female": "Female",
     "date_of_birth": "Date of birth"
   },
+  "booking": {
+    "customer_information": "Customer information",
+    "payment_information": "Payment information",
+    "confirm_booking": "Confirm booking",
+    "required": {
+      "email": "Email is required",
+      "phone": "Phone is required"
+    },
+    "validate": {
+      "email": "Email is invalid",
+      "phone": "Phone is invalid"
+    },
+    "button": "Book now",
+    "title": "Complete your booking",
+    "subtitle": "Check everything is okay? Great! Secure your stay."
+  },
   "common": {
     "hello": "Welcome",
     "world": "World",

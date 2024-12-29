@@ -9,6 +9,7 @@ export const APP_ROUTES = {
   Branch: '/chi-nhanh',
   Booking: '/dat-phong',
   Payment: '/thanh-toan',
+  ConfirmBooking: '/xac-nhan-dat-phong',
 };
 
 export const NeedAuthRoutes = [

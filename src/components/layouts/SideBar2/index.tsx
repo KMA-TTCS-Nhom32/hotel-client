@@ -19,15 +19,17 @@ const SideBar2 = ({ lng }: Readonly<SideBar2>) => {
   const isPaymentPage = useMemo(() => {
     return pathname.includes(APP_ROUTES.Payment);
   }, [pathname]);
+
   return (
     <div className=''>
       <div className='flex flex-col'>
-        {!isPaymentPage && (
-          <div className='text-white text-xs bg-primary font-semibold rounded-t-xl px-2 py-2'>
-            Đơn đặt phòng này sẽ nhận được 1 tích điểm
+        {!isPaymentPage ? (
+          <div className='bg-primary rounded-t-xl px-3 py-2'>
+            <p className='title2-semi-bold text-white'>
+              Đơn đặt phòng này sẽ nhận được 1 tích điểm
+            </p>
           </div>
-        )}
-        {isPaymentPage && (
+        ) : (
           <div className='flex items-center flex-1 py-3 gap-2 bg-orange-200 rounded-t-xl px-2'>
             <div className='flex items-center'>
               <Icons.hotel />

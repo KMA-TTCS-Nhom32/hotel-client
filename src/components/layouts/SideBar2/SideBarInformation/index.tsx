@@ -6,7 +6,7 @@ interface SideBarInformationProps {
   t: AppTranslationFunction;
 }
 
-const SideBarInformation = async ({ t }: SideBarInformationProps) => {
+const SideBarInformation = ({ t }: SideBarInformationProps) => {
   return (
     <div className='hidden sm:block'>
       <div className='gap-2.5 items-center justify-between pt-2 flex'>

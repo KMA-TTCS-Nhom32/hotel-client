@@ -29,8 +29,8 @@ const UserButton = () => {
         </Button>
       </PopoverTrigger>
       {profile && (
-        <PopoverContent className='w-auto min-w-[320px]' align='end' side='bottom'>
-          <SideBar lng={pathname.split('/')[1]} className='!w-full' />
+        <PopoverContent className='w-auto min-w-[320px] z-30 mt-3' align='end' side='bottom'>
+          <SideBar lng={pathname.split('/')[1]} className='!w-full !z-30 shadow-md' />
         </PopoverContent>
       )}
     </Popover>

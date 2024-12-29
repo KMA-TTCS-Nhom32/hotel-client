@@ -59,7 +59,7 @@ const LoginForm = ({ t }: LoginFormProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
+      <form onSubmit={handleSubmit(onSubmit)} className='w-full px-[1px]'>
         <div className='space-y-4'>
           <InputText<LoginFormValues>
             control={control}

@@ -64,7 +64,7 @@ const ActiveAccount = ({ t, data }: ActiveAccountProps) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className='w-full flex flex-col gap-6 items-center'>
+      <form onSubmit={handleSubmit(onSubmit)} className='w-full flex flex-col gap-6 items-center px-[1px]'>
         <Text type='heading4-semi-bold'>
           {t('auth.enter_otp', {
             replace: { field: `${data.type.toLowerCase()} ${data.value}` },

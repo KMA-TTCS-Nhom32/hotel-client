@@ -6,22 +6,22 @@ interface SideBarPolicy {
   t: AppTranslationFunction;
 }
 
-const SideBarPolicy = async ({ t }: SideBarPolicy) => {
+const SideBarPolicy = ({ t }: SideBarPolicy) => {
   return (
     <>
       <div className='rounded-xl bg-white flex flex-col px-4 py-6 mt-6'>
         <div className='text-lg font-medium'>Chính sách hủy và dời lịch</div>
         <div className='mt-4'>
           <div className='flex gap-3 mt-2'>
-            <Icons.successCheck />
-            <span>
+            <Icons.successCheck className='mt-1' />
+            <span className='flex-1 body1'>
               Đối với đặt phòng này, hủy không còn khả dụng để được hoàn tiền đầy đủ do còn ít hơn 7
               ngày trước ngày nhận phòng.
             </span>
           </div>
           <div className='flex gap-3 mt-2'>
-            <Icons.successCheck />
-            <span>Có thể dời lịch</span>
+            <Icons.successCheck className='mt-1' />
+            <span className='flex-1 body1'>Có thể dời lịch</span>
           </div>
         </div>
       </div>
