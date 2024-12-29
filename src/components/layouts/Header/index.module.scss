@@ -24,6 +24,10 @@
       gap: 0.5rem;
     }
 
+    @include tablet {
+      gap: 0.5rem;
+    }
+
     a {
       color: white;
       text-decoration: none;
@@ -38,6 +42,11 @@
 
       @include mobile {
         display: none;
+      }
+
+      @include tablet {
+        // display: none;
+        font-size: 13px;
       }
     }
 

@@ -1,0 +1,314 @@
+.main_content {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @include mobile {
+    padding: 0;
+  }
+}
+
+.payment_method_section {
+  background-color: #fff;
+  padding: 16px 24px;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+  box-shadow: rgba(16, 25, 40, 0.05) 0px 5px 13px -5px;
+
+  .payment_method_title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    color: rgb(3, 7, 18);
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  .payment_method {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .method_container {
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+
+      .method_body {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        text-align: left;
+        cursor: pointer;
+        padding: 8px 0px;
+
+        // @include mobile {
+        //   flex-direction: row-reverse;
+        // }
+
+        .radio {
+          display: flex;
+          align-items: center;
+
+          .radio_input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+          }
+        }
+
+        .method_body_item {
+          width: 60rem;
+
+          &__label {
+            padding-left: 8px;
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 600;
+            color: rgb(61, 61, 61);
+
+            @include mobile {
+              font-size: 16px !important;
+              line-height: 20px !important;
+              flex: 2 1 0%;
+            }
+          }
+
+          &__image img {
+            max-height: 30px;
+            border-radius: 4px;
+
+            @include mobile {
+              max-height: 25px;
+              width: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .payment_method_note_container {
+    margin-left: 40px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e24d14;
+    background-color: rgb(255, 245, 237);
+
+    @include mobile {
+      margin-left: 0;
+    }
+
+    .payment_method_note {
+      .payment_note {
+        ul {
+          padding-left: 20px;
+          list-style-type: disc;
+
+          li {
+            font-size: 14px;
+            font-weight: 500px;
+            line-height: 20px;
+            color: #131313;
+            text-align: left;
+            margin-bottom: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.payment_detail {
+  border-radius: 10px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: rgba(16, 25, 40, 0.05) 0px 5px 13px -5px;
+  padding: 16px 24px;
+
+  .detail_payment_title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 20px;
+      margin: 10px 0 15px 0;
+    }
+  }
+
+  .form_section_title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #333;
+  }
+
+  .form_note {
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(109, 109, 109);
+    padding: 1rem 0;
+  }
+
+  .textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgb(163, 163, 163);
+    font-size: 14px;
+    overflow: auto;
+    color: #131313;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .div_line {
+    margin: 1.5rem 0;
+    width: 100%;
+    border-bottom: 3px dashed #e9ecef;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  .room_info_container {
+    @include mobile {
+      border-bottom: 1px solid #e9ecef;
+    }
+    .room_info {
+      font-size: 17px;
+      line-height: 24px;
+      color: rgb(109, 109, 109);
+
+      @include mobile {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .total_price_container {
+    @include mobile {
+      border-bottom: 1px solid #e9ecef;
+    }
+    .total_price {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 28px;
+      color: rgb(3, 7, 18);
+      margin-top: 20px;
+      margin-bottom: 10px;
+
+      @include mobile {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+.submit_button {
+  background-color: #e65a00;
+  width: 100%;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  @include mobile {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  &:hover {
+    border: 1px solid #f77e3e;
+    box-shadow: 0 0.625rem 1.25rem rgba(255, 158, 107, 0.5);
+  }
+}
+
+.note_text {
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.payment_coupon {
+  border-radius: 10px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: rgba(16, 25, 40, 0.05) 0px 5px 13px -5px;
+  padding: 16px 24px;
+
+  .promotion_icon {
+    color: #e65a00;
+    margin-right: 8px;
+  }
+
+  .promotion_title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    color: rgb(3, 7, 18);
+
+    @include mobile {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  .form_control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgb(218, 218, 218);
+    height: 48px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #e9ecef;
+
+    @include mobile {
+      padding-right: 40px;
+    }
+
+    &:focus {
+      border-color: #e65a00;
+      background-color: #fff;
+      outline: none;
+    }
+  }
+
+  .payment_promotion_apply_button {
+    background-color: #e65a00;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #f77e3e;
+      box-shadow: 0 4px 8px rgba(255, 158, 107, 0.4);
+    }
+  }
+}
