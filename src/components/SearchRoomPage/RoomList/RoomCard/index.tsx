@@ -38,7 +38,7 @@ const RoomCard = () => {
         <div className={`${styles.room_detail} mb-4 md:w-2/3`}>
           <h3 className={`${styles.roome_type} text-xl font-bold mb-2`}>Standard Twin</h3>
           <p className={`${styles.hotel_branch} text-sm font-medium mb-4`}>
-            XCELLENT THÁI NGUYÊN (TEST)
+            AHomeVilla Hotel Thợ nhuộm
           </p>
           <div className='flex flex-wrap gap-3'>
             <Badge className='gap-2 w-auto py-2 rounded-full'>
