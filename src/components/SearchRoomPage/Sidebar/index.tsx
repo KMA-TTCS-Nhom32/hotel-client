@@ -29,7 +29,7 @@ function Sidebar() {
             rel='noopener noreferrer'
             className={styles.mapButton}
           >
-            {t('searchroom.viewmap')}
+            Xem bản đồ
           </a>
         </div>
       </div>
@@ -38,8 +38,8 @@ function Sidebar() {
       <div className={styles.priceSection}>
         {/* Price Header */}
         <div className={styles.priceHeader}>
-          <p className={styles.priceTitle}>{t('searchroom.pricetitle')}</p>
-          <p className={styles.priceSubtitle}>{t('searchroom.priceSubtitle')}</p>
+          <p className={styles.priceTitle}>Phạm vi giá</p>
+          {/* <p className={styles.priceSubtitle}>{t('searchroom.priceSubtitle')}</p> */}
         </div>
 
         {/* Dual Range Slider */}
@@ -92,7 +92,7 @@ function Sidebar() {
           <i>
             <RotateCcw />
           </i>
-          {t('booking.button')}
+          Đặt lại
         </button>
       </div>
     </div>

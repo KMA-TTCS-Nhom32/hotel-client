@@ -96,7 +96,7 @@
       button {
         border-radius: 50px;
         color: white;
-        background-color: #496833;
+        background-color: #d9691f;
         font-size: 1rem;
 
         @include tablet {
@@ -104,7 +104,7 @@
         }
 
         &:hover {
-          background-color: #2f4220;
+          background-color: #d9691f;
         }
       }
     }

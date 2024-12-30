@@ -1,3 +1,9 @@
+type NewType = {
+  "email": "Email is invalid"
+  "phone": "Phone is invalid"
+  "special_requests": "Special requests must be at least 10 characters long"
+}
+
 interface Resources {
   "account": {
     "detail_infomation": "Detail infomation",
@@ -46,10 +52,7 @@ interface Resources {
       "email": "Email is required",
       "phone": "Phone is required"
     },
-    "validate": {
-      "email": "Email is invalid",
-      "phone": "Phone is invalid"
-    },
+    "validate": NewType,
     "button": "Book now",
     "title": "Complete your booking",
     "subtitle": "Check everything is okay? Great! Secure your stay."
