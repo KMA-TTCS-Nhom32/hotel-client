@@ -12,12 +12,16 @@ import Container from '@/components/Common/Container';
 import { Text } from '@/components/ui/text';
 
 import styles from './index.module.scss';
+import { useRequest } from 'ahooks';
+import { getLatestBranchService } from '@/services/branch';
 
 interface AdvertisementProps {
   t: TFunction<keyof Resources, undefined>;
 }
 
-export default function Advertisement({ t }: Readonly<AdvertisementProps>) {
+export default async function Advertisement({ t }: Readonly<AdvertisementProps>) {
+  const { data } = await getLatestBranchService();
+
   return (
     <Container className={styles.advertisement_section}>
       <Text element='h2' type='heading2-bold'>

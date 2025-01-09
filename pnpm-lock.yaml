@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@ahomevilla-hotel/node-sdk':
-        specifier: ^1.0.4
-        version: 1.0.4
+        specifier: ^1.0.17
+        version: 1.0.17
       '@fortawesome/fontawesome-free':
         specifier: ^6.7.2
         version: 6.7.2
@@ -201,8 +201,8 @@ importers:
 
 packages:
 
-  '@ahomevilla-hotel/node-sdk@1.0.4':
-    resolution: {integrity: sha512-SVNcezhG/FxezubW8kcdcz0zwMu+Ja7qNhpw0jd5kT+O0ndmjNay+TsnhTw/L+8C5/md6/jb6VHkfQypcaRs+w==}
+  '@ahomevilla-hotel/node-sdk@1.0.17':
+    resolution: {integrity: sha512-4HyqnZt16Wil/3zmpszACtzC2pokQJ6A2mdPN9NsEMmzqkxISpKhwQS86IWhw/cgEwdbaTowC9iKqPqiMeBKwQ==}
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -3008,7 +3008,7 @@ packages:
 
 snapshots:
 
-  '@ahomevilla-hotel/node-sdk@1.0.4':
+  '@ahomevilla-hotel/node-sdk@1.0.17':
     dependencies:
       axios: 1.7.9
     transitivePeerDependencies:

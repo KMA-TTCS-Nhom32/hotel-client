@@ -6,4 +6,7 @@ export const API_PATH = {
   PROFILE: '/auth/profile',
   REGISTER: '/auth/register',
   VERIFY_EMAIL: '/auth/verify-email',
+
+  // Branch
+  GET_LATEST_BRANCHES: '/branches/latest',
 };
