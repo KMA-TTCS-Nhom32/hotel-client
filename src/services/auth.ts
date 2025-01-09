@@ -5,6 +5,7 @@ import {
   LoginResponseDto,
   RegisterDto,
   RegisterResponseDto,
+  UpdateProfileDto,
   User,
   VerifyEmailDto,
 } from '@ahomevilla-hotel/node-sdk';
@@ -23,4 +24,8 @@ export async function loginUserService(data: LoginDto) {
 
 export async function getProfileService() {
   return axiosInstance.get<User>(API_PATH.PROFILE);
+}
+
+export async function updateProfileService(data: UpdateProfileDto) {
+  return axiosInstance.patch<User>(API_PATH.PROFILE, data);
 }
