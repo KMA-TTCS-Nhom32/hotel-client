@@ -1,4 +1,11 @@
 interface Resources {
+  "about": {
+    "about": {
+      "subtitle": "A CURATION OF EXCLUSIVE ESCAPES AND TALES OF TAILORED ELEGANCE",
+      "title": "A HOMEVILLA STORIES",
+      "para": "A HomeVilla Stories offers a curation of travel experiences, each narrative intricately woven with the exclusivity and personalized elegance that hallmark our exceptional selection of properties. By sharing these adventures, we want to transport you to each destination, highlighting the serene indulgence of what our luxury accommodations can offer."
+    }
+  },
   "account": {
     "detail_infomation": "Detail infomation",
     "account_manager": "My account",
@@ -56,53 +63,51 @@ interface Resources {
     },
     "button": "Book now",
     "title": "Complete your booking",
-    "subtitle": "Check everything is okay? Great! Secure your stay.",
+    "subtitle": "Double-check everything looks good? Great! Proceed to secure your stay.",
     "booking": {
-      "button": "Đặt phòng",
+      "button": "Continue to Payment",
       "title": "Hoàn tất đặt phòng của bạn",
       "subtitle": "Kiểm tra kỹ mọi thứ đã ổn chưa? Tuyệt vời! Tiến hành bảo đảm chỗ ở của bạn.",
-      "citizen_text": "Xin chào {{name}}!",
-      "citizen_text2": " Hãy tận hưởng những đặc quyền này bằng cách hoàn tất đặt phòng này:",
-      "citizen_subtext": "Đăng nhập với tư cách Hoàng Kim Chi",
-      "citizen_level_label": "Hội viên MỚI",
-      "contact": "Thông tin liên hệ",
-      "contact_alert": "Vui lòng điền đầy đủ các trường thông tin để đảm bảo bạn nhận được xác nhận đặt phòng qua email.",
-      "input_label": "Tên đầy đủ của bạn ",
-      "nameinput_placeholder": "Nhập họ và tên",
-      "input_note": "Để cập nhật Thông tin liên hệ, vui lòng truy cập trang ",
-      "input_note_link": "Tài khoản",
-      "email_label": "Email của bạn",
-      "email_placeholder": "Nhập email",
-      "email_note": "Thông tin đặt phòng sẽ được gửi tới email này",
-      "phone_label": "Số điện thoại di động của bạn",
-      "phone_placeholder": "Nhập số điện thoại",
-      "guest_switch_option1": "Tôi là khách hàng",
-      "guest_switch_option2": "Tôi đặt phòng cho người khác",
-      "textarea": "Yêu cầu đặc biệt hoặc sở thích",
-      "srtitle": "Yêu cầu đặc biệt hoặc sở thích",
-      "srsubtitle": "Bạn sẽ biết tình trạng có sẵn của yêu cầu bổ sung trong quá trình nhận phòng. Có thể phát sinh phí bổ sung nhưng bạn vẫn có thể hủy yêu cầu sau đó.",
-      "submit": "Tiếp tục thanh toán"
+      "citizen_text": "Welcome {{name}}!",
+      "citizen_text2": " Enjoy these perks by completing this booking:",
+      "citizen_subtext": "Logged in as Hoàng Kim Chi",
+      "citizen_level_label": "New Citizen",
+      "contact": "Contact Detail",
+      "contact_alert": "Please fill in all fields correctly to ensure you receive the booking confirmation in your email.",
+      "input_label": "Your Full Name ",
+      "nameinput_placeholder": "Enter your full name",
+      "input_note": "To update Contact Information, please visit the ",
+      "input_note_link": "Account page.",
+      "email_label": "Your Email ",
+      "email_placeholder": "Enter your email",
+      "email_note": "The booking confirmation will be sent to this email.",
+      "phone_label": "Mobile Number ",
+      "phone_placeholder": "Enter your mobile number",
+      "guest_switch_option1": "I am the guest",
+      "guest_switch_option2": "I am booking for another person",
+      "textarea": "Special requests or preferences",
+      "srtitle": "Special requests or preferences",
+      "srsubtitle": "You will know the availability of your additional request during check-in. Extra charges may incur but you can still cancel your request later.",
+      "submit": "Continue to Payment"
+    }
+  },
+  "branch": {
+    "branch": {
+      "menuAbout": "Overview",
+      "menuBooking": "Choose room",
+      "amenitytitle": "Popular amenities"
     },
-    "payment": {
-      "method_title": "Bạn muốn thanh toán bằng phương thức nào?",
-      "img": "Thanh toán bằng mã QR",
-      "method_option1": "Thanh toán bằng mã QR",
-      "method_option2": "Ví điện tử & Ứng dụng ngân hàng",
-      "method_option3": "Thẻ tín dụng/ghi nợ",
-      "method_option4": "Thẻ ATM/Tài khoản ngân hàng",
-      "note_1": "Hãy đảm bảo rằng bạn có bất kỳ ví điện tử hoặc ứng dụng ngân hàng di động nào hỗ trợ thanh toán bằng mã QR.",
-      "note_2": "Một mã QR sẽ xuất hiện sau khi bạn nhấp vào nút 'Thanh toán'. Chỉ cần lưu hoặc chụp màn hình mã QR để hoàn tất thanh toán trong thời hạn quy định.",
-      "note_3": "Vui lòng sử dụng mã QR mới nhất được cung cấp để hoàn tất thanh toán.",
-      "promotion_title": "Áp dụng mã khuyến mãi?",
-      "input_text": "Nhập mã khuyến mãi ở đây",
-      "promotion_apply_button": "Áp dụng",
-      "detail_title": "Chi tiết thanh toán",
-      "room_info": "(x1) Phòng Deluxe Twin Park View - 2 Khách",
-      "room_price": "2.200.000 VND",
-      "total_price_title": "Tổng tiền",
-      "total_price": "2.200.000 VND",
-      "submit": "Tiếp tục với ",
-      "note_text": "Bằng cách tiếp tục thanh toán, bạn đã đồng ý với M Village và các Điều khoản & Chính sách Bảo mật"
+    "amenity": {
+      "butler": "Personal Butler",
+      "pool": "Swimming Pool",
+      "garden": "Garden",
+      "restaurant": "The Green House Restaurant",
+      "wf": "High Speed Wifi"
+    },
+    "room": {
+      "currency": "VND/ Night",
+      "book": "Choose room",
+      "unvailable": "Sold out"
     }
   },
   "common": {
@@ -228,6 +233,34 @@ interface Resources {
   "home": {
     "explore": "Explore"
   },
+  "payment": {
+    "payment": {
+      "method_title": "How would you like to pay?",
+      "img": "QR Code Payment",
+      "method_option1": "QR Code Payment",
+      "method_option2": "E-wallet &  Mobile Banking",
+      "method_option3": "Credit/Debit Card",
+      "method_option4": "ATM/Bank Account",
+      "method_option5": "Pay at hotel",
+      "note_1": "Make sure you have any e-wallet or mobile banking app that supports payment with QR code.",
+      "note_2": "A QR code will appear after you click 'Pay' button. Simply save or screenshot the QR code to complete your payment within the time limit.",
+      "note_3": "Please use the latest QR code provided to complete your payment.",
+      "note_4": "The card Issuer supports online payment and the credit limit/ account balance enough to cover the payment.",
+      "note_5": "A list of bank providers will appear after you click the pay button. Choose your card providers and enter the details required. Then complete your payment by following the verification steps.",
+      "note_6": "Present your hotel reservation form for the receptionist to confirm the information and cost.",
+      "note_7": "Payment at the hotel will be made in cash or credit/debit card.",
+      "promotion_title": "Have a promo code?",
+      "input_text": "Enter promo code here",
+      "promotion_apply_button": "Apply",
+      "detail_title": "Price details",
+      "room_info": "(x1) Deluxe Park View Room - 2 Guests",
+      "room_price": "2,200,000 VND",
+      "total_price_title": "Total price",
+      "total_price": "2,200,000 VND",
+      "submit": "Continue with ",
+      "note_text": "By continuing to payment, you have agreed to AHomeVilla and Terms & Conditions Privacy Policy"
+    }
+  },
   "searchroom": {
     "searchroom": {
       "pricetitle": "Price range",
@@ -236,51 +269,18 @@ interface Resources {
       "button": "Reset"
     },
     "booking": {
-      "button": "Book now",
-      "title": "Complete Your Booking",
-      "subtitle": "Double-check everything looks good? Great! Proceed to secure your stay.",
-      "citizen_text": "Xin chào {{name}}!",
-      "citizen_text2": " Hãy tận hưởng những đặc quyền này bằng cách hoàn tất đặt phòng này:",
-      "citizen_subtext": "Đăng nhập với tư cách Hoàng Kim Chi",
-      "citizen_level_label": "Hội viên MỚI",
-      "contact": "Thông tin liên hệ",
-      "contact_alert": "Vui lòng điền đầy đủ các trường thông tin để đảm bảo bạn nhận được xác nhận đặt phòng qua email.",
-      "input_label": "Tên đầy đủ của bạn ",
-      "nameinput_placeholder": "Nhập họ và tên",
-      "input_note": "Để cập nhật Thông tin liên hệ, vui lòng truy cập trang ",
-      "input_note_link": "Tài khoản",
-      "email_label": "Email của bạn",
-      "email_placeholder": "Nhập email",
-      "email_note": "Thông tin đặt phòng sẽ được gửi tới email này",
-      "phone_label": "Số điện thoại di động của bạn",
-      "phone_placeholder": "Nhập số điện thoại",
-      "guest_switch_option1": "Tôi là khách hàng",
-      "guest_switch_option2": "Tôi đặt phòng cho người khác",
-      "textarea": "Yêu cầu đặc biệt hoặc sở thích",
-      "srtitle": "Yêu cầu đặc biệt hoặc sở thích",
-      "srsubtitle": "Bạn sẽ biết tình trạng có sẵn của yêu cầu bổ sung trong quá trình nhận phòng. Có thể phát sinh phí bổ sung nhưng bạn vẫn có thể hủy yêu cầu sau đó.",
-      "submit": "Tiếp tục thanh toán"
+      "button": "Reset",
+      "searchroom": "Find room"
     },
-    "payment": {
-      "method_title": "Bạn muốn thanh toán bằng phương thức nào?",
-      "img": "Thanh toán bằng mã QR",
-      "method_option1": "Thanh toán bằng mã QR",
-      "method_option2": "Ví điện tử & Ứng dụng ngân hàng",
-      "method_option3": "Thẻ tín dụng/ghi nợ",
-      "method_option4": "Thẻ ATM/Tài khoản ngân hàng",
-      "note_1": "Hãy đảm bảo rằng bạn có bất kỳ ví điện tử hoặc ứng dụng ngân hàng di động nào hỗ trợ thanh toán bằng mã QR.",
-      "note_2": "Một mã QR sẽ xuất hiện sau khi bạn nhấp vào nút 'Thanh toán'. Chỉ cần lưu hoặc chụp màn hình mã QR để hoàn tất thanh toán trong thời hạn quy định.",
-      "note_3": "Vui lòng sử dụng mã QR mới nhất được cung cấp để hoàn tất thanh toán.",
-      "promotion_title": "Áp dụng mã khuyến mãi?",
-      "input_text": "Nhập mã khuyến mãi ở đây",
-      "promotion_apply_button": "Áp dụng",
-      "detail_title": "Chi tiết thanh toán",
-      "room_info": "(x1) Phòng Deluxe Twin Park View - 2 Khách",
-      "room_price": "2.200.000 VND",
-      "total_price_title": "Tổng tiền",
-      "total_price": "2.200.000 VND",
-      "submit": "Tiếp tục với ",
-      "note_text": "Bằng cách tiếp tục thanh toán, bạn đã đồng ý với M Village và các Điều khoản & Chính sách Bảo mật"
+    "filter": {
+      "hotelsFound": "hotels found",
+      "sort": "Sort by",
+      "choice1": "Most popular",
+      "choice2": "Price low to high",
+      "choice3": "Price high to low"
+    },
+    "hotel": {
+      "branch": "Branch"
     }
   }
 }

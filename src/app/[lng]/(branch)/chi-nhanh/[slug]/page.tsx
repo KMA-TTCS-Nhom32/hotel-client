@@ -10,8 +10,6 @@ interface HotelProps {
   };
 }
 
-
-
 export default async function HotelPage({ params: { lng } }: Readonly<HotelProps>) {
   return (
     <Container>
@@ -19,8 +17,7 @@ export default async function HotelPage({ params: { lng } }: Readonly<HotelProps
         <div className={styles.hotel_content}>
           <BreadcrumbComponent lng={lng} />
           <IllustrationImage />
-          <HotelDescription/>
-
+          <HotelDescription lng={lng} />
         </div>
       </section>
     </Container>

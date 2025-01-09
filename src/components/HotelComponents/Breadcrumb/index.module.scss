@@ -1,0 +1,19 @@
+.breadcrumb_items {
+  margin: 1.5rem 0;
+
+  .breadcrumb_list {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+    .breadcrumb_item {
+        display: inline-block;
+        margin-right: 0.5rem;
+        text-decoration: underline;
+    
+        &:last-child {
+        color: #000;
+        text-decoration: none;
+        }
+    }
+}

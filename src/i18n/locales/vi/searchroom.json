@@ -7,51 +7,19 @@
     },
 
     "booking": {
-        "button": "Đặt phòng",
-        "title": "Hoàn tất đặt phòng của bạn",
-        "subtitle": "Kiểm tra kỹ mọi thứ đã ổn chưa? Tuyệt vời! Tiến hành bảo đảm chỗ ở của bạn.",
-        "citizen_text": "Xin chào {{name}}!",
-        "citizen_text2": " Hãy tận hưởng những đặc quyền này bằng cách hoàn tất đặt phòng này:",
-        "citizen_subtext": "Đăng nhập với tư cách Hoàng Kim Chi",
-        "citizen_level_label": "Hội viên MỚI",
-        "contact": "Thông tin liên hệ",
-        "contact_alert": "Vui lòng điền đầy đủ các trường thông tin để đảm bảo bạn nhận được xác nhận đặt phòng qua email.",
-        "input_label": "Tên đầy đủ của bạn ",
-        "nameinput_placeholder": "Nhập họ và tên",
-        "input_note": "Để cập nhật Thông tin liên hệ, vui lòng truy cập trang ",
-        "input_note_link": "Tài khoản",
-        "email_label": "Email của bạn",
-        "email_placeholder": "Nhập email",
-        "email_note": "Thông tin đặt phòng sẽ được gửi tới email này",
-        "phone_label": "Số điện thoại di động của bạn",
-        "phone_placeholder": "Nhập số điện thoại",
-        "guest_switch_option1": "Tôi là khách hàng",
-        "guest_switch_option2": "Tôi đặt phòng cho người khác",
-        "textarea": "Yêu cầu đặc biệt hoặc sở thích",
-        "srtitle": "Yêu cầu đặc biệt hoặc sở thích",
-        "srsubtitle": "Bạn sẽ biết tình trạng có sẵn của yêu cầu bổ sung trong quá trình nhận phòng. Có thể phát sinh phí bổ sung nhưng bạn vẫn có thể hủy yêu cầu sau đó.",
-        "submit": "Tiếp tục thanh toán"
+        "button": "Đặt lại",
+        "searchroom": "Tìm phòng"
     },
 
-    "payment": {
-        "method_title": "Bạn muốn thanh toán bằng phương thức nào?",
-        "img": "Thanh toán bằng mã QR",
-        "method_option1": "Thanh toán bằng mã QR",
-        "method_option2": "Ví điện tử & Ứng dụng ngân hàng",
-        "method_option3": "Thẻ tín dụng/ghi nợ",
-        "method_option4": "Thẻ ATM/Tài khoản ngân hàng",
-        "note_1": "Hãy đảm bảo rằng bạn có bất kỳ ví điện tử hoặc ứng dụng ngân hàng di động nào hỗ trợ thanh toán bằng mã QR.",
-        "note_2": "Một mã QR sẽ xuất hiện sau khi bạn nhấp vào nút 'Thanh toán'. Chỉ cần lưu hoặc chụp màn hình mã QR để hoàn tất thanh toán trong thời hạn quy định.",
-        "note_3": "Vui lòng sử dụng mã QR mới nhất được cung cấp để hoàn tất thanh toán.",
-        "promotion_title": "Áp dụng mã khuyến mãi?",
-        "input_text": "Nhập mã khuyến mãi ở đây",
-        "promotion_apply_button": "Áp dụng",
-        "detail_title": "Chi tiết thanh toán",
-        "room_info": "(x1) Phòng Deluxe Twin Park View - 2 Khách",
-        "room_price": "2.200.000 VND",
-        "total_price_title": "Tổng tiền",
-        "total_price": "2.200.000 VND",
-        "submit":"Tiếp tục với ",
-        "note_text": "Bằng cách tiếp tục thanh toán, bạn đã đồng ý với M Village và các Điều khoản & Chính sách Bảo mật"
+    "filter": {
+        "hotelsFound": "khách sạn phù hợp",
+        "sort": "Sắp xếp",
+        "choice1": "Phổ biến nhất",
+        "choice2": "Giá thấp đến cao",
+        "choice3": "Giá cao đến thấp"
+    },
+    
+    "hotel": {
+        "branch": "Chi nhánh"
     }
 }
