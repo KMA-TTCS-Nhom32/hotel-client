@@ -1,12 +1,9 @@
 'use client';
-
-import { title } from 'process';
 import CitizenInfor from '../Citizeninfor';
 import TierBenefit from '../TierBenefitContainer';
 import BannerBooking from '@/components/Citizen/BannerBooking.tsx';
+import { useTranslation } from '@/i18n/client';
 
-import { deflate } from 'zlib';
-import NextBenefit from '../TierBenefitContainer/nextBenefit';
 interface Citizen {
   lng: string;
 }
@@ -30,89 +27,90 @@ interface userRank {
   nextBenefits: nextBenefit[];
 }
 
-const generateDatabyRank: userRank = (usersid: 'bronze' | 'silver' | 'gold' | 'platium') => {
+
+const generateDatabyRank: userRank = (usersid: 'bronze' | 'silver' | 'gold' | 'platium', ) => {
   switch (usersid) {
     case 'bronze':
       return {
         usersid: usersid,
-        name: 'Thành viên Mới',
-        nextname: 'Thành viên Bạc',
+        name: 'New Citizen',
+        nextname: 'Silver Citizen',
         Benefits: [
           {
-            title: 'Nhận phòng sớm',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Early Check-in',
+            description: '(Based on availability)',
           },
         ],
-        nextBenefits: [{ title: 'Ưu tiên trả phòng muộn' }],
+        nextBenefits: [{ title: 'Priority late Check-out' }],
       };
     case 'silver':
       return {
         usersid: usersid,
-        name: 'Thành viên Bạc',
-        nextname: 'Thành viên Vàng',
+        name: 'Silver Citizen',
+        nextname: 'Gold Citizen',
         Benefits: [
           {
-            title: 'Nhận phòng sớm',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Early Check-in',
+            description: '(Based on availability)',
           },
           {
-            title: 'Ưu tiên trả phòng muộn',
-            description: '(Phụ thuộc vào tình trạng phòng, cần thông báo khi nhận phòng)',
+            title: 'Priority late Check-out',
+            description: '(Based on availability, need to inform upon check-in)',
           },
         ],
-        nextBenefits: [{ title: 'Tăng hạng phòng miễn phí' }, { title: 'Miễn phí hủy phòng' }],
+        nextBenefits: [{ title: 'Free Room upgrade' }, { title: 'Free cancellation' }],
       };
 
     case 'gold':
       return {
         usersid: usersid,
-        name: 'Thành viên Vàng',
-        nextname: 'Thành viên Bạch Kim',
+        name: 'Gold Citizen',
+        nextname: 'Platinum Citizen',
         Benefits: [
           {
-            title: 'Nhận phòng sớm',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Early Check-in',
+            description: '(Based on availability)',
           },
           {
-            title: 'Ưu tiên trả phòng muộn',
-            description: '(Phụ thuộc vào tình trạng phòng, cần thông báo khi nhận phòng)',
+            title: 'Priority late Check-out',
+            description: '(Based on availability, need to inform upon check-in)',
           },
           {
-            title: 'Tăng hạng phòng miễn phí',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Free Room upgrade',
+            description: '(Subject on availability)',
           },
           {
-            title: 'Miễn phí hủy phòng',
+            title: 'Free cancellation',
             description: '',
           },
         ],
-        nextBenefits: [{ title: 'Quà tặng thường niên' }],
+        nextBenefits: [{ title: 'Annual Surprise Gift' }],
       };
     default: {
       return {
         usersid: usersid,
-        name: 'Thành viên Bạch Kim',
-        nextname: 'Thành viên Bạch Kim',
+        name: 'Platinum Citizen',
+        nextname: 'Platinum Citizen',
         Benefits: [
           {
-            title: 'Nhận phòng sớm',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Early Check-in',
+            description: '(Based on availability)',
           },
           {
-            title: 'Ưu tiên trả phòng muộn',
-            description: '(Phụ thuộc vào tình trạng phòng, cần thông báo khi nhận phòng)',
+            title: 'Priority late Check-out',
+            description: '(Based on availability, need to inform upon check-in)',
           },
           {
-            title: 'Tăng hạng phòng miễn phí',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Free Room upgrade',
+            description: '(Subject on availability)',
           },
           {
-            title: 'Miễn phí hủy phòng',
+            title: 'Free cancellation',
             description: '',
           },
 
           {
-            title: 'Quà tặng thường niên',
+            title: 'Annual Surprise Gift',
             description: '',
           },
         ],
@@ -123,8 +121,7 @@ const generateDatabyRank: userRank = (usersid: 'bronze' | 'silver' | 'gold' | 'p
 
 const Citizen = ({ lng }: Readonly<Citizen>) => {
   const userRank = generateDatabyRank('silver');
-
-  return (
+    return (
     <>
       <CitizenInfor lng={lng} title={userRank.name} nextname={userRank.nextname} />
       <TierBenefit

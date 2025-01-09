@@ -38,6 +38,34 @@ interface Resources {
     "female": "Female",
     "date_of_birth": "Date of birth"
   },
+  "benefit": {
+    "New Citizen": "New Citizen",
+    "Your benefits": "Your benefits",
+    "Silver Citizen": "Silver Citizen",
+    "Gold Citizen": "Gold Citizen",
+    "Platinum Citizen": "Platinum Citizen",
+    "Minimum 2 nights per booking. See more details at ": "Minimum 2 nights per booking. See more details at ",
+    "Term & Condition": "Term & Condition",
+    "Earn": "Earn",
+    "booking(s)": " booking(s)",
+    "night(s)": "night(s)",
+    "to become": "to become",
+    "Early Check-in": "Early check-in",
+    "or": "or",
+    "by": "by",
+    "(Based on availability)": "Based on availability",
+    "Priority late Check-out": "Priority late Check-out",
+    "(Based on availability, need to inform upon check-in)": "(Phụ thuộc vào tình trạng phòng, cần thông báo khi nhận phòng)",
+    "Free Room upgrade": "Free Room upgrade",
+    "Free cancellation": "Free cancellation",
+    "(Subject on availability)": "(Subject on availability)",
+    "Annual Surprise Gift": "Annual Surprise Gift",
+    "Let’s start your dream trip!": "Let’s start your dream trip!",
+    "Book a stay": "Book a stay",
+    "Upcoming": "Upcoming",
+    "Completed": "Completed",
+    "Cancelled": "Cancelled"
+  },
   "booking": {
     "customer_information": "Customer information",
     "payment_information": "Payment information",
@@ -48,7 +76,8 @@ interface Resources {
     },
     "validate": {
       "email": "Email is invalid",
-      "phone": "Phone is invalid"
+      "phone": "Phone is invalid",
+      "special_requests": "Special requests must be at least 10 characters long"
     },
     "button": "Book now",
     "title": "Complete your booking",
@@ -176,6 +205,9 @@ interface Resources {
   },
   "home": {
     "explore": "Explore"
+  },
+  "myreservation": {
+    "Total price": "Total price"
   },
   "searchroom": {
     "searchroom": {
