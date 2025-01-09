@@ -32,7 +32,7 @@
     "title": "Khám phá các Village mới"
   },
   "village": {
-    "newDN": "CHI NHÁNH MỚI: ĐÀ NẴNG",
+    "newDN": "CHI NHÁNH MỚI: {{name}}",
     "nameDN": "A HOMEVILLA Hotel Đà Nẵng Centre",
     "desDN": "Vừa ra mắt, A HOMEVILLA là trải nghiệm Đà Nẵng đúng bài với vị trí trung tâm và phòng ngập nắng. Tặng voucher trị giá 1.5 triệu tại những điểm đến bản địa nhất.",
     "booking": "Đặt ngay",

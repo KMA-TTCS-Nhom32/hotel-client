@@ -15,9 +15,10 @@ import { APP_ROUTES } from '@/constants/routes.constant';
 
 interface BreadcrumbProps {
   lng: string;
+  name: string;
 }
 
-const BreadcrumbComponent = ({ lng }: Readonly<BreadcrumbProps>) => {
+const BreadcrumbComponent = ({ lng, name }: Readonly<BreadcrumbProps>) => {
   const { t } = useTranslation(lng, 'searchroom');
 
   return (
@@ -36,7 +37,7 @@ const BreadcrumbComponent = ({ lng }: Readonly<BreadcrumbProps>) => {
           <BreadcrumbSeparator />
           <BreadcrumbItem className={styles.breadcrumb_item}>
             <BreadcrumbPage>
-              <b className='font-semibold'>{t('hotel.branch')} PRESIDENT MAISON SIGNATURE BY A HOMEVILLA</b>
+              <b className='font-semibold'>{t('hotel.branch')} {name} </b>
             </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
