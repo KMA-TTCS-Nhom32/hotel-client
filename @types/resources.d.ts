@@ -136,7 +136,7 @@ interface Resources {
       "title": "Discover the Latest at A HOMEVILLA"
     },
     "village": {
-      "newDN": "NEW VILLAGE: DA NANG",
+      "newDN": "NEW VILLAGE: {{name}}",
       "nameDN": "A HOMEVILLA Hotel Da Nang Centre",
       "desDN": "Just launched, A HOMEVILLA offers a perfect Da Nang experience with a central location and sunlit rooms. Enjoy a voucher worth 1.5 million VND for the most local destinations.",
       "booking": "Book now",

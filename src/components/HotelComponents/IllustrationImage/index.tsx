@@ -10,7 +10,14 @@ import { Download } from 'yet-another-react-lightbox/plugins';
 import { Images } from 'lucide-react';
 import { useEffect } from 'react';
 
-export default function IllustrationImage() {
+import { Image } from '@ahomevilla-hotel/node-sdk';
+
+interface IllustrationImageProps {
+    // thumbnail: 
+    images: Image[];
+}
+
+export default function IllustrationImage({}: IllustrationImageProps) {
   const [open, setOpen] = React.useState(false);
 
   useEffect(() => {

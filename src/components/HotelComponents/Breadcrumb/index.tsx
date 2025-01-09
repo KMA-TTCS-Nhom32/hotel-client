@@ -13,9 +13,10 @@ import { useTranslation } from '@/i18n/client';
 
 interface BreadcrumbProps {
   lng: string;
+  name: string;
 }
 
-const BreadcrumbComponent = ({ lng }: Readonly<BreadcrumbProps>) => {
+const BreadcrumbComponent = ({ lng, name }: Readonly<BreadcrumbProps>) => {
   const { t } = useTranslation(lng);
   
   return (
@@ -31,7 +32,7 @@ const BreadcrumbComponent = ({ lng }: Readonly<BreadcrumbProps>) => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+            <BreadcrumbPage>{name}</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </div>
