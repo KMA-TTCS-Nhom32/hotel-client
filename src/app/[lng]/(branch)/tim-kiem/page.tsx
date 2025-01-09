@@ -5,11 +5,11 @@ import React from 'react';
 import styles from './index.module.scss';
 import Container from '@/components/Common/Container';
 
-interface BranchDetailPageProps {
+interface SearchPageProps {
   params: { lng: string; slug: string };
 }
 
-const BranchDetailPage = ({ params: { lng, slug } }: BranchDetailPageProps) => {
+const SearchPage = ({ params: { lng, slug } }: SearchPageProps) => {
   console.log(lng, slug);
   return (
     <Container className={styles.page_container}>
@@ -18,10 +18,10 @@ const BranchDetailPage = ({ params: { lng, slug } }: BranchDetailPageProps) => {
         <RoomCard />
       </div>
       <div className='flex-grow'>
-        <Sidebar />
+        <Sidebar lng={lng} />
       </div>
     </Container>
   );
 };
 
-export default BranchDetailPage;
+export default SearchPage;
