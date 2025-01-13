@@ -2,7 +2,7 @@ import Container from '@/components/Common/Container';
 import styles from './index.module.scss';
 import BreadcrumbComponent from '@/components/HotelComponents/Breadcrumb';
 import IllustrationImage from '@/components/HotelComponents/IllustrationImage';
-import HotelDescription from '@/components/HotelComponents/HotelCard/homepage';
+import HotelDescription from '@/components/HotelComponents/HotelCard';
 import { getDetailBranchService } from '@/services/branches';
 
 interface HotelProps {
@@ -23,7 +23,7 @@ export default async function HotelPage({ params: { lng, slug } }: Readonly<Hote
         <div className={styles.hotel_content}>
           <BreadcrumbComponent lng={lng} name={data.name} />
           <IllustrationImage images={[data.thumbnail, ...data.images]} />
-          <HotelDescription lng={lng} />
+          <HotelDescription lng={lng} branch={data} />
         </div>
       </section>
     </Container>

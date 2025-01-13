@@ -2,7 +2,10 @@
     "branch": {
         "menuAbout": "Giới thiệu",
         "menuBooking": "Chọn phòng",
-        "amenitytitle": "Tiện ích phổ biến"
+        "amenitytitle": "Tiện ích phổ biến",
+        "viewmap": "Xem bản đồ",
+        "people": "người",
+        "explorearea": "Khám phá khu vực"
     },
 
     "amenity": {
@@ -16,7 +19,9 @@
     "room": {
         "currency": "VND/ Đêm",
         "book": "Chọn phòng",
-        "unvailable": "Hết phòng"
+        "unvailable": "Hết phòng",
+        "title": "Chi tiết phòng",
+        "title2": "Tiện nghi phòng"
     }
   }
   

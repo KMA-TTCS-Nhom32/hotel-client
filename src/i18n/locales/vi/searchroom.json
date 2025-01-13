@@ -8,7 +8,8 @@
 
     "booking": {
         "button": "Đặt lại",
-        "searchroom": "Tìm phòng"
+        "searchroom": "Chi nhánh",
+        "home": "Trang chủ"
     },
 
     "filter": {
@@ -17,9 +18,5 @@
         "choice1": "Phổ biến nhất",
         "choice2": "Giá thấp đến cao",
         "choice3": "Giá cao đến thấp"
-    },
-    
-    "hotel": {
-        "branch": "Chi nhánh"
     }
 }

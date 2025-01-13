@@ -1,5 +1,11 @@
+@import '@/styles/mixins.scss';
+
 .breadcrumb_items {
   margin: 1.5rem 0;
+
+  @include mobile {
+    display: none;
+  }
 
   .breadcrumb_list {
     font-size: 1rem;

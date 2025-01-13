@@ -1,68 +1,69 @@
 'use client';
 
 import styles from './index.module.scss';
-
 import * as React from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-import { slides } from './data';
 import { Download } from 'yet-another-react-lightbox/plugins';
 import { Images } from 'lucide-react';
-import { useEffect } from 'react';
-
+import { useState } from 'react';
 import { Image } from '@ahomevilla-hotel/node-sdk';
 
 interface IllustrationImageProps {
-    // thumbnail: 
-    images: Image[];
+  images: Image[];
 }
 
-export default function IllustrationImage({}: IllustrationImageProps) {
-  const [open, setOpen] = React.useState(false);
+export default function IllustrationImage({ images }: IllustrationImageProps) {
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    console.log(slides);
-  }, []);
-
-  const handleImageClick = (index: number) => {
+  const handleImageClick = () => {
     setOpen(true);
   };
+
+  if (!images || images.length === 0) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
       <div className={`${styles.grid} grid-cols-4 gap-4 relative`}>
         <div
           className={`${styles.main_image} col-span-2 row-span-2`}
-          onClick={() => handleImageClick(0)}
+          onClick={() => handleImageClick()}
         >
           <img
-            src={slides[0].src}
-            alt={slides[0].caption}
+            src={images[0]?.url}
+            alt="Main image" 
             className='w-full h-full object-cover cursor-pointer'
           />
         </div>
 
-        {slides.slice(1, 5).map((slide, index) => (
+        {images.slice(1, 5).map((image, index) => (
           <div
             key={index}
             className={`${styles.image} col-span-1`}
-            onClick={() => handleImageClick(index + 1)}
+            onClick={() => handleImageClick()}
           >
             <img
-              src={slide.src}
-              alt={slide.caption}
+              src={image.url}
+              alt={`Image ${index + 1}`}
               className='w-full h-full object-cover cursor-pointer'
             />
           </div>
         ))}
 
-        <div className={`${styles.total_count}`} onClick={() => handleImageClick(0)}>
+        <div className={`${styles.total_count}`} onClick={() => handleImageClick()}>
           <Images size={20} className='mr-1' />
-          <span>{slides.length}</span>
+          <span>{images.length}</span>
         </div>
       </div>
 
-      <Lightbox plugins={[Download]} open={open} close={() => setOpen(false)} slides={slides} />
+      <Lightbox
+        plugins={[Download]}
+        open={open}
+        close={() => setOpen(false)}
+        slides={images.map((img) => ({ src: img.url }))}
+      />
     </>
   );
 }

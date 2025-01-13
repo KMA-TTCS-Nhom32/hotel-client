@@ -26,7 +26,9 @@ const BreadcrumbComponent = ({ lng, name }: Readonly<BreadcrumbProps>) => {
       <div className={styles.breadcrumb_items}>
         <BreadcrumbList className={styles.breadcrumb_list}>
           <BreadcrumbItem className={styles.breadcrumb_item}>
-            <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+            <BreadcrumbLink href='/'>
+              <Link href={APP_ROUTES.Home}>{t('booking.home')}</Link>
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem className={styles.breadcrumb_item}>
@@ -37,7 +39,7 @@ const BreadcrumbComponent = ({ lng, name }: Readonly<BreadcrumbProps>) => {
           <BreadcrumbSeparator />
           <BreadcrumbItem className={styles.breadcrumb_item}>
             <BreadcrumbPage>
-              <b className='font-semibold'>{t('hotel.branch')} {name} </b>
+              <b className='font-semibold'> {name} </b>
             </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
