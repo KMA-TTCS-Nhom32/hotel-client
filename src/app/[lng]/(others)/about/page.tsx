@@ -1,12 +1,11 @@
-'use client';
-
 import React from 'react';
 import styles from './index.module.scss';
-import { useTranslation } from '@/i18n/client';
 import { cn } from '@/lib/utils';
+import { createTranslation } from '@/i18n';
 
 import GalleryImages from '@/components/HomeComponents/Gallery';
 import Advertisement from '@/components/HomeComponents/Advertisement/Advertisement';
+import Container from '@/components/Common/Container';
 
 interface AboutProps {
   params: {
@@ -14,15 +13,16 @@ interface AboutProps {
   };
 }
 
-const About = ({ params: { lng } }: Readonly<AboutProps>) => {
-  const { t } = useTranslation(lng, 'about');
+const About = async ({ params: { lng } }: Readonly<AboutProps>) => {
+  const { t } = await createTranslation(lng, 'about');
+  
   return (
     <div>
-      <div className={styles.topPart}>
+      <Container className={styles.topPart}>
         <span>{t('about.subtitle')}</span>
         <h2 className={cn(styles.title, 'text-center')}> {t('about.title')} </h2>
         <p className={styles.para}>{t('about.para')}</p>
-      </div>
+      </Container>
 
       <section className={styles.advertisement}>
         <Advertisement t={t} />

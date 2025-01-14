@@ -10,7 +10,6 @@ import '../../styles/globals.scss';
 import Footer from '@/components/layouts/Footer';
 import AuthModal from '@/components/Common/AuthModal';
 import { Toaster } from '@/components/ui/sonner';
-import { ProfileStoreProvider } from '@/providers/profile-store-provider';
 import { AppProvider } from '@/providers/app-provider';
 
 const nunitoSansFont = Nunito_Sans({
@@ -39,7 +38,7 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
 
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={`${nunitoSansFont.variable} antialiased`}>
+      <body className={`${nunitoSansFont.variable} ${nunitoSansFont.className} antialiased`}>
         <AppProvider>
           {children}
           <Footer lng={lng} />

@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import { Thumbnails } from 'yet-another-react-lightbox/plugins';
 import { Image } from '@ahomevilla-hotel/node-sdk';
+import NextImage from 'next/image';
 
 interface ImageSliderProps {
   images: Image[];
 }
 
 const ImageSlider = ({ images }: ImageSliderProps) => {
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [open, setOpen] = useState(false);
 
@@ -28,14 +27,12 @@ const ImageSlider = ({ images }: ImageSliderProps) => {
     setCurrentIndex(index);
   };
 
-  if (!images || images.length === 0) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className='flex flex-col space-y-4'>
       <div className='relative w-full h-96'>
-        <img
+        <NextImage
+          width={384}
+          height={384}
           src={images[currentIndex].url}
           alt={`Slide ${currentIndex + 1}`}
           className='w-full h-full object-cover cursor-pointer'
@@ -43,12 +40,14 @@ const ImageSlider = ({ images }: ImageSliderProps) => {
         />
 
         <button
+          title='Previous'
           onClick={handlePrevious}
           className='absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/75 transition-colors'
         >
           <ChevronLeft className='w-6 h-6' />
         </button>
         <button
+          title='Next'
           onClick={handleNext}
           className='absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/75 transition-colors'
         >
@@ -101,4 +100,3 @@ const ImageSlider = ({ images }: ImageSliderProps) => {
 };
 
 export default ImageSlider;
-

@@ -1,14 +1,10 @@
-'use client';
-
 import React from 'react';
 import styles from './index.module.scss';
-import { useTranslation } from '@/i18n/client';
 import { cn } from '@/lib/utils';
 
-import Advertisement from '@/components/HomeComponents/Advertisement/Advertisement';
-import TierBenefit from '@/components/Citizen/TierBenefitContainer';
 import GalleryImages from '@/components/HomeComponents/Gallery';
-import { Headset, Mails, MessageCircleMore } from 'lucide-react';
+import { Headset, MessageCircleMore } from 'lucide-react';
+import { createTranslation } from '@/i18n';
 
 interface ContactProps {
   params: {
@@ -16,8 +12,8 @@ interface ContactProps {
   };
 }
 
-const Contact = ({ params: { lng } }: Readonly<ContactProps>) => {
-  const { t } = useTranslation(lng, 'about');
+const Contact = async ({ params: { lng } }: Readonly<ContactProps>) => {
+  const { t } = await createTranslation(lng, 'about');
 
   return (
     <div className=''>
