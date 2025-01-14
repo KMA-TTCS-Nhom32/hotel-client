@@ -1,16 +1,20 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '@/i18n/client';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import styles from './index.module.scss';
 import { ChevronDown } from 'lucide-react';
 
-const Filter = () => {
-  const { t } = useTranslation();
+interface FilterProps {
+  lng: string;
+}
+
+const Filter = ({ lng }: FilterProps) => {
+  const { t } = useTranslation(lng, 'searchroom');
   const [selectedOption, setSelectedOption] = useState('Phổ biến nhất'); // Lựa chọn mặc định
 
-  const sortOptions = ['Phổ biến nhất', 'Giá từ thấp đến cao', 'Giá từ cao đến thấp'];
+  const sortOptions: string[] = [t('filter.choice1'), t('filter.choice2'), t('filter.choice3')];
 
   const handleOptionClick = (option: string) => {
     setSelectedOption(option); // Cập nhật trạng thái khi chọn
@@ -18,12 +22,10 @@ const Filter = () => {
 
   return (
     <div className={styles.filterContainer}>
-      {/* Hotels Found */}
       <div className={styles.hotelsFound}>
-        <b>1</b> khách sạn phù hợp
+        <b>2</b> {t('filter.hotelsFound')}
       </div>
 
-      {/* Sort Dropdown */}
       <div
         className={styles.sortContainer}
         aria-describedby='branch-list-sort-selection'
@@ -32,7 +34,7 @@ const Filter = () => {
         <Popover>
           <PopoverTrigger className={styles.sortTrigger}>
             <div className={styles.sortText}>
-              <div className={`${styles.sortText}`}>Sắp xếp</div>
+              <div className={`${styles.sortText}`}>{t('filter.sort')}</div>
               <span className={styles.selectedOption}>{selectedOption}</span>
             </div>
             <div className={styles.arrowIcon}>
@@ -44,7 +46,7 @@ const Filter = () => {
               <div
                 key={option}
                 className={styles.option}
-                onClick={() => handleOptionClick(option)} // Xử lý khi chọn
+                onClick={() => handleOptionClick(option)} 
               >
                 {option}
               </div>

@@ -1,6 +1,7 @@
 // Adjusted BookingForm Component
 'use client';
 
+import Link from 'next/link';
 import React from 'react';
 import { User, BookUp } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -54,7 +55,7 @@ const BookingForm = ({ lng }: BookingFormProps) => {
           <span className='inline-block rounded-full bg-[#dadada] p-1 max-w-full'>
             <User className={styles.icon} />
           </span>
-          <div className='flex flex-row gap-3 flex-1 items-center'>
+          <div className='flex flex-row justify-between flex-1 items-center'>
             <div>
               <p className={styles.citizen_text}>
                 {t('booking.citizen_text', {
@@ -192,9 +193,9 @@ const BookingForm = ({ lng }: BookingFormProps) => {
           />
         </div>
 
-        <div className={styles.submit_section}>
-          <button className={styles.submit_button}>{t('booking.submit')}</button>
-        </div>
+        <Link href={APP_ROUTES.Payment} className={styles.submit_section}>
+          <button type='submit' className={styles.submit_button}>{t('booking.submit')}</button>
+        </Link>
       </form>
     </Form>
   );

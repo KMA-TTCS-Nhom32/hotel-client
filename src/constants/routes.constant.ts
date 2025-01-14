@@ -18,4 +18,5 @@ export const NeedAuthRoutes = [
   APP_ROUTES.AccountMyReservation,
   APP_ROUTES.Booking,
   APP_ROUTES.Payment,
+  APP_ROUTES.SearchRoom,
 ];

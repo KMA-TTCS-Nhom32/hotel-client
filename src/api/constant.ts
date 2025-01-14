@@ -6,4 +6,14 @@ export const API_PATH = {
   PROFILE: '/auth/profile',
   REGISTER: '/auth/register',
   VERIFY_EMAIL: '/auth/verify-email',
+
+  //Province
+  PROVINCE:'/provinces',
+
+  // Branch
+  BRANCHES: '/branches',
+  GET_LATEST_BRANCHES: '/branches/latest',
+
+  //Amemnity
+  AMENITY: '/amenities',
 };

@@ -1,0 +1,33 @@
+{
+  "about": {
+    "subtitle": "A CURATION OF EXCLUSIVE ESCAPES AND TALES OF TAILORED ELEGANCE",
+    "title": "A HOMEVILLA STORIES",
+    "para": "A HomeVilla Stories offers a curation of travel experiences, each narrative intricately woven with the exclusivity and personalized elegance that hallmark our exceptional selection of properties. By sharing these adventures, we want to transport you to each destination, highlighting the serene indulgence of what our luxury accommodations can offer.",
+    "subtitle2": "A HOMEVILLA’S BEST-KEPT SECRETS REVEALED",
+    "title2": "SIGNATURE STAYS & HIDDEN GEMS",
+    "para2": "Step into a world where unparalleled luxury and exclusivity are combined to create a truly unique and personalized travel experience. Our catalog of A HomeVilla stays will show you the most exclusive escapes and secluded sanctuaries where luxury knows no bounds. Experience the thrill of uncovering hidden gems and indulgent stays that have been thoughtfully chosen for their distinctive charm, unmatched comfort, and the promise of a memorable journey."
+  },
+
+  "contact": {
+    "title": "What Makes A HomeVilla Unique: Things You Can Only Find On Our Hotel",
+    "para1": "Established in 1926 with the most prime location in Hanoi capital, near cultural, commercial, and financial centers, A HomeVilla is one of the unique architectural works that mark the mark of the French. . Over 100 years of establishment and development, A HomeVilla has been honored to welcome many diplomatic delegations, senior leaders and domestic and international businessmen.",
+    "para2": "A HomeVilla started as a beer bar called Le Coq d'Or (Brasserie Le Coq d'Or) located at the corner of Carreau Avenue and Henri-Rivière (Ly Thuong Kiet and Ngo Quyen streets today). Around the beginning of the 20th century (1917 - 1918), the French decided to build a 2-storey hotel here, featuring French architecture with the name Le Coq d'Or (Golden Rooster) with 56 rooms, including 12 luxury rooms.",
+    "para3": "On May 19, 1931, after the owner transfer process, Le Coq d'Or Hotel was renovated and upgraded. The hotel lobby was expanded, the number of floors was also increased to 3 floors, with a total of 80 rooms. At this time, the hotel was renamed Splendid (Cho Bong Lai), officially opened on January 1, 1932.",
+    "para4": "In 2016, with a comprehensive renovation project by the professional hotel management and consulting unit STS, Hoa Binh Hotel had a completely new look. What is worth noting, and what every tourist and resident looks forward to, is that the hotel's architectural imprints from the French period are still preserved intact.",
+    "viewmap": "View Map",
+    "contact": "Contact us",
+    "byphone": "By phone",
+    "phonedesc": "Get telephone support by signing into your account.",
+    "chat": "Live chat",
+    "chatdesc": "Chat with a member of our in-house team."
+  },
+  "village": {
+    "newDN": "NEW VILLAGE: {{name}}",
+    "nameDN": "A HOMEVILLA Hotel Da Nang Centre",
+    "desDN": "Just launched, A HOMEVILLA offers a perfect Da Nang experience with a central location and sunlit rooms. Enjoy a voucher worth 1.5 million VND for the most local destinations.",
+    "booking": "Book now",
+    "newHCM": "NEW VILLAGE: HO CHI MINH",
+    "desHCM1": "An ideal base to dive in Saigon-Chợ Lớn’s culture! Located at the intersection of District 1 & 5, featuring Chinese design, with flexible services and amenities.",
+    "desHCM2": "Choose Express Nguyen Binh Khiem for a convenient yet peaceful business trip in District 1. All options has separate bedrooms, living rooms and private kitchens."
+  }
+}

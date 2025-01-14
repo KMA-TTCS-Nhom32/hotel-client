@@ -31,6 +31,12 @@ import { CalendarIcon } from 'lucide-react';
 import dayjs from 'dayjs';
 import { ButtonCustom } from '@/components/ui/button-custom';
 import { CustomCalendarDropdown } from '@/components/Common/CustomCalendar/CalendarCustomDropdown';
+import { useProfileStore } from '@/providers/profile-store-provider';
+import { useRequest } from 'ahooks';
+import { updateProfileService } from '@/services/auth';
+import { UpdateProfileDto } from '@ahomevilla-hotel/node-sdk';
+import { useEffect } from 'react';
+import { toast } from 'sonner';
 
 interface AccountInfoProps {
   t: AppTranslationFunction;
@@ -42,15 +48,16 @@ const AccountInfo = ({ t }: Readonly<AccountInfoProps>) => {
   //   const onSubmit: SubmitHandler<FormFields> = (data) => {
   //     console.log(data);
   //   }
+  const { profile, setProfile } = useProfileStore((state) => state);
 
   const form = useForm<AccountInforValues>({
     resolver: zodResolver(accountInforSchema),
     defaultValues: {
-      email: '',
-      name: '',
+      email: profile?.email ?? '',
+      name: profile?.name ?? '',
       gender: 'male',
-      phone: '',
-      birthDate: new Date(),
+      phone: profile?.phone ?? '',
+      birthDate: profile?.birth_date ? new Date(profile.birth_date) : new Date(),
     },
   });
 
@@ -58,10 +65,46 @@ const AccountInfo = ({ t }: Readonly<AccountInfoProps>) => {
     formState: { isSubmitting },
     handleSubmit,
     control,
+    reset,
   } = form;
 
+  useEffect(() => {
+    reset({
+      email: profile?.email ?? '',
+      name: profile?.name ?? '',
+      gender: 'male',
+      phone: profile?.phone ?? '',
+      birthDate: profile?.birth_date ? new Date(profile.birth_date) : new Date(),
+    });
+  }, [profile]);
+
+  const { run } = useRequest(updateProfileService, {
+    manual: true,
+    onSuccess({ data }) {
+      setProfile(data);
+      toast.success('cap nhat thanh cong');
+    },
+    onError() {
+      toast.error('cap nhat that bai');
+    },
+  });
+
   function onSubmit(values: AccountInforValues) {
-    console.log(values);
+    const payload: UpdateProfileDto = {
+      name: values.name,
+      birth_date: values.birthDate.toISOString(),
+      gender: values.gender.toUpperCase() as any,
+    };
+
+    if (!profile?.verified_email) {
+      payload.email = values.email;
+    }
+
+    if (!profile?.verified_phone) {
+      payload.phone = values.phone;
+    }
+
+    run(payload);
   }
 
   return (
@@ -73,11 +116,13 @@ const AccountInfo = ({ t }: Readonly<AccountInfoProps>) => {
               name='email'
               label='Email'
               placeholder={t('placeholder.email')}
+              disabled={profile?.verified_email}
             />
             <InputText<AccountInforValues>
               name='phone'
               label={t('Phone_number')}
               placeholder={t('placeholder.phone_number')}
+              disabled={profile?.verified_phone}
             />
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>

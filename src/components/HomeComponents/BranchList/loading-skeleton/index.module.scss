@@ -1,0 +1,61 @@
+.branchCard {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .branchImage {
+    width: 400px;
+    height: 200px;
+    background-color: #ccc;
+  }
+
+  .branchInfo {
+    padding: 16px;
+    .branchName {
+      background-color: #ccc;
+      width: 350px;
+      height: 25px;
+      margin: 0;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      background-color: #ff6600;
+      width: 65px;
+      height: 22px;
+    }
+  }
+}
+
+@include tablet {
+  .branchList {
+    padding: 2rem 1rem;
+  }
+
+  .branchGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include mobile {
+  .branchList {
+    padding: 2rem 1.5rem;
+  }
+
+  .branchGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@include desktop {
+  .branchList {
+    padding: 2rem 1rem;
+  }
+
+  .branchGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

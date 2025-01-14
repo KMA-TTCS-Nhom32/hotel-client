@@ -49,5 +49,5 @@ export const useSearchBarStore = create<SearchBarStore>((set) => ({
   ...initialState,
   setProvince: (province) => set(() => ({ province })),
   setBookingTime: (bookingTime) => set(() => ({ bookingTime })),
-  setCustomerAmount: (customerAmount) => set(() => ({ customerAmount })),
+  setCustomerAmount: (customerAmount) => set(() => ({ customerAmount }))
 }));
