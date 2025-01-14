@@ -27,35 +27,38 @@ export default function IllustrationImage({ images }: IllustrationImageProps) {
   return (
     <>
       <div className={`${styles.grid} grid-cols-4 gap-4 relative`}>
-        <div
-          className={`${styles.main_image} col-span-2 row-span-2`}
+        <button
+          className={`${styles.main_image} appearance-none col-span-2 row-span-2`}
           onClick={() => handleImageClick()}
         >
           <img
             src={images[0]?.url}
-            alt="Main image" 
+            alt='thumbnail'
             className='w-full h-full object-cover cursor-pointer'
           />
-        </div>
+        </button>
 
         {images.slice(1, 5).map((image, index) => (
-          <div
+          <button
             key={index}
-            className={`${styles.image} col-span-1`}
+            className={`${styles.image} appearance-none col-span-1`}
             onClick={() => handleImageClick()}
           >
             <img
               src={image.url}
-              alt={`Image ${index + 1}`}
+              alt={`slide ${index + 1}`}
               className='w-full h-full object-cover cursor-pointer'
             />
-          </div>
+          </button>
         ))}
 
-        <div className={`${styles.total_count}`} onClick={() => handleImageClick()}>
+        <button
+          className={`${styles.total_count} appearance-none`}
+          onClick={() => handleImageClick()}
+        >
           <Images size={20} className='mr-1' />
           <span>{images.length}</span>
-        </div>
+        </button>
       </div>
 
       <Lightbox

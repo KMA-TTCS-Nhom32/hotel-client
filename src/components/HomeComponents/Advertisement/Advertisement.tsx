@@ -1,6 +1,6 @@
 import { MoveUpRight } from 'lucide-react';
-import { TFunction, Resources } from 'i18next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import {
   Carousel,
@@ -13,14 +13,14 @@ import Container from '@/components/Common/Container';
 import { Text } from '@/components/ui/text';
 
 import styles from './index.module.scss';
-import { useRequest } from 'ahooks';
+
+import { AppTranslationFunction } from '@/lib/types/i18n';
 import { getLatestBranchesService } from '@/services/branches';
-import Link from 'next/link';
 import { APP_ROUTES } from '@/constants/routes.constant';
 import { cn } from '@/lib/utils';
 
 interface AdvertisementProps {
-  t: TFunction<keyof Resources, undefined>;
+  t: AppTranslationFunction;
 }
 
 export default async function Advertisement({ t }: Readonly<AdvertisementProps>) {
