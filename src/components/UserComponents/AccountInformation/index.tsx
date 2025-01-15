@@ -49,7 +49,7 @@ const AccountInfo = ({ t }: Readonly<AccountInfoProps>) => {
   //     console.log(data);
   //   }
   const { profile, setProfile } = useProfileStore((state) => state);
-  const [state, setState] = useState('');
+  // const [state, setState] = useState('');
 
   const form = useForm<AccountInforValues>({
     resolver: zodResolver(accountInforSchema),

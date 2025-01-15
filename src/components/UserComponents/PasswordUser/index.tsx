@@ -13,7 +13,7 @@ interface Password {
 const Password = ({ t }: Readonly<Password>) => {
   const [changepw, setchanpw] = useState(true);
   const changepassword = () => {
-    setchanpw(false);
+    setchanpw(!changepw);
   };
   const handleCancel = () => {
     setchanpw(true);

@@ -29,7 +29,6 @@ export const loginSchema = z.object({
 
 export type LoginFormValues = z.infer<typeof loginSchema>;
 
-// Register schema is same as login schema have additional fields
 export const registerSchema = z
   .object({
     ...loginSchema.shape,
@@ -54,3 +53,29 @@ export const activeAccountSchema = z.object({
 });
 
 export type ActiveAccountFormValues = z.infer<typeof activeAccountSchema>;
+
+
+export const emailSchema = z.object({
+  email: z.string().email(),
+  
+});
+export type EmailValue = z.infer<typeof emailSchema>;
+
+export const emailandCodeSchema = z.object({
+  email: z.string().email(),
+  otp: z.string().min(6, {
+    message: 'auth.required.otp',
+  }),
+});
+export type EmailandCodeValue = z.infer<typeof emailandCodeSchema>;
+
+export const newPasswordchema = z.object({
+  newPassword: z
+    .string()
+    .min(8, { message: 'auth.validate.password_min_length' })
+    .regex(/[A-Z]/, { message: 'auth.validate.password_uppercase' })
+    .regex(/[a-z]/, { message: 'auth.validate.password_lowercase' })
+    .regex(/\d/, { message: 'auth.validate.password_digit' })
+    .regex(/[^A-Za-z0-9]/, { message: 'auth.validate.password_special' }),
+});
+export type newPasswordValue = z.infer<typeof newPasswordchema>;

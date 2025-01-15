@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@ahomevilla-hotel/node-sdk':
-        specifier: ^1.0.17
-        version: 1.0.17
+        specifier: ^1.1.2
+        version: 1.1.2
       '@fortawesome/fontawesome-free':
         specifier: ^6.7.2
         version: 6.7.2
@@ -21,7 +21,7 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-icons':
-        specifier: ^1.3.0
+        specifier: ^1.3.2
         version: 1.3.2(react@18.3.1)
       '@radix-ui/react-label':
         specifier: ^2.1.0
@@ -36,7 +36,7 @@ importers:
         specifier: ^1.2.2
         version: 1.2.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-scroll-area':
-        specifier: ^1.2.1
+        specifier: ^1.2.2
         version: 1.2.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-select':
         specifier: ^2.1.2
@@ -48,7 +48,7 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(@types/react@18.3.12)(react@18.3.1)
       '@radix-ui/react-tabs':
-        specifier: ^1.1.1
+        specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-toggle':
         specifier: ^1.1.0
@@ -66,7 +66,7 @@ importers:
         specifier: ^1.7.9
         version: 1.7.9
       class-variance-authority:
-        specifier: ^0.7.0
+        specifier: ^0.7.1
         version: 0.7.1
       clsx:
         specifier: ^2.1.1
@@ -111,7 +111,7 @@ importers:
         specifier: ^9.1.1
         version: 9.1.1
       react:
-        specifier: ^18
+        specifier: ^18.3.1
         version: 18.3.1
       react-cookie:
         specifier: 7.2.0
@@ -120,16 +120,16 @@ importers:
         specifier: 8.10.1
         version: 8.10.1(date-fns@3.6.0)(react@18.3.1)
       react-dom:
-        specifier: ^18
+        specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-hook-form:
-        specifier: ^7.53.2
+        specifier: ^7.54.0
         version: 7.54.0(react@18.3.1)
       react-i18next:
         specifier: 15.0.1
         version: 15.0.1(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-icons:
-        specifier: ^5.3.0
+        specifier: ^5.4.0
         version: 5.4.0(react@18.3.1)
       sharp:
         specifier: ^0.33.5
@@ -141,7 +141,7 @@ importers:
         specifier: ^11.1.15
         version: 11.1.15
       tailwind-merge:
-        specifier: ^2.5.3
+        specifier: ^2.5.5
         version: 2.5.5
       tailwindcss-animate:
         specifier: ^1.0.7
@@ -156,7 +156,7 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
       zustand:
-        specifier: ^5.0.1
+        specifier: ^5.0.2
         version: 5.0.2(@types/react@18.3.12)(react@18.3.1)
     devDependencies:
       '@types/node':
@@ -169,10 +169,10 @@ importers:
         specifier: 18.3.1
         version: 18.3.1
       eslint:
-        specifier: ^8.57.0
+        specifier: ^8.57.1
         version: 8.57.1
       eslint-config-next:
-        specifier: ^13.5.6
+        specifier: ^13.5.7
         version: 13.5.7(eslint@8.57.1)(typescript@5.6.3)
       esno:
         specifier: ^4.8.0
@@ -181,28 +181,28 @@ importers:
         specifier: ^1.5.0
         version: 1.5.0
       postcss:
-        specifier: ^8
+        specifier: ^8.4.49
         version: 8.4.49
       prettier:
         specifier: ^3.4.2
         version: 3.4.2
       sass:
-        specifier: ^1.79.4
+        specifier: ^1.82.0
         version: 1.82.0
       tailwindcss:
-        specifier: ^3.4.1
+        specifier: ^3.4.16
         version: 3.4.16
       typescript:
-        specifier: ~5.6.2
+        specifier: ~5.6.3
         version: 5.6.3
       typescript-eslint:
-        specifier: ^8.15.0
+        specifier: ^8.17.0
         version: 8.17.0(eslint@8.57.1)(typescript@5.6.3)
 
 packages:
 
-  '@ahomevilla-hotel/node-sdk@1.0.17':
-    resolution: {integrity: sha512-4HyqnZt16Wil/3zmpszACtzC2pokQJ6A2mdPN9NsEMmzqkxISpKhwQS86IWhw/cgEwdbaTowC9iKqPqiMeBKwQ==}
+  '@ahomevilla-hotel/node-sdk@1.1.2':
+    resolution: {integrity: sha512-rh8BDjGzspb1bNn6k95N4C3uZe8/4qmcH+YNHkA2Nu7cQchRrCAyglZo2UQ627PZihzhmHaoEy0bsBOyKyzYcw==}
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -3008,7 +3008,7 @@ packages:
 
 snapshots:
 
-  '@ahomevilla-hotel/node-sdk@1.0.17':
+  '@ahomevilla-hotel/node-sdk@1.1.2':
     dependencies:
       axios: 1.7.9
     transitivePeerDependencies:
