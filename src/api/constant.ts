@@ -10,6 +10,8 @@ export const API_PATH = {
   INITIATE_EMAIL: '/auth/forgot-password/email/initiate',
   VERIFY_CODE: '/verification/verify-email-otp',
   RESET_PASSWORD: '/auth/forgot-password/email/reset',
+  //User
+  USERS_RESTORE:'/users/{id}/restore',
   // Branch
   GET_LATEST_BRANCHES: '/branches/latest',
 };

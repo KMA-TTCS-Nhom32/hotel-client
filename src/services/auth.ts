@@ -47,5 +47,8 @@ export async function verifyOTP(data: VerifyEmailOTP) {
 export async function reserPasswordService(data: ResetPasswordWithOTPEmailDto) {
   return axiosInstance.post(API_PATH.RESET_PASSWORD, data);
 }
+export async function getUserRestore() {
+  return axiosInstance.get<User>(API_PATH.USERS_RESTORE);
+}
 
 

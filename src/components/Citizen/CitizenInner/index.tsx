@@ -121,6 +121,7 @@ const generateDatabyRank: UserRank = (usersid: 'bronze' | 'silver' | 'gold' | 'p
 };
 
 const Citizen = ({ lng }: Readonly<Citizen>) => {
+  
   const userRank = generateDatabyRank('silver');
     return (
     <>
