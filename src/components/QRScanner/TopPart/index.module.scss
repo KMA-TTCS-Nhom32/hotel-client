@@ -1,0 +1,19 @@
+.topPart {
+  margin: 24px 0;
+  .icon {
+    cursor: pointer;
+    overflow: hidden;
+    font-family: Be Vietnam Pro;
+    line-height: 1.55;
+    color: #131313;
+    font-weight: 300;
+  }
+
+  span {
+    text-transform: capitalize;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    color: rgb(69, 69, 69);
+  }
+}

@@ -10,6 +10,8 @@ import { cn } from '@/lib/utils';
 import styles from './index.module.scss';
 
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import Link from 'next/link';
+import { APP_ROUTES } from '@/constants/routes.constant';
 
 interface PaymentDetailProps {
   lng: string;
@@ -176,11 +178,13 @@ const PaymentDetail = ({ lng }: PaymentDetailProps) => {
       </div>
 
       <div className='flex flex-col'>
-        <button className={styles.submit_button}>
-          {selectedMethod
-            ? `${t('payment.submit')} ${paymentMethods.find((method) => method.id === selectedMethod)?.label}`
-            : t('payment.submit')}
-        </button>
+        <Link href={APP_ROUTES.ConfirmBooking}>
+          <button className={styles.submit_button}>
+            {selectedMethod
+              ? `${t('payment.submit')} ${paymentMethods.find((method) => method.id === selectedMethod)?.label}`
+              : t('payment.submit')}
+          </button>
+        </Link>
         <div className={cn(styles.note_text, 'text-center')}>{t('payment.note_text')}</div>
       </div>
     </div>

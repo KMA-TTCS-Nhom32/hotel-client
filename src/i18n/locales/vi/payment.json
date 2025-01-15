@@ -24,5 +24,19 @@
     "total_price": "2.200.000 VND",
     "submit": "Tiếp tục với ",
     "note_text": "Bằng cách tiếp tục thanh toán, bạn đã đồng ý với AHomeVilla và các Điều khoản & Chính sách Bảo mật"
+  },
+
+  "confirm": {
+    "title": "Quét mã QR để thanh toán",
+    "expire": "Mã QR thanh toán sẽ hết hạn sau",
+    "note": "Quý khách vui lòng không thay đổi nội dung chuyển khoản.",
+    "save": "Lưu ảnh"
+  },  
+
+  "inquiry": {
+    "title": "Làm thế nào để thanh toán với mã QR?",
+    "text1": "1. Mở ứng dụng ví điện tử hoặc ngân hàng di động hỗ trợ thanh toán QR với QuickPay, sau đó quét mã QR ở trên.",
+    "text2": "2. Đảm bảo số tiền tổng cộng và đích đến thanh toán khớp với thông tin ở trên, sau đó hoàn tất thanh toán trong thời hạn quy định.",
+    "text3": "3. Đặt phòng của bạn sẽ tự động được xác nhận sau khi thanh toán thành công. Bạn có thể kiểm tra trạng thái đặt phòng trên trang Đặt phòng."
   }
 }
