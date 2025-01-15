@@ -16,4 +16,7 @@ export const API_PATH = {
 
   //Amemnity
   AMENITY: '/amenities',
+
+  //Room
+  ROOM_DETAIL: '/room-details/infinite',
 };
