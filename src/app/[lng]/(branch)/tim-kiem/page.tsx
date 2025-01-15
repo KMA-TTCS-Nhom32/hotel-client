@@ -14,7 +14,7 @@ const SearchPage = ({ params: { lng, slug } }: SearchPageProps) => {
   return (
     <Container className={styles.page_container}>
       <div className='flex-grow'>
-        <Filter />
+        <Filter lng={lng} />
         <RoomCard />
       </div>
       <div className='flex-grow'>

@@ -1,4 +1,39 @@
 interface Resources {
+  "about": {
+    "about": {
+      "subtitle": "A CURATION OF EXCLUSIVE ESCAPES AND TALES OF TAILORED ELEGANCE",
+      "title": "A HOMEVILLA STORIES",
+      "para": "A HomeVilla Stories offers a curation of travel experiences, each narrative intricately woven with the exclusivity and personalized elegance that hallmark our exceptional selection of properties. By sharing these adventures, we want to transport you to each destination, highlighting the serene indulgence of what our luxury accommodations can offer.",
+      "subtitle2": "A HOMEVILLA’S BEST-KEPT SECRETS REVEALED",
+      "title2": "SIGNATURE STAYS & HIDDEN GEMS",
+      "para2": "Step into a world where unparalleled luxury and exclusivity are combined to create a truly unique and personalized travel experience. Our catalog of A HomeVilla stays will show you the most exclusive escapes and secluded sanctuaries where luxury knows no bounds. Experience the thrill of uncovering hidden gems and indulgent stays that have been thoughtfully chosen for their distinctive charm, unmatched comfort, and the promise of a memorable journey."
+    },
+    "contact": {
+      "title": "What Makes A HomeVilla Unique: Things You Can Only Find On Our Hotel",
+      "para1": "Established in 1926 with the most prime location in Hanoi capital, near cultural, commercial, and financial centers, A HomeVilla is one of the unique architectural works that mark the mark of the French. . Over 100 years of establishment and development, A HomeVilla has been honored to welcome many diplomatic delegations, senior leaders and domestic and international businessmen.",
+      "para2": "A HomeVilla started as a beer bar called Le Coq d'Or (Brasserie Le Coq d'Or) located at the corner of Carreau Avenue and Henri-Rivière (Ly Thuong Kiet and Ngo Quyen streets today). Around the beginning of the 20th century (1917 - 1918), the French decided to build a 2-storey hotel here, featuring French architecture with the name Le Coq d'Or (Golden Rooster) with 56 rooms, including 12 luxury rooms.",
+      "para3": "On May 19, 1931, after the owner transfer process, Le Coq d'Or Hotel was renovated and upgraded. The hotel lobby was expanded, the number of floors was also increased to 3 floors, with a total of 80 rooms. At this time, the hotel was renamed Splendid (Cho Bong Lai), officially opened on January 1, 1932.",
+      "para4": "In 2016, with a comprehensive renovation project by the professional hotel management and consulting unit STS, Hoa Binh Hotel had a completely new look. What is worth noting, and what every tourist and resident looks forward to, is that the hotel's architectural imprints from the French period are still preserved intact.",
+      "viewmap": "View Map",
+      "contact": "Contact us",
+      "byphone": "By phone",
+      "phonedesc": "Get telephone support by signing into your account.",
+      "chat": "Live chat",
+      "chatdesc": "Chat with a member of our in-house team."
+    },
+    "village": {
+      "newDN": "NEW VILLAGE: {{name}}",
+      "nameDN": "A HOMEVILLA Hotel Da Nang Centre",
+      "desDN": "Just launched, A HOMEVILLA offers a perfect Da Nang experience with a central location and sunlit rooms. Enjoy a voucher worth 1.5 million VND for the most local destinations.",
+      "booking": "Book now",
+      "newHCM": "NEW VILLAGE: HO CHI MINH",
+      "desHCM1": "An ideal base to dive in Saigon-Chợ Lớn’s culture! Located at the intersection of District 1 & 5, featuring Chinese design, with flexible services and amenities.",
+      "desHCM2": "Choose Express Nguyen Binh Khiem for a convenient yet peaceful business trip in District 1. All options has separate bedrooms, living rooms and private kitchens."
+    },
+    "content": {
+      "title": "Explore new villa"
+    }
+  },
   "account": {
     "detail_infomation": "Detail infomation",
     "account_manager": "My account",
@@ -84,53 +119,56 @@ interface Resources {
     },
     "button": "Book now",
     "title": "Complete your booking",
-    "subtitle": "Check everything is okay? Great! Secure your stay.",
+    "subtitle": "Double-check everything looks good? Great! Proceed to secure your stay.",
     "booking": {
-      "button": "Đặt phòng",
+      "button": "Continue to Payment",
       "title": "Hoàn tất đặt phòng của bạn",
       "subtitle": "Kiểm tra kỹ mọi thứ đã ổn chưa? Tuyệt vời! Tiến hành bảo đảm chỗ ở của bạn.",
-      "citizen_text": "Xin chào {{name}}!",
-      "citizen_text2": " Hãy tận hưởng những đặc quyền này bằng cách hoàn tất đặt phòng này:",
-      "citizen_subtext": "Đăng nhập với tư cách Hoàng Kim Chi",
-      "citizen_level_label": "Hội viên MỚI",
-      "contact": "Thông tin liên hệ",
-      "contact_alert": "Vui lòng điền đầy đủ các trường thông tin để đảm bảo bạn nhận được xác nhận đặt phòng qua email.",
-      "input_label": "Tên đầy đủ của bạn ",
-      "nameinput_placeholder": "Nhập họ và tên",
-      "input_note": "Để cập nhật Thông tin liên hệ, vui lòng truy cập trang ",
-      "input_note_link": "Tài khoản",
-      "email_label": "Email của bạn",
-      "email_placeholder": "Nhập email",
-      "email_note": "Thông tin đặt phòng sẽ được gửi tới email này",
-      "phone_label": "Số điện thoại di động của bạn",
-      "phone_placeholder": "Nhập số điện thoại",
-      "guest_switch_option1": "Tôi là khách hàng",
-      "guest_switch_option2": "Tôi đặt phòng cho người khác",
-      "textarea": "Yêu cầu đặc biệt hoặc sở thích",
-      "srtitle": "Yêu cầu đặc biệt hoặc sở thích",
-      "srsubtitle": "Bạn sẽ biết tình trạng có sẵn của yêu cầu bổ sung trong quá trình nhận phòng. Có thể phát sinh phí bổ sung nhưng bạn vẫn có thể hủy yêu cầu sau đó.",
-      "submit": "Tiếp tục thanh toán"
+      "citizen_text": "Welcome {{name}}!",
+      "citizen_text2": " Enjoy these perks by completing this booking:",
+      "citizen_subtext": "Logged in as Hoàng Kim Chi",
+      "citizen_level_label": "New Citizen",
+      "contact": "Contact Detail",
+      "contact_alert": "Please fill in all fields correctly to ensure you receive the booking confirmation in your email.",
+      "input_label": "Your Full Name ",
+      "nameinput_placeholder": "Enter your full name",
+      "input_note": "To update Contact Information, please visit the ",
+      "input_note_link": "Account page.",
+      "email_label": "Your Email ",
+      "email_placeholder": "Enter your email",
+      "email_note": "The booking confirmation will be sent to this email.",
+      "phone_label": "Mobile Number ",
+      "phone_placeholder": "Enter your mobile number",
+      "guest_switch_option1": "I am the guest",
+      "guest_switch_option2": "I am booking for another person",
+      "textarea": "Special requests or preferences",
+      "srtitle": "Special requests or preferences",
+      "srsubtitle": "You will know the availability of your additional request during check-in. Extra charges may incur but you can still cancel your request later.",
+      "submit": "Continue to Payment"
+    }
+  },
+  "branch": {
+    "branch": {
+      "menuAbout": "Overview",
+      "menuBooking": "Choose room",
+      "amenitytitle": "Popular amenities",
+      "viewmap": "View map",
+      "people": "people",
+      "explorearea": "Explore the area"
     },
-    "payment": {
-      "method_title": "Bạn muốn thanh toán bằng phương thức nào?",
-      "img": "Thanh toán bằng mã QR",
-      "method_option1": "Thanh toán bằng mã QR",
-      "method_option2": "Ví điện tử & Ứng dụng ngân hàng",
-      "method_option3": "Thẻ tín dụng/ghi nợ",
-      "method_option4": "Thẻ ATM/Tài khoản ngân hàng",
-      "note_1": "Hãy đảm bảo rằng bạn có bất kỳ ví điện tử hoặc ứng dụng ngân hàng di động nào hỗ trợ thanh toán bằng mã QR.",
-      "note_2": "Một mã QR sẽ xuất hiện sau khi bạn nhấp vào nút 'Thanh toán'. Chỉ cần lưu hoặc chụp màn hình mã QR để hoàn tất thanh toán trong thời hạn quy định.",
-      "note_3": "Vui lòng sử dụng mã QR mới nhất được cung cấp để hoàn tất thanh toán.",
-      "promotion_title": "Áp dụng mã khuyến mãi?",
-      "input_text": "Nhập mã khuyến mãi ở đây",
-      "promotion_apply_button": "Áp dụng",
-      "detail_title": "Chi tiết thanh toán",
-      "room_info": "(x1) Phòng Deluxe Twin Park View - 2 Khách",
-      "room_price": "2.200.000 VND",
-      "total_price_title": "Tổng tiền",
-      "total_price": "2.200.000 VND",
-      "submit": "Tiếp tục với ",
-      "note_text": "Bằng cách tiếp tục thanh toán, bạn đã đồng ý với M Village và các Điều khoản & Chính sách Bảo mật"
+    "amenity": {
+      "butler": "Personal Butler",
+      "pool": "Swimming Pool",
+      "garden": "Garden",
+      "restaurant": "The Green House Restaurant",
+      "wf": "High Speed Wifi"
+    },
+    "room": {
+      "currency": "VND/ Night",
+      "book": "Choose room",
+      "unvailable": "Sold out",
+      "title": "Room detail",
+      "title2": "Room amenities"
     }
   },
   "common": {
@@ -164,7 +202,7 @@ interface Resources {
       "title": "Discover the Latest at A HOMEVILLA"
     },
     "village": {
-      "newDN": "NEW VILLAGE: DA NANG",
+      "newDN": "NEW VILLAGE: {{name}}",
       "nameDN": "A HOMEVILLA Hotel Da Nang Centre",
       "desDN": "Just launched, A HOMEVILLA offers a perfect Da Nang experience with a central location and sunlit rooms. Enjoy a voucher worth 1.5 million VND for the most local destinations.",
       "booking": "Book now",
@@ -256,8 +294,33 @@ interface Resources {
   "home": {
     "explore": "Explore"
   },
-  "myreservation": {
-    "Total price": "Total price"
+  "payment": {
+    "payment": {
+      "method_title": "How would you like to pay?",
+      "img": "QR Code Payment",
+      "method_option1": "QR Code Payment",
+      "method_option2": "E-wallet &  Mobile Banking",
+      "method_option3": "Credit/Debit Card",
+      "method_option4": "ATM/Bank Account",
+      "method_option5": "Pay at hotel",
+      "note_1": "Make sure you have any e-wallet or mobile banking app that supports payment with QR code.",
+      "note_2": "A QR code will appear after you click 'Pay' button. Simply save or screenshot the QR code to complete your payment within the time limit.",
+      "note_3": "Please use the latest QR code provided to complete your payment.",
+      "note_4": "The card Issuer supports online payment and the credit limit/ account balance enough to cover the payment.",
+      "note_5": "A list of bank providers will appear after you click the pay button. Choose your card providers and enter the details required. Then complete your payment by following the verification steps.",
+      "note_6": "Present your hotel reservation form for the receptionist to confirm the information and cost.",
+      "note_7": "Payment at the hotel will be made in cash or credit/debit card.",
+      "promotion_title": "Have a promo code?",
+      "input_text": "Enter promo code here",
+      "promotion_apply_button": "Apply",
+      "detail_title": "Price details",
+      "room_info": "(x1) Deluxe Park View Room - 2 Guests",
+      "room_price": "2,200,000 VND",
+      "total_price_title": "Total price",
+      "total_price": "2,200,000 VND",
+      "submit": "Continue with ",
+      "note_text": "By continuing to payment, you have agreed to AHomeVilla and Terms & Conditions Privacy Policy"
+    }
   },
   "searchroom": {
     "searchroom": {
@@ -267,51 +330,16 @@ interface Resources {
       "button": "Reset"
     },
     "booking": {
-      "button": "Book now",
-      "title": "Complete Your Booking",
-      "subtitle": "Double-check everything looks good? Great! Proceed to secure your stay.",
-      "citizen_text": "Xin chào {{name}}!",
-      "citizen_text2": " Hãy tận hưởng những đặc quyền này bằng cách hoàn tất đặt phòng này:",
-      "citizen_subtext": "Đăng nhập với tư cách Hoàng Kim Chi",
-      "citizen_level_label": "Hội viên MỚI",
-      "contact": "Thông tin liên hệ",
-      "contact_alert": "Vui lòng điền đầy đủ các trường thông tin để đảm bảo bạn nhận được xác nhận đặt phòng qua email.",
-      "input_label": "Tên đầy đủ của bạn ",
-      "nameinput_placeholder": "Nhập họ và tên",
-      "input_note": "Để cập nhật Thông tin liên hệ, vui lòng truy cập trang ",
-      "input_note_link": "Tài khoản",
-      "email_label": "Email của bạn",
-      "email_placeholder": "Nhập email",
-      "email_note": "Thông tin đặt phòng sẽ được gửi tới email này",
-      "phone_label": "Số điện thoại di động của bạn",
-      "phone_placeholder": "Nhập số điện thoại",
-      "guest_switch_option1": "Tôi là khách hàng",
-      "guest_switch_option2": "Tôi đặt phòng cho người khác",
-      "textarea": "Yêu cầu đặc biệt hoặc sở thích",
-      "srtitle": "Yêu cầu đặc biệt hoặc sở thích",
-      "srsubtitle": "Bạn sẽ biết tình trạng có sẵn của yêu cầu bổ sung trong quá trình nhận phòng. Có thể phát sinh phí bổ sung nhưng bạn vẫn có thể hủy yêu cầu sau đó.",
-      "submit": "Tiếp tục thanh toán"
+      "button": "Reset",
+      "searchroom": "Branch",
+      "home": "Home"
     },
-    "payment": {
-      "method_title": "Bạn muốn thanh toán bằng phương thức nào?",
-      "img": "Thanh toán bằng mã QR",
-      "method_option1": "Thanh toán bằng mã QR",
-      "method_option2": "Ví điện tử & Ứng dụng ngân hàng",
-      "method_option3": "Thẻ tín dụng/ghi nợ",
-      "method_option4": "Thẻ ATM/Tài khoản ngân hàng",
-      "note_1": "Hãy đảm bảo rằng bạn có bất kỳ ví điện tử hoặc ứng dụng ngân hàng di động nào hỗ trợ thanh toán bằng mã QR.",
-      "note_2": "Một mã QR sẽ xuất hiện sau khi bạn nhấp vào nút 'Thanh toán'. Chỉ cần lưu hoặc chụp màn hình mã QR để hoàn tất thanh toán trong thời hạn quy định.",
-      "note_3": "Vui lòng sử dụng mã QR mới nhất được cung cấp để hoàn tất thanh toán.",
-      "promotion_title": "Áp dụng mã khuyến mãi?",
-      "input_text": "Nhập mã khuyến mãi ở đây",
-      "promotion_apply_button": "Áp dụng",
-      "detail_title": "Chi tiết thanh toán",
-      "room_info": "(x1) Phòng Deluxe Twin Park View - 2 Khách",
-      "room_price": "2.200.000 VND",
-      "total_price_title": "Tổng tiền",
-      "total_price": "2.200.000 VND",
-      "submit": "Tiếp tục với ",
-      "note_text": "Bằng cách tiếp tục thanh toán, bạn đã đồng ý với M Village và các Điều khoản & Chính sách Bảo mật"
+    "filter": {
+      "hotelsFound": "hotels found",
+      "sort": "Sort by",
+      "choice1": "Most popular",
+      "choice2": "Price low to high",
+      "choice3": "Price high to low"
     }
   }
 }

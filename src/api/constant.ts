@@ -12,6 +12,13 @@ export const API_PATH = {
   RESET_PASSWORD: '/auth/forgot-password/email/reset',
   //User
   USERS_RESTORE:'/users/{id}/restore',
+  //Province
+  PROVINCE:'/provinces',
+
   // Branch
+  BRANCHES: '/branches',
   GET_LATEST_BRANCHES: '/branches/latest',
+
+  //Amemnity
+  AMENITY: '/amenities',
 };

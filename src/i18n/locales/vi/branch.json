@@ -1,0 +1,27 @@
+{
+    "branch": {
+        "menuAbout": "Giới thiệu",
+        "menuBooking": "Chọn phòng",
+        "amenitytitle": "Tiện ích phổ biến",
+        "viewmap": "Xem bản đồ",
+        "people": "người",
+        "explorearea": "Khám phá khu vực"
+    },
+
+    "amenity": {
+        "butler": "Quản gia cá nhân",
+        "pool": "Hồ bơi",
+        "garden": "Sân vườn",
+        "restaurant": "Nhà Hàng The Green House",
+        "wf" : "Wifi Tốc Độ Cao"
+    },
+
+    "room": {
+        "currency": "VND/ Đêm",
+        "book": "Chọn phòng",
+        "unvailable": "Hết phòng",
+        "title": "Chi tiết phòng",
+        "title2": "Tiện nghi phòng"
+    }
+  }
+  

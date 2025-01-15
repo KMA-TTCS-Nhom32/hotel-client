@@ -1,0 +1,42 @@
+{
+    "payment": {
+    "method_title": "Bạn muốn thanh toán bằng phương thức nào?",
+    "img": "Thanh toán bằng mã QR",
+    "method_option1": "Thanh toán bằng mã QR",
+    "method_option2": "Ví điện tử & Ứng dụng ngân hàng",
+    "method_option3": "Thẻ tín dụng/ghi nợ",
+    "method_option4": "Thẻ ATM/Tài khoản ngân hàng",
+    "method_option5": "Thanh toán tại khách sạn",
+    "note_1": "Hãy đảm bảo rằng bạn có bất kỳ ví điện tử hoặc ứng dụng ngân hàng di động nào hỗ trợ thanh toán bằng mã QR.",
+    "note_2": "Một mã QR sẽ xuất hiện sau khi bạn nhấp vào nút 'Thanh toán'. Chỉ cần lưu hoặc chụp màn hình mã QR để hoàn tất thanh toán trong thời hạn quy định.",
+    "note_3": "Vui lòng sử dụng mã QR mới nhất được cung cấp để hoàn tất thanh toán.",
+    "note_4": "Thẻ của bạn có hỗ trợ giao dịch thanh toán online và hạn mức credit/số dư đủ chi trả cho giao dịch.",
+    "note_5": "Danh sách các nhà cung cấp ngân hàng sẽ xuất hiện sau khi bạn nhấp vào nút thanh toán. Hãy chọn nhà cung cấp thẻ của bạn và nhập thông tin yêu cầu. Sau đó hoàn tất thanh toán bằng cách tuân theo các bước xác minh.",
+    "note_6": "Đưa phiếu đặt phòng để lễ tân xác nhận thông tin và chi phí.",
+    "note_7": "Thanh toán tại khách sạn sẽ được thực hiện bằng tiền mặt hoặc thẻ tín dụng/ghi nợ.",
+    "promotion_title": "Áp dụng mã khuyến mãi?",
+    "input_text": "Nhập mã khuyến mãi ở đây",
+    "promotion_apply_button": "Áp dụng",
+    "detail_title": "Chi tiết thanh toán",
+    "room_info": "(x1) Phòng Deluxe Park View - 2 Khách",
+    "room_price": "2.200.000 VND",
+    "total_price_title": "Tổng tiền",
+    "total_price": "2.200.000 VND",
+    "submit": "Tiếp tục với ",
+    "note_text": "Bằng cách tiếp tục thanh toán, bạn đã đồng ý với AHomeVilla và các Điều khoản & Chính sách Bảo mật"
+  },
+
+  "confirm": {
+    "title": "Quét mã QR để thanh toán",
+    "expire": "Mã QR thanh toán sẽ hết hạn sau",
+    "note": "Quý khách vui lòng không thay đổi nội dung chuyển khoản.",
+    "save": "Lưu ảnh"
+  },  
+
+  "inquiry": {
+    "title": "Làm thế nào để thanh toán với mã QR?",
+    "text1": "1. Mở ứng dụng ví điện tử hoặc ngân hàng di động hỗ trợ thanh toán QR với QuickPay, sau đó quét mã QR ở trên.",
+    "text2": "2. Đảm bảo số tiền tổng cộng và đích đến thanh toán khớp với thông tin ở trên, sau đó hoàn tất thanh toán trong thời hạn quy định.",
+    "text3": "3. Đặt phòng của bạn sẽ tự động được xác nhận sau khi thanh toán thành công. Bạn có thể kiểm tra trạng thái đặt phòng trên trang Đặt phòng."
+  }
+}

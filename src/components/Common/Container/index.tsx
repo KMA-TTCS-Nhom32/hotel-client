@@ -4,10 +4,15 @@ import styles from './index.module.scss';
 interface ContainerProps {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }
 
-const Container = ({ children, className }: Readonly<ContainerProps>) => {
-  return <section className={cn(styles.container, className)}>{children}</section>;
+const Container = ({ children, className, id }: Readonly<ContainerProps>) => {
+  return (
+    <section id={id} className={cn(styles.container, className)}>
+      {children}
+    </section>
+  );
 };
 
 export default Container;

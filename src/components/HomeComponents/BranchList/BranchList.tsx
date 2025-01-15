@@ -5,6 +5,16 @@ import styles from './BranchList.module.scss';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
+import { useRequest } from 'ahooks';
+import { getProvinceService } from '@/services/province';
+import { getBranchesService } from '@/services/branches';
+import { FilterBranchesDto } from '@ahomevilla-hotel/node-sdk';
+import { PaginationComponent } from '@/components/ui/normal-pagination';
+import { SkeletonCard } from '@/components/HomeComponents/BranchList/loading-skeleton/loading-skeleton';
+import { SkeletonPagi } from '@/components/HomeComponents/BranchList/skeleton-pagination/pagi-skeleton';
+import { SkeletonDemo } from '@/components/HomeComponents/BranchList/demo-skeleton/demo-skeleton';
+import { APP_ROUTES } from '@/constants/routes.constant';
+
 interface Branch {
   id: number;
   name: string;
@@ -144,17 +154,17 @@ const branches: Branch[] = [
 ];
 
 const BranchList = () => {
-  const [selectedCity, setSelectedCity] = useState('Ho Chi Minh');
-  const [selectedDistrict, setSelectedDistrict] = useState('Tất cả');
-  const [selectedBrand, setSelectedBrand] = useState('All');
+  const [selectedProvince, setSelectedProvince] = useState('');
+  // const [selectedDistrict, setSelectedDistrict] = useState('Tất cả');
+  // const [selectedBrand, setSelectedBrand] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
   const branchesPerPage = 6;
 
   const filteredBranches = branches.filter(
-    (branch) =>
-      (selectedCity === 'All' || branch.city === selectedCity) &&
-      (selectedDistrict === 'Tất cả' || branch.district === selectedDistrict) &&
-      (selectedBrand === 'All' || branch.brand === selectedBrand),
+    (branch) => selectedProvince === 'All' || branch.city === selectedProvince,
+
+    // (selectedDistrict === 'Tất cả' || branch.district === selectedDistrict) &&
+    // (selectedBrand === 'All' || branch.brand === selectedBrand),
   );
 
   // Get current branches
@@ -169,14 +179,54 @@ const BranchList = () => {
     setCurrentPage(pageNumber);
   };
 
+  const {
+    data: getProvinceResponse,
+    error,
+    loading: getProvinceLoading,
+  } = useRequest(getProvinceService);
+
+  console.log(getProvinceResponse?.data);
+
+  const { data: getBranchesResponse, loading: getBranchesLoading } = useRequest(
+    () => {
+      return getBranchesService({
+        page: currentPage,
+        pageSize: 6,
+        filters: JSON.stringify({
+          provinceSlug: selectedProvince,
+        } as FilterBranchesDto),
+      });
+    },
+    {
+      refreshDeps: [selectedProvince, currentPage],
+    },
+  );
+  console.log(getBranchesResponse?.data);
+
   return (
     <section className={styles.branchList}>
       <div className={styles.cityFilter}>
-        <button onClick={() => setSelectedCity('Ho Chi Minh')}>Ho Chi Minh</button>
-        <button onClick={() => setSelectedCity('Hà Nội')}>Hà Nội</button>
+        {getProvinceLoading && (
+          <>
+            <SkeletonDemo />
+            <SkeletonDemo />
+            <SkeletonDemo />
+            <SkeletonDemo />
+          </>
+        )}
+        {getProvinceResponse?.data.data.map((province) => (
+          <button key={province.id} onClick={() => setSelectedProvince(province.slug)}>
+            {province.name}
+          </button>
+        ))}
+
+        {/* <button onClick={() => setSelectedProvince('Ho Chi Minh')}>Ho Chi Minh</button>
+        ))}
+        {/* <button onClick={() => setSelectedProvince('Ho Chi Minh')}>Ho Chi Minh</button>
+        <button onClick={() => setSelectedProvince('Hà Nội')}>Hà Nội</button> */}
       </div>
 
-      <div className={styles.districtFilter}>
+      {/* <div className={styles.districtFilter}>
         <button
           onClick={() => {
             setSelectedBrand('All');
@@ -189,10 +239,37 @@ const BranchList = () => {
         <button onClick={() => setSelectedDistrict('Quận 2')}>Quận 2</button>
         <button onClick={() => setSelectedDistrict('Quận 3')}>Quận 3</button>
         <button onClick={() => setSelectedDistrict('Phố Cổ')}>Phố Cổ</button>
-      </div>
+      </div> */}
 
       <div className={styles.branchGrid}>
-        {currentBranches.map((branch) => (
+        {getBranchesLoading ? (
+          <>
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
+          </>
+        ) : (
+          <>
+            {getBranchesResponse?.data.data.map((branch) => (
+              <Link key={branch.id} href={`${APP_ROUTES.Branch}/${branch.slug}`}>
+                <div className={styles.branchCard}>
+                  <img src={branch.thumbnail.url} alt={branch.name} className={styles.branchImage} />
+                  <div className={styles.branchInfo}>
+                    <h3>{branch.name}</h3>
+                    <Link href={`/chi-nhanh/${branch.slug}`} className={styles.bookNow}>
+                      Đặt ngay
+                    </Link>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </>
+        )}
+
+        {/* {currentBranches.map((branch) => (
           <div key={branch.id} className={styles.branchCard}>
             <img src={branch.imageUrl} alt={branch.name} className={styles.branchImage} />
             <div className={styles.branchInfo}>
@@ -202,11 +279,31 @@ const BranchList = () => {
               </Link>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
 
       <div className={styles.pagination}>
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
+        {getBranchesLoading ? (
+          <>
+            <SkeletonPagi />
+            <SkeletonPagi />
+            <SkeletonPagi />
+            <SkeletonPagi />
+          </>
+        ) : (
+          <>
+            {getBranchesResponse?.data?.meta.total && (
+              <PaginationComponent
+                page={currentPage}
+                pageSize={6}
+                total={getBranchesResponse.data.meta.total}
+                onChangePage={setCurrentPage}
+              />
+            )}
+          </>
+        )}
+
+        {/* {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
           <button
             key={pageNumber}
             onClick={() => handlePageChange(pageNumber)}
@@ -214,7 +311,7 @@ const BranchList = () => {
           >
             {pageNumber}
           </button>
-        ))}
+        ))} */}
       </div>
     </section>
   );
