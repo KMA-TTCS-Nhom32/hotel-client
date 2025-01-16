@@ -1,6 +1,6 @@
 'use client';
 
-import { type ReactNode, createContext, useRef, useContext, useEffect } from 'react';
+import { type ReactNode, createContext, useRef, useContext } from 'react';
 import { useStore } from 'zustand';
 
 import { type ProfileStore, createProfileStore } from '@/stores/profile/profile-store';

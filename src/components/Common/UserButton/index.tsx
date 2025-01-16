@@ -16,7 +16,7 @@ const UserButton = () => {
   const { onOpen } = useAuthModal((state) => state);
   const [openPopover, setOpenPopover] = useState(false);
   const pathname = usePathname();
-    console.log(profile);
+
   const handleClick = () => {
     profile ? setOpenPopover(!openPopover) : onOpen();
   };

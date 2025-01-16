@@ -10,22 +10,26 @@ import {
   VerifyEmailDto,
 } from '@ahomevilla-hotel/node-sdk';
 
-export async function registerUserService(data: RegisterDto) {
+export function registerUserService(data: RegisterDto) {
   return axiosInstance.post<RegisterResponseDto>(API_PATH.REGISTER, data);
 }
 
-export async function verifyUserEmailService(data: VerifyEmailDto) {
+export function verifyUserEmailService(data: VerifyEmailDto) {
   return axiosInstance.post(API_PATH.VERIFY_EMAIL, data);
 }
 
-export async function loginUserService(data: LoginDto) {
+export function loginUserService(data: LoginDto) {
   return axiosInstance.post<LoginResponseDto>(API_PATH.LOGIN, data);
 }
 
-export async function getProfileService() {
+export function logoutUserService() {
+  return axiosInstance.post(API_PATH.LOGOUT);
+}
+
+export function getProfileService() {
   return axiosInstance.get<User>(API_PATH.PROFILE);
 }
 
-export async function updateProfileService(data: UpdateProfileDto) {
+export function updateProfileService(data: UpdateProfileDto) {
   return axiosInstance.patch<User>(API_PATH.PROFILE, data);
 }

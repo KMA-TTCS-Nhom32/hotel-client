@@ -26,21 +26,21 @@ const addRefreshSubscriber = (cb: (token: string) => void) => {
 };
 
 // Map to store active requests
-const activeRequests = new Map<string, AbortController>();
+// const activeRequests = new Map<string, AbortController>();
 
 const onRequestSuccess = (config: InternalAxiosRequestConfig) => {
-  const requestKey = `${config.url}_${config.method}`;
+  //   const requestKey = `${config.url}_${config.method}`;
 
-  // Cancel previous request if it exists
-  if (activeRequests.has(requestKey)) {
-    activeRequests.get(requestKey)?.abort();
-    activeRequests.delete(requestKey);
-  }
+  //   // Cancel previous request if it exists
+  //   if (activeRequests.has(requestKey)) {
+  //     activeRequests.get(requestKey)?.abort();
+  //     activeRequests.delete(requestKey);
+  //   }
 
-  // Create new abort controller for this request
-  const controller = new AbortController();
-  config.signal = controller.signal;
-  activeRequests.set(requestKey, controller);
+  //   // Create new abort controller for this request
+  //   const controller = new AbortController();
+  //   config.signal = controller.signal;
+  //   activeRequests.set(requestKey, controller);
 
   // Handle authorization
   const accessToken = AuthCookieService.getAccessToken();
@@ -63,15 +63,15 @@ const onRequestError = (error: AxiosError): Promise<AxiosError> => {
 
 const onResponseSuccess = (response: AxiosResponse): AxiosResponse => {
   // Clean up completed request
-  const requestKey = `${response.config.url}_${response.config.method}`;
-  activeRequests.delete(requestKey);
+  //   const requestKey = `${response.config.url}_${response.config.method}`;
+  //   activeRequests.delete(requestKey);
   return response;
 };
 
 const onResponseError = async (error: AxiosError) => {
   if (error.config) {
-    const requestKey = `${error.config.url}_${error.config.method}`;
-    activeRequests.delete(requestKey);
+    // const requestKey = `${error.config.url}_${error.config.method}`;
+    // activeRequests.delete(requestKey);
   }
 
   const originalRequest = error.config;

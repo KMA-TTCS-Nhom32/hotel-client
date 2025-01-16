@@ -8,7 +8,7 @@ export const API_PATH = {
   VERIFY_EMAIL: '/auth/verify-email',
 
   //Province
-  PROVINCE:'/provinces',
+  PROVINCE: '/provinces',
 
   // Branch
   BRANCHES: '/branches',
@@ -17,6 +17,9 @@ export const API_PATH = {
   //Amemnity
   AMENITY: '/amenities',
 
-  //Room
-  ROOM_DETAIL: '/room-details/infinite',
+  // Room-detail
+  ROOM_DETAIL: '/room-details',
+
+  // Booking
+  BOOKING: '/booking',
 };

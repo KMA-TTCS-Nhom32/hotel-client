@@ -82,7 +82,7 @@ const LoginForm = ({ t }: LoginFormProps) => {
             </a>
           </div>
         </div>
-        <ButtonCustom type='submit' className='w-full mt-6' disabled={loading} loading={loading}>
+        <ButtonCustom variant='default' type='submit' className='w-full mt-6' disabled={loading} loading={loading}>
           {t('auth.login')}
         </ButtonCustom>
       </form>

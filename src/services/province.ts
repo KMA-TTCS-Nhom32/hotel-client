@@ -1,7 +1,7 @@
 import { API_PATH } from '@/api/constant';
 import axiosInstance from '@/api/request';
-import { ProvincePaginationResultDto } from '@ahomevilla-hotel/node-sdk';
+import { ProvincePaginationResultDto, QueryProvincesDto } from '@ahomevilla-hotel/node-sdk';
 
-export async function getProvinceService() {
-  return axiosInstance.get<ProvincePaginationResultDto>(API_PATH.PROVINCE);
+export async function getProvinceService(params: QueryProvincesDto) {
+  return axiosInstance.get<ProvincePaginationResultDto>(API_PATH.PROVINCE, { params });
 }

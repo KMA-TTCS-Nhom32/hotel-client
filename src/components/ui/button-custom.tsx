@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, ButtonProps } from './button';
 import { cn } from '@/lib/utils';
-import { Icons } from '../Common/Icons';
+import { LoaderCircle } from 'lucide-react';
 
 interface ButtonCustomProps extends ButtonProps {
   children: React.ReactNode;
@@ -28,7 +28,15 @@ export const ButtonCustom = ({
     >
       {prefix}
 
-      {loading && <Icons.spinner className='mr-2 h-4 w-4 animate-spin' />}
+      {loading && (
+        <LoaderCircle
+          className={cn(
+            '!mr-2 !h-5 !w-5 animate-spin',
+            props.variant === 'default' ? '!text-white' : '!text-[#ff7526]',
+          )}
+          color={props.variant === 'default' ? '#fff' : '#ff7526'}
+        />
+      )}
 
       {children}
 

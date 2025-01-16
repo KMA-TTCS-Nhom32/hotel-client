@@ -122,7 +122,7 @@
     "duration_hours_other": "{{count}} giờ"
   },
 
-  "hanoi": "Hà Nội",
+  "H": "Hà Nội",
   "ho_chi_minh": "Hồ Chí Minh",
 
   "calendar": {
@@ -176,5 +176,9 @@
         "December": "Tháng 12"
       }
     }
-  }
+  },
+
+  "da-nang": "Đà Nẵng",
+  "hcm-city": "Hồ Chí Minh",
+  "province_name.ninh-binh": "Ninh Bình"
 }

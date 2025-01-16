@@ -339,6 +339,10 @@
     font-weight: 600;
     line-height: 28px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
 
     @include mobile {
       font-size: 16px;

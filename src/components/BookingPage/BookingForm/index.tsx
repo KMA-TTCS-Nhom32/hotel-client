@@ -1,9 +1,8 @@
-// Adjusted BookingForm Component
 'use client';
 
 import Link from 'next/link';
 import React from 'react';
-import { User, BookUp } from 'lucide-react';
+import { User, BookUp, LoaderCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -29,19 +28,24 @@ const BookingForm = ({ lng }: BookingFormProps) => {
   const { t } = useTranslation(lng, 'booking');
   const { push } = useRouter();
   const { profile } = useProfileStore((state) => state);
-  const { bookingInfo, setBookingInfo } = useBookingStore((state) => state);
+  const { setUserInfor } = useBookingStore((state) => state);
 
   const form = useForm<BookingFormValues>({
     resolver: zodResolver(bookingSchema),
     defaultValues: {
-      email: profile?.email ?? bookingInfo.email,
-      phone: profile?.phone ?? bookingInfo.phone,
-      special_requests: bookingInfo.special_requests,
+      email: profile?.email ?? '',
+      phone: profile?.phone ?? '',
+      special_requests: undefined,
     },
   });
 
   const onSubmit = (values: BookingFormValues) => {
-    setBookingInfo(values);
+    console.log('values', values);
+    setUserInfor({
+      ...values,
+      special_requests: values.special_requests?.length ? values.special_requests : undefined,
+      name: profile?.name ?? '',
+    });
     push(APP_ROUTES.Payment);
   };
 
@@ -63,7 +67,11 @@ const BookingForm = ({ lng }: BookingFormProps) => {
                 })}
                 <span className={styles.citizen_text2}>{t('booking.citizen_text2')}</span>
               </p>
-              <p className={styles.citizen_subtext}>{t('booking.citizen_subtext')}</p>
+              <p className={styles.citizen_subtext}>
+                {t('booking.citizen_subtext', {
+                  name: profile?.name,
+                })}
+              </p>
             </div>
             <div className={styles.citizen_level}>
               <BookUp className={styles.icon_small} />
@@ -193,9 +201,18 @@ const BookingForm = ({ lng }: BookingFormProps) => {
           />
         </div>
 
-        <Link href={APP_ROUTES.Payment} className={styles.submit_section}>
-          <button type='submit' className={styles.submit_button}>{t('booking.submit')}</button>
-        </Link>
+        <div className={styles.submit_section}>
+          <button
+            type='submit'
+            className={styles.submit_button}
+            disabled={form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting && (
+                <LoaderCircle className='!w-6 !h-6 !text-white animate-spin' />
+            )}
+            {t('booking.submit')}
+          </button>
+        </div>
       </form>
     </Form>
   );

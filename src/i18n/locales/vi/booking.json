@@ -24,7 +24,7 @@
     "subtitle": "Kiểm tra kỹ mọi thứ đã ổn chưa? Tuyệt vời! Tiến hành bảo đảm chỗ ở của bạn.",
     "citizen_text": "Xin chào {{name}}!",
     "citizen_text2": " Hãy tận hưởng những đặc quyền này bằng cách hoàn tất đặt phòng này:",
-    "citizen_subtext": "Đăng nhập với tư cách Hoàng Kim Chi",
+    "citizen_subtext": "Đăng nhập với tư cách {{name}}",
     "citizen_level_label": "Hội viên MỚI",
     "contact": "Thông tin liên hệ",
     "contact_alert": "Vui lòng điền đầy đủ các trường thông tin để đảm bảo bạn nhận được xác nhận đặt phòng qua email.",
@@ -43,5 +43,22 @@
     "srtitle": "Yêu cầu đặc biệt hoặc sở thích",
     "srsubtitle": "Bạn sẽ biết tình trạng có sẵn của yêu cầu bổ sung trong quá trình nhận phòng. Có thể phát sinh phí bổ sung nhưng bạn vẫn có thể hủy yêu cầu sau đó.",
     "submit": "Tiếp tục thanh toán"
+  },
+
+  "sidebar": {
+    "reward_booking": "Đặt phòng để nhận điểm thưởng",
+    "booking_details": "Chi tiết đặt phòng",
+    "phone": "Số điện thoại",
+    "contact_infor": "Thông tin liên hệ",
+    "user_name": "Người đặt phòng",
+    "customer": "Khách",
+    "free_cancel": "Hủy phòng miễn phí",
+    "changable_date": "Có thể dời lịch",
+    "check_in_infor": "Thông tin check-in",
+    "not_able_fully_refund": "Đối với đặt phòng này, hủy không còn khả dụng để được hoàn tiền đầy đủ do còn ít hơn 7 ngày trước ngày nhận phòng.",
+    "night": "Đêm",
+    "hours": "Giờ",
+    "day_one": "{{count}} ngày",
+    "day_other": "{{count}} ngày"
   }
 }

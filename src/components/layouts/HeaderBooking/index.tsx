@@ -1,4 +1,3 @@
-import React from 'react';
 import HeaderSecondary from '../HeaderSecondary';
 import BookingSteps from './BookingSteps';
 

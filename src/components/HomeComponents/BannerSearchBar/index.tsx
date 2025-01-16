@@ -16,10 +16,12 @@ export default function HomeSearchBar({ lng, t }: Readonly<HomeSearchBarProps>) 
     <section className={styles.banner_section}>
       <BannerSlider />
 
-      <Link href={APP_ROUTES.SearchRoom} className={styles.booking_wrapper}>
+      <div className={styles.booking_wrapper}>
         <SearchForm lng={lng} />
-        <button className={styles.explore_button}>{t(['bookingform.explore'])}</button>
-      </Link>
+        <Link href={APP_ROUTES.SearchRoom}>
+          <button className={styles.explore_button}>{t(['bookingform.explore'])}</button>
+        </Link>
+      </div>
     </section>
   );
 }

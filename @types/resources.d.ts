@@ -98,7 +98,7 @@ interface Resources {
       "subtitle": "Kiểm tra kỹ mọi thứ đã ổn chưa? Tuyệt vời! Tiến hành bảo đảm chỗ ở của bạn.",
       "citizen_text": "Welcome {{name}}!",
       "citizen_text2": " Enjoy these perks by completing this booking:",
-      "citizen_subtext": "Logged in as Hoàng Kim Chi",
+      "citizen_subtext": "Logged in as {{name}}",
       "citizen_level_label": "New Citizen",
       "contact": "Contact Detail",
       "contact_alert": "Please fill in all fields correctly to ensure you receive the booking confirmation in your email.",
@@ -117,6 +117,22 @@ interface Resources {
       "srtitle": "Special requests or preferences",
       "srsubtitle": "You will know the availability of your additional request during check-in. Extra charges may incur but you can still cancel your request later.",
       "submit": "Continue to Payment"
+    },
+    "sidebar": {
+      "reward_booking": "Book to earn reward points",
+      "booking_details": "Booking details",
+      "phone": "Phone number",
+      "contact_infor": "Contact Information",
+      "user_name": "Customer",
+      "customer": "Guest",
+      "free_cancel": "Free cancellation",
+      "changable_date": "Is able to change date",
+      "check_in_infor": "Check-in Information",
+      "not_able_fully_refund": "For this booking, cancellation is no longer available for a full refund as it is less than 7 days before check-in.",
+      "night": "Night",
+      "hours": "Hours",
+      "day_one": "{{count}} day",
+      "day_other": "{{count}} days"
     }
   },
   "branch": {
@@ -141,7 +157,8 @@ interface Resources {
       "unvailable": "Sold out",
       "title": "Room detail",
       "title2": "Room amenities"
-    }
+    },
+    "no_rooms": "No rooms match your request"
   },
   "common": {
     "hello": "Welcome",
@@ -261,7 +278,10 @@ interface Resources {
       "duration_hours_other": "{{count}} hours"
     },
     "hanoi": "Hanoi",
-    "ho_chi_minh": "Ho Chi Minh"
+    "ho_chi_minh": "Ho Chi Minh",
+    "hcm-city": "Ho Chi Minh City",
+    "da-nang": "Da Nang",
+    "province_name.ninh-binh": "Ninh Binh"
   },
   "home": {
     "explore": "Explore"
@@ -291,7 +311,23 @@ interface Resources {
       "total_price_title": "Total price",
       "total_price": "2,200,000 VND",
       "submit": "Continue with ",
-      "note_text": "By continuing to payment, you have agreed to AHomeVilla and Terms & Conditions Privacy Policy"
+      "note_text": "By continuing to payment, you have agreed to AHomeVilla and Terms & Conditions Privacy Policy",
+      "guests": "Guests",
+      "success": "Booking created successfully! Please scan the QR code to pay.",
+      "success2": "Booking created successfully! Check the status of your booking via email or your booking list.",
+      "error": "An error occurred while creating the booking. Returning to the homepage..."
+    },
+    "confirm": {
+      "title": "Scan QR Code below to pay",
+      "expire": "Payment QR Code will be expired",
+      "note": "Please do not change bank transfer description",
+      "save": "Save image"
+    },
+    "inquiry": {
+      "title": "How to Pay with QR",
+      "text1": "1. Open your e-wallet or mobile banking application that supports QR payment with QuickPay, then scan the QR code above.",
+      "text2": "2. Make sure the total amount and payment destination match the details above, then complete your payment within the time limit.",
+      "text3": "3. Your booking will be automatically confirmed after a successful payment. You can check your booking status on the Bookings page."
     }
   },
   "searchroom": {

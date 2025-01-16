@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
-import { BedDouble, Clock, Ruler, User } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { BedDouble, Hotel, Ruler, User, Clock } from 'lucide-react';
 
 import styles from './index.module.scss';
 
 import { cn } from '@/lib/utils';
-import { RoomDetail } from '@ahomevilla-hotel/node-sdk';
+import { FilterRoomDetailDto, RoomDetail } from '@ahomevilla-hotel/node-sdk';
 import { useTranslation } from '@/i18n/client';
 import { useSearchBarStore } from '@/stores/search-bar/searchBarStore';
 import { DialogCustom } from '@/components/Common/CustomDialog';
@@ -15,49 +15,112 @@ import { DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import ImageSlider from './ImageSlider';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import Container from '@/components/Common/Container';
+import { useRequest } from 'ahooks';
+import { getRoomDetailService } from '@/services/room-detail';
+import { Text } from '@/components/ui/text';
+import LoadingSection from '@/components/Common/LoadingSection';
+import { formatBookingDateTime } from '@/lib/funcs/date';
+import { BookingButton } from './BookingButton';
+import { Button } from '@/components/ui/button';
+import { getPrice } from '@/lib/funcs/price';
 
 interface ListRoomProps {
-  roomDetails: RoomDetail[];
   lng: string;
+  branchSlug: string;
+  roomDetails: RoomDetail[];
+  branchInfor: {
+    name: string;
+    address: string;
+  };
 }
 
-const ListRoom = ({ roomDetails, lng }: Readonly<ListRoomProps>) => {
+const ListRoom = ({ branchSlug, lng, roomDetails, branchInfor }: Readonly<ListRoomProps>) => {
   const { t } = useTranslation(lng, 'branch');
-  const { bookingTime } = useSearchBarStore((state) => state);
+  const { province, bookingTime, customerAmount } = useSearchBarStore((state) => state);
+
   const [selectedRoom, setSelectedRoom] = useState<RoomDetail | null>(null);
 
+  const { data: roomDetailsResponse, loading } = useRequest(
+    () => {
+      const { checkIn, checkOut } = bookingTime;
+      const { startDate, endDate, startTime, endTime } = formatBookingDateTime(checkIn, checkOut);
+
+      return getRoomDetailService({
+        pageSize: 100,
+        filters: JSON.stringify({
+          branchSlug,
+          provinceSlug: province,
+          adults: customerAmount.adult,
+          children: customerAmount.child,
+          startDate,
+          endDate,
+          startTime,
+          endTime,
+        } as FilterRoomDetailDto),
+      });
+    },
+    {
+      refreshDeps: [branchSlug, province, customerAmount, bookingTime],
+    },
+  );
+
   const previewRoom = DialogCustom.useDialog();
+
+  const availableRooms = useMemo(() => {
+    const roomIds = roomDetailsResponse?.data.data.map((room) => room.id) ?? [];
+
+    return roomDetails.map((room) => ({
+      ...room,
+      is_available: roomIds.includes(room.id),
+    }));
+  }, [roomDetailsResponse]);
 
   const openDialog = (room: RoomDetail) => {
     setSelectedRoom(room);
     previewRoom.open();
   };
 
-  const getButton = (rooms: RoomDetail[]) => {
-    const isAvailable = rooms.some((room) => room.is_available);
-    if (isAvailable) {
-      return <button className={styles.bookButton}>{t('room.book')}</button>;
-    }
-    return (
-      <button className={styles.unavailableButton}>
-        <Clock /> {t('room.unvailable')}
-      </button>
-    );
-  };
-
   return (
     <Container id='booking' className='py-8'>
-      <div className={styles.roomGrid}>
-        {roomDetails.map((room) => (
-          <HotelCard
-            key={room.id}
-            lng={lng}
-            currentType={bookingTime.type}
-            room={room}
-            onOpen={openDialog}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <LoadingSection />
+      ) : (
+        <>
+          <div className={styles.roomGrid}>
+            {availableRooms.map((room) => (
+              <HotelCard
+                key={room.id}
+                lng={lng}
+                currentType={bookingTime.type}
+                room={room}
+                onOpen={openDialog}
+                bookingButton={
+                  <BookingButton
+                    t={t}
+                    bookingInfor={{
+                      detailId: room.id,
+                      branchSlug,
+                      detailName: room.name,
+                      thumbnail: room.thumbnail.url,
+                      branchName: branchInfor.name,
+                      branchAddress: branchInfor.address,
+                      totalAmount: getPrice(room, bookingTime),
+                    }}
+                    isRoomDetailCard
+                  />
+                }
+              />
+            ))}
+          </div>
+
+          {roomDetailsResponse?.data.meta.total === 0 && (
+            <div className='w-full h-[240px] flex flex-col items-center justify-center gap-6'>
+              <Hotel className='!w-32 !h-32 text-accent' />
+              <Text type='title1-semi-bold'>{t('no_rooms')}</Text>
+            </div>
+          )}
+        </>
+      )}
 
       <DialogCustom dialog={previewRoom} className='max-w-[1080px] w-full'>
         {selectedRoom && (
@@ -118,9 +181,30 @@ const ListRoom = ({ roomDetails, lng }: Readonly<ListRoomProps>) => {
                     </div>
                   </div>
                 </ScrollArea>
-                <div className={styles.button}>
-                  <div className={styles.dialogRoomButton}>{getButton([selectedRoom])}</div>
-                </div>
+                {selectedRoom.is_available ? (
+                  <BookingButton
+                    t={t}
+                    bookingInfor={{
+                      detailId: selectedRoom.id,
+                      branchSlug,
+                      detailName: selectedRoom.name,
+                      thumbnail: selectedRoom.thumbnail.url,
+                      branchName: branchInfor.name,
+                      branchAddress: branchInfor.address,
+                      totalAmount: getPrice(selectedRoom, bookingTime),
+                    }}
+                  />
+                ) : (
+                  <Button
+                    variant='outline'
+                    className='h-12 w-full rounded-md select-none border-red-600 hover:bg-red-200 cursor-default bg-red-200'
+                  >
+                    <Clock className='text-red-700 !w-5 !h-5' />
+                    <Text element='h5' type='title1-semi-bold' className='text-red-700'>
+                      {t('room.unvailable')}
+                    </Text>
+                  </Button>
+                )}
               </div>
             </div>
           </div>

@@ -13,7 +13,7 @@ const Footer = async ({ lng }: Readonly<FooterProps>) => {
   const { t } = await createTranslation(lng);
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} id='app-footer'>
       <div className={styles.container}>
         {/* Main Footer Content */}
         <div className={styles.grid}>

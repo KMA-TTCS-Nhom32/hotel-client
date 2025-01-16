@@ -1,10 +1,13 @@
+'use client';
+
 import { AppTranslationFunction } from '@/lib/types/i18n';
 
 import styles from '../index.module.scss';
 
-import { SelectProvincePopover } from '../SelectProvince';
-import { SelectDatePopover } from '../SelectDate';
+import SelectProvincePopover from '../SelectProvince';
 import { SelectCustomerPopover } from '../SelectCustomer';
+import SelectDatePopover from '../SelectDate/SelectDatePopover';
+
 
 interface FilterBarProps {
   t: AppTranslationFunction;

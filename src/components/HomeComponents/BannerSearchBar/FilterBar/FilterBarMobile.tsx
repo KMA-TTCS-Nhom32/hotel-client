@@ -1,3 +1,8 @@
+'use client';
+
+import { useMemo } from 'react';
+import { useRequest } from 'ahooks';
+
 import { AppTranslationFunction } from '@/lib/types/i18n';
 import { cn } from '@/lib/utils';
 import { type CustomerAmount, useSearchBarStore } from '@/stores/search-bar/searchBarStore';
@@ -21,6 +26,7 @@ import styles from '../index.module.scss';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
 import { formatDate } from '@/lib/funcs/date';
+import { getProvinceService } from '@/services/province';
 
 interface FilterBarMobileProps {
   t: AppTranslationFunction;
@@ -30,6 +36,21 @@ interface FilterBarMobileProps {
 const FilterBarMobile = ({ t, lng }: Readonly<FilterBarMobileProps>) => {
   const { province, bookingTime, customerAmount, setBookingTime, setCustomerAmount, setProvince } =
     useSearchBarStore();
+
+  const { data: getProvinceResponse } = useRequest(() =>
+    getProvinceService({
+      pageSize: 100,
+    }),
+  );
+
+  const provinces = useMemo(() => {
+    return (
+      getProvinceResponse?.data.data.map((province) => ({
+        label: province.name,
+        value: province.slug,
+      })) ?? []
+    );
+  }, [getProvinceResponse?.data]);
 
   const handleAdjustCustomerAmount = (key: keyof CustomerAmount, num: number) => {
     setCustomerAmount({
@@ -64,10 +85,7 @@ const FilterBarMobile = ({ t, lng }: Readonly<FilterBarMobileProps>) => {
                 </Text>
                 <SelectProvince
                   province={province}
-                  provinces={[
-                    { label: t('hanoi'), value: 'hanoi' },
-                    { label: t('ho_chi_minh'), value: 'ho_chi_minh' },
-                  ]}
+                  provinces={provinces}
                   onSelectProvince={setProvince}
                 />
               </article>

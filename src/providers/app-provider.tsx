@@ -2,15 +2,24 @@
 
 import { useInitialProfile } from '@/stores/profile/use-initial-profile';
 import { ProfileStoreProvider } from './profile-store-provider';
+import { useBookingStore } from '@/stores/booking/bookingStore';
+import { useEffect } from 'react';
+import { APP_ROUTES } from '@/constants/routes.constant';
+import { usePathname } from 'next/navigation';
 
-interface InitialProviderProps {
-  children: React.ReactNode;
-}
-
-export const InitialProvider = ({ children }: InitialProviderProps) => {
+export const InitialClientRender = () => {
   useInitialProfile();
+  const pathname = usePathname();
+  const { resetBookingInfor, bookingInfor } = useBookingStore((state) => state);
 
-  return <>{children}</>;
+  useEffect(() => {
+    if (pathname.includes(APP_ROUTES.Booking) || pathname.includes(APP_ROUTES.Payment)) {
+      return;
+    }
+    resetBookingInfor();
+  }, [pathname]);
+
+  return null;
 };
 
 interface AppProviderProps {
@@ -20,7 +29,8 @@ interface AppProviderProps {
 export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <ProfileStoreProvider>
-      <InitialProvider>{children}</InitialProvider>
+      <InitialClientRender />
+      {children}
     </ProfileStoreProvider>
   );
 };
