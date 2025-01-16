@@ -1,12 +1,11 @@
 'use client';
-
-import { title } from 'process';
+import { useRequest } from 'ahooks';
 import CitizenInfor from '../Citizeninfor';
 import TierBenefit from '../TierBenefitContainer';
 import BannerBooking from '@/components/Citizen/BannerBooking.tsx';
+import { useTranslation } from '@/i18n/client';
+import { getUsers } from '@/services/auth';
 
-import { deflate } from 'zlib';
-import NextBenefit from '../TierBenefitContainer/nextBenefit';
 interface Citizen {
   lng: string;
 }
@@ -30,89 +29,89 @@ interface UserRank {
   nextBenefits: nextBenefit[];
 }
 
-const generateDatabyRank = (rank: 'bronze' | 'silver' | 'gold' | 'platium'): UserRank => {
-  switch (rank) {
+const generateDatabyRank: UserRank = (usersid: 'bronze' | 'silver' | 'gold' | 'platium') => {
+  switch (usersid) {
     case 'bronze':
       return {
-        usersid: 'bronze',
-        name: 'Thành viên Mới',
-        nextname: 'Thành viên Bạc',
+        usersid: usersid,
+        name: 'New Citizen',
+        nextname: 'Silver Citizen',
         Benefits: [
           {
-            title: 'Nhận phòng sớm',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Early Check-in',
+            description: '(Based on availability)',
           },
         ],
-        nextBenefits: [{ title: 'Ưu tiên trả phòng muộn' }],
+        nextBenefits: [{ title: 'Priority late Check-out' }],
       };
     case 'silver':
       return {
-        usersid: 'silver',
-        name: 'Thành viên Bạc',
-        nextname: 'Thành viên Vàng',
+        usersid: usersid,
+        name: 'Silver Citizen',
+        nextname: 'Gold Citizen',
         Benefits: [
           {
-            title: 'Nhận phòng sớm',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Early Check-in',
+            description: '(Based on availability)',
           },
           {
-            title: 'Ưu tiên trả phòng muộn',
-            description: '(Phụ thuộc vào tình trạng phòng, cần thông báo khi nhận phòng)',
+            title: 'Priority late Check-out',
+            description: '(Based on availability, need to inform upon check-in)',
           },
         ],
-        nextBenefits: [{ title: 'Tăng hạng phòng miễn phí' }, { title: 'Miễn phí hủy phòng' }],
+        nextBenefits: [{ title: 'Free Room upgrade' }, { title: 'Free cancellation' }],
       };
 
     case 'gold':
       return {
-        usersid: 'gold',
-        name: 'Thành viên Vàng',
-        nextname: 'Thành viên Bạch Kim',
+        usersid: usersid,
+        name: 'Gold Citizen',
+        nextname: 'Platinum Citizen',
         Benefits: [
           {
-            title: 'Nhận phòng sớm',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Early Check-in',
+            description: '(Based on availability)',
           },
           {
-            title: 'Ưu tiên trả phòng muộn',
-            description: '(Phụ thuộc vào tình trạng phòng, cần thông báo khi nhận phòng)',
+            title: 'Priority late Check-out',
+            description: '(Based on availability, need to inform upon check-in)',
           },
           {
-            title: 'Tăng hạng phòng miễn phí',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Free Room upgrade',
+            description: '(Subject on availability)',
           },
           {
-            title: 'Miễn phí hủy phòng',
+            title: 'Free cancellation',
             description: '',
           },
         ],
-        nextBenefits: [{ title: 'Quà tặng thường niên' }],
+        nextBenefits: [{ title: 'Annual Surprise Gift' }],
       };
     default: {
       return {
-        usersid: 'platium',
-        name: 'Thành viên Bạch Kim',
-        nextname: 'Thành viên Bạch Kim',
+        usersid: usersid,
+        name: 'Platinum Citizen',
+        nextname: 'Platinum Citizen',
         Benefits: [
           {
-            title: 'Nhận phòng sớm',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Early Check-in',
+            description: '(Based on availability)',
           },
           {
-            title: 'Ưu tiên trả phòng muộn',
-            description: '(Phụ thuộc vào tình trạng phòng, cần thông báo khi nhận phòng)',
+            title: 'Priority late Check-out',
+            description: '(Based on availability, need to inform upon check-in)',
           },
           {
-            title: 'Tăng hạng phòng miễn phí',
-            description: '(Phụ thuộc vào tình trạng phòng)',
+            title: 'Free Room upgrade',
+            description: '(Subject on availability)',
           },
           {
-            title: 'Miễn phí hủy phòng',
+            title: 'Free cancellation',
             description: '',
           },
 
           {
-            title: 'Quà tặng thường niên',
+            title: 'Annual Surprise Gift',
             description: '',
           },
         ],
@@ -123,11 +122,27 @@ const generateDatabyRank = (rank: 'bronze' | 'silver' | 'gold' | 'platium'): Use
 };
 
 const Citizen = ({ lng }: Readonly<Citizen>) => {
-  const userRank = generateDatabyRank('silver');
+  const { data, error, loading } = useRequest(getUsers);
+  let bookings = data?.data._count?.bookings ?? 0;
+  let userrank = '';
+  let room = 0;
 
+  if (typeof bookings === 'number' && bookings >= 0 && bookings < 3) {
+    userrank = 'bronze';
+  } else if (typeof bookings === 'number' && bookings >= 3 && bookings < 6) {
+    userrank = 'silver';
+    room = bookings - 3;
+  } else if (typeof bookings === 'number' && bookings >= 6 && bookings < 9) {
+    userrank = 'gold';
+    room = bookings - 6;
+  }
+   else if (typeof bookings === 'number' && bookings >= 9) {
+     userrank = 'platinum';
+  }
+  const userRank = generateDatabyRank(userrank);
   return (
     <>
-      <CitizenInfor lng={lng} title={userRank.name} nextname={userRank.nextname} />
+      <CitizenInfor lng={lng} title={userRank.name} nextname={userRank.nextname} bookings={room} />
       <TierBenefit
         lng={lng}
         Benefits={userRank.Benefits}

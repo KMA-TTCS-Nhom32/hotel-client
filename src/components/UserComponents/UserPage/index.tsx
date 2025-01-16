@@ -19,7 +19,6 @@ const UserPage = ({ lng }: UserPageProps) => {
       <Text element='h3' type='heading3-semi-bold'>
         {t('detail_infomation')}
       </Text>
-
       <AccountInformation t={t} />
       <Password t={t} />
     </Content>

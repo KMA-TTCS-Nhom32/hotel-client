@@ -16,7 +16,6 @@ import Logo from '@public/logos/logo-light.png';
 
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
-// import { UserIdentifierTypeEnum } from '@ahomevilla-hotel/node-sdk';
 import ActiveAccount from './ActiveAccount';
 import { IdentifierValue } from '@/lib/types';
 import { ScrollArea } from '@/components/ui/scroll-area';
