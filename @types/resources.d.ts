@@ -315,13 +315,15 @@ interface Resources {
       "guests": "Guests",
       "success": "Booking created successfully! Please scan the QR code to pay.",
       "success2": "Booking created successfully! Check the status of your booking via email or your booking list.",
-      "error": "An error occurred while creating the booking. Returning to the homepage..."
+      "error": "An error occurred while creating the booking. Returning to the homepage...",
+      "back": "Back"
     },
     "confirm": {
       "title": "Scan QR Code below to pay",
       "expire": "Payment QR Code will be expired",
       "note": "Please do not change bank transfer description",
-      "save": "Save image"
+      "save": "Save image",
+      "back": "Back"
     },
     "inquiry": {
       "title": "How to Pay with QR",
