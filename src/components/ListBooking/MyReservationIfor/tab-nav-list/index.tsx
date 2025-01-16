@@ -1,13 +1,13 @@
 'use client';
-
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from '@/i18n/client';
 
 interface TabNavListProps {
   lng: string;
+  onTabChange: (tab: string) => void;
 }
 
-const TabNavList = ({ lng }: Readonly<TabNavListProps>) => {
+const TabNavList = ({ lng, onTabChange }: Readonly<TabNavListProps>) => {
   const { t } = useTranslation(lng, 'benefit');
   const [activeTab, setActiveTab] = useState('upcoming');
   const [underlineWidth, setUnderlineWidth] = useState(0);
@@ -18,6 +18,7 @@ const TabNavList = ({ lng }: Readonly<TabNavListProps>) => {
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
+     onTabChange(tab); 
   };
 
   useEffect(() => {

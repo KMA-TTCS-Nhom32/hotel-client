@@ -13,6 +13,8 @@ import {
   VerifyCodeResponseDto,
   VerifyEmailOTP,
   ResetPasswordWithOTPEmailDto,
+  BookingsPaginationResultDto,
+  QueryMyBookingsDto,
 } from '@ahomevilla-hotel/node-sdk';
 
 export async function registerUserService(data: RegisterDto) {
@@ -47,8 +49,11 @@ export async function verifyOTP(data: VerifyEmailOTP) {
 export async function reserPasswordService(data: ResetPasswordWithOTPEmailDto) {
   return axiosInstance.post(API_PATH.RESET_PASSWORD, data);
 }
-export async function getUserRestore() {
-  return axiosInstance.get<User>(API_PATH.USERS_RESTORE);
+export async function getUsers() {
+  return axiosInstance.get<User>(API_PATH.GET_USER);
 }
 
+export async function getMyBooking(){
+  return axiosInstance.get<BookingsPaginationResultDto>(API_PATH.GET_MYBOOKING);
+}
 

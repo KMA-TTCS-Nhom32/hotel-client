@@ -1,8 +1,10 @@
 'use client';
+import { useRequest } from 'ahooks';
 import CitizenInfor from '../Citizeninfor';
 import TierBenefit from '../TierBenefitContainer';
 import BannerBooking from '@/components/Citizen/BannerBooking.tsx';
 import { useTranslation } from '@/i18n/client';
+import { getUsers } from '@/services/auth';
 
 interface Citizen {
   lng: string;
@@ -27,8 +29,7 @@ interface UserRank {
   nextBenefits: nextBenefit[];
 }
 
-
-const generateDatabyRank: UserRank = (usersid: 'bronze' | 'silver' | 'gold' | 'platium', ) => {
+const generateDatabyRank: UserRank = (usersid: 'bronze' | 'silver' | 'gold' | 'platium') => {
   switch (usersid) {
     case 'bronze':
       return {
@@ -121,11 +122,27 @@ const generateDatabyRank: UserRank = (usersid: 'bronze' | 'silver' | 'gold' | 'p
 };
 
 const Citizen = ({ lng }: Readonly<Citizen>) => {
-  
-  const userRank = generateDatabyRank('silver');
-    return (
+  const { data, error, loading } = useRequest(getUsers);
+  let bookings = data?.data._count?.bookings ?? 0;
+  let userrank = '';
+  let room = 0;
+
+  if (typeof bookings === 'number' && bookings >= 0 && bookings < 3) {
+    userrank = 'bronze';
+  } else if (typeof bookings === 'number' && bookings >= 3 && bookings < 6) {
+    userrank = 'silver';
+    room = bookings - 3;
+  } else if (typeof bookings === 'number' && bookings >= 6 && bookings < 9) {
+    userrank = 'gold';
+    room = bookings - 6;
+  }
+   else if (typeof bookings === 'number' && bookings >= 9) {
+     userrank = 'platinum';
+  }
+  const userRank = generateDatabyRank(userrank);
+  return (
     <>
-      <CitizenInfor lng={lng} title={userRank.name} nextname={userRank.nextname} />
+      <CitizenInfor lng={lng} title={userRank.name} nextname={userRank.nextname} bookings={room} />
       <TierBenefit
         lng={lng}
         Benefits={userRank.Benefits}

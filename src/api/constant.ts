@@ -10,8 +10,9 @@ export const API_PATH = {
   INITIATE_EMAIL: '/auth/forgot-password/email/initiate',
   VERIFY_CODE: '/verification/verify-email-otp',
   RESET_PASSWORD: '/auth/forgot-password/email/reset',
+  GET_USER: '/auth/profile',
+  GET_MYBOOKING:'/booking/my-bookings',
   //User
-  USERS_RESTORE:'/users/{id}/restore',
   //Province
   PROVINCE:'/provinces',
 
