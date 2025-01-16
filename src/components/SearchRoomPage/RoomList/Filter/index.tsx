@@ -23,7 +23,7 @@ const Filter = ({ lng }: FilterProps) => {
   return (
     <div className={styles.filterContainer}>
       <div className={styles.hotelsFound}>
-        <b>2</b> {t('filter.hotelsFound')}
+        {/* <b>2</b> {t('filter.hotelsFound')} */}
       </div>
 
       <div

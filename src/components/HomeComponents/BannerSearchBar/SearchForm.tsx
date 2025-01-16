@@ -16,6 +16,8 @@ import styles from './index.module.scss';
 
 import FilterBar from './FilterBar';
 import FilterBarMobile from './FilterBar/FilterBarMobile';
+import { useRouter } from 'next/navigation';
+import { APP_ROUTES } from '@/constants/routes.constant';
 
 interface HomeSearchBarProps {
   lng: string;
@@ -26,12 +28,13 @@ interface HomeSearchBarProps {
 const SearchForm = ({ lng, className }: Readonly<HomeSearchBarProps>) => {
   const { t } = useTranslation(lng);
   const { isMobile } = useScreen();
+  const { push } = useRouter();
 
   return (
     <div id={DOM_IDS.HOME_SEARCH_BAR} className={cn(styles.booking_form, className)}>
       {isMobile ? <FilterBarMobile t={t} lng={lng} /> : <FilterBar t={t} lng={lng} />}
 
-      <ButtonCustom className={styles.search_button}>
+      <ButtonCustom className={styles.search_button} onClick={() => push(APP_ROUTES.SearchRoom)}>
         <Text element='p' type='title1-semi-bold'>
           {t('bookingform.search')}
         </Text>

@@ -8,7 +8,7 @@ export function RoomSkeleton() {
       className={`${styles.roomcard_container} flex flex-col md:flex-row shadow-lg border border-gray-200 rounded-lg overflow-hidden`}
     >
       <div className={`${styles.room_image} w-full md:w-1/3`}>
-      <img src='/images/gray.png' className={styles.roomImage} />
+        <Skeleton className='rounded-md bg-gray-400 w-full h-[240px]' />
       </div>
       <div
         className={cn(
@@ -46,18 +46,16 @@ export function RoomSkeleton() {
               <Skeleton />
             </span>
             <span className={`${styles.room_cost} text-orange-600 text-2xl`}>
-                <Skeleton />
+              <Skeleton />
             </span>
             <span className={`${styles.price_curency}`}>
-                <Skeleton />
+              <Skeleton />
             </span>
             <p className={`${styles.price_tax} text-sm text-gray-500 mb-4`}>
               <Skeleton />
             </p>
           </div>
-            <button className='py-2 px-4 rounded-full'>
-                <Skeleton />
-            </button>
+          <Skeleton className='h-9 rounded-full' />
         </div>
       </div>
     </div>

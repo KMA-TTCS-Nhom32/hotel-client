@@ -9,14 +9,23 @@ import { useTranslation } from '@/i18n/client';
 
 import { DualRangeSlider } from '@/components/ui/dual-slider';
 import { Input } from '@/components/ui/input';
+import { useDebounce, useUpdateEffect } from 'ahooks';
 
 interface SidebarProps {
   lng: string;
+  onChangePriceRange: (values: number[]) => void;
 }
 
-function Sidebar({ lng }: SidebarProps) {
+function Sidebar({ lng, onChangePriceRange }: Readonly<SidebarProps>) {
   const { t } = useTranslation(lng, 'searchroom');
+
   const [values, setValues] = useState([800000, 3100000]); // Initial price range
+
+  const debouncedValues = useDebounce(values, { wait: 300 });
+
+  useUpdateEffect(() => {
+    onChangePriceRange(debouncedValues);
+  }, [debouncedValues]);
 
   return (
     <div className={styles.sidebar}>
