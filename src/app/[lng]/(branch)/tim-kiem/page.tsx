@@ -10,7 +10,7 @@ interface SearchPageProps {
 }
 
 const SearchPage = ({ params: { lng, slug } }: SearchPageProps) => {
-  console.log(lng, slug);
+
   return (
     <Container className={styles.page_container}>
       <div className='flex-grow'>
