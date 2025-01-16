@@ -19,13 +19,13 @@ interface SearchPageProps {
 
 export default function ({ params: { lng } }: Readonly<SearchPageProps>) {
   const { bookingTime, customerAmount, province } = useSearchBarStore((state) => state);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [haveNextPage, setHaveNextPage] = useState(true);
   const [priceRange, setPriceRange] = useState<number[] | undefined>(undefined);
 
   const [roomDetails, setRoomDetails] = useState<RoomDetail[]>([]);
 
-  const [inViewport] = useInViewport(() => document.getElementById('children'), {
+  const [inViewport, ratio] = useInViewport(() => document.getElementById('children'), {
     threshold: [0, 0.25, 0.5, 0.75, 1],
     root: () => document.getElementById('parent'),
   });
@@ -47,24 +47,23 @@ export default function ({ params: { lng } }: Readonly<SearchPageProps>) {
           maxPrice: priceRange?.[1],
           adults: customerAmount.adult,
           children: customerAmount.child,
-          provinceSlug: province ?? undefined,
+          provinceSlug: province,
           startDate,
-          startTime,
           endDate,
+          startTime,
           endTime,
         } as FilterRoomDetailDto),
       });
     },
     {
-      onSuccess: (data) => {
-        console.log('data', data);
-        setRoomDetails([...roomDetails, ...data.data.data]);
-        setHaveNextPage(data.data.hasNextPage);
+      onSuccess: ({ data }) => {
+        setRoomDetails([...roomDetails, ...data.data]);
+        setHaveNextPage(data.hasNextPage);
       },
       refreshDeps: [currentPage, priceRange, bookingTime, customerAmount, province],
     },
   );
-  console.log('roomDetails', roomDetails);
+
   useUpdateEffect(() => {
     if (debounceInViewport && haveNextPage) {
       setCurrentPage((prev) => prev + 1);
@@ -75,17 +74,17 @@ export default function ({ params: { lng } }: Readonly<SearchPageProps>) {
     <Container className={styles.page_container} id='parent'>
       <div className='flex-grow'>
         <Filter lng={lng} />
-        <div>
-          {getRoomDetailLoading ? (
+        <div className='min-h-screen flex flex-col gap-5'>
+          {roomDetails.map((room) => (
+            <RoomCard key={room.id} room={room} bookingType={bookingTime.type} />
+          ))}
+          {getRoomDetailLoading && (
             <>
               <RoomSkeleton />
               <RoomSkeleton />
-            </>
-          ) : (
-            <>
-              {roomDetails.map((room) => (
-                <RoomCard key={room.id} room={room} bookingType={bookingTime.type} />
-              ))}
+              <RoomSkeleton />
+              <RoomSkeleton />
+              <RoomSkeleton />
             </>
           )}
         </div>
