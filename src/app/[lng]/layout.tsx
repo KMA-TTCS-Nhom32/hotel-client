@@ -28,7 +28,6 @@ export const metadata: Metadata = {
   description: 'Welcome to AHomeVilla',
 };
 
-
 interface RootLayoutProps {
   children: React.ReactNode;
   params: { lng: string };
@@ -39,6 +38,10 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
 
   return (
     <html lang={lng} dir={dir(lng)}>
+      <head>
+        <link rel='icon' href='/logos/logo-light.png' type='image/png' sizes='168x157' />
+        <link rel='icon' href='/favicon.ico' sizes='any' />
+      </head>
       <body className={`${nunitoSansFont.variable} ${nunitoSansFont.className} antialiased`}>
         <AppProvider>
           {children}
