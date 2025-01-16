@@ -1,29 +1,39 @@
 import { ButtonCustom } from '@/components/ui/button-custom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ChangePasswordFormValues, changePasswordSchema } from '@/lib/validators/change-password'; // Giả sử bạn đã có schema này từ trước
-import { TFunction, Resources } from 'i18next';
+import { ChangePasswordFormValues, changePasswordSchema } from '@/lib/validators/change-password';
 import ProfileCard from '..//../Card';
-import { useTranslation } from '@/i18n/client';
-import { Button } from '@/components/ui/button';
-
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-} from '@/components/ui/form';
-import InputText from '@/components/Common/Form/InputText';
+import { Form } from '@/components/ui/form';
 import InputPassword from '@/components/Common/Form/InputPassword';
 import { AppTranslationFunction } from '@/lib/types/i18n';
+import { useRequest } from 'ahooks';
+import { changePassWordService } from '@/services/auth';
+import { toast } from 'sonner';
+import { ChangePasswordDto } from '@ahomevilla-hotel/node-sdk';
 
 interface ChangePasswordFormProps {
   t: AppTranslationFunction;
   onCancel: () => void;
 }
 const ChangePasswordForm = ({ t, onCancel }: ChangePasswordFormProps) => {
+  const { run } = useRequest(changePassWordService, {
+    manual: true,
+    onSuccess({ data }) {
+      toast.success('cap nhat thanh cong');
+      onCancel();
+    },
+    onError() {
+      toast.error('cap nhat that bai');
+    },
+  });
+  function onSubmit(values: ChangePasswordFormValues) {
+    const payload: ChangePasswordDto = {
+      currentPassword: values.currentPassword,
+      newPassword: values.newPassword,
+      confirmPassword: values.confirmNewPassword,
+    };
+    run(payload);
+  }
   const form = useForm<ChangePasswordFormValues>({
     resolver: zodResolver(changePasswordSchema),
     defaultValues: {
@@ -36,10 +46,6 @@ const ChangePasswordForm = ({ t, onCancel }: ChangePasswordFormProps) => {
     formState: { isSubmitting },
     handleSubmit,
   } = form;
-
-  function onSubmit(values: ChangePasswordFormValues) {
-    console.log(values);
-  }
 
   return (
     <ProfileCard title={t('Change_password')}>

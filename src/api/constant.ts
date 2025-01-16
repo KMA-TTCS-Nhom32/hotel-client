@@ -6,7 +6,13 @@ export const API_PATH = {
   PROFILE: '/auth/profile',
   REGISTER: '/auth/register',
   VERIFY_EMAIL: '/auth/verify-email',
-
+  CHANGE_PASSWORD: '/auth/change-password',
+  INITIATE_EMAIL: '/auth/forgot-password/email/initiate',
+  VERIFY_CODE: '/verification/verify-email-otp',
+  RESET_PASSWORD: '/auth/forgot-password/email/reset',
+  GET_USER: '/auth/profile',
+  GET_MYBOOKING:'/booking/my-bookings',
+  //User
   //Province
   PROVINCE: '/provinces',
 

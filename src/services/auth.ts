@@ -8,6 +8,13 @@ import {
   UpdateProfileDto,
   User,
   VerifyEmailDto,
+  ChangePasswordDto,
+  InitiateForgotPasswordEmailDto,
+  VerifyCodeResponseDto,
+  VerifyEmailOTP,
+  ResetPasswordWithOTPEmailDto,
+  BookingsPaginationResultDto,
+  QueryMyBookingsDto,
 } from '@ahomevilla-hotel/node-sdk';
 
 export function registerUserService(data: RegisterDto) {
@@ -33,3 +40,24 @@ export function getProfileService() {
 export function updateProfileService(data: UpdateProfileDto) {
   return axiosInstance.patch<User>(API_PATH.PROFILE, data);
 }
+export async function changePassWordService(data: ChangePasswordDto) {
+  return axiosInstance.post(API_PATH.CHANGE_PASSWORD, data);
+}
+export async function verifyEmailService(data: InitiateForgotPasswordEmailDto) {
+  return axiosInstance.post(API_PATH.INITIATE_EMAIL, data);
+}
+
+export async function verifyOTP(data: VerifyEmailOTP) {
+  return axiosInstance.post(API_PATH.VERIFY_CODE, data);
+}
+export async function reserPasswordService(data: ResetPasswordWithOTPEmailDto) {
+  return axiosInstance.post(API_PATH.RESET_PASSWORD, data);
+}
+export async function getUsers() {
+  return axiosInstance.get<User>(API_PATH.GET_USER);
+}
+
+export async function getMyBooking(){
+  return axiosInstance.get<BookingsPaginationResultDto>(API_PATH.GET_MYBOOKING);
+}
+

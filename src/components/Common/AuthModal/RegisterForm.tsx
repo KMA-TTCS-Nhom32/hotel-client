@@ -75,6 +75,7 @@ const RegisterForm = ({ t, onRegisterSuccess }: RegisterFormProps) => {
   }
 
   return (
+    
     <Form {...form}>
       <form onSubmit={handleSubmit(onSubmit)} className='w-full space-y-4 pl-[1px] pr-2.5'>
         <InputText<RegisterFormValues>
