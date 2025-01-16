@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 import { useRequest } from 'ahooks';
 import { logoutUserService } from '@/services/auth';
 import { useAuth } from '@/stores/auth/useAuth';
+import { ButtonCustom } from '@/components/ui/button-custom';
 
 interface LogOutButtonProps {
   className?: string;
@@ -16,7 +16,7 @@ const LogOutButton = ({ className }: Readonly<LogOutButtonProps>) => {
   const { t } = useTranslation('account');
   const { onLogout } = useAuth();
 
-  const { run } = useRequest(logoutUserService, {
+  const { run, loading } = useRequest(logoutUserService, {
     manual: true,
     onSuccess: () => {
       onLogout();
@@ -24,13 +24,17 @@ const LogOutButton = ({ className }: Readonly<LogOutButtonProps>) => {
   });
 
   return (
-    <Button
+    <ButtonCustom
       variant='ghost'
-      className={cn('w-full font-semibold  hover:text-red-500 ', className)}
+      className={cn(
+        'w-full h-12 !rounded-md font-semibold bg-red-50 hover:bg-red-200 hover:text-red-700',
+        className,
+      )}
       onClick={run}
+      loading={loading}
     >
       <h4 className='text-2xl text-left text-destructive'>{t('log_out')}</h4>
-    </Button>
+    </ButtonCustom>
   );
 };
 

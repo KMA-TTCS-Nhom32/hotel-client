@@ -22,14 +22,19 @@ import LoadingSection from '@/components/Common/LoadingSection';
 import { formatBookingDateTime } from '@/lib/funcs/date';
 import { BookingButton } from './BookingButton';
 import { Button } from '@/components/ui/button';
+import { getPrice } from '@/lib/funcs/price';
 
 interface ListRoomProps {
   lng: string;
   branchSlug: string;
   roomDetails: RoomDetail[];
+  branchInfor: {
+    name: string;
+    address: string;
+  };
 }
 
-const ListRoom = ({ branchSlug, lng, roomDetails }: Readonly<ListRoomProps>) => {
+const ListRoom = ({ branchSlug, lng, roomDetails, branchInfor }: Readonly<ListRoomProps>) => {
   const { t } = useTranslation(lng, 'branch');
   const { province, bookingTime, customerAmount } = useSearchBarStore((state) => state);
 
@@ -89,6 +94,21 @@ const ListRoom = ({ branchSlug, lng, roomDetails }: Readonly<ListRoomProps>) => 
                 currentType={bookingTime.type}
                 room={room}
                 onOpen={openDialog}
+                bookingButton={
+                  <BookingButton
+                    t={t}
+                    bookingInfor={{
+                      detailId: room.id,
+                      branchSlug,
+                      detailName: room.name,
+                      thumbnail: room.thumbnail.url,
+                      branchName: branchInfor.name,
+                      branchAddress: branchInfor.address,
+                      totalAmount: getPrice(room, bookingTime),
+                    }}
+                    isRoomDetailCard
+                  />
+                }
               />
             ))}
           </div>
@@ -162,7 +182,18 @@ const ListRoom = ({ branchSlug, lng, roomDetails }: Readonly<ListRoomProps>) => 
                   </div>
                 </ScrollArea>
                 {selectedRoom.is_available ? (
-                  <BookingButton t={t} detailId={selectedRoom.id} />
+                  <BookingButton
+                    t={t}
+                    bookingInfor={{
+                      detailId: selectedRoom.id,
+                      branchSlug,
+                      detailName: selectedRoom.name,
+                      thumbnail: selectedRoom.thumbnail.url,
+                      branchName: branchInfor.name,
+                      branchAddress: branchInfor.address,
+                      totalAmount: getPrice(selectedRoom, bookingTime),
+                    }}
+                  />
                 ) : (
                   <Button
                     variant='outline'

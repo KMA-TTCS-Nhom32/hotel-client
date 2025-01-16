@@ -98,7 +98,7 @@ interface Resources {
       "subtitle": "Kiểm tra kỹ mọi thứ đã ổn chưa? Tuyệt vời! Tiến hành bảo đảm chỗ ở của bạn.",
       "citizen_text": "Welcome {{name}}!",
       "citizen_text2": " Enjoy these perks by completing this booking:",
-      "citizen_subtext": "Logged in as Hoàng Kim Chi",
+      "citizen_subtext": "Logged in as {{name}}",
       "citizen_level_label": "New Citizen",
       "contact": "Contact Detail",
       "contact_alert": "Please fill in all fields correctly to ensure you receive the booking confirmation in your email.",
@@ -117,6 +117,22 @@ interface Resources {
       "srtitle": "Special requests or preferences",
       "srsubtitle": "You will know the availability of your additional request during check-in. Extra charges may incur but you can still cancel your request later.",
       "submit": "Continue to Payment"
+    },
+    "sidebar": {
+      "reward_booking": "Book to earn reward points",
+      "booking_details": "Booking details",
+      "phone": "Phone number",
+      "contact_infor": "Contact Information",
+      "user_name": "Customer",
+      "customer": "Guest",
+      "free_cancel": "Free cancellation",
+      "changable_date": "Is able to change date",
+      "check_in_infor": "Check-in Information",
+      "not_able_fully_refund": "For this booking, cancellation is no longer available for a full refund as it is less than 7 days before check-in.",
+      "night": "Night",
+      "hours": "Hours",
+      "day_one": "{{count}} day",
+      "day_other": "{{count}} days"
     }
   },
   "branch": {
@@ -295,7 +311,11 @@ interface Resources {
       "total_price_title": "Total price",
       "total_price": "2,200,000 VND",
       "submit": "Continue with ",
-      "note_text": "By continuing to payment, you have agreed to AHomeVilla and Terms & Conditions Privacy Policy"
+      "note_text": "By continuing to payment, you have agreed to AHomeVilla and Terms & Conditions Privacy Policy",
+      "guests": "Guests",
+      "success": "Booking created successfully! Please scan the QR code to pay.",
+      "success2": "Booking created successfully! Check the status of your booking via email or your booking list.",
+      "error": "An error occurred while creating the booking. Returning to the homepage..."
     },
     "confirm": {
       "title": "Scan QR Code below to pay",

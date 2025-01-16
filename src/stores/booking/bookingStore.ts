@@ -1,37 +1,34 @@
 import { create } from 'zustand';
 
-type UserInfor = {
+export type UserInfor = {
+  name: string;
   email: string;
   phone: string;
   special_requests?: string;
 };
 
-type BookingInfor = {
-  detailId: string | null;
+export type BookingInfor = {
+  detailId: string;
+  detailName: string;
+  branchSlug: string;
+  branchName: string;
+  branchAddress: string;
+  totalAmount: number;
+  thumbnail: string;
 };
 
 type BookingStore = {
-  userInfor: UserInfor;
-  bookingInfor: BookingInfor;
+  userInfor: UserInfor | null;
+  bookingInfor: BookingInfor | null;
   setUserInfor: (userInfor: UserInfor) => void;
   setBookingInfor: (bookingInfo: BookingInfor) => void;
   resetBookingInfor: () => void;
 };
 
-const initialUserInfor: UserInfor = {
-  email: '',
-  phone: '',
-};
-
-const initialBookingInfor: BookingInfor = {
-  detailId: null,
-};
-
 export const useBookingStore = create<BookingStore>((set) => ({
-  userInfor: initialUserInfor,
-  bookingInfor: initialBookingInfor,
+  userInfor: null,
+  bookingInfor: null,
   setUserInfor: (userInfor) => set(() => ({ userInfor })),
   setBookingInfor: (bookingInfor) => set(() => ({ bookingInfor })),
-  resetBookingInfor: () =>
-    set(() => ({ userInfor: initialUserInfor, bookingInfor: initialBookingInfor })),
+  resetBookingInfor: () => set(() => ({ userInfor: null, bookingInfor: null })),
 }));

@@ -2,7 +2,10 @@
 
 import React, { useState } from 'react';
 
-import { Ticket } from 'lucide-react';
+import { toast } from 'sonner';
+import { useRequest } from 'ahooks';
+import { LoaderCircle, Ticket } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 import { useTranslation } from '@/i18n/client';
 import { cn } from '@/lib/utils';
@@ -10,7 +13,12 @@ import { cn } from '@/lib/utils';
 import styles from './index.module.scss';
 
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import Link from 'next/link';
+import { useBookingStore } from '@/stores/booking/bookingStore';
+import { useSearchBarStore } from '@/stores/search-bar/searchBarStore';
+import { formatCurrency } from '@/lib/funcs/currency';
+import { createBookingService } from '@/services/booking';
+import { formatBookingDateTime } from '@/lib/funcs/date';
+import { CreateBookingOnlineDtoPaymentMethodEnum } from '@ahomevilla-hotel/node-sdk';
 import { APP_ROUTES } from '@/constants/routes.constant';
 
 interface PaymentDetailProps {
@@ -19,32 +27,62 @@ interface PaymentDetailProps {
 
 const PaymentDetail = ({ lng }: PaymentDetailProps) => {
   const { t } = useTranslation(lng, 'payment');
-  const [selectedMethod, setSelectedMethod] = useState<string>('method1');
+  const [selectedMethod, setSelectedMethod] = useState<string>('VIET_QR');
+
+  const { bookingInfor, userInfor } = useBookingStore((state) => state);
+  const { customerAmount, bookingTime } = useSearchBarStore((state) => state);
+
+  const { push } = useRouter();
+
+  const { run: handleCreateBooking, loading } = useRequest(
+    () => {
+      const { startTime, startDate, endTime, endDate } = formatBookingDateTime(
+        bookingTime.checkIn,
+        bookingTime.checkOut,
+      );
+
+      return createBookingService({
+        type: bookingTime.type,
+        start_date: startDate,
+        end_date: endDate,
+        start_time: startTime,
+        end_time: endTime,
+        number_of_guests: customerAmount.adult + customerAmount.child,
+        adults: customerAmount.adult,
+        children: customerAmount.child,
+        infants: customerAmount.infant,
+        special_requests: userInfor?.special_requests,
+        detailId: bookingInfor?.detailId as string,
+        payment_method:
+          selectedMethod === 'VIET_QR'
+            ? ('VIET_QR' as CreateBookingOnlineDtoPaymentMethodEnum)
+            : undefined,
+      });
+    },
+    {
+      manual: true,
+      onSuccess: () => {
+        toast.success(selectedMethod === 'VIET_QR' ? t('payment.success') : t('payment.success2'));
+        push(APP_ROUTES.Home);
+      },
+      onError: (error) => {
+        console.log('error', error);
+        toast.error(t('payment.error'));
+        setTimeout(() => {
+          push(APP_ROUTES.Home);
+        }, 3000);
+      }
+    },
+  );
 
   const paymentMethods = [
     {
-      id: 'method1',
+      id: 'VIET_QR',
       label: t('payment.method_option1'),
       image: '/images/payment/Logo-TPBank.webp',
     },
-    // {
-    //   id: 'method2',
-    //   label: t('payment.method_option2'),
-    //   image: '/images/payment/1622013240_vtc-pay-la-gi-1.png',
-    // },
-    // {
-    //   id: 'method3',
-    //   label: t('payment.method_option3'),
-    //   image:
-    //     '/images/payment/kisspng-logo-brand-payment-image-product-design-cufflins-the-sultans-of-swag-1713950042775.webp',
-    // },
-    // {
-    //   id: 'method4',
-    //   label: t('payment.method_option4'),
-    //   image: '/images/payment/360_F_816534453_nMDnApiGPNgXjo5YDbLvOPViHwWksGIy.jpg',
-    // },
     {
-      id: 'method5',
+      id: 'at_hotel',
       label: t('payment.method_option5'),
       image: '/logos/logo-large-dark.png',
     },
@@ -105,7 +143,7 @@ const PaymentDetail = ({ lng }: PaymentDetailProps) => {
               </div>
               {selectedMethod === method.id && (
                 <div className={styles.payment_method_note_container}>
-                  {['method1', 'method2'].includes(method.id) && (
+                  {['VIET_QR', 'method2'].includes(method.id) && (
                     <div className={styles.payment_method_note}>
                       <div className={styles.payment_note}>
                         <ul>
@@ -126,7 +164,7 @@ const PaymentDetail = ({ lng }: PaymentDetailProps) => {
                       </div>
                     </div>
                   )}
-                  {method.id === 'method5' && (
+                  {method.id === 'at_hotel' && (
                     <div className={styles.payment_method_note}>
                       <div className={styles.payment_note}>
                         <ul>
@@ -168,23 +206,27 @@ const PaymentDetail = ({ lng }: PaymentDetailProps) => {
         <div className={styles.detail_payment_title}>{t('payment.detail_title')}</div>
         <div className={styles.div_line}></div>
         <div className={cn(styles.room_info_container, 'flex justify-between')}>
-          <div className={styles.room_info}>{t('payment.room_info')}</div>
-          <div className={styles.room_info}>{t('payment.room_price')}</div>
+          <div className={styles.room_info}>
+            (x1) {bookingInfor?.detailName} - {customerAmount.adult + customerAmount.child}{' '}
+            {t('payment.guests')}
+          </div>
+          <div className={styles.room_info}>{formatCurrency(bookingInfor?.totalAmount ?? '')}</div>
         </div>
         <div className={cn(styles.total_price_container, 'flex justify-between')}>
           <div className={styles.total_price}>{t('payment.total_price_title')}</div>
-          <div className={styles.total_price}>{t('payment.total_price')}</div>
+          <div className={styles.total_price}>
+            {formatCurrency(bookingInfor?.totalAmount ?? '')}
+          </div>
         </div>
       </div>
 
       <div className='flex flex-col'>
-        <Link href={APP_ROUTES.ConfirmBooking}>
-          <button className={styles.submit_button}>
-            {selectedMethod
-              ? `${t('payment.submit')} ${paymentMethods.find((method) => method.id === selectedMethod)?.label}`
-              : t('payment.submit')}
-          </button>
-        </Link>
+        <button className={styles.submit_button} disabled={loading} onClick={handleCreateBooking}>
+          {loading && <LoaderCircle className='!w-6 !h-6 !text-white animate-spin' />}
+          {selectedMethod
+            ? `${t('payment.submit')} ${paymentMethods.find((method) => method.id === selectedMethod)?.label}`
+            : t('payment.submit')}
+        </button>
         <div className={cn(styles.note_text, 'text-center')}>{t('payment.note_text')}</div>
       </div>
     </div>

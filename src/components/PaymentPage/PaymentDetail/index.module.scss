@@ -232,6 +232,10 @@
   line-height: 28px;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
 
   @include mobile {
     font-size: 16px;

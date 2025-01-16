@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 import { useProfileStore } from '@/providers/profile-store-provider';
 import { usePathname } from 'next/navigation';
 import { APP_ROUTES } from '@/constants/routes.constant';
+import { Text } from '@/components/ui/text';
 
 interface SideBar {
   lng: string;
@@ -40,8 +41,12 @@ const SideBar = ({ lng, className }: Readonly<SideBar>) => {
           </div>
           <div className={style.text}>
             <Link href={'/account'}>
-              <div className='text-white text-base'>{t('YOU’RE')}</div>
-              <div className='text-white text-lg font-bold'>{t('New_Citizen')}</div>
+              <Text type='body1' className='text-white text-base'>
+                {t('YOU’RE')}
+              </Text>
+              <Text type='heading5-medium' className='text-white text-lg font-bold'>
+                {t('New_Citizen')}
+              </Text>
             </Link>
           </div>
           <div className={style.icon2}>{`>`}</div>
@@ -64,13 +69,16 @@ const SideBar = ({ lng, className }: Readonly<SideBar>) => {
             key={index}
             className={cn(style.box, isCurrentPathname(link.href) && 'bg-orange-100')}
           >
-            <Link href={link.href}>{link.title}</Link>
+            <Link href={link.href}>
+              <Text type='title1-semi-bold' className='!text-gray-900'>
+                {link.title}
+              </Text>
+            </Link>
           </div>
         ))}
         <div className={style.box3}></div>
-        <div className={style.box}>
-          <LogOutButton />
-        </div>
+
+        <LogOutButton />
       </div>
     </div>
   );

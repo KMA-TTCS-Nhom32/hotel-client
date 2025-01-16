@@ -43,7 +43,7 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
           {children}
           <Footer lng={lng} />
           <AuthModal lng={lng} />
-          <Toaster />
+          <Toaster position='top-right' />
         </AppProvider>
       </body>
     </html>

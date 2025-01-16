@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
 import { APP_ROUTES } from '@/constants/routes.constant';
@@ -8,6 +9,7 @@ import { cn } from '@/lib/utils';
 
 import Container from '@/components/Common/Container';
 import { Button } from '@/components/ui/button';
+import { useBookingStore } from '@/stores/booking/bookingStore';
 
 type Step = {
   number: number;
@@ -40,7 +42,18 @@ interface BookingStepsProps {
 const BookingSteps = ({ lng }: BookingStepsProps) => {
   const { t } = useTranslation(lng, 'booking');
   const pathname = usePathname();
+  const { bookingInfor, userInfor } = useBookingStore((state) => state);
   const { push } = useRouter();
+
+  useEffect(() => {
+    if (pathname.includes(APP_ROUTES.Booking)) {
+      if (!bookingInfor) push(APP_ROUTES.Home);
+    }
+
+    if (pathname.includes(APP_ROUTES.Payment)) {
+      if (!userInfor) push(APP_ROUTES.Home);
+    }
+  }, [bookingInfor, userInfor, pathname]);
 
   const isCurrentPath = (path: string) => pathname.includes(path);
 

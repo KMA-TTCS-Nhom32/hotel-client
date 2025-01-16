@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useBookingStore } from '@/stores/booking/bookingStore';
+import { BookingInfor, useBookingStore } from '@/stores/booking/bookingStore';
 import { APP_ROUTES } from '@/constants/routes.constant';
 
 import styles from './index.module.scss';
@@ -9,29 +9,27 @@ import { AppTranslationFunction } from '@/lib/types/i18n';
 
 interface BookingButtonProps {
   t: AppTranslationFunction;
-  detailId: string;
+  bookingInfor: BookingInfor;
   isRoomDetailCard?: boolean;
 }
 
 export const BookingButton = ({
   t,
-  detailId,
+  bookingInfor,
   isRoomDetailCard = false,
 }: Readonly<BookingButtonProps>) => {
   const { push } = useRouter();
   const { setBookingInfor } = useBookingStore((state) => state);
 
-  const onClickBooking = (detailId: string) => {
-    setBookingInfor({
-      detailId,
-    });
+  const onClickBooking = () => {
+    setBookingInfor(bookingInfor);
 
     push(APP_ROUTES.Booking);
   };
 
   if (isRoomDetailCard) {
     return (
-      <button className={styles.bookButton} onClick={() => onClickBooking(detailId)}>
+      <button className={styles.bookButton} onClick={onClickBooking}>
         {t('room.book')}
       </button>
     );
@@ -40,7 +38,7 @@ export const BookingButton = ({
   return (
     <div className={styles.button}>
       <div className={styles.dialogRoomButton}>
-        <button onClick={() => onClickBooking(detailId)}>
+        <button onClick={onClickBooking}>
           {t('room.book')}
         </button>
       </div>

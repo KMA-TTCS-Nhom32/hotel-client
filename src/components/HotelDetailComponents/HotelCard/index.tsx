@@ -6,7 +6,6 @@ import { Clock, Ruler, User, BedDouble } from 'lucide-react';
 import { RoomDetail } from '@ahomevilla-hotel/node-sdk';
 import { useTranslation } from '@/i18n/client';
 import { BookingType } from '@/stores/search-bar/searchBarStore';
-import { BookingButton } from '../BookingButton';
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
 
@@ -17,9 +16,10 @@ interface HotelCardProps {
   lng: string;
   currentType: BookingType;
   onOpen: (room: RoomDetail) => void;
+  bookingButton: React.ReactNode;
 }
 
-const HotelCard = ({ lng, room, currentType, onOpen }: HotelCardProps) => {
+const HotelCard = ({ lng, room, currentType, onOpen, bookingButton }: HotelCardProps) => {
   const { t } = useTranslation(lng, 'branch');
 
   const getPrice = (room: RoomDetail) => {
@@ -75,9 +75,7 @@ const HotelCard = ({ lng, room, currentType, onOpen }: HotelCardProps) => {
             </div>
           )}
           <div onClick={(e) => e.stopPropagation()}>
-            {room.is_available ? (
-              <BookingButton t={t} detailId={room.id} isRoomDetailCard />
-            ) : (
+            {room.is_available ? bookingButton : (
               <Button
                 variant='outline'
                 className='h-12 w-full rounded-md select-none border-red-600 hover:bg-red-200 cursor-default bg-red-200'

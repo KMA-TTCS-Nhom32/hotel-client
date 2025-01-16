@@ -7,22 +7,19 @@ import { useEffect } from 'react';
 import { APP_ROUTES } from '@/constants/routes.constant';
 import { usePathname } from 'next/navigation';
 
-interface InitialProviderProps {
-  children: React.ReactNode;
-}
-
-export const InitialProvider = ({ children }: InitialProviderProps) => {
+export const InitialClientRender = () => {
   useInitialProfile();
   const pathname = usePathname();
-  const { resetBookingInfor } = useBookingStore((state) => state);
+  const { resetBookingInfor, bookingInfor } = useBookingStore((state) => state);
 
   useEffect(() => {
-    if (!pathname.includes(APP_ROUTES.Booking || APP_ROUTES.Payment)) {
-      resetBookingInfor();
+    if (pathname.includes(APP_ROUTES.Booking) || pathname.includes(APP_ROUTES.Payment)) {
+      return;
     }
+    resetBookingInfor();
   }, [pathname]);
 
-  return <>{children}</>;
+  return null;
 };
 
 interface AppProviderProps {
@@ -32,7 +29,8 @@ interface AppProviderProps {
 export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <ProfileStoreProvider>
-      <InitialProvider>{children}</InitialProvider>
+      <InitialClientRender />
+      {children}
     </ProfileStoreProvider>
   );
 };

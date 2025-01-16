@@ -19,4 +19,7 @@ export const API_PATH = {
 
   // Room-detail
   ROOM_DETAIL: '/room-details',
+
+  // Booking
+  BOOKING: '/booking',
 };
