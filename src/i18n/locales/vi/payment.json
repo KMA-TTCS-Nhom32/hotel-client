@@ -27,14 +27,16 @@
     "guests": "Khách",
     "success": "Tạo đơn đặt phòng thành công! Vui lòng quét mã QR để thanh toán.",
     "success2": "Tạo đơn đặt phòng thành công! Kiểm tra trạng thái của đơn đặt phòng qua email hoặc danh sách đặt phòng của bạn.",
-    "error": "Đã xảy ra lỗi khi tạo đơn đặt phòng. Quay lại trang chủ..."
+    "error": "Đã xảy ra lỗi khi tạo đơn đặt phòng. Quay lại trang chủ...",
+    "back": "Quay lại"
   },
 
   "confirm": {
     "title": "Quét mã QR để thanh toán",
     "expire": "Mã QR thanh toán sẽ hết hạn sau",
     "note": "Quý khách vui lòng không thay đổi nội dung chuyển khoản.",
-    "save": "Lưu ảnh"
+    "save": "Lưu ảnh",
+    "back": "Quay lại"
   },
 
   "inquiry": {
