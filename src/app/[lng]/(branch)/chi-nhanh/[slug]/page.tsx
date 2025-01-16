@@ -35,7 +35,7 @@ export default async function HotelPage({ params: { lng, slug } }: Readonly<Hote
               address={data.address}
               nearBy={data.nearBy}
             />
-            <ListRoom lng={lng} roomDetails={data.rooms} />
+            <ListRoom lng={lng} branchSlug={slug} roomDetails={data.rooms} />
           </div>
         </section>
       </Container>

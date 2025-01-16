@@ -1,4 +1,3 @@
-// Adjusted BookingForm Component
 'use client';
 
 import Link from 'next/link';
@@ -29,19 +28,19 @@ const BookingForm = ({ lng }: BookingFormProps) => {
   const { t } = useTranslation(lng, 'booking');
   const { push } = useRouter();
   const { profile } = useProfileStore((state) => state);
-  const { bookingInfo, setBookingInfo } = useBookingStore((state) => state);
+  const { userInfor, setUserInfor } = useBookingStore((state) => state);
 
   const form = useForm<BookingFormValues>({
     resolver: zodResolver(bookingSchema),
     defaultValues: {
-      email: profile?.email ?? bookingInfo.email,
-      phone: profile?.phone ?? bookingInfo.phone,
-      special_requests: bookingInfo.special_requests,
+      email: profile?.email ?? userInfor.email,
+      phone: profile?.phone ?? userInfor.phone,
+      special_requests: userInfor.special_requests,
     },
   });
 
   const onSubmit = (values: BookingFormValues) => {
-    setBookingInfo(values);
+    setUserInfor(values);
     push(APP_ROUTES.Payment);
   };
 

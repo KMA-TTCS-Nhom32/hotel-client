@@ -141,7 +141,8 @@ interface Resources {
       "unvailable": "Sold out",
       "title": "Room detail",
       "title2": "Room amenities"
-    }
+    },
+    "no_rooms": "No rooms match your request"
   },
   "common": {
     "hello": "Welcome",
@@ -261,7 +262,10 @@ interface Resources {
       "duration_hours_other": "{{count}} hours"
     },
     "hanoi": "Hanoi",
-    "ho_chi_minh": "Ho Chi Minh"
+    "ho_chi_minh": "Ho Chi Minh",
+    "hcm-city": "Ho Chi Minh City",
+    "da-nang": "Da Nang",
+    "province_name.ninh-binh": "Ninh Binh"
   },
   "home": {
     "explore": "Explore"
@@ -292,6 +296,18 @@ interface Resources {
       "total_price": "2,200,000 VND",
       "submit": "Continue with ",
       "note_text": "By continuing to payment, you have agreed to AHomeVilla and Terms & Conditions Privacy Policy"
+    },
+    "confirm": {
+      "title": "Scan QR Code below to pay",
+      "expire": "Payment QR Code will be expired",
+      "note": "Please do not change bank transfer description",
+      "save": "Save image"
+    },
+    "inquiry": {
+      "title": "How to Pay with QR",
+      "text1": "1. Open your e-wallet or mobile banking application that supports QR payment with QuickPay, then scan the QR code above.",
+      "text2": "2. Make sure the total amount and payment destination match the details above, then complete your payment within the time limit.",
+      "text3": "3. Your booking will be automatically confirmed after a successful payment. You can check your booking status on the Bookings page."
     }
   },
   "searchroom": {

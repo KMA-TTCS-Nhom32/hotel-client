@@ -6,6 +6,10 @@ import { Clock, Ruler, User, BedDouble } from 'lucide-react';
 import { RoomDetail } from '@ahomevilla-hotel/node-sdk';
 import { useTranslation } from '@/i18n/client';
 import { BookingType } from '@/stores/search-bar/searchBarStore';
+import { BookingButton } from '../BookingButton';
+import { Button } from '@/components/ui/button';
+import { Text } from '@/components/ui/text';
+
 import styles from './index.module.scss';
 
 interface HotelCardProps {
@@ -27,18 +31,6 @@ const HotelCard = ({ lng, room, currentType, onOpen }: HotelCardProps) => {
       return room.special_price_per_day ?? room.base_price_per_day;
     }
     return null;
-  };
-
-  const getButton = (rooms: RoomDetail[]) => {
-    const isAvailable = rooms.some((room) => room.is_available);
-    if (isAvailable) {
-      return <button className={styles.bookButton}>{t('room.book')}</button>;
-    }
-    return (
-      <button className={styles.unavailableButton}>
-        <Clock /> {t('room.unvailable')}
-      </button>
-    );
   };
 
   return (
@@ -75,14 +67,28 @@ const HotelCard = ({ lng, room, currentType, onOpen }: HotelCardProps) => {
         </ul>
 
         <div className={styles.roomFooter}>
-          <div className={styles.price}>
-            {getPrice(room) && (
+          {room.is_available && (
+            <div className={styles.price}>
               <span>
                 {getPrice(room)} <p>{t('room.currency')}</p>
               </span>
+            </div>
+          )}
+          <div onClick={(e) => e.stopPropagation()}>
+            {room.is_available ? (
+              <BookingButton t={t} detailId={room.id} isRoomDetailCard />
+            ) : (
+              <Button
+                variant='outline'
+                className='h-12 w-full rounded-md select-none border-red-600 hover:bg-red-200 cursor-default bg-red-200'
+              >
+                <Clock className='text-red-700 !w-5 !h-5' />
+                <Text element='h5' type='title1-semi-bold' className='text-red-700'>
+                  {t('room.unvailable')}
+                </Text>
+              </Button>
             )}
           </div>
-          {getButton([room])}
         </div>
       </div>
     </button>

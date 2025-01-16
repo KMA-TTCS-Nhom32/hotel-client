@@ -1,7 +1,6 @@
 import dayjs from 'dayjs';
 import 'dayjs/locale/vi';
-import { WorkingHour } from '../types/select-date';
-import { Period } from '../types/select-date';
+import { WorkingHour, Period } from '../types/select-date';
 
 const DAY_NAMES = {
   short: {
@@ -159,4 +158,20 @@ export const startOf = (date: Date, unit: 'day' | 'month' | 'year'): Date => {
 
 export const endOf = (date: Date, unit: 'day' | 'month' | 'year'): Date => {
   return dayjs(date).endOf(unit).toDate();
+};
+
+export interface BookingDateTime {
+  startDate: string;
+  endDate: string;
+  startTime: string;
+  endTime: string;
+}
+
+export const formatBookingDateTime = (checkIn: Date, checkOut: Date): BookingDateTime => {
+  return {
+    startDate: dayjs(checkIn).format('DD-MM-YYYY'),
+    endDate: dayjs(checkOut).format('DD-MM-YYYY'),
+    startTime: dayjs(checkIn).format('HH:mm'),
+    endTime: dayjs(checkOut).format('HH:mm'),
+  };
 };

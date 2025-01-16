@@ -8,19 +8,21 @@
     "explorearea": "Explore the area"
   },
 
-    "amenity": {
-        "butler": "Personal Butler",
-        "pool": "Swimming Pool",
-        "garden": "Garden",
-        "restaurant": "The Green House Restaurant",
-        "wf" : "High Speed Wifi"
-    },
+  "amenity": {
+    "butler": "Personal Butler",
+    "pool": "Swimming Pool",
+    "garden": "Garden",
+    "restaurant": "The Green House Restaurant",
+    "wf": "High Speed Wifi"
+  },
 
-    "room": {
-        "currency": "VND/ Night",
-        "book": "Choose room",
-        "unvailable": "Sold out",
-        "title": "Room detail",
-        "title2": "Room amenities"
-    }
+  "room": {
+    "currency": "VND/ Night",
+    "book": "Choose room",
+    "unvailable": "Sold out",
+    "title": "Room detail",
+    "title2": "Room amenities"
+  },
+
+  "no_rooms": "No rooms match your request"
 }

@@ -122,5 +122,8 @@
   },
 
   "hanoi": "Hanoi",
-  "ho_chi_minh": "Ho Chi Minh"
+  "ho_chi_minh": "Ho Chi Minh",
+  "hcm-city": "Ho Chi Minh City",
+  "da-nang": "Da Nang",
+  "province_name.ninh-binh": "Ninh Binh"
 }

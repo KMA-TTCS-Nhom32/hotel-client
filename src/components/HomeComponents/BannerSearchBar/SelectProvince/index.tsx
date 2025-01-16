@@ -1,11 +1,15 @@
+import { useRequest } from 'ahooks';
+
+import { getProvinceService } from '@/services/province';
+import { AppTranslationFunction } from '@/lib/types/i18n';
+import { useSearchBarStore } from '@/stores/search-bar/searchBarStore';
+
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Text } from '@/components/ui/text';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
-import { AppTranslationFunction } from '@/lib/types/i18n';
-import { useSearchBarStore } from '@/stores/search-bar/searchBarStore';
-
 import styles from '../index.module.scss';
+import { useMemo } from 'react';
 
 interface SelectProvinceProps {
   province: string | null;
@@ -24,16 +28,33 @@ export const SelectProvince = ({
   return (
     <ToggleGroup
       type='single'
-      className={styles.location_toggle_group}
+      className='flex-col gap-5'
       value={province ?? ''}
       onValueChange={onSelectProvince}
     >
-      {provinces.map((item) => (
-        <ToggleGroupItem key={item.value} value={item.value} className={styles.location_item}>
-          {item.label}
-        </ToggleGroupItem>
-      ))}
+      <div className='w-full flex flex-wrap gap-3'>
+        {provinces.map((item) => (
+          <ToggleGroupItem key={item.value} value={item.value} className={styles.location_item}>
+            {item.label}
+          </ToggleGroupItem>
+        ))}
+      </div>
     </ToggleGroup>
+  );
+};
+
+interface SelectedProvinceDisplayProps {
+  t: AppTranslationFunction;
+  province: string | null;
+}
+
+export const SelectedProvinceDisplay = ({ t, province }: SelectedProvinceDisplayProps) => {
+  return (
+    <Text element='h5' type='title1-semi-bold'>
+      {province
+        ? t(province as unknown as TemplateStringsArray)
+        : t('bookingform.placeholder_location')}
+    </Text>
   );
 };
 
@@ -41,13 +62,23 @@ interface SelectProvincePopoverProps {
   t: AppTranslationFunction;
 }
 
-export const SelectProvincePopover = ({ t }: Readonly<SelectProvincePopoverProps>) => {
+const SelectProvincePopover = ({ t }: Readonly<SelectProvincePopoverProps>) => {
   const { province, setProvince } = useSearchBarStore();
 
-  const provinces = [
-    { label: t('hanoi'), value: 'hanoi' },
-    { label: t('ho_chi_minh'), value: 'ho_chi_minh' },
-  ];
+  const { data: getProvinceResponse } = useRequest(() =>
+    getProvinceService({
+      pageSize: 100,
+    }),
+  );
+
+  const provinces = useMemo(() => {
+    return (
+      getProvinceResponse?.data.data.map((province) => ({
+        label: province.name,
+        value: province.slug,
+      })) ?? []
+    );
+  }, [getProvinceResponse?.data]);
 
   return (
     <Popover modal>
@@ -70,17 +101,4 @@ export const SelectProvincePopover = ({ t }: Readonly<SelectProvincePopoverProps
   );
 };
 
-interface SelectedProvinceDisplayProps {
-  t: AppTranslationFunction;
-  province: string | null;
-}
-
-export const SelectedProvinceDisplay = ({ t, province }: SelectedProvinceDisplayProps) => {
-  return (
-    <Text element='h5' type='title1-semi-bold'>
-      {province
-        ? t(province as unknown as TemplateStringsArray)
-        : t('bookingform.placeholder_location')}
-    </Text>
-  );
-};
+export default SelectProvincePopover;
