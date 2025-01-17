@@ -69,6 +69,44 @@
     // }
   }
 
+  .bank_img {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    img {
+      background-color: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+  }
+
+  .acc_holder {
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .acc_number {
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .copybtn {
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50px;
+    color: rgb(255, 255, 255);
+    height: 34px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 10px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .saveQR {
     display: flex;
     justify-content: center;

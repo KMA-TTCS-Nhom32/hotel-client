@@ -29,7 +29,7 @@ interface UserRank {
   nextBenefits: nextBenefit[];
 }
 
-const generateDatabyRank = (usersid: 'bronze' | 'silver' | 'gold' | 'platium'): UserRank => {
+const generateDatabyRank: any = (usersid: 'bronze' | 'silver' | 'gold' | 'platium') => {
   switch (usersid) {
     case 'bronze':
       return {

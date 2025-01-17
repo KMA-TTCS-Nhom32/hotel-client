@@ -20,6 +20,7 @@ import { createBookingService } from '@/services/booking';
 import { formatBookingDateTime } from '@/lib/funcs/date';
 import { CreateBookingOnlineDtoPaymentMethodEnum } from '@ahomevilla-hotel/node-sdk';
 import { APP_ROUTES } from '@/constants/routes.constant';
+import { createPaymentLinkService } from '@/services/payment';
 
 interface PaymentDetailProps {
   lng: string;
@@ -61,17 +62,76 @@ const PaymentDetail = ({ lng }: PaymentDetailProps) => {
     },
     {
       manual: true,
-      onSuccess: () => {
+      onSuccess: ({ data }) => {
         toast.success(selectedMethod === 'VIET_QR' ? t('payment.success') : t('payment.success2'));
-        push(APP_ROUTES.Home);
+        if (selectedMethod === 'VIET_QR') {
+          createPaymentLinkHandle(data.code);
+        } else {
+          setTimeout(() => {
+            push(APP_ROUTES.Home);
+          }, 3000);
+        }
       },
       onError: (error) => {
         console.log('error', error);
         toast.error(t('payment.error'));
-        setTimeout(() => {
-          push(APP_ROUTES.Home);
-        }, 3000);
-      }
+        // setTimeout(() => {
+        //   push(APP_ROUTES.Home);
+        // }, 3000);
+      },
+    },
+  );
+
+  const { run: createPaymentLinkHandle, loading: creatingPayment } = useRequest(
+    (code: string) => {
+      return createPaymentLinkService({
+        orderCode: Number(code),
+        amount: (bookingInfor?.totalAmount as number) / 100,
+        description: `AHomeVilla-${code}`,
+        buyerName: userInfor?.name as string,
+        buyerEmail: userInfor?.email as string,
+        buyerPhone: userInfor?.phone as string,
+        items: [
+          {
+            name: bookingInfor?.detailName as string,
+            quantity: 1,
+            price: (bookingInfor?.totalAmount as number) / 100,
+          },
+        ],
+        cancelUrl: `${window.location.origin}${APP_ROUTES.CancelBooking}`,
+        returnUrl: `${window.location.origin}${APP_ROUTES.SuccessPayment}`,
+      } as any);
+    },
+    {
+      manual: true,
+      onSuccess: ({ data }) => {
+        const {
+          accountName,
+          accountNumber,
+          amount,
+          description,
+          orderCode,
+          qrCode,
+          bin,
+          checkoutUrl,
+        } = data.data;
+        const params = new URLSearchParams({
+          accountName,
+          accountNumber,
+          amount,
+          description,
+          orderCode,
+          qrCode,
+          bin,
+          checkoutUrl,
+        });
+
+        push(`${APP_ROUTES.ConfirmBooking}?${params.toString()}`);
+      },
+      onError: (error) => {
+        console.log('error', error);
+        toast.error('Có lỗi xảy ra, vui lòng thử lại sau');
+      },
     },
   );
 
@@ -221,8 +281,15 @@ const PaymentDetail = ({ lng }: PaymentDetailProps) => {
       </div>
 
       <div className='flex flex-col'>
-        <button className={styles.submit_button} disabled={loading} onClick={handleCreateBooking}>
-          {loading && <LoaderCircle className='!w-6 !h-6 !text-white animate-spin' />}
+        <button
+          className={styles.submit_button}
+          disabled={loading || creatingPayment}
+          onClick={handleCreateBooking}
+        >
+          {(loading || creatingPayment) && (
+            <LoaderCircle className='!w-6 !h-6 !text-white animate-spin' />
+          )}
+
           {selectedMethod
             ? `${t('payment.submit')} ${paymentMethods.find((method) => method.id === selectedMethod)?.label}`
             : t('payment.submit')}

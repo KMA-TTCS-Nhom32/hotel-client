@@ -1,0 +1,78 @@
+.container {
+  background: linear-gradient(115.31deg, rgb(227, 78, 0) 11.34%, rgb(255, 175, 133) 91.94%);
+  padding: 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px 8px 14px 14px;
+  min-height: 700px;
+  height: auto;
+
+  .contents {
+    background: #ffffff;
+    border-radius: 0 0 50px 50px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    text-align: center;
+    padding: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    .topIcon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e6f7ff;
+      border-radius: 50%;
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 40px;
+
+      svg {
+        color: #00c853;
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    .notification {
+      margin-bottom: 40px;
+
+      .title {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: #333333;
+      }
+
+      .subtitle {
+        font-size: 18px;
+        color: #666666;
+        font-weight: 600;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+    }
+
+    .confirm_btn {
+      margin: 16px auto 24px;
+
+      .okButton {
+        background-color: #e64a19;
+        color: #ffffff;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 24px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #ff5722;
+          box-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+        }
+      }
+    }
+  }
+}

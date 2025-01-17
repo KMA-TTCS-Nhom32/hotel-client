@@ -37,7 +37,7 @@ const PageMyReservationInfor = ({ lng }: PageMyReservationInforProps) => {
       {filteredBookings.length === 0 ? (
         <NoBookings lng={lng} />
       ) : (
-        <ListRoom lng={lng} bookings={filteredBookings} />
+        <ListRoom lng={lng} bookings={filteredBookings as any} />
       )}{' '}
     </div>
   );

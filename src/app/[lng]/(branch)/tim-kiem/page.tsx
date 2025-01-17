@@ -12,6 +12,7 @@ import { getRoomDetailInfiniteService } from '@/services/room-detail';
 import { useSearchBarStore } from '@/stores/search-bar/searchBarStore';
 import { FilterRoomDetailDto, RoomDetail } from '@ahomevilla-hotel/node-sdk';
 import { formatBookingDateTime } from '@/lib/funcs/date';
+import { useTranslation } from '@/i18n/client';
 
 interface SearchPageProps {
   params: { lng: string; slug: string };
@@ -24,6 +25,8 @@ export default function ({ params: { lng } }: Readonly<SearchPageProps>) {
   const [priceRange, setPriceRange] = useState<number[] | undefined>(undefined);
 
   const [roomDetails, setRoomDetails] = useState<RoomDetail[]>([]);
+
+  const {t} = useTranslation(lng, 'searchroom');
 
   const [inViewport, ratio] = useInViewport(() => document.getElementById('children'), {
     threshold: [0, 0.25, 0.5, 0.75, 1],
@@ -43,8 +46,8 @@ export default function ({ params: { lng } }: Readonly<SearchPageProps>) {
         pageSize: 10,
         page: currentPage,
         filters: JSON.stringify({
-          minPrice: priceRange?.[0],
-          maxPrice: priceRange?.[1],
+          minPrice: priceRange ? String(priceRange[0]) : undefined,
+          maxPrice: priceRange ? String(priceRange[1]) : undefined,
           adults: customerAmount.adult,
           children: customerAmount.child,
           provinceSlug: province,
@@ -76,7 +79,7 @@ export default function ({ params: { lng } }: Readonly<SearchPageProps>) {
         <Filter lng={lng} />
         <div className='min-h-screen flex flex-col gap-5'>
           {roomDetails.map((room) => (
-            <RoomCard key={room.id} room={room} bookingType={bookingTime.type} />
+            <RoomCard key={room.id} room={room} bookingType={bookingTime.type} t={t} />
           ))}
           {getRoomDetailLoading && (
             <>

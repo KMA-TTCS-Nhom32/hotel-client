@@ -29,7 +29,7 @@ const TierBenefit = ({ lng, Benefits, nextname, nextBenefits }: Readonly<TierBen
 
       <div className='mt-5 flex flex-col justify-between gap-4 p-5 border-solid border-2 border-gray-400 rounded-xl'>
         <div className='next-tier_content'>
-          <div className='text-xl font-medium'>{t(nextname)}</div>
+          <div className='text-xl font-medium'>{t(nextname as any)}</div>
           <div className='mt-2 text-lg text-gray-400'>
             Tích luỹ 7 đêm và tận hưởng thêm những trải nghiệm thú vị với đặc quyền Ưu tiên
           </div>

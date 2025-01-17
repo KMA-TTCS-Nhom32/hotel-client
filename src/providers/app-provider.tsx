@@ -10,10 +10,11 @@ import { usePathname } from 'next/navigation';
 export const InitialClientRender = () => {
   useInitialProfile();
   const pathname = usePathname();
-  const { resetBookingInfor, bookingInfor } = useBookingStore((state) => state);
+  const { resetBookingInfor } = useBookingStore((state) => state);
+  const handleBookingRoutes = [APP_ROUTES.Booking, APP_ROUTES.Payment, APP_ROUTES.ConfirmBooking, APP_ROUTES.CancelBooking, APP_ROUTES.SuccessPayment];
 
   useEffect(() => {
-    if (pathname.includes(APP_ROUTES.Booking) || pathname.includes(APP_ROUTES.Payment)) {
+    if (handleBookingRoutes.some((route) => pathname.includes(route))) {
       return;
     }
     resetBookingInfor();

@@ -46,10 +46,6 @@ const Contact = async ({ params: { lng } }: Readonly<ContactProps>) => {
           <div className={styles.para}>{t('contact.para4')}</div>
         </section>
       </div>
-
-      <section className={styles.gallery}>
-        <GalleryImages t={t} />
-      </section>
     </div>
   );
 };

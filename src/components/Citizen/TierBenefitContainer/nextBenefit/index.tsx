@@ -14,7 +14,7 @@ const NextBenefit = ({ lng, title }: Readonly<NextBenefit>) => {
       <div className='  w-10 h-10 relative flex flex-col bg-white  rounded-2xl'>
         <FaCalendarCheck className=' text-gray-500 h-full w-full p-3' />
       </div>
-      <div className='text-lg pt-2 pb-6 pl-2'>{t(title)}</div>
+      <div className='text-lg pt-2 pb-6 pl-2'>{t(title as any)}</div>
       <div className='ml-auto'>
         <MdLockClock className=' text-gray-500 w-6 h-6 ' />
       </div>

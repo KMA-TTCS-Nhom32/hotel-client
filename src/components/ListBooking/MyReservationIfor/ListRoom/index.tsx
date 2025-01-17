@@ -129,7 +129,9 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
               <p className='text-right text-gray-500'>ID: {booking.code}</p>
               <div className='text-end'>
                 <p className='body2 text-primary'>{t('Total price')}</p>
-                <p className='heading4-semi-bold x-hotel-main'>{formatCurrency(booking.total_amount) }đ</p>
+                <p className='heading4-semi-bold x-hotel-main'>
+                  {formatCurrency(booking.total_amount)}đ
+                </p>
                 {booking.status === 'PENDING' && (
                   <button
                     className='medium bg-red-500 text-white rounded px-4 py-2'

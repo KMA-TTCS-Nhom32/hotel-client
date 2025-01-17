@@ -29,4 +29,7 @@ export const API_PATH = {
 
   // Booking
   BOOKING: '/booking',
+
+  // Payment
+  PAYMENT: '/payos',
 };

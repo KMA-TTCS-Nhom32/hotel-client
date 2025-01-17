@@ -18,7 +18,7 @@ const TabNavList = ({ lng, onTabChange }: Readonly<TabNavListProps>) => {
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
-     onTabChange(tab); 
+    onTabChange(tab);
   };
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const TabNavList = ({ lng, onTabChange }: Readonly<TabNavListProps>) => {
       <div className='text-lg ont-medium text-center text-gray-500 relative'>
         <ul ref={tabsRef} className='flex flex-wrap -mb-px gap-5'>
           {tabs.map((tab) => (
-            <li className='me-2' key={tab}>
+            <li className='me-2' key={tab} onClick={() => handleTabClick(tab)}>
               <p
                 data-tab={tab}
                 role='tab'
@@ -44,7 +44,6 @@ const TabNavList = ({ lng, onTabChange }: Readonly<TabNavListProps>) => {
                     ? 'text-orange-500'
                     : 'text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'
                 }`}
-                onClick={() => handleTabClick(tab)}
               >
                 {t(tab as any)}
               </p>

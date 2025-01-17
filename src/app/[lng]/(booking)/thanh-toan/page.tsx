@@ -7,6 +7,8 @@ interface PaymentPageProps {
 }
 
 const PaymentPage = ({ params: { lng } }: PaymentPageProps) => {
+
+
   return <PaymentDetail lng={lng} />;
 };
 
