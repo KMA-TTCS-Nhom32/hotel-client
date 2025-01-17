@@ -57,9 +57,10 @@ export async function getUsers() {
   return axiosInstance.get<User>(API_PATH.GET_USER);
 }
 
-export async function getMyBooking() {
-  return axiosInstance.get<BookingsPaginationResultDto>(API_PATH.GET_MYBOOKING);
+export async function getMyBooking(params?: QueryMyBookingsDto) {
+  return axiosInstance.get<BookingsPaginationResultDto>(API_PATH.GET_MYBOOKING, { params });
 }
+
 export function cancelBooking(bookingId: string, body: { cancel_reason: string }) {
-  return axiosInstance.patch(`${API_PATH.CANCEL_BOOKING}/${bookingId}`,body);
+  return axiosInstance.patch(`${API_PATH.CANCEL_BOOKING}/${bookingId}`, body);
 }
