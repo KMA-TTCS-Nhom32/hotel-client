@@ -47,7 +47,11 @@ const BranchList = () => {
           </>
         )}
         {getProvinceResponse?.data.data.map((province) => (
-          <button key={province.id} onClick={() => setSelectedProvince(province.slug)}>
+          <button
+            key={province.id}
+            onClick={() => setSelectedProvince(province.slug)}
+            className={selectedProvince === province.slug ? styles.active : ''}
+          >
             {province.name}
           </button>
         ))}

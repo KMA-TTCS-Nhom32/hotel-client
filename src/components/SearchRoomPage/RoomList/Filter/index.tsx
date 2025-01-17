@@ -5,6 +5,7 @@ import { useTranslation } from '@/i18n/client';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import styles from './index.module.scss';
 import { ChevronDown } from 'lucide-react';
+import { label } from 'yet-another-react-lightbox';
 
 interface FilterProps {
   lng: string;
@@ -12,9 +13,9 @@ interface FilterProps {
 
 const Filter = ({ lng }: FilterProps) => {
   const { t } = useTranslation(lng, 'searchroom');
-  const [selectedOption, setSelectedOption] = useState('Phổ biến nhất'); // Lựa chọn mặc định
+  const [selectedOption, setSelectedOption] = useState('asc'); 
 
-  const sortOptions: string[] = [t('filter.choice1'), t('filter.choice2'), t('filter.choice3')];
+  const sortOptions = [{ value: 'asc', label: t('filter.choice2')  }, { value: 'dsc', label:  t('filter.choice3')}];
 
   const handleOptionClick = (option: string) => {
     setSelectedOption(option); // Cập nhật trạng thái khi chọn
@@ -44,11 +45,11 @@ const Filter = ({ lng }: FilterProps) => {
           <PopoverContent className={styles.sortOptions}>
             {sortOptions.map((option) => (
               <div
-                key={option}
+                key={option.value}
                 className={styles.option}
-                onClick={() => handleOptionClick(option)} 
+                onClick={() => handleOptionClick(option.value)} 
               >
-                {option}
+                {option.label}
               </div>
             ))}
           </PopoverContent>
