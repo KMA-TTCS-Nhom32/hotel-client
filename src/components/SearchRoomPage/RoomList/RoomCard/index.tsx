@@ -13,14 +13,17 @@ import AmenityBadge from '@/components/Common/AmenityBadge';
 import { BookingType } from '@/stores/search-bar/searchBarStore';
 import { formatCurrency } from '@/lib/funcs/currency';
 import { useRouter } from 'next/navigation';
+import { AppTranslationFunction } from '@/lib/types/i18n';
 
 interface RoomCardProps {
   room: RoomDetail;
   bookingType: BookingType;
+  t: AppTranslationFunction;
 }
 
-const RoomCard = ({ room, bookingType }: RoomCardProps) => {
+const RoomCard = ({ room, bookingType, t }: RoomCardProps) => {
   const { push } = useRouter();
+
 
   const getPrice = (room: RoomDetail, type: BookingType) => {
     if (type === 'HOURLY') {
@@ -78,9 +81,14 @@ const RoomCard = ({ room, bookingType }: RoomCardProps) => {
           <p className={`${styles.hotel_branch} text-sm font-medium mb-0`}>{room.branch?.name}</p>
           <div className={cn(styles.address, 'mb-2')}>{room.branch?.address}</div>
           <div className='flex flex-wrap gap-3 mb-2'>
-            {room.amenities.map((amenity) => (
+            {/* {room.amenities.map((amenity) => (
+              <AmenityBadge key={amenity.id} amenity={amenity} />
+            ))} */}
+
+            {room.amenities.slice(0, 3).map((amenity) => (
               <AmenityBadge key={amenity.id} amenity={amenity} />
             ))}
+            {room.amenities.length > 3 && <div>+ {room.amenities.length - 3}</div>}
           </div>
           <div className={styles.hotelDescription}>
             <span>{room.description}</span>
@@ -88,13 +96,13 @@ const RoomCard = ({ room, bookingType }: RoomCardProps) => {
         </div>
         <div className={`${styles.room_price} mt-4 md:w-1/3 border-t pt-4`}>
           <div className={`${styles.price_detail}`}>
-            <span className={`${styles.price_range} text-lg font-semibold`}>CHỈ TỪ </span>
+            <span className={`${styles.price_range} text-lg font-semibold`}>{t('price.range')}</span>
             <span className={`${styles.room_cost} text-orange-600 text-2xl`}>
               {formatCurrency(getPrice(room, bookingType))}
             </span>
             <span className={`${styles.price_curency}`}>VND / {getUnit(bookingType)}</span>
             <p className={`${styles.price_tax} text-sm text-gray-500 mb-4`}>
-              Đã bao gồm thuế và phí
+              {t('price.tax')}
             </p>
           </div>
           <div className={styles.pure_link}>
@@ -102,7 +110,7 @@ const RoomCard = ({ room, bookingType }: RoomCardProps) => {
               className='py-2 px-4 rounded-full'
               onClick={() => push(`${APP_ROUTES.Branch}/${room.branch.slug}`)}
             >
-              Đặt phòng
+              {t('price.booking_btn')}
             </Button>
           </div>
         </div>

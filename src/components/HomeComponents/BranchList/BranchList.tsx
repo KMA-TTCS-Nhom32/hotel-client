@@ -18,10 +18,7 @@ const BranchList = () => {
   const [selectedProvince, setSelectedProvince] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
-  const {
-    data: getProvinceResponse,
-    loading: getProvinceLoading,
-  } = useRequest(getProvinceService);
+  const { data: getProvinceResponse, loading: getProvinceLoading } = useRequest(getProvinceService);
 
   const { data: getBranchesResponse, loading: getBranchesLoading } = useRequest(
     () => {
@@ -71,7 +68,11 @@ const BranchList = () => {
             {getBranchesResponse?.data.data.map((branch) => (
               <Link key={branch.id} href={`${APP_ROUTES.Branch}/${branch.slug}`}>
                 <div className={styles.branchCard}>
-                  <img src={branch.thumbnail.url} alt={branch.name} className={styles.branchImage} />
+                  <img
+                    src={branch.thumbnail.url}
+                    alt={branch.name}
+                    className={styles.branchImage}
+                  />
                   <div className={styles.branchInfo}>
                     <h3>{branch.name}</h3>
                     <Link href={`/chi-nhanh/${branch.slug}`} className={styles.bookNow}>
@@ -95,13 +96,17 @@ const BranchList = () => {
           </>
         ) : (
           <>
-            {getBranchesResponse?.data?.meta.total && (
+            {getBranchesResponse?.data?.meta.total ? (
               <PaginationComponent
                 page={currentPage}
                 pageSize={6}
                 total={getBranchesResponse.data.meta.total}
                 onChangePage={setCurrentPage}
               />
+            ) : (
+              <>
+                <img className={styles.empty_data} src='/images/advertisements/empty_data.jpg' />
+              </>
             )}
           </>
         )}

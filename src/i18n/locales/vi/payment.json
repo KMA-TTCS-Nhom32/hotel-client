@@ -44,5 +44,19 @@
     "text1": "1. Mở ứng dụng ví điện tử hoặc ngân hàng di động hỗ trợ thanh toán QR với QuickPay, sau đó quét mã QR ở trên.",
     "text2": "2. Đảm bảo số tiền tổng cộng và đích đến thanh toán khớp với thông tin ở trên, sau đó hoàn tất thanh toán trong thời hạn quy định.",
     "text3": "3. Đặt phòng của bạn sẽ tự động được xác nhận sau khi thanh toán thành công. Bạn có thể kiểm tra trạng thái đặt phòng trên trang Đặt phòng."
+  },
+
+  "booking": {
+    "bank": "Ngân hàng",
+    "holder": "Chủ tài khoản:",
+    "number": "Số tài khoản :",
+    "copy": "Sao chép"
+  },
+
+  "inform": {
+    "title": "Đơn đặt phòng của bạn đã được đặt!",
+    "subtitle1": "Cảm ơn vì sự tin tưởng của bạn!",
+    "subtitle2": "Chúng tôi cam kết mang đến cho bạn trải nghiệm tốt nhất có thể.",
+    "button": "OK"
   }
 }
