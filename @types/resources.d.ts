@@ -314,6 +314,11 @@ interface Resources {
   "home": {
     "explore": "Explore"
   },
+  "myreservation": {
+    "Total price": "Total price",
+    "Check-in": "Check-in",
+    "Check-out": "Check-out"
+  },
   "payment": {
     "payment": {
       "method_title": "How would you like to pay?",

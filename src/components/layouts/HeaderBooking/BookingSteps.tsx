@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { APP_ROUTES } from '@/constants/routes.constant';
@@ -11,6 +11,7 @@ import Container from '@/components/Common/Container';
 import { Button } from '@/components/ui/button';
 import { useBookingStore } from '@/stores/booking/bookingStore';
 import { toast } from 'sonner';
+import LoadingSection from '@/components/Common/LoadingSection';
 
 type Step = {
   number: number;
@@ -46,7 +47,7 @@ interface BookingStepsProps {
   lng: string;
 }
 
-const BookingSteps = ({ lng }: BookingStepsProps) => {
+const BookingStepsClient = ({ lng }: BookingStepsProps) => {
   const { t } = useTranslation(lng, 'booking');
   const pathname = usePathname();
   const params = useSearchParams();
@@ -140,6 +141,14 @@ const BookingSteps = ({ lng }: BookingStepsProps) => {
         ))}
       </Container>
     </div>
+  );
+};
+
+const BookingSteps = ({ lng }: BookingStepsProps) => {
+  return (
+    <Suspense fallback={<LoadingSection />}>
+      <BookingStepsClient lng={lng} />
+    </Suspense>
   );
 };
 
