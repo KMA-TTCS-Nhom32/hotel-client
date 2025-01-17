@@ -1,5 +1,17 @@
 {
   "Total price": "Total price",
-  "Check-in":"Check-in",
-  "Check-out":"Check-out"
+  "Check-in": "Check-in",
+  "Check-out": "Check-out",
+  "Cancel room installation failure, please try again.": "Cancel room installation failure, please try again.",
+  "Reason for cancellation": "Reason for cancellation",
+  "confirm": "confirm",
+  "cancel": "Cancel",
+  "Notification": "Notification",
+  "Processing...": "Processing...",
+  "Cancel booking": "Cancel booking",
+  "Cancellation reason is required": "Cancellation reason is required",
+  "There are no rooms booked recently": "There are no rooms booked recently",
+  "PENDING": "PENDING",
+  "CANCELLED": "CANCELED",
+  "COMPLETED": "COMPLETED"
 }

@@ -10,7 +10,7 @@ import { getUsers } from '@/services/auth';
 
 interface CitizenInfor {
   lng: string;
-  title: string;
+  title: 'New Citizen' | 'Your benefits' | 'Silver Citizen' | 'Gold Citizen' | 'Platinum Citizen';
   nextname: string;
   bookings: number;
 }

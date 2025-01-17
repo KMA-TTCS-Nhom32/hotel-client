@@ -5,12 +5,12 @@ import { useTranslation } from '@/i18n/client';
 interface TierBenefit {
   lng: string;
   Benefits: any[];
-  nextname: string;
+  nextname: any;
   nextBenefits: any[];
 }
 
 const TierBenefit = ({ lng, Benefits, nextname, nextBenefits }: Readonly<TierBenefit>) => {
-   const { t } = useTranslation(lng, 'benefit');
+  const { t } = useTranslation(lng, 'benefit');
   return (
     <div>
       <div className='bg-white p-6 rounded-xl '>

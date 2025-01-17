@@ -19,11 +19,11 @@ const ChangePasswordForm = ({ t, onCancel }: ChangePasswordFormProps) => {
   const { run } = useRequest(changePassWordService, {
     manual: true,
     onSuccess({ data }) {
-      toast.success('cap nhat thanh cong');
+      toast.success(t('Updated successfully'));
       onCancel();
     },
     onError() {
-      toast.error('cap nhat that bai');
+      toast.error(t('update failed'));
     },
   });
   function onSubmit(values: ChangePasswordFormValues) {

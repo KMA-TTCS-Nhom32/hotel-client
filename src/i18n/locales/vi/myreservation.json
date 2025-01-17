@@ -1,4 +1,17 @@
 {
-    "Total price":"Tổng tiền"
-
+  "Total price": "Tổng tiền",
+  "Check-in": "Nhận phòng",
+  "Check-out": "Trả phòng",
+  "Cancel room installation failure, please try again.": "Hủy cài đặt thất bại của phòng, vui lòng thử lại.",
+  "Reason for cancellation": "Lý do hủy phòng",
+  "confirm": "Xác nhận",
+  "cancel": "Hủy bỏ",
+  "Notification": "Thông báo",
+  "Processing...": "Đang xử lý...",
+  "Cancel booking": "Hủy đặt phòng",
+  "Cancellation reason is required": "Lý do hủy phòng là bắt buộc",
+  "There are no rooms booked recently": "Không có phòng nào được đặt gần đây",
+  "PENDING": "Chờ xử lý",
+  "CANCELLED": "Đã hủy",
+  "COMPLETED": "Hoàn thành"
 }

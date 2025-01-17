@@ -23,8 +23,8 @@ interface nextBenefit {
 
 interface UserRank {
   usersid: 'bronze' | 'silver' | 'gold' | 'platium';
-  name: 'Thành viên Mới' | 'Thành viên Bạc' | 'Thành viên Vàng' | 'Thành viên Bạch Kim';
-  nextname: 'Thành viên Bạc' | 'Thành viên Vàng' | 'Thành viên Bạch Kim';
+  name: 'New Citizen' | 'Silver Citizen' | 'Gold Citizen' | 'Platinum Citizen';
+  nextname: 'Silver Citizen' | 'Gold Citizen' | 'Platinum Citizen';
   Benefits: Benefit[];
   nextBenefits: nextBenefit[];
 }
@@ -124,9 +124,9 @@ const generateDatabyRank: any = (usersid: 'bronze' | 'silver' | 'gold' | 'platiu
 const Citizen = ({ lng }: Readonly<Citizen>) => {
   const { data, error, loading } = useRequest(getUsers);
   let bookings = data?.data._count?.bookings ?? 0;
-  let userrank = '';
+  let userrank: 'bronze' | 'silver' | 'gold' | 'platium' = 'bronze';
   let room = 0;
-
+  console.log('b', bookings);
   if (typeof bookings === 'number' && bookings >= 0 && bookings < 3) {
     userrank = 'bronze';
   } else if (typeof bookings === 'number' && bookings >= 3 && bookings < 6) {
@@ -135,9 +135,8 @@ const Citizen = ({ lng }: Readonly<Citizen>) => {
   } else if (typeof bookings === 'number' && bookings >= 6 && bookings < 9) {
     userrank = 'gold';
     room = bookings - 6;
-  }
-   else if (typeof bookings === 'number' && bookings >= 9) {
-     userrank = 'platinum';
+  } else if (typeof bookings === 'number' && bookings >= 9) {
+    userrank = 'platium';
   }
   const userRank = generateDatabyRank(userrank);
   return (

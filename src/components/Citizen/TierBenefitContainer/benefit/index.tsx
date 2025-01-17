@@ -3,8 +3,8 @@ import { FaDoorOpen } from 'react-icons/fa';
 import { useTranslation } from '@/i18n/client';
 interface Benefit {
   lng: string;
-  title: string;
-  description: string;
+  title: 'New Citizen' | 'Your benefits' | 'Silver Citizen' | 'Gold Citizen' | 'Platinum Citizen';
+  description: any;
 }
 
 const Benefit = ({ lng, title, description }: Readonly<Benefit>) => {

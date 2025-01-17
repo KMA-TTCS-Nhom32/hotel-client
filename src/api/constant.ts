@@ -11,7 +11,8 @@ export const API_PATH = {
   VERIFY_CODE: '/verification/verify-email-otp',
   RESET_PASSWORD: '/auth/forgot-password/email/reset',
   GET_USER: '/auth/profile',
-  GET_MYBOOKING:'/booking/my-bookings',
+  GET_MYBOOKING: '/booking/my-bookings',
+  CANCEL_BOOKING:'/booking/cancel',
   //User
   //Province
   PROVINCE: '/provinces',
