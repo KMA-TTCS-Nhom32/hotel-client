@@ -18,5 +18,11 @@
         "choice1": "Phổ biến nhất",
         "choice2": "Giá thấp đến cao",
         "choice3": "Giá cao đến thấp"
+    },
+
+    "price": {
+        "range": "Chỉ từ",
+        "tax": "Đã bao gồm thuế và phí",
+        "booking_btn": "Chọn phòng"
     }
 }

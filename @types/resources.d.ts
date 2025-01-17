@@ -363,6 +363,18 @@ interface Resources {
       "text1": "1. Open your e-wallet or mobile banking application that supports QR payment with QuickPay, then scan the QR code above.",
       "text2": "2. Make sure the total amount and payment destination match the details above, then complete your payment within the time limit.",
       "text3": "3. Your booking will be automatically confirmed after a successful payment. You can check your booking status on the Bookings page."
+    },
+    "booking": {
+      "bank": "Bank",
+      "holder": "Account Holder :",
+      "number": "Account Number :",
+      "copy": "Copy"
+    },
+    "inform": {
+      "title": "Your booking has been placed!",
+      "subtitle1": "Thanks for your reservation!",
+      "subtitle2": "We're dedicated to providing you with the best experience possible.",
+      "button": "OK"
     }
   },
   "searchroom": {
@@ -383,6 +395,11 @@ interface Resources {
       "choice1": "Most popular",
       "choice2": "Price low to high",
       "choice3": "Price high to low"
+    },
+    "price": {
+      "range": "Only from",
+      "tax": "Taxes and fees included",
+      "booking_btn": "Select Room"
     }
   }
 }

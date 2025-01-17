@@ -1,5 +1,4 @@
 import ConfirmBooking from '@/components/QRScanner/ConfirmBooking';
-import TopPart from '@/components/QRScanner/TopPart';
 import React from 'react';
 
 interface QRScannerProps {

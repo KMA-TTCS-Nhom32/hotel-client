@@ -18,5 +18,11 @@
     "choice1": "Most popular",
     "choice2": "Price low to high",
     "choice3": "Price high to low"
+  },
+
+  "price": {
+    "range": "Only from",
+    "tax": "Taxes and fees included",
+    "booking_btn": "Select Room"
   }
 }

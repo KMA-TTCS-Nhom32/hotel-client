@@ -19,7 +19,9 @@ interface SidebarProps {
 function Sidebar({ lng, onChangePriceRange }: Readonly<SidebarProps>) {
   const { t } = useTranslation(lng, 'searchroom');
 
-  const [values, setValues] = useState([800000, 3100000]); // Initial price range
+  const [values, setValues] = useState([800000, 3100000]); 
+
+  console.log('values', values);
 
   const debouncedValues = useDebounce(values, { wait: 300 });
 

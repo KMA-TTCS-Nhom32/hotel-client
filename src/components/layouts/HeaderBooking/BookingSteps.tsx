@@ -56,31 +56,31 @@ const BookingStepsClient = ({ lng }: BookingStepsProps) => {
 
   const isHandlePaymentRoute = handlePaymentRoutes.some((route) => pathname.includes(route));
 
-  useEffect(() => {
-    if (pathname.includes(APP_ROUTES.Booking)) {
-      if (!bookingInfor) push(APP_ROUTES.Home);
-    }
+  // useEffect(() => {
+  //   if (pathname.includes(APP_ROUTES.Booking)) {
+  //     if (!bookingInfor) push(APP_ROUTES.Home);
+  //   }
 
-    if (pathname.includes(APP_ROUTES.Payment)) {
-      if (!userInfor) push(APP_ROUTES.Home);
-    }
-  }, [bookingInfor, userInfor, pathname]);
+  //   if (pathname.includes(APP_ROUTES.Payment)) {
+  //     if (!userInfor) push(APP_ROUTES.Home);
+  //   }
+  // }, [bookingInfor, userInfor, pathname]);
 
-  useEffect(() => {
-    if (isHandlePaymentRoute && params.toString() === '') {
-      if (pathname.includes(APP_ROUTES.ConfirmBooking) && !params.get('qrCode')) {
-        toast.error('Có lỗi xảy ra khi tải QR code');
-      }
+  // useEffect(() => {
+  //   if (isHandlePaymentRoute && params.toString() === '') {
+  //     if (pathname.includes(APP_ROUTES.ConfirmBooking) && !params.get('qrCode')) {
+  //       toast.error('Có lỗi xảy ra khi tải QR code');
+  //     }
 
-      if (
-        (pathname.includes(APP_ROUTES.CancelBooking) ||
-          pathname.includes(APP_ROUTES.SuccessPayment)) &&
-        !params.get('orderCode')
-      ) {
-        toast.error('Có lỗi xảy ra khi tải thông tin đặt phòng');
-      }
-    }
-  }, [pathname]);
+  //     if (
+  //       (pathname.includes(APP_ROUTES.CancelBooking) ||
+  //         pathname.includes(APP_ROUTES.SuccessPayment)) &&
+  //       !params.get('orderCode')
+  //     ) {
+  //       toast.error('Có lỗi xảy ra khi tải thông tin đặt phòng');
+  //     }
+  //   }
+  // }, [pathname]);
 
   const isCurrentPath = (path: string) => pathname.includes(path) || isHandlePaymentRoute;
 

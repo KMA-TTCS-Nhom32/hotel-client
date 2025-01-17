@@ -1,11 +1,15 @@
-import LoadingSection from '@/components/Common/LoadingSection';
-import React, { Suspense } from 'react';
+import SuccessfulBooking from '@/components/SuccessfulBooking';
+import React from 'react';
 
-const SuccessfullPaymentPage = () => {
+interface SuccessfullPaymentProps {
+  params: { lng: string };
+}
+
+const SuccessfullPaymentPage = ({params: {lng}} :SuccessfullPaymentProps) => {
   return (
-    <Suspense fallback={<LoadingSection />}>
-      <div>SuccessfullPaymentPage</div>
-    </Suspense>
+      <div>
+        <SuccessfulBooking lng={lng} />
+      </div>
   );
 };
 

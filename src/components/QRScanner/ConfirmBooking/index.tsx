@@ -18,6 +18,7 @@ import { toJpeg } from 'html-to-image';
 
 import { QRCodeSVG } from 'qrcode.react';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 interface ConfirmBookingProps {
   lng: string;
@@ -134,10 +135,10 @@ const ConfirmBooking = ({ lng }: ConfirmBookingProps) => {
           />
         </div>
         <div className='flex flex-col gap-5'>
-          <div className='flex flex-row gap-2 items-center'>
+          <div className={cn(styles.bank_img, 'flex flex-row gap-2 items-center')}>
             <img src={(bank as any)?.logo ?? ''} alt='bank-logo' width={100} height={55} />
-            <div className='flex flex-col'>
-              <p className='text-gray-900 text-opacity-70 !text-sm'>Ngân hàng</p>
+            <div className={cn(styles.bank, 'flex flex-col')}>
+              <p className='text-gray-900 text-opacity-70 !text-sm'>{t('booking.bank')}</p>
               <p className='text-gray-800 !text-sm !font-bold'>{(bank as any)?.name}</p>
             </div>
           </div>
@@ -148,23 +149,23 @@ const ConfirmBooking = ({ lng }: ConfirmBookingProps) => {
           </div>
           <div className='flex flex-col gap-2'>
             <div className='flex flex-row'>
-              <div className='flex flex-col'>
-                <h4 className='text-gray-900 text-opacity-70 !text-sm'>Chủ tài khoản:</h4>
+              <div className={cn(styles.acc_holder, 'flex flex-col')}>
+                <h4 className='text-gray-900 text-opacity-70 !text-sm'>{t('booking.holder')}</h4>
                 <p className='text-gray-800 title1-semi-bold !font-bold'>
                   {params.get('accountName')}
                 </p>
               </div>
             </div>
             <div className='flex flex-row'>
-              <div className='flex flex-col'>
-                <p className='text-gray-900 text-opacity-70 !text-sm'>Số tài khoản :</p>
+              <div className={cn(styles.acc_number, 'flex flex-col')}>
+                <p className='text-gray-900 text-opacity-70 !text-sm'>{t('booking.number')}</p>
                 <p className='text-gray-800 !text-sm !font-bold'>{params.get('accountNumber')}</p>
               </div>
               <Button
-                className='h-7 !bg-purple-200 !object-right !ml-auto !my-auto'
+                className={cn(styles.copybtn, 'h-7 !bg-purple-200 !object-right !ml-auto !my-auto')}
                 onClick={() => handleCopyText(params.get('accountNumber') ?? '')}
               >
-                <p className='!text-xs !font-bold text-gray-600 normal-case'>Sao chép</p>
+                <p className='!text-xs !font-bold text-gray-600 normal-case'>{t('booking.copy')}</p>
               </Button>
             </div>
           </div>

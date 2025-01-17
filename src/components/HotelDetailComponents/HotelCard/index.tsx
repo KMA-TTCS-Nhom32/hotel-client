@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
 
 import styles from './index.module.scss';
+import { formatCurrency } from '@/lib/funcs/currency';
 
 interface HotelCardProps {
   room: RoomDetail;
@@ -70,7 +71,7 @@ const HotelCard = ({ lng, room, currentType, onOpen, bookingButton }: HotelCardP
           {room.is_available && (
             <div className={styles.price}>
               <span>
-                {getPrice(room)} <p>{t('room.currency')}</p>
+              {formatCurrency(getPrice(room) as string)} <p>{t('room.currency')}</p>
               </span>
             </div>
           )}
