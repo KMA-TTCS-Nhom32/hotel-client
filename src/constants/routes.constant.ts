@@ -10,6 +10,8 @@ export const APP_ROUTES = {
   Booking: '/dat-phong',
   Payment: '/thanh-toan',
   ConfirmBooking: '/xac-nhan-dat-phong',
+  CancelBooking: '/huy-dat-phong',
+  SuccessPayment: '/thanh-toan-thanh-cong',
 };
 
 export const NeedAuthRoutes = [
