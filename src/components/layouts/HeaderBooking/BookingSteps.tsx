@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { APP_ROUTES } from '@/constants/routes.constant';
 import { useTranslation } from '@/i18n/client';
@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import Container from '@/components/Common/Container';
 import { Button } from '@/components/ui/button';
 import { useBookingStore } from '@/stores/booking/bookingStore';
+import { toast } from 'sonner';
 
 type Step = {
   number: number;
@@ -35,6 +36,12 @@ const steps: Step[] = [
   },
 ];
 
+const handlePaymentRoutes = [
+  APP_ROUTES.ConfirmBooking,
+  APP_ROUTES.CancelBooking,
+  APP_ROUTES.SuccessPayment,
+];
+
 interface BookingStepsProps {
   lng: string;
 }
@@ -42,8 +49,11 @@ interface BookingStepsProps {
 const BookingSteps = ({ lng }: BookingStepsProps) => {
   const { t } = useTranslation(lng, 'booking');
   const pathname = usePathname();
+  const params = useSearchParams();
   const { bookingInfor, userInfor } = useBookingStore((state) => state);
   const { push } = useRouter();
+
+  const isHandlePaymentRoute = handlePaymentRoutes.some((route) => pathname.includes(route));
 
   useEffect(() => {
     if (pathname.includes(APP_ROUTES.Booking)) {
@@ -55,7 +65,23 @@ const BookingSteps = ({ lng }: BookingStepsProps) => {
     }
   }, [bookingInfor, userInfor, pathname]);
 
-  const isCurrentPath = (path: string) => pathname.includes(path);
+  useEffect(() => {
+    if (isHandlePaymentRoute && params.toString() === '') {
+      if (pathname.includes(APP_ROUTES.ConfirmBooking) && !params.get('qrCode')) {
+        toast.error('Có lỗi xảy ra khi tải QR code');
+      }
+
+      if (
+        (pathname.includes(APP_ROUTES.CancelBooking) ||
+          pathname.includes(APP_ROUTES.SuccessPayment)) &&
+        !params.get('orderCode')
+      ) {
+        toast.error('Có lỗi xảy ra khi tải thông tin đặt phòng');
+      }
+    }
+  }, [pathname]);
+
+  const isCurrentPath = (path: string) => pathname.includes(path) || isHandlePaymentRoute;
 
   const isNavigationDisabled = (path: string) => {
     if (isCurrentPath(path)) return true;
@@ -70,6 +96,8 @@ const BookingSteps = ({ lng }: BookingStepsProps) => {
   };
 
   const onNavigate = (path: string) => {
+    if (isHandlePaymentRoute) return;
+
     if (isNavigationDisabled(path)) return;
 
     push(path);
