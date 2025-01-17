@@ -18,10 +18,7 @@ const BranchList = () => {
   const [selectedProvince, setSelectedProvince] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
-  const {
-    data: getProvinceResponse,
-    loading: getProvinceLoading,
-  } = useRequest(getProvinceService);
+  const { data: getProvinceResponse, loading: getProvinceLoading } = useRequest(getProvinceService);
 
   const { data: getBranchesResponse, loading: getBranchesLoading } = useRequest(
     () => {
@@ -50,7 +47,11 @@ const BranchList = () => {
           </>
         )}
         {getProvinceResponse?.data.data.map((province) => (
-          <button key={province.id} onClick={() => setSelectedProvince(province.slug)}>
+          <button
+            key={province.id}
+            onClick={() => setSelectedProvince(province.slug)}
+            className={selectedProvince === province.slug ? styles.active : ''}
+          >
             {province.name}
           </button>
         ))}
@@ -71,7 +72,11 @@ const BranchList = () => {
             {getBranchesResponse?.data.data.map((branch) => (
               <Link key={branch.id} href={`${APP_ROUTES.Branch}/${branch.slug}`}>
                 <div className={styles.branchCard}>
-                  <img src={branch.thumbnail.url} alt={branch.name} className={styles.branchImage} />
+                  <img
+                    src={branch.thumbnail.url}
+                    alt={branch.name}
+                    className={styles.branchImage}
+                  />
                   <div className={styles.branchInfo}>
                     <h3>{branch.name}</h3>
                     <Link href={`/chi-nhanh/${branch.slug}`} className={styles.bookNow}>

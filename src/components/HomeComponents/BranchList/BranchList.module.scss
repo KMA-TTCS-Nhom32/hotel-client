@@ -24,6 +24,12 @@
       background: #ececec;
     }
   }
+
+  .active {
+    background-color: #606060;
+    color: #ffffff;
+    font-weight: bold;
+  }
 }
 
 .brandFilter {
@@ -33,11 +39,6 @@
     font-weight: 500;
     line-height: 24px;
     white-space: break-spaces;
-
-    .active {
-      color: #ff6600;
-      border: 1px solid #ff6600;
-    }
   }
 
   img {
@@ -117,7 +118,6 @@
   .branchGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
 
 @include mobile {
