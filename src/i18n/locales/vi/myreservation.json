@@ -8,6 +8,10 @@
   "cancel": "Hủy bỏ",
   "Notification": "Thông báo",
   "Processing...": "Đang xử lý...",
-  "Cancel booking":"Hủy đặt phòng",
-  "Cancellation reason is required":"Lý do hủy phòng là bắt buộc"
+  "Cancel booking": "Hủy đặt phòng",
+  "Cancellation reason is required": "Lý do hủy phòng là bắt buộc",
+  "There are no rooms booked recently": "Không có phòng nào được đặt gần đây",
+  "PENDING": "Chờ xử lý",
+  "CANCELLED": "Đã hủy",
+  "COMPLETED": "Hoàn thành"
 }

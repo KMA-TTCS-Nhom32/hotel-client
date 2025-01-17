@@ -9,5 +9,9 @@
   "Notification": "Notification",
   "Processing...": "Processing...",
   "Cancel booking": "Cancel booking",
-  "Cancellation reason is required": "Cancellation reason is required"
+  "Cancellation reason is required": "Cancellation reason is required",
+  "There are no rooms booked recently": "There are no rooms booked recently",
+  "PENDING": "PENDING",
+  "CANCELLED": "CANCELED",
+  "COMPLETED": "COMPLETED"
 }

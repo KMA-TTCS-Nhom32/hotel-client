@@ -34,7 +34,7 @@ const SideBar = ({ lng, className }: Readonly<SideBar>) => {
   ];
   const { data, error, loading } = useRequest(getUsers);
   let bookings = data?.data._count?.bookings ?? 0;
-  let userrank = '';
+  let userrank : any;
   if (typeof bookings === 'number' && bookings >= 0 && bookings < 3) {
     userrank = 'New Citizen';
   } else if (typeof bookings === 'number' && bookings >= 3 && bookings < 6) {

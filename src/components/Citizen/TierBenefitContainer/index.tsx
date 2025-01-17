@@ -5,7 +5,7 @@ import { useTranslation } from '@/i18n/client';
 interface TierBenefit {
   lng: string;
   Benefits: any[];
-  nextname: string;
+  nextname: any;
   nextBenefits: any[];
 }
 

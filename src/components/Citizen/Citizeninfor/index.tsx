@@ -10,7 +10,7 @@ import { getUsers } from '@/services/auth';
 
 interface CitizenInfor {
   lng: string;
-  title: string;
+  title: "New Citizen" | "Your benefits" | "Silver Citizen" | "Gold Citizen" | "Platinum Citizen";
   nextname: string;
   bookings: number;
 }
@@ -19,7 +19,7 @@ const CitizenInfor = ({ lng, title, nextname, bookings }: Readonly<CitizenInfor>
   const { t } = useTranslation(lng, 'benefit');
   return (
     <div className='bg-orange-500 p-6 relative rounded-xl'>
-      <div className='text-3xl text-white pb-2 font-medium	'>{t(title)}</div>
+      <div className='text-3xl text-white pb-2 font-medium'>{t(title)}</div>
       <div className='text-lg	 text-white'>
         {t('Earn')}
         <b> 3{t('booking(s)')} </b>

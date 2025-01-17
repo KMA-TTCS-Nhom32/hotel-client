@@ -86,6 +86,9 @@ importers:
       embla-carousel-react:
         specifier: ^8.5.2
         version: 8.5.2(react@18.3.1)
+      hotel-client:
+        specifier: 'link:'
+        version: 'link:'
       i18next:
         specifier: 23.14.0
         version: 23.14.0

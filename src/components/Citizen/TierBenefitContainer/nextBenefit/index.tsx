@@ -4,7 +4,7 @@ import { MdLockClock } from 'react-icons/md';
 import { useTranslation } from '@/i18n/client';
 interface NextBenefit {
   lng: string;
-  title: string;
+  title: any;
 }
 
 const NextBenefit = ({ lng, title }: Readonly<NextBenefit>) => {

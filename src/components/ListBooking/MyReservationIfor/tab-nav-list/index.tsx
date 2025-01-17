@@ -46,7 +46,7 @@ const TabNavList = ({ lng, onTabChange }: Readonly<TabNavListProps>) => {
                 }`}
                 onClick={() => handleTabClick(tab)}
               >
-                {t(tab)}
+                {t(tab as any)}
               </p>
             </li>
           ))}

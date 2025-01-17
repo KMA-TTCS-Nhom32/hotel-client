@@ -79,7 +79,9 @@ interface Resources {
     "Your benefits": "Your benefits",
     "Silver Citizen": "Silver Citizen",
     "Gold Citizen": "Gold Citizen",
-    "Platinum Citizen": "Platinum Citizen"
+    "Platinum Citizen": "Platinum Citizen",
+    "Updated successfully": "Updated successfully",
+    "update failed": "Update failed"
   },
   "benefit": {
     "New Citizen": "New Citizen",
@@ -330,7 +332,11 @@ interface Resources {
     "Notification": "Notification",
     "Processing...": "Processing...",
     "Cancel booking": "Cancel booking",
-    "Cancellation reason is required": "Cancellation reason is required"
+    "Cancellation reason is required": "Cancellation reason is required",
+    "There are no rooms booked recently": "There are no rooms booked recently",
+    "PENDING": "PENDING",
+    "CANCELLED": "CANCELED",
+    "COMPLETED": "COMPLETED"
   },
   "payment": {
     "payment": {

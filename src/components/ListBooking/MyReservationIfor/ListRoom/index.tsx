@@ -1,5 +1,7 @@
 'use client';
 import { useTranslation } from '@/i18n/client';
+import { formatCurrency } from '@/lib/funcs/currency';
+import { getPrice } from '@/lib/funcs/price';
 import { cancelBooking } from '@/services/auth';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -14,10 +16,10 @@ interface Booking {
   id: string;
   code: string;
   status: string;
-  room: { detail: RoomDetail };
+  room: { detail?: RoomDetail };
   start_date: string;
   end_date: string;
-  total_amount: number;
+  total_amount: string;
 }
 
 interface ListRoomProps {
@@ -78,14 +80,14 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
         <div key={booking.id} className='w-full pt-5 flex flex-col cursor-pointer sm:flex-row'>
           <div className='relative sm:w-1/3 h-full w-full'>
             <Image
-              src={booking.room.detail?.thumbnail.url}
+              src={booking.room.detail?.thumbnail.url as string}
               alt='Room Thumbnail'
               height={100}
               width={276}
               className='h-full w-auto'
             />
             <div className='absolute top-0 right-0 m-2 px-2 py-0.5 bg-pink-200 rounded-2xl'>
-              <span className='text-red-500 text-center text-sm'>{booking.status}</span>
+              <span className='text-red-500 text-center text-sm'>{t(booking.status as any)}</span>
             </div>
           </div>
           <div className='sm:flex sm:justify-between flex-row w-full'>
@@ -127,7 +129,7 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
               <p className='text-right text-gray-500'>ID: {booking.code}</p>
               <div className='text-end'>
                 <p className='body2 text-primary'>{t('Total price')}</p>
-                <p className='heading4-semi-bold x-hotel-main'>{booking.total_amount}đ</p>
+                <p className='heading4-semi-bold x-hotel-main'>{formatCurrency(booking.total_amount) }đ</p>
                 {booking.status === 'PENDING' && (
                   <button
                     className='medium bg-red-500 text-white rounded px-4 py-2'
@@ -150,21 +152,21 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className={`px-4 py-2 mx-2 rounded-lg text-sm ${currentPage === 1 ? 'bg-gray-300' : 'bg-blue-500 text-white'} transition duration-200`}
+            className={`px-4 py-2 mx-2 rounded-lg text-sm ${currentPage === 1 ? 'bg-gray-300' : 'bg-orange-500 text-white'} transition duration-200`}
           >
-            {t('Previous')}
+            Previous
           </button>
 
           <span className='text-gray-700 text-sm'>
-            {t('Page')} {currentPage} {t('of')} {totalPages}
+            Page {currentPage} of {totalPages}
           </span>
 
           <button
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
-            className={`px-4 py-2 mx-2 rounded-lg text-sm ${currentPage === totalPages ? 'bg-gray-300' : 'bg-blue-500 text-white'} transition duration-200`}
+            className={`px-4 py-2 mx-2 rounded-lg text-sm ${currentPage === totalPages ? 'bg-gray-300' : 'bg-orange-500 text-white'} transition duration-200`}
           >
-            {t('Next')}
+            Next
           </button>
         </div>
       )}
@@ -176,9 +178,9 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
             <div className='flex justify-end mt-4'>
               <button
                 onClick={() => setShowAlert(false)}
-                className='bg-blue-500 text-white rounded px-4 py-2'
+                className='bg-orange-500 text-white rounded px-4 py-2'
               >
-                {t('OK')}
+                'OK'
               </button>
             </div>
           </div>
@@ -187,7 +189,7 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
       {showModal && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white rounded-lg p-6 w-80'>
-            <h2 className='text-lg font-bold mb-4'>{t('Nhập lý do hủy')}</h2>
+            <h2 className='text-lg font-bold mb-4'>Nhập lý do hủy</h2>
             <input
               type='text'
               value={cancelReason}
@@ -198,7 +200,7 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
             <div className='flex justify-between'>
               <button
                 onClick={handleConfirmCancel}
-                className='bg-green-500 text-white rounded px-4 py-2'
+                className='bg-orange-500 text-white rounded px-4 py-2'
               >
                 {t('confirm')}
               </button>
