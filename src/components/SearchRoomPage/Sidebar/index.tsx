@@ -19,9 +19,7 @@ interface SidebarProps {
 function Sidebar({ lng, onChangePriceRange }: Readonly<SidebarProps>) {
   const { t } = useTranslation(lng, 'searchroom');
 
-  const [values, setValues] = useState([800000, 3100000]); 
-
-  console.log('values', values);
+  const [values, setValues] = useState([300000, 3100000]);
 
   const debouncedValues = useDebounce(values, { wait: 300 });
 
@@ -65,7 +63,7 @@ function Sidebar({ lng, onChangePriceRange }: Readonly<SidebarProps>) {
           <DualRangeSlider
             value={values}
             onValueChange={(newValues) => setValues(newValues)}
-            min={800000}
+            min={300000}
             max={3100000}
             step={20000}
             // showLabels={false}

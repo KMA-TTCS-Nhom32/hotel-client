@@ -7,6 +7,7 @@
   box-sizing: border-box;
   grid-template-columns: 1fr 287px;
   background-color: #fafafa;
+  min-height: 100vh;
 
   @include tablet {
     padding: 1rem;
