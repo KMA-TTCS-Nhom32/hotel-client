@@ -10,7 +10,7 @@ interface TierBenefit {
 }
 
 const TierBenefit = ({ lng, Benefits, nextname, nextBenefits }: Readonly<TierBenefit>) => {
-   const { t } = useTranslation(lng, 'benefit');
+  const { t } = useTranslation(lng, 'benefit');
   return (
     <div>
       <div className='bg-white p-6 rounded-xl '>

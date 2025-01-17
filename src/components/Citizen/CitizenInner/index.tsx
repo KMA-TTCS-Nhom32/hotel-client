@@ -126,7 +126,7 @@ const Citizen = ({ lng }: Readonly<Citizen>) => {
   let bookings = data?.data._count?.bookings ?? 0;
   let userrank = '';
   let room = 0;
-
+  console.log('b', bookings);
   if (typeof bookings === 'number' && bookings >= 0 && bookings < 3) {
     userrank = 'bronze';
   } else if (typeof bookings === 'number' && bookings >= 3 && bookings < 6) {
@@ -135,9 +135,8 @@ const Citizen = ({ lng }: Readonly<Citizen>) => {
   } else if (typeof bookings === 'number' && bookings >= 6 && bookings < 9) {
     userrank = 'gold';
     room = bookings - 6;
-  }
-   else if (typeof bookings === 'number' && bookings >= 9) {
-     userrank = 'platinum';
+  } else if (typeof bookings === 'number' && bookings >= 9) {
+    userrank = 'platinum';
   }
   const userRank = generateDatabyRank(userrank);
   return (

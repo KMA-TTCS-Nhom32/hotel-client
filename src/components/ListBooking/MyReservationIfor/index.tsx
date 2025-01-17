@@ -10,17 +10,26 @@ interface PageMyReservationInforProps {
   lng: string;
 }
 
-const PageMyReservationInfor =  ({ lng }: PageMyReservationInforProps) => {
+const PageMyReservationInfor = ({ lng }: PageMyReservationInforProps) => {
   const { t } = useTranslation(lng);
   const [activeTab, setActiveTab] = useState('upcoming');
   const { data, error, loading } = useRequest(getMyBooking);
-  console.log('data', data?.data.data.length);
-   const bookings = data?.data.data ?? [];
+  const bookings = data?.data.data ?? [];
   const filteredBookings = bookings.filter((booking) => {
-    if (activeTab === 'Upcoming') return booking.status === 'PENDING';
-    if (activeTab === 'Completed') return booking.status === 'PENDING';
-    if (activeTab === 'Cancelled') return booking.status === 'PENDING';
-    return true; 
+    if (activeTab === 'Upcoming')
+      return (
+        booking.status === 'PENDING' ||
+        booking.status === 'CHECKED_IN' ||
+        booking.status === 'WAITING_FOR_CHECK_IN'
+      );
+    if (activeTab === 'Completed') return booking.status === 'COMPLETED';
+    if (activeTab === 'Cancelled')
+      return (
+        booking.status === 'CANCELLED' ||
+        booking.status === 'REJECTED' ||
+        booking.status === 'REFUNDED'
+      );
+    return true;
   });
   return (
     <div className='bg-white px-3 py-4 rounded-2xl w-full'>
@@ -30,7 +39,6 @@ const PageMyReservationInfor =  ({ lng }: PageMyReservationInforProps) => {
       ) : (
         <ListRoom lng={lng} bookings={filteredBookings} />
       )}{' '}
-   
     </div>
   );
 };

@@ -6,7 +6,7 @@ interface NoBookingsProps {
   lng: string;
 }
 
-const NoBookings =  ({ lng }: NoBookingsProps) => {
+const NoBookings = ({ lng }: NoBookingsProps) => {
   const { t } = useTranslation(lng, 'myreservation');
   return (
     <div className='flex justify-center items-center '>

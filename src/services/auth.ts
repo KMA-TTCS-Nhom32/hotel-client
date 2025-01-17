@@ -57,7 +57,9 @@ export async function getUsers() {
   return axiosInstance.get<User>(API_PATH.GET_USER);
 }
 
-export async function getMyBooking(){
+export async function getMyBooking() {
   return axiosInstance.get<BookingsPaginationResultDto>(API_PATH.GET_MYBOOKING);
 }
-
+export function cancelBooking(bookingId: string, body: { cancel_reason: string }) {
+  return axiosInstance.patch(`${API_PATH.CANCEL_BOOKING}/${bookingId}`,body);
+}
