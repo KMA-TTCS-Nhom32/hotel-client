@@ -7,11 +7,7 @@ interface QRScannerProps {
 }
 
 const QRScannerPage = ({ params: { lng } }: QRScannerProps) => {
-  return (
-    <>
-      <ConfirmBooking lng={lng} />
-    </>
-  );
+  return <ConfirmBooking lng={lng} />;
 };
 
 export default QRScannerPage;
