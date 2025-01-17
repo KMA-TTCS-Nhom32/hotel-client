@@ -74,7 +74,12 @@ interface Resources {
     "date_of_birth": "Date of birth",
     "upcoming": "Upcoming",
     "completed": "Completed",
-    "cancelled": "Cancelled"
+    "cancelled": "Cancelled",
+    "New Citizen": "New Citizen",
+    "Your benefits": "Your benefits",
+    "Silver Citizen": "Silver Citizen",
+    "Gold Citizen": "Gold Citizen",
+    "Platinum Citizen": "Platinum Citizen"
   },
   "benefit": {
     "New Citizen": "New Citizen",
@@ -313,6 +318,19 @@ interface Resources {
   },
   "home": {
     "explore": "Explore"
+  },
+  "myreservation": {
+    "Total price": "Total price",
+    "Check-in": "Check-in",
+    "Check-out": "Check-out",
+    "Cancel room installation failure, please try again.": "Cancel room installation failure, please try again.",
+    "Reason for cancellation": "Reason for cancellation",
+    "confirm": "confirm",
+    "cancel": "Cancel",
+    "Notification": "Notification",
+    "Processing...": "Processing...",
+    "Cancel booking": "Cancel booking",
+    "Cancellation reason is required": "Cancellation reason is required"
   },
   "payment": {
     "payment": {
