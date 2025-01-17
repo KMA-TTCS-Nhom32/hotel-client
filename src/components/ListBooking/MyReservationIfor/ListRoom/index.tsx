@@ -1,46 +1,31 @@
 'use client';
-import { useTranslation } from '@/i18n/client';
+
+import Image from 'next/image';
 import { formatCurrency } from '@/lib/funcs/currency';
 import { getPrice } from '@/lib/funcs/price';
+import { AppTranslationFunction } from '@/lib/types/i18n';
 import { cancelBooking } from '@/services/auth';
-import Image from 'next/image';
+import { Booking } from '@ahomevilla-hotel/node-sdk';
 import { useState } from 'react';
 
-interface RoomDetail {
-  thumbnail: { url: string };
-  name: string;
-  branch: { name: string; address: string };
-}
-
-interface Booking {
-  id: string;
-  code: string;
-  status: string;
-  room: { detail?: RoomDetail };
-  start_date: string;
-  end_date: string;
-  total_amount: string;
-}
-
 interface ListRoomProps {
-  lng: string;
   bookings: Booking[];
+  t: AppTranslationFunction;
 }
 
-const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
-  const { t } = useTranslation(lng, 'myreservation');
+const ListRoom = ({ t, bookings }: ListRoomProps) => {
   const [loadingId, setLoadingId] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [cancelReason, setCancelReason] = useState('');
   const [currentBookingId, setCurrentBookingId] = useState<string | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 2;
+  //   const [currentPage, setCurrentPage] = useState(1);
+  //   const itemsPerPage = 2;
   const [showAlert, setShowAlert] = useState(false);
-  const totalPages = Math.ceil(initialBookings.length / itemsPerPage);
-  const indexOfLastBooking = currentPage * itemsPerPage;
-  const indexOfFirstBooking = indexOfLastBooking - itemsPerPage;
-  const currentBookings = initialBookings.slice(indexOfFirstBooking, indexOfLastBooking);
+  //   const totalPages = Math.ceil(initialBookings.length / itemsPerPage);
+  //   const indexOfLastBooking = currentPage * itemsPerPage;
+  //   const indexOfFirstBooking = indexOfLastBooking - itemsPerPage;
+  //   const currentBookings = initialBookings.slice(indexOfFirstBooking, indexOfLastBooking);
 
   const handleCancel = (bookingId: string) => {
     setCurrentBookingId(bookingId);
@@ -76,17 +61,20 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
     <div>
       {errorMessage && <div className='text-red-500'>{errorMessage}</div>}
 
-      {currentBookings.map((booking) => (
-        <div key={booking.id} className='w-full pt-5 flex flex-col cursor-pointer sm:flex-row'>
-          <div className='relative sm:w-1/3 h-full w-full'>
+      {bookings.map((booking) => (
+        <div
+          key={booking.id}
+          className='w-full min-h-[180px] mt-5 p-1.5 flex flex-col cursor-pointer sm:flex-row shadow-md rounded-md'
+        >
+          <div className='relative sm:w-1/3 h-auto w-full'>
             <Image
               src={booking.room.detail?.thumbnail.url as string}
               alt='Room Thumbnail'
               height={100}
               width={276}
-              className='h-full w-auto'
+              className='w-full h-full max-h-[190px] object-cover object-center rounded-sm'
             />
-            <div className='absolute top-0 right-0 m-2 px-2 py-0.5 bg-pink-200 rounded-2xl'>
+            <div className='absolute top-2 right-2 px-2 py-0.5 bg-pink-200 rounded-2xl'>
               <span className='text-red-500 text-center text-sm'>{t(booking.status as any)}</span>
             </div>
           </div>
@@ -125,7 +113,7 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
               </div>
             </div>
 
-            <div className='sm:w-3/12 w-full flex flex-col justify-between item-end sm:border-dashed border-l-2 border-l-slate-400'>
+            <div className='sm:w-3/12 px-3 sm:px-0 w-full flex flex-col justify-between item-end sm:border-dashed border-l-2 border-l-slate-400'>
               <p className='text-right text-gray-500'>ID: {booking.code}</p>
               <div className='text-end'>
                 <p className='body2 text-primary'>{t('Total price')}</p>
@@ -149,7 +137,7 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
         </div>
       ))}
 
-      {totalPages > 1 && (
+      {/* {totalPages > 1 && (
         <div className='flex items-center justify-center mt-4'>
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -171,7 +159,7 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
             Next
           </button>
         </div>
-      )}
+      )} */}
       {showAlert && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
           <div className='bg-white rounded-lg p-6 w-80'>
@@ -204,7 +192,7 @@ const ListRoom = ({ lng, bookings: initialBookings }: ListRoomProps) => {
                 onClick={handleConfirmCancel}
                 className='bg-orange-500 text-white rounded px-4 py-2'
               >
-                {t('confirm')}
+                {t('confirm' as any)}
               </button>
               <button
                 onClick={() => setShowModal(false)}
