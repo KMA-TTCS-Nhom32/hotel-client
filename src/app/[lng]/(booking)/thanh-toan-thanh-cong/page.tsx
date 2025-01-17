@@ -1,9 +1,12 @@
-import React from 'react'
+import LoadingSection from '@/components/Common/LoadingSection';
+import React, { Suspense } from 'react';
 
 const SuccessfullPaymentPage = () => {
   return (
-    <div>SuccessfullPaymentPage</div>
-  )
-}
+    <Suspense fallback={<LoadingSection />}>
+      <div>SuccessfullPaymentPage</div>
+    </Suspense>
+  );
+};
 
-export default SuccessfullPaymentPage
+export default SuccessfullPaymentPage;

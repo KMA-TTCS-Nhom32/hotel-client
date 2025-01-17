@@ -47,7 +47,7 @@ const ListRoom = ({ lng, bookings }: ListRoomProps) => {
   return (
     <div>
       {bookings.map((booking) => (
-        <div className='w-full pt-5 flex flex-col cursor-pointer sm:flex-row'>
+        <div key={booking.id} className='w-full pt-5 flex flex-col cursor-pointer sm:flex-row'>
           <div className='relative sm:w-1/3 h-full w-full'>
             <Image
               src={booking.room.detail?.thumbnail.url || '/images/living-story-6-1.png'}
