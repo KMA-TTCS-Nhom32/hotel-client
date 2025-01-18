@@ -32,4 +32,7 @@ export const API_PATH = {
 
   // Payment
   PAYMENT: '/payos',
+
+  // Poeditor
+  TRANSLATION_LIST: '/poeditor/translations-list',
 };

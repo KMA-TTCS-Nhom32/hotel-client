@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import styles from './BranchList.module.scss';
 import Link from 'next/link';
 
@@ -13,12 +13,14 @@ import { SkeletonCard } from '@/components/HomeComponents/BranchList/loading-ske
 import { SkeletonPagination } from '@/components/HomeComponents/BranchList/skeleton-pagination/pagination-skeleton';
 import { SkeletonDemo } from '@/components/HomeComponents/BranchList/demo-skeleton/demo-skeleton';
 import { APP_ROUTES } from '@/constants/routes.constant';
+import { useTranslationStore } from '@/stores/translation/useTranslationStore';
 
 const BranchList = () => {
+  const { terms } = useTranslationStore((state) => state);
   const [selectedProvince, setSelectedProvince] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { data: getProvinceResponse, loading: getProvinceLoading } = useRequest(getProvinceService);
+  const { data: provincesResponse, loading: getProvinceLoading } = useRequest(getProvinceService);
 
   const { data: getBranchesResponse, loading: getBranchesLoading } = useRequest(
     () => {
@@ -34,6 +36,19 @@ const BranchList = () => {
       refreshDeps: [selectedProvince, currentPage],
     },
   );
+  //   console.log(provincesResponse?.data, terms);
+  const provinces = useMemo(() => {
+    const terms_province_name = terms.filter((term) => term.term === 'province_name');
+
+    return provincesResponse?.data
+      ? provincesResponse.data.data.map((province) => ({
+          ...province,
+          name:
+            terms_province_name.find((term) => term.context === province.slug)?.translation
+              .content ?? province.name,
+        }))
+      : [];
+  }, [provincesResponse]);
 
   return (
     <section className={styles.branchList}>
@@ -46,12 +61,8 @@ const BranchList = () => {
             <SkeletonDemo />
           </>
         )}
-        {getProvinceResponse?.data.data.map((province) => (
-          <button
-            key={province.id}
-            onClick={() => setSelectedProvince(province.slug)}
-            className={selectedProvince === province.slug ? styles.active : ''}
-          >
+        {provinces.map((province) => (
+          <button key={province.id} onClick={() => setSelectedProvince(province.slug)}>
             {province.name}
           </button>
         ))}
@@ -109,7 +120,11 @@ const BranchList = () => {
               />
             ) : (
               <>
-                <img className={styles.empty_data} src='/images/advertisements/empty_data.jpg' />
+                <img
+                  title='empty'
+                  className={styles.empty_data}
+                  src='/images/advertisements/empty_data.jpg'
+                />
               </>
             )}
           </>
