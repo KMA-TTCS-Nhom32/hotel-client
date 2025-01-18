@@ -16,7 +16,7 @@ const MulishFont = Mulish({
   subsets: ['latin', 'vietnamese'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   display: 'swap',
-  variable: '--font-nunito-sans'
+  variable: '--font-nunito-sans',
 });
 
 export async function generateStaticParams() {
@@ -43,7 +43,7 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
         <link rel='icon' href='/favicon.ico' sizes='any' />
       </head>
       <body className={`${MulishFont.variable} ${MulishFont.className} antialiased`}>
-        <AppProvider>
+        <AppProvider lng={lng}>
           {children}
           <Footer lng={lng} />
           <AuthModal lng={lng} />
