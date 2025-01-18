@@ -36,7 +36,7 @@ const BranchList = () => {
       refreshDeps: [selectedProvince, currentPage],
     },
   );
-//   console.log(provincesResponse?.data, terms);
+  //   console.log(provincesResponse?.data, terms);
   const provinces = useMemo(() => {
     const terms_province_name = terms.filter((term) => term.term === 'province_name');
 
@@ -120,7 +120,11 @@ const BranchList = () => {
               />
             ) : (
               <>
-                <img title='empty' className={styles.empty_data} src='/images/advertisements/empty_data.jpg' />
+                <img
+                  title='empty'
+                  className={styles.empty_data}
+                  src='/images/advertisements/empty_data.jpg'
+                />
               </>
             )}
           </>
